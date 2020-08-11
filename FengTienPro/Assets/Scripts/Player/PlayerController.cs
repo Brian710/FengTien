@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
         if (TransAnim)
             StartCoroutine(TransAnimPlaytoEnd(false));
     }
-    private void Update()
+    private void LateUpdate()
     {
         if (RightTeleportRay)
         {
