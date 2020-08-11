@@ -1,0 +1,251 @@
+fileFormatVersion: 2
+guid: 4cd7ebdd493b2df49a773287653d283b
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Component#41_001
+    100002: Component#41_002
+    100004: Component#41_003
+    100006: Component#41_004
+    100008: Component#41_005
+    100010: Component#41_006
+    100012: Component#41_007
+    100014: Component#41_008
+    100016: Component#41_009
+    100018: Component#41_010
+    100020: Component#41_011
+    100022: Component#41_012
+    100024: Component#42_001
+    100026: Component#42_002
+    100028: Component#42_003
+    100030: Component#42_004
+    100032: Component#42_005
+    100034: Component#42_006
+    100036: Component#42_007
+    100038: Component#42_008
+    100040: Component#42_009
+    100042: Component#42_010
+    100044: Component#42_011
+    100046: Component#42_012
+    100048: Component#43_001
+    100050: curtain
+    100052: //RootNode
+    100054: pCube40
+    100056: pCube41
+    100058: pCube42
+    100060: transform1
+    100062: transform2
+    400000: Component#41_001
+    400002: Component#41_002
+    400004: Component#41_003
+    400006: Component#41_004
+    400008: Component#41_005
+    400010: Component#41_006
+    400012: Component#41_007
+    400014: Component#41_008
+    400016: Component#41_009
+    400018: Component#41_010
+    400020: Component#41_011
+    400022: Component#41_012
+    400024: Component#42_001
+    400026: Component#42_002
+    400028: Component#42_003
+    400030: Component#42_004
+    400032: Component#42_005
+    400034: Component#42_006
+    400036: Component#42_007
+    400038: Component#42_008
+    400040: Component#42_009
+    400042: Component#42_010
+    400044: Component#42_011
+    400046: Component#42_012
+    400048: Component#43_001
+    400050: curtain
+    400052: //RootNode
+    400054: pCube40
+    400056: pCube41
+    400058: pCube42
+    400060: transform1
+    400062: transform2
+    2100000: skp_front_default
+    2100002: Translucent_Glass_Block_Light
+    2100004: lambert1
+    2300000: Component#41_001
+    2300002: Component#41_002
+    2300004: Component#41_003
+    2300006: Component#41_004
+    2300008: Component#41_005
+    2300010: Component#41_006
+    2300012: Component#41_007
+    2300014: Component#41_008
+    2300016: Component#41_009
+    2300018: Component#41_010
+    2300020: Component#41_011
+    2300022: Component#41_012
+    2300024: Component#42_001
+    2300026: Component#42_002
+    2300028: Component#42_003
+    2300030: Component#42_004
+    2300032: Component#42_005
+    2300034: Component#42_006
+    2300036: Component#42_007
+    2300038: Component#42_008
+    2300040: Component#42_009
+    2300042: Component#42_010
+    2300044: Component#42_011
+    2300046: Component#42_012
+    2300048: Component#43_001
+    2300050: pCube42
+    3300000: Component#41_001
+    3300002: Component#41_002
+    3300004: Component#41_003
+    3300006: Component#41_004
+    3300008: Component#41_005
+    3300010: Component#41_006
+    3300012: Component#41_007
+    3300014: Component#41_008
+    3300016: Component#41_009
+    3300018: Component#41_010
+    3300020: Component#41_011
+    3300022: Component#41_012
+    3300024: Component#42_001
+    3300026: Component#42_002
+    3300028: Component#42_003
+    3300030: Component#42_004
+    3300032: Component#42_005
+    3300034: Component#42_006
+    3300036: Component#42_007
+    3300038: Component#42_008
+    3300040: Component#42_009
+    3300042: Component#42_010
+    3300044: Component#42_011
+    3300046: Component#42_012
+    3300048: Component#43_001
+    3300050: pCube42
+    4300000: Component#41_012
+    4300002: Component#41_011
+    4300004: Component#42_012
+    4300006: Component#41_010
+    4300008: Component#42_011
+    4300010: Component#41_009
+    4300012: Component#42_010
+    4300014: Component#42_009
+    4300016: Component#42_008
+    4300018: Component#41_008
+    4300020: Component#41_007
+    4300022: Component#42_007
+    4300024: Component#41_006
+    4300026: Component#42_006
+    4300028: Component#42_005
+    4300030: Component#41_005
+    4300032: Component#42_004
+    4300034: Component#41_004
+    4300036: Component#42_003
+    4300038: Component#41_003
+    4300040: Component#42_002
+    4300042: Component#41_002
+    4300044: Component#42_001
+    4300046: Component#41_001
+    4300048: Component#43_001
+    4300050: pCube42
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Translucent_Glass_Block_Light
+    second: {fileID: 2100000, guid: d3c782b4ee9550a4e9f2bc560824df7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 161e0f81be7bb0545bf1ee83ab2e68f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skp_front_default
+    second: {fileID: 2100000, guid: 3bcc913b116d93d479773e3c86cc0e02, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

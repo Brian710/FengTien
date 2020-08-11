@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: 5be8531b36b7e5d49a9152491ff72476
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Hand_R
+    100002: //RootNode
+    100004: NZgirl:rCarpal1
+    100006: NZgirl:rCarpal2
+    100008: NZgirl:rCarpal3
+    100010: NZgirl:rCarpal4
+    100012: NZgirl:rForearmTwist
+    100014: NZgirl:rHand
+    100016: NZgirl:rIndex1
+    100018: NZgirl:rIndex2
+    100020: NZgirl:rIndex3
+    100022: NZgirl:rMid1
+    100024: NZgirl:rMid2
+    100026: NZgirl:rMid3
+    100028: NZgirl:rPinky1
+    100030: NZgirl:rPinky2
+    100032: NZgirl:rPinky3
+    100034: NZgirl:rRing1
+    100036: NZgirl:rRing2
+    100038: NZgirl:rRing3
+    100040: NZgirl:rThumb1
+    100042: NZgirl:rThumb2
+    100044: NZgirl:rThumb3
+    400000: //RootNode
+    400002: Hand_R
+    400004: NZgirl:rCarpal1
+    400006: NZgirl:rCarpal2
+    400008: NZgirl:rCarpal3
+    400010: NZgirl:rCarpal4
+    400012: NZgirl:rForearmTwist
+    400014: NZgirl:rHand
+    400016: NZgirl:rIndex1
+    400018: NZgirl:rIndex2
+    400020: NZgirl:rIndex3
+    400022: NZgirl:rMid1
+    400024: NZgirl:rMid2
+    400026: NZgirl:rMid3
+    400028: NZgirl:rPinky1
+    400030: NZgirl:rPinky2
+    400032: NZgirl:rPinky3
+    400034: NZgirl:rRing1
+    400036: NZgirl:rRing2
+    400038: NZgirl:rRing3
+    400040: NZgirl:rThumb1
+    400042: NZgirl:rThumb2
+    400044: NZgirl:rThumb3
+    2100000: 02 - Default
+    2100002: 03 - Default
+    4300000: Hand_R
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Hand_R
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.001
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

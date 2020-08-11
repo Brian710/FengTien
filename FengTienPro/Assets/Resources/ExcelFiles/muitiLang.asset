@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d100fb70fd03d4aa8fa680d6923f69, type: 3}
+  m_Name: muitiLang
+  m_EditorClassIdentifier: 
+  SheetName: Assets/Resources/ExcelFiles/MultiLanguage.xlsx
+  WorksheetName: muitiLang
+  dataArray:
+  - id: player_startcanv_enter
+    chinese: "\u9032\u5165"
+    english: Enter
+  - id: player_startcanv_tuto
+    chinese: "\u64CD\u4F5C\u6559\u5B78"
+    english: Tutorial
+  - id: player_startcanv_lang
+    chinese: English
+    english: "\u4E2D\u6587"
+  - id: player_startcanv_exit
+    chinese: "\u96E2\u958B"
+    english: Exit
+  - id: player_tutocanv_restart
+    chinese: "\u91CD\u4F86"
+    english: Restart
+  - id: player_tutocanv_guideone
+    chinese: "\u8ACB\u8DDF\u8457\u6307\u793A\u64CD\u4F5C\uFF0C\u6309\u4E0B\u4E0B\u65B9"
+    english: "(en)\u8ACB\u8DDF\u8457\u6307\u793A\u64CD\u4F5C\uFF0C\u6309\u4E0B\u4E0B\u65B9"
+  - id: player_tutocanv_guidetwo
+    chinese: "\u8ACB\u8DDF\u8457\u6307\u793A\u64CD\u4F5C\uFF0C\u79FB\u52D5\u5230\u53F3\u65B9\u5708\u5708
+      \u2192"
+    english: "(en)\u8ACB\u8DDF\u8457\u6307\u793A\u64CD\u4F5C\uFF0C\u79FB\u52D5\u5230\u53F3\u65B9\u5708\u5708
+      \u2192"
+  - id: player_tutocanv_guidethree
+    chinese: "\u592A\u68D2\u4E86\uFF0C\u73FE\u5728\u5207\u63DB\u56DE\u624B\uFF0C\u628A\u7403\u62FF\u5230\u53E6\u4E00\u500B\u5E73\u53F0\u4E0A"
+    english: "(en)\u592A\u68D2\u4E86\uFF0C\u73FE\u5728\u5207\u63DB\u56DE\u624B\uFF0C\u628A\u7403\u62FF\u5230\u53E6\u4E00\u500B\u5E73\u53F0\u4E0A"
+  - id: player_tutocanv_guidefour
+    chinese: "\u606D\u559C\u4F60\u5B8C\u6210\u6559\u5B78\uFF0C\u56DE\u5230\u4E3B\u756B\u9762\u958B\u59CB\u9AD4\u9A57\u5427\uFF01"
+    english: "(en)\u606D\u559C\u4F60\u5B8C\u6210\u6559\u5B78\uFF0C\u56DE\u5230\u4E3B\u756B\u9762\u958B\u59CB\u9AD4\u9A57\u5427\uFF01"
+  - id: player_tutocanv_pad
+    chinese: "\u79FB\u52D5\u5C04\u7DDA"
+    english: "(en)\u79FB\u52D5\u5C04\u7DDA"
+  - id: player_tutocanv_teleport
+    chinese: "\u7784\u6E96\u5708\u5708\u5373\u53EF\u79FB\u52D5"
+    english: "(en)\u7784\u6E96\u5708\u5708\u5373\u53EF\u79FB\u52D5"
+  - id: player_tutocanv_menu
+    chinese: "\u5207\u63DB\u96F7\u5C04/\u624B"
+    english: "(en)\u5207\u63DB\u96F7\u5C04/\u624B"
+  - id: player_tutocanv_trigger
+    chinese: "\u9EDE\u9078/\u6293\u53D6\u7269\u4EF6"
+    english: "(en)\u9EDE\u9078/\u6293\u53D6\u7269\u4EF6"
+  - id: player_tutocanv_backhome
+    chinese: "\u958B\u59CB\u9AD4\u9A57"
+    english: "(en)\u958B\u59CB\u9AD4\u9A57"
+  - id: player_hintcanv_tips
+    chinese: "\u63D0\u793A\uFF1A"
+    english: 'Tips:'
+  - id: player_hintcanv_backhome
+    chinese: "\u56DE\u5230\u4E3B\u756B\u9762?"
+    english: Back to main menu?
+  - id: common_confirm
+    chinese: "\u78BA\u8A8D"
+    english: Confirm
+  - id: common_cancel
+    chinese: "\u53D6\u6D88"
+    english: Cancel
+  - id: gamemode_train
+    chinese: "\u8A13 \u7DF4"
+    english: Train
+  - id: gamemode_exam
+    chinese: "\u8003 \u8A66"
+    english: Exam
+  - id: washhand_inside
+    chinese: "\u5167"
+    english: Inside
+  - id: washhand_outside
+    chinese: "\u5916"
+    english: Outside
+  - id: washhand_squeeze
+    chinese: "\u593E"
+    english: Squeeze
+  - id: washhand_grip
+    chinese: "\u5F13"
+    english: Grip
+  - id: washhand_thumb
+    chinese: "\u5927"
+    english: Thumb
+  - id: washhand_upright
+    chinese: "\u7ACB"
+    english: Upright
+  - id: washhand_wrist
+    chinese: "\u8155"
+    english: Wrist
+  - id: talk_correctAnsOne
+    chinese: "\u963F\u516C\uFF0C\u7B49\u4E00\u4E0B\u8981\u5403\u98EF\u4E86"
+    english: "(en)\u963F\u516C\uFF0C\u7B49\u4E00\u4E0B\u8981\u5403\u98EF\u4E86"
+  - id: talk_correctAnsTwo
+    chinese: "\u4F60\u4ECA\u5929\u60F3\u5403\u4EC0\u9EBC\u5462?"
+    english: "(en)\u4F60\u4ECA\u5929\u60F3\u5403\u4EC0\u9EBC\u5462?"
+  - id: talk_correctAnsThree
+    chinese: "\u6211\u7B49\u4E00\u4E0B\u716E\u9E79\u7A00\u98EF\u7D66\u60A8\u5403"
+    english: "(en)\u6211\u7B49\u4E00\u4E0B\u716E\u9E79\u7A00\u98EF\u7D66\u60A8\u5403"
+  - id: talk_correctAnsFour
+    chinese: "\u56E0\u70BA\u4F60\u6709\u9AD8\u8840\u58D3\uFF0C\u6240\u4EE5\u6211\u6703\u653E\u5C11\u9EDE\u9E7D"
+    english: "(en)\u56E0\u70BA\u4F60\u6709\u9AD8\u8840\u58D3\uFF0C\u6240\u4EE5\u6211\u6703\u653E\u5C11\u9EDE\u9E7D"
+  - id: talk_correctAnsFive
+    chinese: "\u8ACB\u7B49\u6211\u4E00\u4E0B"
+    english: "(en)\u8ACB\u7B49\u6211\u4E00\u4E0B"
+  - id: talk_Top
+    chinese: "\u8ACB\u6392\u5E8F\u6B63\u78BA\u5C0D\u8A71"
+    english: "(en)\u8ACB\u6392\u5E8F\u6B63\u78BA\u5C0D\u8A71"
+  - id: talk_Black
+    chinese: "\u516C\uFF1A\u6211\u60F3\u5403\u9E79\u7A00\u98EF\u3002"
+    english: "(en)\u516C\uFF1A\u6211\u60F3\u5403\u9E79\u7A00\u98EF\u3002"
