@@ -4,13 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using MinYanGame.Core;
 
-[System.Serializable]
-public class quizData
-{
-    public Button button;
-    public int optIndex;
-}
-
 [RequireComponent(typeof(CanvasGroup))]
 public class OptionalSystemBase : MonoBehaviour
 {
@@ -20,7 +13,7 @@ public class OptionalSystemBase : MonoBehaviour
     private GameObject quizPanel;
 
     private List<Button> options;
-    private List<quizData> quizDatas;
+    private List<QuizData> quizDatas;
     private List<string> correctAns;
 
 
@@ -51,6 +44,7 @@ public class OptionalSystemBase : MonoBehaviour
 
         confirmBtn.onClick.AddListener(ConfirmBtn);
     }
+
     private void OnDisable()
     {
         confirmBtn.onClick.RemoveAllListeners();
@@ -83,7 +77,7 @@ public class OptionalSystemBase : MonoBehaviour
             return;
         }
 
-        quizDatas = new List<quizData>();
+        quizDatas = new List<QuizData>();
         int i = 0;
         foreach (Button t in quizPanel.GetComponentsInChildren<Button>())
         {
@@ -91,7 +85,7 @@ public class OptionalSystemBase : MonoBehaviour
             {
                 int index = 0;
                 index = i;
-                quizData data = new quizData();
+                QuizData data = new QuizData();
                 if (gControl.mode == MainMode.Exam)
                 {
                     Debug.Log("Exam");
@@ -113,7 +107,7 @@ public class OptionalSystemBase : MonoBehaviour
 
         if (quizDatas.Count > 0)
         {
-            foreach (quizData opt in quizDatas)
+            foreach (QuizData opt in quizDatas)
             {
                 correctAns.Add(opt.button.GetComponentInChildren<updatingMultiText>().currentString);
             }
@@ -136,7 +130,7 @@ public class OptionalSystemBase : MonoBehaviour
         options[index].GetComponent<CanvasGroup>().alpha = 0;
         options[index].interactable = false;
 
-        foreach (quizData data in quizDatas)
+        foreach (QuizData data in quizDatas)
         {
             if (!data.button.interactable)
             {
@@ -170,7 +164,7 @@ public class OptionalSystemBase : MonoBehaviour
     {
         bool IfRight = true;
         int i = 0;
-        foreach (quizData data in quizDatas)
+        foreach (QuizData data in quizDatas)
         {
             if (!data.button.interactable)
                 return;
@@ -195,6 +189,7 @@ public class OptionalSystemBase : MonoBehaviour
         QuestManager.Instance.MinusQuestScore(s);
         gameObject.SetActive(false);
     }
+
     private IEnumerator WrongAns(Color color)
     {
         int i = 0;
