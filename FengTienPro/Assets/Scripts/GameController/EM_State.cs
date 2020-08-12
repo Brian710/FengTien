@@ -39,7 +39,7 @@ public enum MainMode
 public enum Levels
 {
     none = 0,
-    Lifefeature = 1,
+    Life = 1,
     Heimlich = 2,
     Feed = 3,
 }
@@ -81,6 +81,7 @@ public enum ObjActMode
     pressHandwash,
     touchedwater,
 }
+[System.Serializable]
 public enum HandAnim
 {
     normal,

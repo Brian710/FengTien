@@ -1,41 +1,25 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace MinYanGame.Core
+public class TutoCheckPoint : CheckPointBase
 {
-    public class TutoCheckPoint : MonoBehaviour
+    public override void Start()
     {
-        [SerializeField]
-        private ParticleSystem particle;
+        ShowParticle(true);
+    }
 
-        public float force = 3f;
-
-        public UnityEvent onTriggerEnter;
-
-        private void Start()
+    public override void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<GrabObj>().goalType == Goal.Type.Tuto)
         {
-            if (particle.isPlaying)
-                particle.Stop();
+            onTriggerEnter.Invoke();
         }
+    }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.name == "TutoObj")
-            {
-                onTriggerEnter.Invoke();
-            }
-        }
 
-        private void OnTriggerStay(Collider other)
-        {
-            if (other.attachedRigidbody)
-                other.attachedRigidbody.AddForce(Vector3.up * force, ForceMode.Acceleration);
-        }
-
-        public void ShowParticle(bool value)
-        {
-            if (value) particle.Play(true);
-            else particle.Stop(true);
-        }
+    public override void OnTriggerStay(Collider other)
+    {
+        if (other.attachedRigidbody)
+            other.attachedRigidbody.AddForce(Vector3.up * force, ForceMode.Acceleration);
     }
 }

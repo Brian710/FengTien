@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1670433753327164090}
-  - component: {fileID: 1670433753326361242}
-  - component: {fileID: 1670433753325262938}
-  - component: {fileID: 1670433753327288352}
-  - component: {fileID: 1670433753327288353}
-  - component: {fileID: 1670433753327288359}
-  - component: {fileID: 5189025263763974312}
-  - component: {fileID: 6120056625135165803}
+  - component: {fileID: 4910122744859533692}
+  - component: {fileID: 8690431150285946902}
+  - component: {fileID: 8414825637145981319}
+  - component: {fileID: 1951492268062201738}
+  - component: {fileID: 5730204642784572850}
+  - component: {fileID: 4365667640480620345}
+  - component: {fileID: 616632429}
   m_Layer: 9
   m_Name: Knife
   m_TagString: Untagged
@@ -32,12 +32,12 @@ Transform:
   m_GameObject: {fileID: 1670433753327257242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.026000023, y: 0.0136368275, z: -0.44600004}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1670433753326361242
+--- !u!33 &4910122744859533692
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,7 +45,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670433753327257242}
   m_Mesh: {fileID: 4300000, guid: a3ffd23530c8e8740be2865d7ee835da, type: 3}
---- !u!23 &1670433753325262938
+--- !u!23 &8690431150285946902
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,24 +82,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &1670433753327288352
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670433753327257242}
-  serializedVersion: 2
-  m_Mass: 0.3
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 10
-  m_CollisionDetection: 0
---- !u!65 &1670433753327288353
-BoxCollider:
+--- !u!64 &8414825637145981319
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -108,10 +92,45 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: a3ffd23530c8e8740be2865d7ee835da, type: 3}
+--- !u!54 &1951492268062201738
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670433753327257242}
   serializedVersion: 2
-  m_Size: {x: 0.49743432, y: 0.0059979497, z: 0.06531735}
-  m_Center: {x: -0.0000010430813, y: 0.0029989749, z: 0.10988704}
---- !u!114 &1670433753327288359
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &5730204642784572850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670433753327257242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0, b: 0, a: 0}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &4365667640480620345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,32 +146,21 @@ MonoBehaviour:
   rotOffset: {x: 0, y: 0, z: 0}
   alignPosition: 1
   alignRotation: 1
-  alignPositionOffset: {x: 0.0028, y: 0.1418, z: -0.0889}
-  alignRotationOffset: {x: 171.365, y: -540, z: -90}
+  alignPositionOffset: {x: 0.003, y: 0.0943, z: -0.0531}
+  alignRotationOffset: {x: 171.365, y: -180, z: -90}
   m_followingDuration: 0.04
   m_overrideMaxAngularVelocity: 1
   m_unblockableGrab: 1
   m_primaryGrabButton: 0
   m_secondaryGrabButton: 1
   m_grabButton: 0
-  m_allowMultipleGrabbers: 0
+  m_allowMultipleGrabbers: 1
   m_afterGrabbed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: set_EnableLeftRay
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: set_EnableRightRay
-        m_Mode: 6
+      - m_Target: {fileID: 616632429}
+        m_MethodName: PlayTakeSound
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -163,33 +171,11 @@ MonoBehaviour:
         m_CallState: 2
   m_beforeRelease:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: set_EnableLeftRay
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: set_EnableRightRay
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
   m_onDrop:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5189025263763974312
+--- !u!114 &616632429
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,31 +184,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1670433753327257242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4907418102ce54f4393500f809c74104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
---- !u!114 &6120056625135165803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670433753327257242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df5b45a747f2a56449d66d4ca3233e82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quest: 11
-  outline: {fileID: 5189025263763974312}
-  grabbableColor: {r: 0, g: 0.74, b: 0.74, a: 1}
+  goalType: 8
+  outline: {fileID: 5730204642784572850}
+  InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
   hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
   afteInteract:
     m_PersistentCalls:
       m_Calls: []
+  grabData: {fileID: 0}
+  handAnim: 0
+  takeSound: 
+  dropSound: 
+  interactSound: 

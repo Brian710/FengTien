@@ -414,8 +414,6 @@ PlayerSettings:
   - m_BuildTarget: Android
     m_Enabled: 1
     m_Devices:
-    - OpenVR
-    - Oculus
     - MockHMD
   m_BuildTargetEnableVuforiaSettings: []
   openGLRequireES31: 0
@@ -652,6 +650,7 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
+    1: VIU_WAVEVR;VIU_WAVEVR_RENDER;VIU_WAVEVR_2_0_32_OR_NEWER;VIU_WAVEVR_2_1_0_OR_NEWER;VIU_WAVEVR_3_0_0_OR_NEWER;VIU_WAVEVR_3_1_0_OR_NEWER;VIU_WAVEVR_3_1_3_OR_NEWER;VIU_PLUGIN
     7: VIU_WAVEVR;VIU_WAVEVR_RENDER;VIU_WAVEVR_2_0_32_OR_NEWER;VIU_WAVEVR_2_1_0_OR_NEWER;VIU_WAVEVR_3_0_0_OR_NEWER;VIU_WAVEVR_3_1_0_OR_NEWER;VIU_WAVEVR_3_1_3_OR_NEWER;VIU_PLUGIN;WAVEVR_SINGLEPASS_ENABLED;VIU_WAVEVR_SUPPORT
   platformArchitecture: {}
   scriptingBackend: {}

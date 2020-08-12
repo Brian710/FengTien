@@ -1,0 +1,176 @@
+fileFormatVersion: 2
+guid: d95c81f81a486454dbf7a04cba89300c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: body
+    100002: buttons
+    100004: cap
+    100006: display
+    100008: displayPlastic
+    100010: //RootNode
+    100012: earIn
+    100014: mainButton
+    400000: body
+    400002: buttons
+    400004: cap
+    400006: display
+    400008: displayPlastic
+    400010: //RootNode
+    400012: earIn
+    400014: mainButton
+    2100000: plasticBlack
+    2100002: labels
+    2100004: buttons
+    2100006: PlasticGreen
+    2100008: indicator
+    2100010: plascicOpaque
+    2100012: bodySileverMat
+    2100014: display
+    2300000: body
+    2300002: buttons
+    2300004: cap
+    2300006: display
+    2300008: displayPlastic
+    2300010: earIn
+    2300012: mainButton
+    3300000: body
+    3300002: buttons
+    3300004: cap
+    3300006: display
+    3300008: displayPlastic
+    3300010: earIn
+    3300012: mainButton
+    4300000: displayPlastic
+    4300002: mainButton
+    4300004: earIn
+    4300006: cap
+    4300008: display
+    4300010: body
+    4300012: buttons
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PlasticGreen
+    second: {fileID: 2100000, guid: 32bc71824bf1a7c41afcc06a65e0c761, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bodySileverMat
+    second: {fileID: 2100000, guid: 872f6762bf94a0643991e21dded92653, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buttons
+    second: {fileID: 2100000, guid: 439ed4f06ed8450428d2f795cce1e6d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: display
+    second: {fileID: 2100000, guid: 7b6d16dd3ff71d849b3d97c8b254a7f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: indicator
+    second: {fileID: 2100000, guid: bd913ea40bb75c94bbd7dfb3e6f87694, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: labels
+    second: {fileID: 2100000, guid: bb6dfb0b05619d14e8bc102205ad36e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plascicOpaque
+    second: {fileID: 2100000, guid: 8a5b964cfa8436b4891b23f7523ae66d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plasticBlack
+    second: {fileID: 2100000, guid: 0cccc66ffac470e44ba66e7e9d4f8bea, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

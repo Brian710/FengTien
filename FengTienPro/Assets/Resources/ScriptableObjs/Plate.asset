@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb9ae4e4ce383445b3f43ac2c70c8bd, type: 3}
+  m_Name: Plate
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 4300000, guid: 40250b3127e83e2469429a76f7b672e5, type: 3}
+  material: {fileID: 2100000, guid: a0ae7c41fdb3eb0419823ee09fb639b4, type: 2}
+  isAlign: 1
+  alignPos: {x: -0.1657, y: 0.035, z: 0}
+  alignRot: {x: -90, y: 0, z: 0}
+  handAnim: 0
+  isGravity: 1
+  takeSound: 
+  dropSound: 
+  interactSound: 

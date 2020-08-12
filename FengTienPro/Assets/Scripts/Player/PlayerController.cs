@@ -132,12 +132,12 @@ public class PlayerController : MonoBehaviour
 
         if (RightHand)
         {
-            RightHand.AnimUpdate(ViveInput.GetTriggerValue(HandRole.RightHand));
+            RightHand.NormalAnimUpdate(ViveInput.GetTriggerValue(HandRole.RightHand));
         }
 
         if (LeftHand)
         {
-            LeftHand.AnimUpdate(ViveInput.GetTriggerValue(HandRole.LeftHand));
+            LeftHand.NormalAnimUpdate(ViveInput.GetTriggerValue(HandRole.LeftHand));
         }
     }
     

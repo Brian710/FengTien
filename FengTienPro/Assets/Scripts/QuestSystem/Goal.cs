@@ -10,6 +10,9 @@ public class Goal : ScriptableObject
     public enum Type 
     {
         None,
+
+        Tuto,
+        
         TalkCanv,
 
         Watch,

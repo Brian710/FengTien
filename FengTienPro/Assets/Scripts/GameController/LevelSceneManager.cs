@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelSceneManager : MonoBehaviour
@@ -14,7 +13,7 @@ public class LevelSceneManager : MonoBehaviour
         SelModeObj.SetActive(true);
         TPObjects.SetActive(false);
     }
-
+    
     public void SetTrainModeorNot(bool value)
     {
         GameController.Instance.mode = value ? MainMode.Train : MainMode.Exam;

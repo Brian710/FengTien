@@ -36,19 +36,20 @@ public class HandAnimM : MonoBehaviour
         {
             HandAnim = value;
         }
-        animator.SetInteger("HandAnim", (int)HandAnim);
+        if(animator)
+            animator.SetInteger("HandAnim", (int)HandAnim);
     }
 
-    public void AnimUpdate(float inputAxis)
+    public void NormalAnimUpdate(float inputAxis)
     {
         if (handAnim == HandAnim.normal)
         {
             animator.SetFloat("Rotation", Mathf.Abs(inputAxis));
         }
     }
-
+    
     private void OnValidate()
     {
-        //HandAnimChange(handAnim);
+        HandAnimChange(handAnim);
     }
 }
