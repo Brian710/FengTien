@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using MinYanGame.Core;
+﻿using UnityEngine;
 public class HandAnimM : MonoBehaviour
 {
     [SerializeField]

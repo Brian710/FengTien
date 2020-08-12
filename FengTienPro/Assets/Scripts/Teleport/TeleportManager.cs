@@ -3,7 +3,7 @@ using HTC.UnityPlugin.Vive;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TeleportManager : Teleportable
+public class TeleportManagerBase : Teleportable
 {
     [SerializeField]
     protected ParticleSystem defaultFX;

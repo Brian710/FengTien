@@ -1,5 +1,5 @@
 ﻿
-public class MainSceneTP : TeleportManager
+public class MainSceneTP : TeleportManagerBase
 {
     public override void Start()
     {

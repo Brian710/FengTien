@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class StartSceneManager : MonoBehaviour
 {
-
     public Transform StartScenePos;
     public Transform TutoScenePos;
     public Transform LevelScenePos;

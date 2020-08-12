@@ -2,7 +2,7 @@
 using HTC.UnityPlugin.Vive;
 
 
-public class LevelSceneTP : TeleportManager
+public class LevelSceneTP : TeleportManagerBase
 {
     public Levels level;
 
