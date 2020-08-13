@@ -1,0 +1,584 @@
+fileFormatVersion: 2
+guid: 3a23c65532a98fa409e94bf90a84543e
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: binding_ui_ViveHMD
+    21300002: binding_ui_OculusHMD
+    21300004: binding_ui_ViveController
+    21300006: binding_ui_ViveTracker
+    21300008: binding_ui_ViveBaseStation
+    21300010: binding_ui_Unknown
+    21300012: binding_ui_ViveController_y
+    21300014: binding_ui_ViveController_x
+    21300016: binding_ui_ViveController_z
+    21300018: binding_ui_check
+    21300020: binding_ui_KnucklesLeft
+    21300022: binding_ui_KnucklesRight
+    21300024: binding_ui_OculusTouchLeft
+    21300026: binding_ui_OculusTouchRight
+    21300028: binding_ui_OculusSensor
+    21300030: binding_ui_warning
+    21300032: binding_ui_cross
+    21300034: binding_ui_HMD_y
+    21300036: binding_ui_HMD_x
+    21300038: binding_ui_HMD_z
+    21300040: binding_ui_ViveTracker_y
+    21300042: binding_ui_ViveTracker_x
+    21300044: binding_ui_ViveTracker_z
+    21300046: binding_ui_edit
+    21300048: binding_ui_minus
+    21300050: binding_ui_Knuckles_z
+    21300052: binding_ui_OculusTouch_z
+    21300054: binding_ui_plus
+    21300056: binding_ui_Knuckles_y
+    21300058: binding_ui_Knuckles_x
+    21300060: binding_ui_OculusTouch_y
+    21300062: binding_ui_OculusTouch_x
+    21300064: binding_ui_icons_ViveHMD
+    21300066: binding_ui_icons_OculusHMD
+    21300068: binding_ui_icons_ViveController
+    21300070: binding_ui_icons_ViveTracker
+    21300072: binding_ui_icons_ViveBaseStation
+    21300074: binding_ui_icons_KnucklesLeft
+    21300076: binding_ui_icons_KnucklesRight
+    21300078: binding_ui_icons_OculusTouchLeft
+    21300080: binding_ui_icons_OculusTouchRight
+    21300082: binding_ui_icons_OculusSensor
+    21300084: binding_ui_project_HMD
+    21300086: binding_ui_project_KnucklesRight
+    21300088: binding_ui_icons_Unknown
+    21300090: binding_ui_icons_check
+    21300092: binding_ui_icons_minus
+    21300094: binding_ui_project_OculusTouchRight
+    21300096: binding_ui_icons_warn
+    21300098: binding_ui_icons_cross
+    21300100: binding_ui_icons_plus
+    21300102: binding_ui_project_ViveController
+    21300104: binding_ui_project_ViveTracker
+    21300106: binding_ui_icons_chain
+    21300108: binding_ui_icons_edit
+    21300110: binding_ui_icons_arrow
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: 16
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: binding_ui_icons_ViveHMD
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f01f8a02dcfe5f14f8660386655dd561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_OculusHMD
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0489ccea2108a7940930ab14bb783110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_ViveController
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5100d63c177e91042a2f2599b4f8c6bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_ViveTracker
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 029aee3e17f2e0143b4fa8ae369d4fd6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_ViveBaseStation
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 410
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09830c987928d1d4fa6aece5c51f07c5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_KnucklesRight
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 996e184eca9a45340a4adf6c6b0cac6d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_OculusTouchRight
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e1035dba01f36144818e3438d12c8a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_OculusSensor
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 308
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 750177230f3681846839931667263f1b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_project_HMD
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 156
+        width: 90
+        height: 136
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7328}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b8bed5ea0487004bac84a26950f76f3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_project_KnucklesRight
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 232
+        width: 52
+        height: 70
+      alignment: 9
+      pivot: {x: 0.3846, y: 1.0571}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0fe475c5fe80694fa08e6cffc08d5ea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_Unknown
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 913d876f66ef57540a143646c188e17d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_check
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2532f62ace73b8d458c96217fd0fc5de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_minus
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 206
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d7588eb4ffe2dd48b066fd852333e4e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_project_OculusTouchRight
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 150
+        width: 45
+        height: 48
+      alignment: 9
+      pivot: {x: 0.4222, y: 1.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52f1e197de31ad548b1f06c3d8e74077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_warn
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55d8bf2c6dbddec43b7659bef848fddd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_cross
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 627f3eb5e43dcbd4f89bd93c10d42f5f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_plus
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 104
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 793fd790cf06d3347884aca520fbaa0c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_project_ViveController
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 36
+        width: 48
+        height: 86
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7751}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ec49714ebabd8649b75c9b8ca004112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_project_ViveTracker
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 45
+        width: 41
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e752319765445de41817375232865b07
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_chain
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b34d70d14d31c0e4897aabf47cfbb37e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_edit
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73509405e6b814e4ba7ca86dd3739136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: binding_ui_icons_arrow
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 2
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16252ab5660308d48a1d4c447cb80652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
