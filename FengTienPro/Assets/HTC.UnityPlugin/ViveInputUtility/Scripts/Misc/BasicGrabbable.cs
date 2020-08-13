@@ -1,4 +1,6 @@
-﻿using HTC.UnityPlugin.ColliderEvent;
+﻿//========= Copyright 2016-2020, HTC Corporation. All rights reserved. ===========
+
+using HTC.UnityPlugin.ColliderEvent;
 using HTC.UnityPlugin.Utility;
 using System;
 using UnityEngine;

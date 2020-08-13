@@ -8,19 +8,15 @@ public class ResetObjectOnTriggerExit : MonoBehaviour
 
     private Vector3 originPosition;
     private Quaternion originRotation;
-
-    private GameObject clonedTarget;
-
     private void Start()
     {
-        clonedTarget = effectTarget;
         originPosition = effectTarget.transform.localPosition;
         originRotation = effectTarget.transform.localRotation;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == clonedTarget)
+        if (other.gameObject == effectTarget)
         {
             StopAllCoroutines();
             StartCoroutine(CopyTarget());
@@ -31,12 +27,7 @@ public class ResetObjectOnTriggerExit : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        var copy = Instantiate(effectTarget);
-        copy.transform.SetParent(effectTarget.transform.parent);
-        copy.transform.localPosition = originPosition;
-        copy.transform.localRotation = originRotation;
-        copy.name = effectTarget.name;
-
-        clonedTarget = copy;
+        effectTarget.transform.localPosition = originPosition;
+        effectTarget.transform.localRotation = originRotation;
     }
 }
