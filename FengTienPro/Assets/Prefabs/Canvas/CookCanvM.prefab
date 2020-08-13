@@ -58,13 +58,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfdb3ac3fbcc324c9e1a8d2fd8045bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questBtn: {fileID: 0}
-  questName: 
-  questDescription: 
-  isSingle: 0
+  questBtn: {fileID: 5792167957844267986}
+  questName: Cook
+  questDescription: 03
+  isSingle: 1
   questScore: 0
-  requiredAmount: 0
-  goals: []
+  goals:
+  - {fileID: 11400000, guid: 98c73d614d7a4bc4b8808e69a8355464, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   isAuto: 0
   _quest:
     id: 
@@ -240,7 +244,7 @@ GameObject:
   - component: {fileID: 5792167957844267990}
   - component: {fileID: 5792167957844267991}
   m_Layer: 5
-  m_Name: WashHandBtn
+  m_Name: CookBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,29 +344,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5792167957844267989}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AcceptQuest
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: ShowHintColor
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!95 &5792167957844267990
 Animator:
   serializedVersion: 3

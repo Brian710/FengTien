@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 4588714637266084766}
   - component: {fileID: 3589264004557943791}
   - component: {fileID: 6191747615978889335}
-  - component: {fileID: 3894096185798056860}
-  m_Layer: 0
+  - component: {fileID: 5284291369077129844}
+  - component: {fileID: 1626331868646014861}
+  m_Layer: 12
   m_Name: Chopping_Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,8 +131,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3894096185798056860
-BoxCollider:
+--- !u!114 &5284291369077129844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588714637264158044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5b45a747f2a56449d66d4ca3233e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalType: 0
+  outline: {fileID: 0}
+  InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
+  hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
+  afteInteract:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!64 &1626331868646014861
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -140,6 +160,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 39.736286, y: 2.364694, z: 61.6961}
-  m_Center: {x: 0.0000019073486, y: 1.182337, z: -0.0040159225}
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 3fee6dba3144e8f49ace479937c15e2d, type: 3}

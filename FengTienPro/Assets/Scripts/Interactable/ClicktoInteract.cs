@@ -1,6 +1,4 @@
 ﻿using HTC.UnityPlugin.ColliderEvent;
-using MinYanGame.Core;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

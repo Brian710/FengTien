@@ -24,6 +24,22 @@ public class InteractableObjBase : MonoBehaviour
             outline.enabled = false;
         }
     }
+
+    private void OnEnable()
+    {
+        Set();
+    }
+
+    private void OnDisable()
+    {
+        
+    }
+
+    public virtual void Set()
+    { 
+    
+    }
+    
     public void OnColliderEventHoverEnter(ColliderHoverEventData eventData)
     {
         ShowInteractColor(true);

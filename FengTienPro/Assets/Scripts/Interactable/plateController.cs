@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MinYanGame.Core;
 
-public class plateController : InteractableObjBase
+public class PlateController : InteractableObjBase
 {
     // Start is called before the first frame update
     void Start()
