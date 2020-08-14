@@ -3,8 +3,6 @@
 public class GrabObj : InteractableObjBase
 {
     [SerializeField]
-    private GrabObject grabData;
-    [SerializeField]
     private HandAnim handAnim;
 
     public string takeSound;

@@ -23513,7 +23513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4706602450610030018}
   - component: {fileID: 7950376065326456592}
-  - component: {fileID: 1238394415106103249}
+  - component: {fileID: 2012387963210851329}
   m_Layer: 10
   m_Name: EntranceTP
   m_TagString: teleport00
@@ -23528,7 +23528,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7950376065326456595}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.68, y: 0.505, z: -4.06}
   m_LocalScale: {x: 1.5000019, y: 1.5000001, z: 1.5000019}
   m_Children:
@@ -23550,7 +23550,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.01, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1238394415106103249
+--- !u!114 &2012387963210851329
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23579,8 +23579,8 @@ MonoBehaviour:
   onAfterTeleport:
     m_PersistentCalls:
       m_Calls: []
-  defaultFX: {fileID: 0}
-  FX_On: {fileID: 0}
+  defaultFX: {fileID: 2013336844219775919}
+  FX_On: {fileID: 2013336842967303828}
   isActive: 0
 --- !u!1 &8890103918226195089
 GameObject:
@@ -23593,7 +23593,7 @@ GameObject:
   - component: {fileID: 7570742880886830008}
   - component: {fileID: 7515407540163204009}
   - component: {fileID: 20107743715339148}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System_Ring (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -387,7 +387,62 @@ ModelImporter:
     4300126: bar05
     4300128: bar06
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hospitalBed04_PlasticGreen2
+    second: {fileID: 2100000, guid: c2a84c710f1a21349b42d40f9422659f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hospitalBed04_blanket3
+    second: {fileID: 2100000, guid: e51e53d84a256cf4c82902cb10e60050, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hospitalBed04_matress3
+    second: {fileID: 2100000, guid: dfdde79c4f8145146a806fe5a2986256, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hospitalBed04_paint_metal2
+    second: {fileID: 2100000, guid: 0e8a871c3a5a1e3439ece3f3c4c0460a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hospitalBed04_pillow3
+    second: {fileID: 2100000, guid: e51e53d84a256cf4c82902cb10e60050, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hospitalBed04_plasticRed2
+    second: {fileID: 2100000, guid: 321261bbcc7ab8b40a8e8f435f3d22fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hospitalBed04_plasticWheel3
+    second: {fileID: 2100000, guid: f5dd359048f31ec438c9ad912b046512, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hospitalBed04_plastikBlack2
+    second: {fileID: 2100000, guid: 3b689828b094e8b428edc8ed4e05b2b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hospitalBed04_rubber2
+    second: {fileID: 2100000, guid: 93b6fec661bae104e9811e952044be78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hospitalBed04_screw3
+    second: {fileID: 2100000, guid: 7c704fae269a1024c8220eeefbcabd5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hospitalBed04_wood2
+    second: {fileID: 2100000, guid: 0fdd04c813f7b5342b3a5f38fbe004b3, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

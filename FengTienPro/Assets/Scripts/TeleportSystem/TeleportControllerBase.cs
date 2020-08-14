@@ -79,4 +79,22 @@ public class TeleportControllerBase : Teleportable
 
         isActive = value;
     }
+    protected override void Reset()
+    {
+        base.Reset();
+        if (transform.childCount >= 2)
+        {
+            foreach (ParticleSystem FX in GetComponentsInChildren<ParticleSystem>())
+            {
+                if (FX.name == "FX_Ring")
+                {
+                    defaultFX = FX;
+                }
+                if (FX.name == "On")
+                {
+                    FX_On = FX;
+                }
+            }
+        }
+    }
 }

@@ -22,4 +22,5 @@ public class MainSceneTP : TeleportControllerBase
         QuestGiver.OnQuestAcceptListener -= ShowTeleport;
         QuestGiver.OnQuestCompleteListener -= ShowTeleport;
     }
+   
 }

@@ -4,19 +4,38 @@ using UnityEngine;
 
 public class MainSceneManager : MonoBehaviour
 {
-    public void Set()
-    { 
-    
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        Set();
-    }
+    [SerializeField]
+    private List<GameObject> gameObjects;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private Transform StartScenePos;
+    private void Awake()
     {
         
+    }
+    public void Set()
+    {
+        if (gameObjects.Count <= 0)
+            return;
+        foreach (GameObject obj in gameObjects)
+        {
+            obj.SetActive(true);
+        }
+    }
+
+    public void BacktoStart()
+    {
+        if (gameObjects.Count <= 0)
+            return;
+
+        foreach (GameObject obj in gameObjects)
+        {
+            obj.SetActive(false);
+        }
+
+        GameController.Instance.gameState = GameState.StartInit;
+        StartCoroutine(PlayerController.instance.TransAnimPlaytoEnd(true));
+        if (StartScenePos)
+            StartCoroutine(PlayerController.instance.ChangePos(StartScenePos));
     }
 }

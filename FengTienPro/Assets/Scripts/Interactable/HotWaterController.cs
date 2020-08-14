@@ -6,12 +6,17 @@ public class HotWaterController : InteractableObjBase
 {
     [SerializeField]
     private ParticleSystem partSys;
+    [SerializeField]
+    Animator glassAnim;
+    
 
     public void ParticlePlay()
     {
-        if (partSys.isStopped)
-            partSys.Play(true);
-        else
-            partSys.Stop(true);
+        if (glassAnim.GetBool("full") || partSys.isPlaying)
+            return;
+
+     
+        partSys.Play(true);
+        glassAnim.SetBool("full", true);
     }
 }

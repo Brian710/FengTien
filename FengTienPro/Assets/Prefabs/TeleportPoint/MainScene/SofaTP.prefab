@@ -4709,7 +4709,7 @@ GameObject:
   - component: {fileID: 3518890450464301724}
   - component: {fileID: 3569425856014811789}
   - component: {fileID: 6449820229743737512}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Particle System_Ring (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9421,7 +9421,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4003799411173805623}
-  m_LocalRotation: {x: -0, y: -0.38268343, z: -0, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: -2.6249998, y: 0.505, z: 5.064}
   m_LocalScale: {x: 1.5000019, y: 1.5000001, z: 1.5000019}
   m_Children:
@@ -9472,8 +9472,8 @@ MonoBehaviour:
   onAfterTeleport:
     m_PersistentCalls:
       m_Calls: []
-  defaultFX: {fileID: 0}
-  FX_On: {fileID: 0}
+  defaultFX: {fileID: 4770998107381901963}
+  FX_On: {fileID: 4770998108213876656}
   isActive: 0
 --- !u!1 &4770998107381901958
 GameObject:

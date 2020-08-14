@@ -37,7 +37,11 @@ public class QuestGiver : MonoBehaviour
             QuestGoal newgoal = new QuestGoal(g.type, g.requiredAmount);
             newgoals.Add(newgoal);
         }
-        _quest = new Quest(this, questName, questDescription, isSingle,questScore, newgoals);
+        _quest = new Quest(this, questName, questDescription, isSingle, questScore, newgoals);
+    }
+
+    private void Start()
+    {
         QuestManager.Instance.AddtoQuestlist(_quest);
     }
 
