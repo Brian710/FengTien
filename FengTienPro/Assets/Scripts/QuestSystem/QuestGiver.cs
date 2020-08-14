@@ -9,7 +9,7 @@ public class QuestGiver : MonoBehaviour
 
 
     [Header("Init Data")]
-    public string questName;
+    public Quest.Name questName;
     public string questDescription;
     public bool isSingle;
     public int questScore;
@@ -54,6 +54,7 @@ public class QuestGiver : MonoBehaviour
     public void AcceptQuest()
     {
         quest.UpdataQuestEvent(Quest.Status.CURRENT);
+        questBtn.gameObject.SetActive(false);
         GameController.Instance.quest = quest;
         //init Quests
         InitQuestLoc();

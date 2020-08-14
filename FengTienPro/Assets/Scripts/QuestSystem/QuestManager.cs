@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    public List<Quest> quests;
     #region singleton
 
     public static QuestManager Instance;
@@ -19,7 +19,9 @@ public class QuestManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
     #endregion
-
+    [SerializeField]
+    private bool firstInit = true;
+    public List<Quest> quests;
 
     public void AddtoQuestlist(Quest q)
     {
@@ -31,6 +33,28 @@ public class QuestManager : MonoBehaviour
         BFS(quests[0]);
         quests[0].UpdataQuestEvent(Quest.Status.CHOOSABLE);
         PrintPath();
+        firstInit = true;
+    }
+    private void OnEnable()
+    {
+        Set();
+    }
+
+    private void Set()
+    {
+
+        foreach (Quest q in quests)
+        {
+            if (q.questName == Quest.Name.Talk)
+            {
+                q.UpdataQuestEvent(Quest.Status.CHOOSABLE);
+            }
+            else
+            {
+                q.UpdataQuestEvent(Quest.Status.WAITING);
+            }
+        }
+        
     }
 
     public void AddPath(string fromQE, string toQE)

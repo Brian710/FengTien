@@ -1,20 +1,19 @@
 ﻿using UnityEngine;
-using MinYanGame.Core;
 using System.Collections.Generic;
 using System;
-using System.Linq;
 
 [Serializable]
 public class Quest 
 {
     public enum Status { WAITING,CHOOSABLE, CURRENT, DONE }
+    public enum Name {None, Talk, WashHand, CookFood, FeedFood, CleanKit, FeedMeds, CleanMeds }
 
     [SerializeField]
     private string id;
     public string Id { get { return id; } }
 
     public QuestGiver giver;
-    public string questName;
+    public Name questName;
     public string description;
     public int order;
     public bool isSingle;
@@ -23,7 +22,7 @@ public class Quest
     public List<QuestGoal> goals;
     public int score;
 
-    public Quest (QuestGiver qg, string n, string d, bool single ,int s ,List<QuestGoal> g)
+    public Quest (QuestGiver qg, Name n, string d, bool single ,int s ,List<QuestGoal> g)
     {
         id = Guid.NewGuid().ToString();
         giver = qg;
@@ -42,6 +41,15 @@ public class Quest
     {
         status = es;
         giver.UpdataEventStatus(es);
+
+        //for reset
+        if (es == Status.WAITING)
+        {
+            foreach (QuestGoal g in goals)
+            {
+                g.currentAmount = 0;
+            }
+        }
     }
 
     public void CheckGoals()

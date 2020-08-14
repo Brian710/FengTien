@@ -10,21 +10,40 @@ public class Goal : ScriptableObject
         None,
 
         Tuto,
-        
+        //Talk
         TalkCanv,
-
+        //WashHand
         Watch,
         Tap,
         Soap,
         WashHandCanv,
         Tissue,
-        
+        //CookFood
         WashObj,
         CutFish,
         CutVeg,
         InputCookMat,
         CookFood,
         TasteFood,
+        //FeedFood
+        PutOnBib,
+        TakeBowl,
+        FeedFood,
+        DrinkWater,
+        //CleanKit
+        WashStuff,
+        ThrowWaste,
+        CleanDesk,
+        //FeedMeds
+        GrindMeds,
+        MixWater,
+        CheckNasogastricTube,
+        FeedMsds, //3 times
+        FinishFeedMeds,
+        //CleanMeds
+        TissueClean,
+        WaterClean,
+    
     }
     [Serializable]
     public enum Status { WAITING,CURRENT,DONE}

@@ -5,6 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class QuestRecord
 {
-    public GameQuest QuestName;
+    public Goal.Type QuestName;
     public int QuestScore;
 }

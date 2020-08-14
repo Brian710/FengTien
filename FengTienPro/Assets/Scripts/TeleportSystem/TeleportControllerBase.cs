@@ -12,6 +12,8 @@ public class TeleportControllerBase : Teleportable
 
     [SerializeField]
     protected bool isActive;
+    
+    public Quest.Name questName;
 
     public virtual void Start()
     {

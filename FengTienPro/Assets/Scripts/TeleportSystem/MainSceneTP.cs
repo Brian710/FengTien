@@ -1,5 +1,4 @@
-﻿
-public class MainSceneTP : TeleportControllerBase
+﻿public class MainSceneTP : TeleportControllerBase
 {
     public override void Start()
     {
@@ -22,5 +21,4 @@ public class MainSceneTP : TeleportControllerBase
         QuestGiver.OnQuestAcceptListener -= ShowTeleport;
         QuestGiver.OnQuestCompleteListener -= ShowTeleport;
     }
-   
 }
