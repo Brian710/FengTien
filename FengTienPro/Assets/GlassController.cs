@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GlassController : GrabObj
+public class GlassController : WashObj
 {
     [SerializeField]
     private Animator glassAnim;

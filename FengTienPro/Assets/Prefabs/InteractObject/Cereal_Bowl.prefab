@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 870724579756694961}
   - component: {fileID: 870724579755564913}
   - component: {fileID: 114329978961542158}
-  - component: {fileID: 802625081}
   - component: {fileID: 7775414597269583936}
   - component: {fileID: 7775414597269583937}
+  - component: {fileID: 6311090639361257674}
+  - component: {fileID: 8603487751910140122}
   m_Layer: 12
   m_Name: Cereal_Bowl
   m_TagString: Untagged
@@ -108,30 +109,22 @@ MonoBehaviour:
   m_allowMultipleGrabbers: 1
   m_afterGrabbed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 870724579757818289}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_beforeRelease:
     m_PersistentCalls:
       m_Calls: []
   m_onDrop:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &802625081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870724579757818289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df5b45a747f2a56449d66d4ca3233e82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goalType: 0
-  outline: {fileID: 0}
-  InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
-  hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
-  afteInteract:
     m_PersistentCalls:
       m_Calls: []
 --- !u!54 &7775414597269583936
@@ -148,7 +141,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 90
   m_CollisionDetection: 0
 --- !u!64 &7775414597269583937
 MeshCollider:
@@ -164,3 +157,66 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 899f3be415fc0a94d8332676a99211c9, type: 3}
+--- !u!114 &6311090639361257674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870724579757818289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d7bdce62dd83748956f81fda43980c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalType: 8
+  FirstInit: 0
+  outline: {fileID: 0}
+  InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
+  hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
+  afteInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  handAnim: 0
+  isWashed: 0
+  washTime: 3
+  takeSound: 
+  dropSound: 
+  interactSound: 
+--- !u!114 &8603487751910140122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870724579757818289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d7bdce62dd83748956f81fda43980c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalType: 8
+  FirstInit: 0
+  outline: {fileID: 0}
+  InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
+  hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
+  afteInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: PlayTakeSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  handAnim: 0
+  isWashed: 0
+  washTime: 3
+  takeSound: 
+  dropSound: 
+  interactSound: 

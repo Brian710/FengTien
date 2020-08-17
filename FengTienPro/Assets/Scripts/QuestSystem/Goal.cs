@@ -18,10 +18,12 @@ public class Goal : ScriptableObject
         Soap,
         WashHandCanv,
         Tissue,
-        //CookFood
+        //WashFood
         WashObj,
+        //CutFood
         CutFish,
         CutVeg,
+        //CookFood
         InputCookMat,
         CookFood,
         TasteFood,

@@ -3,18 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DropPointController : InteractableObjBase
+public class DropPointController : CheckPointBase
 {
-
-    private void OnTriggerEnter(Collider other)
+    public MultiSpawnObjOnTriggerExit resetObject;
+    public override void Start()
     {
-        if (other.GetComponent<InteractableObjBase>().goalType == Goal.Type.WashObj)
-        {
-            base.InteractInvoke(true);
-        }
+        ShowParticle(true);
     }
-    public override void ShowInteractColor(bool value)
+
+    public override void OnTriggerEnter(Collider other)
     {
-        return;
+        if (other.gameObject.GetComponent<InteractableObjBase>().goalType == Goal.Type.WashObj)
+        {
+            QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.WashObj);
+            onTriggerEnter.Invoke();
+        }
+        else
+        {
+            if (GameController.Instance.mode == MainMode.Exam)
+            {
+                other.GetComponent<InteractableObjBase>().ShowError();
+                QuestManager.Instance.MinusQuestScore(2);
+            }
+            resetObject.ForcetoReset(other.gameObject);
+        }
     }
 }

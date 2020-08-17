@@ -40,7 +40,7 @@ public class ScoreManager : MonoBehaviour
         {
             GameObject newItem = Instantiate(Item, Content);
             newItem.GetComponent<ScoreItem>().name.text = questRe.QuestName.ToString();
-            newItem.GetComponent<ScoreItem>().score.text = questRe.QuestScore.ToString();
+            newItem.GetComponent<ScoreItem>().score.text = questRe.doneRight ? "V": "X";
             itemDatas.Add(newItem.GetComponent<ScoreItem>());
         }
     }

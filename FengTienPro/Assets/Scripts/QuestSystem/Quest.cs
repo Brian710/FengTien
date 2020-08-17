@@ -6,7 +6,7 @@ using System;
 public class Quest 
 {
     public enum Status { WAITING,CHOOSABLE, CURRENT, DONE }
-    public enum Name {None, Talk, WashHand, CookFood, FeedFood, CleanKit, FeedMeds, CleanMeds }
+    public enum Name { None, Talk, WashHand, WashFood, CutFood, CookFood, FeedFood, CleanKit, FeedMeds, CleanMeds }
 
     [SerializeField]
     private string id;
@@ -37,18 +37,18 @@ public class Quest
         score = s;
     }
 
-    public void UpdataQuestEvent(Status es)
+    public void UpdateQuestStatus(Status es)
     {
         status = es;
-        giver.UpdataEventStatus(es);
+        giver.UpdateStatus(es);
+    }
 
-        //for reset
-        if (es == Status.WAITING)
+    public void ResetQuestEvent()
+    {
+        foreach (QuestGoal g in goals)
         {
-            foreach (QuestGoal g in goals)
-            {
-                g.currentAmount = 0;
-            }
+            g.status = Goal.Status.WAITING;
+            g.currentAmount = 0;
         }
     }
 
@@ -69,28 +69,36 @@ public class Quest
 
     public void AddQuestCurrentAmount(Goal.Type gt)
     {
-        if (goals.Count > 1)
+        foreach (QuestGoal g in goals)
         {
-            for (int i = 0; i < goals.Count; i++)
+            if (g.type == gt && g.status == Goal.Status.CURRENT)
             {
-                QuestGoal g = goals[i];
-                if (g.type == gt && g.status == Goal.Status.CURRENT)
+                g.currentAmount++;
+                GameController.Instance.currentPlayer.QuestStepCompleted();
+                if (g.IsComplete())
                 {
-                    g.currentAmount++;
-                    GameController.Instance.currentPlayer.QuestStepCompleted();
-                    if (g.IsComplete())
-                    {
-                        CheckGoals();
-                    }
+                    CheckGoals();
                 }
+                return;
             }
         }
     }
 
     public void Complete()
     {
-        UpdataQuestEvent(Status.DONE);
-        QuestManager.Instance.UpdateQuestsOnCompletion(this);
+        UpdateQuestStatus(Status.DONE);
+        QuestManager.Instance.SetNextQuestStatus(this);
         GameController.Instance.score += score;
+        GameController.Instance.AddtoRecord(goals);
+    }
+
+    public QuestGoal GetCurrentGoal()
+    {
+        foreach (QuestGoal g in goals)
+        {
+            if (g.status == Goal.Status.CURRENT)
+                return g;
+        }
+        return null;
     }
 }

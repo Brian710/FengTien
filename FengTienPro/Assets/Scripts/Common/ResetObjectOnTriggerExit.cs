@@ -39,4 +39,9 @@ public class ResetObjectOnTriggerExit : MonoBehaviour
 
         clonedTarget = copy;
     }
+
+    public void ForcetoReset()
+    { 
+    
+    }
 }

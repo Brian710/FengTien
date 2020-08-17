@@ -9,7 +9,7 @@ public class TutoCheckPoint : CheckPointBase
 
     public override void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<GrabObj>().goalType == Goal.Type.Tuto)
+        if (other.gameObject.GetComponent<InteractableObjBase>().goalType == Goal.Type.Tuto)
         {
             onTriggerEnter.Invoke();
         }

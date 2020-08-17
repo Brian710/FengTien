@@ -1,10 +1,8 @@
 ﻿using HTC.UnityPlugin.Vive;
-using MinYanGame.Core;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using System;
 
 public class RayEvent : UnityEvent<bool> { }
 public class PlayerController : MonoBehaviour
@@ -26,7 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         get { return target; }
     }
-    
+
     [SerializeField]
     private GameObject RightUIRay;
     [SerializeField]
@@ -50,10 +48,10 @@ public class PlayerController : MonoBehaviour
     public bool EnableLeftTeleport { get; set; } = true;
 
     [SerializeField]
-    private HandAnimM RightHand;
+    private HandAnimManager RightHand;
 
     [SerializeField]
-    private HandAnimM LeftHand;
+    private HandAnimManager LeftHand;
 
     [SerializeField]
     private ControllerButton HandAnimControlBtn;
@@ -83,14 +81,14 @@ public class PlayerController : MonoBehaviour
         EnableLeftRay = value;
         EnableRightRay = value;
     }
-    public void Showlog(bool value, string log)
+
+    public void Showlog(string log)
     {
-        if (!value || logText == null)
+        if (logText == null)
             return;
 
         logText.text = log;
     }
-
 
     protected virtual void Awake()
     {

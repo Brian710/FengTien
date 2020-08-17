@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5746491123999559322}
   - component: {fileID: 392846967}
   - component: {fileID: 344671813073724618}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Soap_dispanser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,15 +108,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfde607f40c47b04593e17c69314513d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest: 0
+  goalType: 5
+  FirstInit: 0
   outline: {fileID: 392846967}
-  grabbableColor: {r: 0, g: 0.74, b: 0.74, a: 1}
+  InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
+  hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
   afteInteract:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: ShowHintColor
+        m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: NoWashed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: NoWashed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -152,7 +176,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5746491123999459390}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 6.1583014, y: 15.285501, z: 11.18}

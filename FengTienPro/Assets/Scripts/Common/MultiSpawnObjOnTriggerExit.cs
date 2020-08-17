@@ -44,4 +44,16 @@ public class MultiSpawnObjOnTriggerExit : MonoBehaviour
         obj.transform.localPosition = originPositionlist[obj];
         obj.transform.localRotation = originRotationlist[obj];
     }
+
+    public void ForcetoReset(GameObject other)
+    {
+        foreach (GameObject obj in OriTargetlist)
+        {
+            if (other == obj)
+            {
+                //StopAllCoroutines();
+                StartCoroutine(ReLocTarget(other));
+            }
+        }
+    }
 }

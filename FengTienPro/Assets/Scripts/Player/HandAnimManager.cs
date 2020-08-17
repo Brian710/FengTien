@@ -1,29 +1,33 @@
 ﻿using UnityEngine;
-public class HandAnimM : MonoBehaviour
+using UnityEngine.Events;
+public class HandAnimManager : MonoBehaviour,IWashable
 {
-    [SerializeField]
-    private Transform traget;
     [SerializeField]
     private Animator animator;
     [SerializeField]
     private HandAnim handAnim;
+    [SerializeField]
+    private int washTime;
+    [SerializeField]
+    private bool isWashed;
 
-    private Transform tracker;
+    [SerializeField]
+    private bool isFirstTime;
+
+    public UnityEvent afteInteract;
+
+    public void NoWashed() => isWashed = false;
     public HandAnim HandAnim
     {
         get { return handAnim; }
         set { handAnim = value; }
     }
 
-    private void GetDevice()
-    {
-        tracker = transform.parent;
-    }
-
     private void Start()
     {
-        GetDevice();
         handAnim = HandAnim.normal;
+        washTime = 3;
+        isWashed = false;
     }
 
     public void HandAnimChange(HandAnim value)
@@ -48,5 +52,23 @@ public class HandAnimM : MonoBehaviour
     private void OnValidate()
     {
         HandAnimChange(handAnim);
+    }
+
+    public bool IsWashed(bool value)
+    {
+        if (isWashed == value)
+            return isWashed;
+
+        isWashed = value;
+        if (isWashed)
+        {
+            QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.Tap);
+        }
+        return isWashed;
+    }
+
+    public int WashTime()
+    {
+        return washTime;
     }
 }

@@ -1,18 +1,23 @@
 ﻿using HTC.UnityPlugin.ColliderEvent;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 public class InteractableObjBase : MonoBehaviour
         , IColliderEventHoverEnterHandler
         , IColliderEventHoverExitHandler
 {
+
     public Goal.Type goalType;
+    [SerializeField]
+    private bool FirstInit = false;
+
     [SerializeField]
     protected QuickOutline outline;
 
     public Color InteractColor = new Color(0, .74f, .74f, 1);
     public Color hintColor = new Color(1, 0.8f, .28f, 1); // quick outline default hint color
 
-    [SerializeField]
     public UnityEvent afteInteract;
 
     private void Start()
@@ -23,6 +28,8 @@ public class InteractableObjBase : MonoBehaviour
             outline.OutlineColor = hintColor;
             outline.enabled = false;
         }
+        Set();
+        FirstInit = true;
     }
 
     private void OnEnable()
@@ -57,10 +64,10 @@ public class InteractableObjBase : MonoBehaviour
 
     public virtual void ShowHintColor(bool value)
     {
-        if (GameController.Instance.mode == MainMode.Exam)
-            return;
-
-        ShowOutline(value, hintColor);
+        if (GameController.Instance.mode == MainMode.Train&& GameController.Instance.currentGoal.type == goalType)
+        { 
+            ShowOutline(value, hintColor);
+        }
     }
 
     public virtual void ShowOutline(bool value, Color color)
@@ -70,9 +77,32 @@ public class InteractableObjBase : MonoBehaviour
             outline.OutlineColor = color;
     }
 
+
+    public virtual void ShowError()
+    {
+        outline.enabled = true;
+        StartCoroutine(ShowErrorCoro());
+    }
+
+    private IEnumerator ShowErrorCoro()
+    {
+        outline.OutlineMode = QuickOutline.Mode.OutlineAndSilhouette;
+        int i = 0;
+        while(i<3)
+        {
+            outline.OutlineColor = Color.red;
+            yield return new WaitForSeconds(.3f);
+            outline.OutlineColor = new Color(0,0,0,0);
+            yield return new WaitForSeconds(.3f);
+            i++;
+        }
+        outline.OutlineMode = QuickOutline.Mode.OutlineAll;
+    }
+
     public virtual void InteractInvoke(bool value)
     {
         QuestManager.Instance.AddQuestCurrentAmount(goalType);
+        ShowHintColor(false);
         afteInteract.Invoke();
     }
 }

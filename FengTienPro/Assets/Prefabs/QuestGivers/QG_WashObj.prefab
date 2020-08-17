@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2658205947469925718}
   - component: {fileID: 3981278428219858024}
   m_Layer: 5
-  m_Name: QG_Cook
+  m_Name: QG_WashObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2658205947469925721}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.209, y: 2.355, z: -0.52700007}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5038304326159479199}
   m_Father: {fileID: 0}
@@ -51,11 +51,8 @@ MonoBehaviour:
   questScore: 0
   goals:
   - {fileID: 11400000, guid: 98c73d614d7a4bc4b8808e69a8355464, type: 2}
+  gameObjects:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  isAuto: 0
   _quest:
     id: 
     giver: {fileID: 0}
@@ -142,7 +139,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cook
+  m_Text: 'Wash
+
+'
 --- !u!1 &5496605758578366734
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +199,7 @@ GameObject:
   - component: {fileID: 5792167956874705046}
   - component: {fileID: 5792167956874705049}
   m_Layer: 5
-  m_Name: CookCanv
+  m_Name: WashCanv
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,7 +274,7 @@ GameObject:
   - component: {fileID: 5792167957844267990}
   - component: {fileID: 5792167957844267991}
   m_Layer: 5
-  m_Name: CookBtn
+  m_Name: WashBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

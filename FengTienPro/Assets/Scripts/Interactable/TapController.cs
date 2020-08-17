@@ -7,41 +7,57 @@ using UnityEngine;
 public class TapController : InteractableObjBase
 {
     [SerializeField]
-    private Material lightMat;
+    private Renderer lightMat;
     [SerializeField]
     private ParticleSystem PartSys;
     [SerializeField]
     private bool StepCompleted;
 
-    private int i = 0;
-    private void Start()
+
+    private Coroutine _coroutine;
+    private MaterialPropertyBlock _propBlock;
+    private IWashable _IWashable;
+
+    public override void Set()
     {
-        if (outline)
-        {
-            Debug.LogWarning("outline Start");
-            outline.OutlineColor = hintColor;
-            outline.enabled = false;
-        }
+        base.Set();
         if (PartSys.isPlaying)
             PartSys.Stop(true);
+
         if (lightMat)
-            lightMat.SetColor("_EmissionColor", Color.red);
+            SetLightColor(false);
     }
+
     public void OnTriggerEnter(Collider other)
     {
         if (PartSys)
             PartSys.Play(true);
-        StartCoroutine(CountDownSecond(3));
-       
+        
+        SetLightColor(true);
+
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+
+        _IWashable = other.gameObject.GetComponent<IWashable>();
+        int washtime = _IWashable  == null ? 3 : _IWashable.WashTime();
+            
+        _coroutine = StartCoroutine(CountDownSecond(washtime));
      }
 
     public void OnTriggerExit(Collider other)
     {
-        if (lightMat)
-            lightMat.SetColor("_EmissionColor", Color.green);
-        if(PartSys)
+        SetLightColor(false);
+
+        if (PartSys)
             PartSys.Stop(true);
-        StopAllCoroutines();
+
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+
+        if(StepCompleted&& _IWashable != null)
+            _IWashable.IsWashed(true);
+
+        _IWashable = null;
     }
 
     private void OnTriggerStay(Collider other)
@@ -49,18 +65,27 @@ public class TapController : InteractableObjBase
         if (StepCompleted)
         {
             base.InteractInvoke(true);
-            i = 0;
             StepCompleted = false;
         }
     }
 
     private IEnumerator CountDownSecond(int max)
     {
+        int i = 0;
         while (i <= max)
         {
             yield return 1f;
             i++;
         }
         StepCompleted = true;
+    }
+
+    private void SetLightColor(bool value)
+    {
+        lightMat.GetPropertyBlock(_propBlock);
+        Color color = value ? Color.green : Color.red;
+        _propBlock.SetColor("_EmissionColor", color);
+
+        lightMat.SetPropertyBlock(_propBlock);
     }
 }

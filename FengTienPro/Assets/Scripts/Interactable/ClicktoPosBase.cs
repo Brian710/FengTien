@@ -1,7 +1,6 @@
 ﻿using HTC.UnityPlugin.ColliderEvent;
 using System.Collections.Generic;
 using UnityEngine;
-using MinYanGame.Core;
 
 public class ClicktoPosBase : InteractableObjBase
     ,IColliderEventClickHandler
@@ -21,12 +20,12 @@ public class ClicktoPosBase : InteractableObjBase
 
     public void GotoTargetPos()
     {
-        if (moveObj && targetPos)
-        {
-            moveObj.transform.position = targetPos.position;
-            moveObj.transform.rotation = targetPos.rotation;
-            moveObj.transform.SetParent(targetPos);
-        }
+        if (moveObj == null || targetPos == null)
+            return;
+
+        moveObj.transform.position = targetPos.position;
+        moveObj.transform.rotation = targetPos.rotation;
+        moveObj.transform.SetParent(targetPos, false);
     }
 
     public void OnColliderEventClick(ColliderButtonEventData eventData)
@@ -37,6 +36,7 @@ public class ClicktoPosBase : InteractableObjBase
             base.InteractInvoke(true);
         }
     }
+
     public void OnColliderEventPressEnter(ColliderButtonEventData eventData)
     {
         if (eventData.button == m_activeButton && eventData.clickingHandlers.Contains(gameObject) && pressingEvents.Add(eventData) && pressingEvents.Count == 1)

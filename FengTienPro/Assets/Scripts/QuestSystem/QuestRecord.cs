@@ -6,5 +6,5 @@ using UnityEngine;
 public class QuestRecord
 {
     public Goal.Type QuestName;
-    public int QuestScore;
+    public bool doneRight;
 }

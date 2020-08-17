@@ -31,7 +31,7 @@ public class QuestManager : MonoBehaviour
     {
         QuestInit();
         BFS(quests[0]);
-        quests[0].UpdataQuestEvent(Quest.Status.CHOOSABLE);
+        quests[0].UpdateQuestStatus(Quest.Status.CHOOSABLE);
         PrintPath();
         firstInit = true;
     }
@@ -47,11 +47,11 @@ public class QuestManager : MonoBehaviour
         {
             if (q.questName == Quest.Name.Talk)
             {
-                q.UpdataQuestEvent(Quest.Status.CHOOSABLE);
+                q.UpdateQuestStatus(Quest.Status.CHOOSABLE);
             }
             else
             {
-                q.UpdataQuestEvent(Quest.Status.WAITING);
+                q.ResetQuestEvent();
             }
         }
         
@@ -111,16 +111,14 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void UpdateQuestsOnCompletion(Quest qe)
+    public void SetNextQuestStatus(Quest cq)
     {
+
         foreach (Quest q in quests)
         {
-            if (q.order == qe.order + 1)
+            if (q.order == cq.order + 1)
             {
-                if (qe.giver.isAuto)
-                    q.giver.AcceptQuest();
-                else
-                    q.UpdataQuestEvent(Quest.Status.CHOOSABLE);
+                    q.UpdateQuestStatus(Quest.Status.CHOOSABLE);
             }
         }
     }
@@ -143,6 +141,7 @@ public class QuestManager : MonoBehaviour
         {
             if (q.status == Quest.Status.CURRENT)
             {
+                q.GetCurrentGoal().doItRight = false;
                 q.score -= delta;
                 if (q.score <= 0)
                     q.score = 0;

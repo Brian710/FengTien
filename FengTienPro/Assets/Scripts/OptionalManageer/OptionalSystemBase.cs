@@ -3,33 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using MinYanGame.Core;
+using System;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class OptionalSystemBase : MonoBehaviour
 {
     [SerializeField]
+    private Goal.Type goalType;
+    [SerializeField]
     private GameObject optionPanel;
     [SerializeField]
     private GameObject quizPanel;
-
-    private List<Button> options;
-    private List<QuizData> quizDatas;
-    private List<string> correctAns;
-
-
     [SerializeField]
     private Button confirmBtn;
 
-    [SerializeField]
-    private Goal.Type goalType;
+    private List<Button> options;
+    private List<QuizData> quizDatas;
+    private List<string> hintText;
 
-    private GameController gControl;
+    private MainMode gameMode;
 
     private void OnEnable()
     {
-        if(gControl)
-            gControl = GameController.Instance;
-
+        CheckMode();
         OptionsInit();
         QuizDatasInit();
 
@@ -39,10 +35,18 @@ public class OptionalSystemBase : MonoBehaviour
             return;
         }
 
-        AnsInit();
-        RandomPos();
+        HintTextInit();
+        if (gameMode == MainMode.Exam) RandomPos();
 
         confirmBtn.onClick.AddListener(ConfirmBtn);
+    }
+
+    private void CheckMode()
+    {
+        if (GameController.Instance.mode == gameMode)
+            return;
+
+        gameMode = GameController.Instance.mode;
     }
 
     private void OnDisable()
@@ -50,6 +54,7 @@ public class OptionalSystemBase : MonoBehaviour
         confirmBtn.onClick.RemoveAllListeners();
     }
 
+    #region Init
     private void OptionsInit()
     {
         if (optionPanel == null)
@@ -57,6 +62,7 @@ public class OptionalSystemBase : MonoBehaviour
             Debug.LogWarning("OptPanal is null");
             return;
         }
+
         options = new List<Button>();
         int i = 0;
         foreach (Button opt in optionPanel.GetComponentsInChildren<Button>())
@@ -86,7 +92,7 @@ public class OptionalSystemBase : MonoBehaviour
                 int index = 0;
                 index = i;
                 QuizData data = new QuizData();
-                if (gControl.mode == MainMode.Exam)
+                if (gameMode == MainMode.Exam)
                 {
                     Debug.Log("Exam");
                     t.GetComponentInChildren<Text>().color = new Color(0, 0, 0, 0);
@@ -101,43 +107,42 @@ public class OptionalSystemBase : MonoBehaviour
         }
     }
 
-    public virtual void AnsInit()
+    public virtual void HintTextInit()
     {
-        correctAns = new List<string>();
+        if (options.Count <= 0)
+            return;
 
-        if (quizDatas.Count > 0)
+        hintText = new List<string>();
+        foreach (Button opt in options)
         {
-            foreach (QuizData opt in quizDatas)
-            {
-                correctAns.Add(opt.button.GetComponentInChildren<updatingMultiText>().currentString);
-            }
+            hintText.Add(opt.GetComponentInChildren<updatingMultiText>().currentString);
         }
     }
 
     private void RandomPos()
     {
-        if (gControl.mode == MainMode.Exam)
+        foreach (Transform t in optionPanel.GetComponentsInChildren<Transform>())
         {
-            foreach (Transform t in optionPanel.GetComponentsInChildren<Transform>())
-            {
-                t.SetSiblingIndex(Random.Range(0, options.Count));
-            }
+            t.SetSiblingIndex(UnityEngine.Random.Range(0, options.Count));
         }
+       
     }
-
+    #endregion
+    
     private void OptBtnOnclick(int index)
     {
         options[index].GetComponent<CanvasGroup>().alpha = 0;
         options[index].interactable = false;
 
-        foreach (QuizData data in quizDatas)
+        foreach (QuizData quizDatas in quizDatas)
         {
-            if (!data.button.interactable)
+            if (!quizDatas.button.interactable)
             {
-                data.optIndex = index;
-                data.button.interactable = true;
-                data.button.GetComponentInChildren<Text>().text = options[index].GetComponentInChildren<Text>().text;
-                data.button.GetComponentInChildren<Text>().color = Color.black;
+                quizDatas.optIndex = index;
+                quizDatas.button.interactable = true;
+                quizDatas.button.targetGraphic = options[index].GetComponent<Image>();
+                quizDatas.button.GetComponentInChildren<Text>().text = options[index].GetComponentInChildren<Text>().text;
+                quizDatas.button.GetComponentInChildren<Text>().color = Color.black;
                 return;
             }
         }
@@ -149,10 +154,9 @@ public class OptionalSystemBase : MonoBehaviour
         options[quizDatas[index].optIndex].GetComponent<CanvasGroup>().alpha = 1;
         options[quizDatas[index].optIndex].interactable = true;
 
-        if (gControl.mode == MainMode.Train)
+        if (gameMode == MainMode.Train)
         {
-            if (correctAns.Count >= 0)
-                quizDatas[index].button.GetComponentInChildren<Text>().text = correctAns[index];
+            quizDatas[index].button.GetComponentInChildren<Text>().text = hintText[index];
         }
         else
         {
@@ -168,9 +172,10 @@ public class OptionalSystemBase : MonoBehaviour
         {
             if (!data.button.interactable)
                 return;
+
             if (data.optIndex != i)
             {
-                if (gControl.mode == MainMode.Train)
+                if (gameMode == MainMode.Train)
                 {
                     StartCoroutine(WrongAns(data.button.GetComponentInChildren<Text>().color));
                     return;

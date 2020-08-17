@@ -4061,6 +4061,21 @@ PrefabInstance:
       propertyPath: traget
       value: 
       objectReference: {fileID: 6233020635392897393}
+    - target: {fileID: 6123559620395744603, guid: 5b9f60053f3b21643a7771af5b641cc2,
+        type: 3}
+      propertyPath: afteInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123559620395744603, guid: 5b9f60053f3b21643a7771af5b641cc2,
+        type: 3}
+      propertyPath: afteInteract.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123559620395744603, guid: 5b9f60053f3b21643a7771af5b641cc2,
+        type: 3}
+      propertyPath: afteInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8275538431045670570, guid: 5b9f60053f3b21643a7771af5b641cc2,
         type: 3}
       propertyPath: m_Mesh
@@ -4128,6 +4143,21 @@ PrefabInstance:
       propertyPath: traget
       value: 
       objectReference: {fileID: 6233020635392881187}
+    - target: {fileID: 6976466167865717714, guid: 509a849dd2bbf3e488cd9b3b4cc3d9dd,
+        type: 3}
+      propertyPath: afteInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976466167865717714, guid: 509a849dd2bbf3e488cd9b3b4cc3d9dd,
+        type: 3}
+      propertyPath: afteInteract.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976466167865717714, guid: 509a849dd2bbf3e488cd9b3b4cc3d9dd,
+        type: 3}
+      propertyPath: afteInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7654303894399610882, guid: 509a849dd2bbf3e488cd9b3b4cc3d9dd,
         type: 3}
       propertyPath: m_LocalPosition.x

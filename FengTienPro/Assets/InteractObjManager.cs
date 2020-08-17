@@ -9,7 +9,8 @@ public class InteractObjManager : MonoBehaviour
     private bool firstInit = true;
     [SerializeField]
     private List<GameObject> gameObjects;
-    void Start()
+
+    private void Start()
     {
         Set();
         firstInit = false;

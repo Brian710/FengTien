@@ -123,7 +123,36 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public List<QuestRecord> questList = new List<QuestRecord>();
+    public QuestGoal currentGoal
+    {
+        get 
+        {
+            if (_quest == null)
+                return null;
+            else
+                return _quest.GetCurrentGoal();
+        }
+    }
+
+
+    private HashSet<QuestRecord> _questList = new HashSet<QuestRecord>();
+
+
+    public HashSet<QuestRecord> questList { get { return _questList; } }
+
+    public void AddtoRecord(List<QuestGoal> goals)
+    {
+        if (goals.Count <= 0)
+            return;
+
+        QuestRecord record = new QuestRecord();
+        foreach (QuestGoal g in goals)
+        {
+            record.QuestName = g.type;
+            record.doneRight = g.doItRight;
+            _questList.Add(record);
+        }
+    }
 
     #endregion
 
@@ -168,10 +197,12 @@ public class GameController : MonoBehaviour
 
         UpdateLog();
     }
+    
     private void OnGameQuestChange()
     {
         UpdateLog();
     }
+    
     private void OnLanguageChange()
     {
         foreach (updatingMultiText upText in FindObjectsOfType<updatingMultiText>())
@@ -184,6 +215,7 @@ public class GameController : MonoBehaviour
         }
         UpdateLog();
     }
+
     private void OnMainModeChange()
     {
         UpdateLog();
@@ -211,17 +243,17 @@ public class GameController : MonoBehaviour
 #endif
     private void UpdateLog()
     {
-        if (_currentPlayer)
+        if (_currentPlayer && !_isTest)
         {
-            string log = "State: " + _gameState.ToString() + "\n"
-                             + "Lang: " + _language.ToString() + "\n"
-                             + "Quest: " + quest.questName + ": " + "\n"
-                             + "Level: " + _level.ToString() + "\n"
-                             + "Score: " + _score.ToString() + "\n"
-                             + "PlayerData" + "\n"
-                             + "UIRay: " + "_R_" + _currentPlayer.EnableRightRay + "_L_" + _currentPlayer.EnableLeftRay + "\n"
-                             + "TPRay: " + "_R_" + _currentPlayer.EnableRightTeleport + "_L_" + _currentPlayer.EnableLeftTeleport + "\n";
-            _currentPlayer.Showlog(_isTest, log);
+            string log = $"State: {_gameState} \n"
+                             + $"Lang: {_language} \n"
+                             + $"Quest: {_quest.questName} Goal: {currentGoal.goal.type}\n"
+                             + $"Level: { _level} \n"
+                             + $"Score: {_score} \n"
+                             + $"PlayerData \n"
+                             + $"UIRay: R_{_currentPlayer.EnableRightRay} L_{_currentPlayer.EnableLeftRay}\n"
+                             + $"TPRay: R_{_currentPlayer.EnableRightTeleport} L_{_currentPlayer.EnableLeftTeleport}\n";
+            _currentPlayer.Showlog(log);
         }
 
     }

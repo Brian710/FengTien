@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c68957bd4361249976442fc3793a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalType: 0
+  goalType: 4
   outline: {fileID: 139562672}
   InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
   hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
@@ -150,8 +150,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: OpenQuizSys
-        m_Mode: 1
+        m_MethodName: ShowHintColor
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

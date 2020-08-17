@@ -7,16 +7,15 @@ public class QuestGiver : MonoBehaviour
     [Header("UI")]
     public Button questBtn;
 
-
     [Header("Init Data")]
     public Quest.Name questName;
     public string questDescription;
     public bool isSingle;
     public int questScore;
     public List<Goal> goals;
-    
-    public bool isAuto;
 
+    [Header("Quest GameObject")]
+    public List<GameObject> gameObjects;
 
     [SerializeField]
     private Quest _quest;
@@ -24,7 +23,6 @@ public class QuestGiver : MonoBehaviour
 
     public delegate void OnQuestAcceptDelegate(bool active );
     public static event OnQuestAcceptDelegate OnQuestAcceptListener;
-
 
     public delegate void OnQuestCompleteDelegate(bool active);
     public static event OnQuestCompleteDelegate OnQuestCompleteListener;
@@ -53,20 +51,25 @@ public class QuestGiver : MonoBehaviour
 
     public void AcceptQuest()
     {
-        quest.UpdataQuestEvent(Quest.Status.CURRENT);
+        quest.UpdateQuestStatus(Quest.Status.CURRENT);
         questBtn.gameObject.SetActive(false);
         GameController.Instance.quest = quest;
-        //init Quests
-        InitQuestLoc();
+        //init Quest Obj
+        SetQuestLoc(true);
     }
 
-    private void InitQuestLoc()
+    private void SetQuestLoc(bool value)
     {
-        
+        if (gameObjects.Count <= 0)
+            return;
+
+        foreach (GameObject g in gameObjects)
+        {
+            g.SetActive(value);
+        }
     }
-
-
-    public void UpdataEventStatus(Quest.Status es)
+    //quest status will change this status too
+    public void UpdateStatus(Quest.Status es)
     {
         //ChangeUI
         switch (es)
@@ -79,6 +82,7 @@ public class QuestGiver : MonoBehaviour
                 break;
             case Quest.Status.DONE:
                 OnQuestCompleteListener?.Invoke(true);
+                SetQuestLoc(false);
                 break;
         }
     }

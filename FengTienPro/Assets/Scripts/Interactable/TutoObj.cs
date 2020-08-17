@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GrabObj : InteractableObjBase
+public class TutoObj : InteractableObjBase
 {
     [SerializeField]
     private HandAnim handAnim;
@@ -9,6 +9,11 @@ public class GrabObj : InteractableObjBase
     public string dropSound;
     public string interactSound;
 
+    public override void Set()
+    {
+        base.Set();
+        ShowHintColor(true);
+    }
     public void PlayTakeSound()
     {
         if (takeSound != "")
@@ -32,5 +37,9 @@ public class GrabObj : InteractableObjBase
             return;
         }
         AudioManager.Instance.Play(dropSound);
+    }
+
+    public override void InteractInvoke(bool value)
+    {
     }
 }

@@ -9,6 +9,7 @@ public class QuestGoal
     public Goal goal;
     public Goal.Type type;
     public Goal.Status status;
+    public bool doItRight;
     public int currentAmount;
     public int requiredAmount;
 
@@ -17,6 +18,7 @@ public class QuestGoal
         // default init stuff
         type = t;
         status = Goal.Status.WAITING;
+        doItRight = true;
         currentAmount = 0;
         requiredAmount = r;
     }
@@ -25,6 +27,7 @@ public class QuestGoal
     {
         if(currentAmount >= requiredAmount)
             status = Goal.Status.DONE;
+
         Debug.Log("Goal marked as completed.");
         return currentAmount >= requiredAmount;
     }

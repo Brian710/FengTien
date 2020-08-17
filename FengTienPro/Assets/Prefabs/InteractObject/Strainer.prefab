@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 83688016204035988}
   - component: {fileID: 114469457812110178}
   - component: {fileID: 6026656763272966941}
-  - component: {fileID: 3418902726104604899}
   - component: {fileID: 2559150275205928056}
   - component: {fileID: 7775414597044153006}
+  - component: {fileID: 3120341939959349623}
   m_Layer: 12
   m_Name: Strainer
   m_TagString: Untagged
@@ -65,7 +65,18 @@ MonoBehaviour:
   m_allowMultipleGrabbers: 1
   m_afterGrabbed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3120341939959349623}
+        m_MethodName: PlayTakeSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_beforeRelease:
     m_PersistentCalls:
       m_Calls: []
@@ -88,25 +99,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 90
   m_CollisionDetection: 0
---- !u!114 &3418902726104604899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83688016204000180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df5b45a747f2a56449d66d4ca3233e82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goalType: 0
-  outline: {fileID: 0}
-  InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
-  hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
-  afteInteract:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!64 &2559150275205928056
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -139,6 +131,32 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &3120341939959349623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83688016204000180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d7bdce62dd83748956f81fda43980c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalType: 8
+  FirstInit: 0
+  outline: {fileID: 0}
+  InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
+  hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
+  afteInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  handAnim: 0
+  isWashed: 0
+  washTime: 3
+  takeSound: 
+  dropSound: 
+  interactSound: 
 --- !u!64 &4330584901393257459
 MeshCollider:
   m_ObjectHideFlags: 0

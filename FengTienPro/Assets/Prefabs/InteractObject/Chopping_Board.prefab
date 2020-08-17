@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4588714637266084766}
   - component: {fileID: 3589264004557943791}
   - component: {fileID: 6191747615978889335}
-  - component: {fileID: 5284291369077129844}
   - component: {fileID: 4311184331911644254}
+  - component: {fileID: 4331624555091575914}
   m_Layer: 12
   m_Name: Chopping_Board
   m_TagString: Untagged
@@ -108,7 +108,18 @@ MonoBehaviour:
   m_allowMultipleGrabbers: 1
   m_afterGrabbed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4331624555091575914}
+        m_MethodName: PlayTakeSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_beforeRelease:
     m_PersistentCalls:
       m_Calls: []
@@ -129,27 +140,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 10
+  m_Constraints: 90
   m_CollisionDetection: 0
---- !u!114 &5284291369077129844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4588714637264158044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df5b45a747f2a56449d66d4ca3233e82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goalType: 0
-  outline: {fileID: 0}
-  InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
-  hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
-  afteInteract:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &4311184331911644254
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -163,3 +155,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 39.73629, y: 2.3646944, z: 61.696106}
   m_Center: {x: 0.0000019073489, y: 1.1823372, z: -0.004015923}
+--- !u!114 &4331624555091575914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588714637264158044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d7bdce62dd83748956f81fda43980c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalType: 8
+  FirstInit: 0
+  outline: {fileID: 0}
+  InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
+  hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
+  afteInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  handAnim: 0
+  isWashed: 0
+  washTime: 3
+  takeSound: 
+  dropSound: 
+  interactSound: 
