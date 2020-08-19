@@ -11,7 +11,7 @@ public class CookPotController : InteractableObjBase
     private List<InteractableObjBase> FoodMats;
 
     [SerializeField]
-    private GameObject Soup;
+    private CookLadleController Ladle;
 
     [SerializeField]
     private Animator CookAnim;
@@ -19,15 +19,19 @@ public class CookPotController : InteractableObjBase
     [SerializeField]
     private Animator CookUI;
 
+    [SerializeField]
+    private ParticleSystem cookdone;
+
     private Coroutine _coutdownCoro;
-    private int time;
+    private int timer;
 
     List<Vector3> FoodMatPos = new List<Vector3>();
     List<Quaternion> FoodMatRot = new List<Quaternion>();
 
     public override void Set()
     {
-        time = 0;
+        timer = 0;
+        cookdone.Stop();
         FoodMatPos.Clear();
         FoodMatRot.Clear();
         base.Set();
@@ -119,20 +123,40 @@ public class CookPotController : InteractableObjBase
         if (value)
         {
             OnCook(true);
+            if (_coutdownCoro != null)
+                StopCoroutine(_coutdownCoro);
+
+            _coutdownCoro = StartCoroutine(CoundownTimer(10, 15));
         }
         else
         {
+            if (10 <= timer && timer <= 15)
+            {
+                cookdone.Play();
+                QuestManager.Instance.AddQuestCurrentAmount(goalType);
+            }
+            
             OnCook(false);
-            time = 0;
+
+            if (_coutdownCoro != null)
+                StopCoroutine(_coutdownCoro);
         }
     }
 
-    IEnumerator CoundownTimer(int max)
+    IEnumerator CoundownTimer(int cooked, int overcook)
     {
-        while (time <= max)
+        while (timer <= cooked)
         {
             yield return new WaitForSeconds(1f);
-            time++;
+            CookUI.SetFloat("CookTime", timer / cooked);
+            timer++;
+        }
+        Ladle.HaveRice(true);
+        while (timer <= overcook)
+        {
+            yield return new WaitForSeconds(1f);
+            CookUI.SetFloat("CookTime", timer / cooked);
+            timer++;
         }
     }
 }

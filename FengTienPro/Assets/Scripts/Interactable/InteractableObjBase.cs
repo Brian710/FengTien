@@ -1,4 +1,5 @@
 ﻿using HTC.UnityPlugin.ColliderEvent;
+using HTC.UnityPlugin.Vive;
 using System;
 using System.Collections;
 using UnityEditor;
@@ -19,6 +20,9 @@ public class InteractableObjBase : MonoBehaviour
 
     [SerializeField]
     protected QuickOutline outline;
+
+    [SerializeField]
+    private BasicGrabbable grabFunc;
 
     public Color InteractColor = new Color(0, .74f, .74f, 1);
     public Color hintColor = new Color(1, 0.8f, .28f, 1); // quick outline default hint color
@@ -48,13 +52,28 @@ public class InteractableObjBase : MonoBehaviour
     }
 
     public virtual void Set()
-    { 
-    
+    {
+        if (grabFunc == null)
+            grabFunc = GetComponent<BasicGrabbable>();
+
+        grabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
+        grabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
+
+    }
+
+    private void GrabFunc_afterGrabberGrabbed()
+    {
+        PlayerController.instance.RightHand.HandAnimChange(handAnim);
+    }
+    private void GrabFunc_beforeGrabberReleased()
+    {
+        PlayerController.instance.RightHand.HandAnimChange(HandAnim.Normal);
     }
 
     public virtual void Remove()
     {
-
+        grabFunc.afterGrabberGrabbed -= GrabFunc_afterGrabberGrabbed;
+        grabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
     }
 
     public void OnColliderEventHoverEnter(ColliderHoverEventData eventData) => ShowInteractColor(true);

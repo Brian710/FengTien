@@ -1,18 +1,30 @@
-﻿using System.Collections;
+﻿using HTC.UnityPlugin.Vive;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookLadleController : MonoBehaviour
+public class CookLadleController : InteractableObjBase
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private GameObject On;
+
+    [SerializeField]
+    private BasicGrabbable grabFunc;
+
+    public override void Set()
     {
+        base.Set();
         
+        if (grabFunc == null)
+            grabFunc = GetComponent<BasicGrabbable>();
+
+        HaveRice(false);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void HaveRice(bool value)
     {
-        
+        On.SetActive(value);
+        grabFunc.enabled = value;
     }
 }

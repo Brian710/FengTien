@@ -131,25 +131,25 @@ MonoBehaviour:
   - id: score_backtohome
     chinese: "\u56DE\u9996\u9801"
     english: "(en)\u56DE\u9996\u9801"
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
+  - id: feed_btnzeore
+    chinese: "\u963F\u516C\uFF0C\u5403\u98EF\u4E86"
+    english: "(en)\u963F\u516C\uFF0C\u5403\u98EF\u4E86"
+  - id: feed_btnone
+    chinese: "\u963F\u516C\uFF0C\u5403\u4E00\u53E3\u770B\u770B\u6703\u4E0D\u6703\u592A\u71D9\uFF1F"
+    english: "(en)\u963F\u516C\uFF0C\u5403\u4E00\u53E3\u770B\u770B\u6703\u4E0D\u6703\u592A\u71D9\uFF1F"
+  - id: feed_btntwo
+    chinese: "\u5473\u9053\u9084\u53EF\u4EE5\u55CE\uFF1F"
+    english: "(en)\u5473\u9053\u9084\u53EF\u4EE5\u55CE\uFF1F"
+  - id: feed_btnthree
+    chinese: "\u6162\u6162\u5403\u5594\uFF0C\u4E0D\u8981\u6025\u3002"
+    english: "(en)\u6162\u6162\u5403\u5594\uFF0C\u4E0D\u8981\u6025\u3002"
+  - id: feed_btnfour
+    chinese: "\u6162\u6162\u541E"
+    english: "(en)\u6162\u6162\u541E"
+  - id: feed_btnfive
+    chinese: "\u518D\u591A\u5403\u4E00\u9EDE\u624D\u5065\u5EB7\u3002"
+    english: "(en)\u518D\u591A\u5403\u4E00\u9EDE\u624D\u5065\u5EB7\u3002"
+  - id: feed_title
     chinese: 
     english: 
   - id: 

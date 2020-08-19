@@ -18,7 +18,7 @@ public class ClicktoPosBase : InteractableObjBase
 
     public ColliderButtonEventData.InputButton activeButton { get { return m_activeButton; } set { m_activeButton = value; } }
 
-    public void GotoTargetPos()
+    public virtual void GotoTargetPos()
     {
         if (moveObj == null || targetPos == null)
             return;
