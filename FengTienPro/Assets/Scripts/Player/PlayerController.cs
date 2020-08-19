@@ -47,11 +47,9 @@ public class PlayerController : MonoBehaviour
 
     public bool EnableLeftTeleport { get; set; } = true;
 
-    [SerializeField]
-    private HandAnimManager RightHand;
+    public HandAnimManager RightHand;
 
-    [SerializeField]
-    private HandAnimManager LeftHand;
+    public HandAnimManager LeftHand;
 
     [SerializeField]
     private ControllerButton HandAnimControlBtn;
@@ -173,6 +171,7 @@ public class PlayerController : MonoBehaviour
         }
          
         CompletedAnim.SetTrigger("Done");
+        AudioManager.Instance.Play("StepFinish");
     }
 
 

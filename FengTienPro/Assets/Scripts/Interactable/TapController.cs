@@ -30,34 +30,42 @@ public class TapController : InteractableObjBase
 
     public void OnTriggerEnter(Collider other)
     {
-        if (PartSys)
-            PartSys.Play(true);
-        
-        SetLightColor(true);
-
-        if (_coroutine != null)
-            StopCoroutine(_coroutine);
-
+        TapOn(true);
         _IWashable = other.gameObject.GetComponent<IWashable>();
-        int washtime = _IWashable  == null ? 3 : _IWashable.WashTime();
-            
-        _coroutine = StartCoroutine(CountDownSecond(washtime));
+        
      }
 
     public void OnTriggerExit(Collider other)
     {
-        SetLightColor(false);
+        TapOn(false);
+        if (StepCompleted && _IWashable != null)
+            _IWashable.IsWashed(true);
+
+        _IWashable = null;
+    }
+
+    public void TapOn(bool value)
+    {
+        SetLightColor(value);
 
         if (PartSys)
-            PartSys.Stop(true);
+        {
+            if (value)
+            {
+                PartSys.Play(true);
+            }
+            else
+            {
+                PartSys.Stop(true);
+            }
+        }
 
         if (_coroutine != null)
             StopCoroutine(_coroutine);
 
-        if(StepCompleted&& _IWashable != null)
-            _IWashable.IsWashed(true);
-
-        _IWashable = null;
+        int washtime = _IWashable == null ? 3 : _IWashable.WashTime();
+        if (value)
+            _coroutine = StartCoroutine(CountDownSecond(washtime));
     }
 
     private void OnTriggerStay(Collider other)

@@ -18,5 +18,6 @@ public class HotWaterController : InteractableObjBase
      
         partSys.Play(true);
         glassAnim.SetBool("full", true);
+        AudioManager.Instance.Play("Water_fall");
     }
 }

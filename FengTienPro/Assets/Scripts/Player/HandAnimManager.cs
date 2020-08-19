@@ -25,7 +25,7 @@ public class HandAnimManager : MonoBehaviour,IWashable
 
     private void Start()
     {
-        handAnim = HandAnim.normal;
+        handAnim = HandAnim.Normal;
         washTime = 3;
         isWashed = false;
     }
@@ -43,7 +43,7 @@ public class HandAnimManager : MonoBehaviour,IWashable
 
     public void NormalAnimUpdate(float inputAxis)
     {
-        if (handAnim == HandAnim.normal)
+        if (handAnim == HandAnim.Normal)
         {
             animator.SetFloat("Rotation", Mathf.Abs(inputAxis));
         }

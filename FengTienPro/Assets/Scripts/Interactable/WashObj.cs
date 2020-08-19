@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using HTC.UnityPlugin.Vive;
+using UnityEngine;
 
 public class WashObj : InteractableObjBase,IWashable
 {
@@ -8,16 +9,40 @@ public class WashObj : InteractableObjBase,IWashable
     private bool isWashed;
     [SerializeField]
     private int washTime;
+    [SerializeField]
+    private BasicGrabbable grabFunc;
+
 
     public string takeSound;
     public string dropSound;
     public string interactSound;
-
+    
     public override void Set()
     {
         base.Set();
+        if (grabFunc == null)
+            grabFunc = GetComponent<BasicGrabbable>();
+
         ShowHintColor(true);
+        grabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
+        grabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
     }
+
+    public override void Remove()
+    {
+        base.Remove();
+        grabFunc.afterGrabberGrabbed -= GrabFunc_afterGrabberGrabbed;
+        grabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
+    }
+    private void GrabFunc_afterGrabberGrabbed()
+    {
+        PlayerController.instance.RightHand.HandAnimChange(handAnim);
+    }
+    private void GrabFunc_beforeGrabberReleased()
+    {
+        PlayerController.instance.RightHand.HandAnimChange(HandAnim.Normal);
+    }
+
     public void PlayTakeSound()
     {
         if (takeSound != "")

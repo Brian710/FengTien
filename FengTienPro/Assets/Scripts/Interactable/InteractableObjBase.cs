@@ -1,6 +1,7 @@
 ﻿using HTC.UnityPlugin.ColliderEvent;
 using System;
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 public class InteractableObjBase : MonoBehaviour
@@ -39,28 +40,24 @@ public class InteractableObjBase : MonoBehaviour
 
     private void OnDisable()
     {
-        
+        Remove();
     }
 
     public virtual void Set()
     { 
     
     }
-    
-    public void OnColliderEventHoverEnter(ColliderHoverEventData eventData)
+
+    public virtual void Remove()
     {
-        ShowInteractColor(true);
+
     }
 
-    public void OnColliderEventHoverExit(ColliderHoverEventData eventData)
-    {
-        ShowInteractColor(false);
-    }
+    public void OnColliderEventHoverEnter(ColliderHoverEventData eventData) => ShowInteractColor(true);
 
-    public virtual void ShowInteractColor(bool value)
-    {
-        ShowOutline(value, InteractColor);
-    }
+    public void OnColliderEventHoverExit(ColliderHoverEventData eventData) => ShowInteractColor(false);
+
+    public virtual void ShowInteractColor(bool value) => ShowOutline(value, InteractColor);
 
     public virtual void ShowHintColor(bool value)
     {
@@ -76,7 +73,6 @@ public class InteractableObjBase : MonoBehaviour
         if (outline.enabled)
             outline.OutlineColor = color;
     }
-
 
     public virtual void ShowError()
     {

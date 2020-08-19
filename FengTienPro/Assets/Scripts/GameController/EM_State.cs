@@ -84,7 +84,7 @@ public enum ObjActMode
 [System.Serializable]
 public enum HandAnim
 {
-    normal,
+    Normal,
     Knife,
     SoupLandle,
     Board,
