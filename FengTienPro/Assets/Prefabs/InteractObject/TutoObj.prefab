@@ -187,15 +187,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d456f12f637c3947ad042b2667c254d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalType: 0
+  goalType: 1
+  handAnim: 3
   FirstInit: 0
-  outline: {fileID: 0}
+  outline: {fileID: 402268982784124914}
   InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
   hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
   afteInteract:
     m_PersistentCalls:
       m_Calls: []
-  handAnim: 0
   takeSound: 
   dropSound: 
   interactSound: 

@@ -218,18 +218,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 7859354862391050616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4907418102ce54f4393500f809c74104, type: 3}
+  m_Script: {fileID: 11500000, guid: 92d7bdce62dd83748956f81fda43980c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalType: 12
-  outline: {fileID: 2614228102851399874}
+  goalType: 0
+  FirstInit: 0
+  outline: {fileID: 0}
   InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
   hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
   afteInteract:
     m_PersistentCalls:
       m_Calls: []
-  grabData: {fileID: 0}
   handAnim: 0
+  isWashed: 0
+  washTime: 0
+  grabFunc: {fileID: 0}
   takeSound: 
   dropSound: 
   interactSound: 

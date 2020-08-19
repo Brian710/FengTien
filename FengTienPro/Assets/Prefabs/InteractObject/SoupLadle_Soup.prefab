@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalType: 8
+  handAnim: 2
   FirstInit: 0
   outline: {fileID: 0}
   InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
@@ -227,9 +228,9 @@ MonoBehaviour:
   afteInteract:
     m_PersistentCalls:
       m_Calls: []
-  handAnim: 0
   isWashed: 0
   washTime: 3
+  grabFunc: {fileID: 0}
   takeSound: 
   dropSound: 
   interactSound: 

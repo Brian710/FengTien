@@ -2,9 +2,6 @@
 
 public class TutoObj : InteractableObjBase
 {
-    [SerializeField]
-    private HandAnim handAnim;
-
     public string takeSound;
     public string dropSound;
     public string interactSound;

@@ -10,6 +10,10 @@ public class InteractableObjBase : MonoBehaviour
 {
 
     public Goal.Type goalType;
+
+    [SerializeField]
+    protected HandAnim handAnim;
+
     [SerializeField]
     private bool FirstInit = false;
 

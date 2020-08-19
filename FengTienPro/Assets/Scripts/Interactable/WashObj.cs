@@ -4,8 +4,6 @@ using UnityEngine;
 public class WashObj : InteractableObjBase,IWashable
 {
     [SerializeField]
-    private HandAnim handAnim;
-    [SerializeField]
     private bool isWashed;
     [SerializeField]
     private int washTime;
@@ -16,12 +14,18 @@ public class WashObj : InteractableObjBase,IWashable
     public string takeSound;
     public string dropSound;
     public string interactSound;
-    
+    private void Awake()
+    {
+        if (grabFunc == null)
+            grabFunc = GetComponent<BasicGrabbable>();
+
+        if (outline == null)
+            outline = GetComponent<QuickOutline>();
+    }
     public override void Set()
     {
         base.Set();
-        if (grabFunc == null)
-            grabFunc = GetComponent<BasicGrabbable>();
+        
 
         ShowHintColor(true);
         grabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;

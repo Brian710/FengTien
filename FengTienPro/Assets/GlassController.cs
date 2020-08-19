@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GlassController : WashObj
+public class GlassController : InteractableObjBase
 {
     [SerializeField]
     private Animator glassAnim;
@@ -16,7 +16,7 @@ public class GlassController : WashObj
         if (!glassAnim.GetBool("full"))
             return;
 
-        if(Mathf.Abs(transform.rotation.x) >= 0.3 ||Mathf.Abs(transform.rotation.z) >= 0.3)
+        if(Mathf.Abs(transform.rotation.x) >= 0.2  ||Mathf.Abs(transform.rotation.z) >= 0.2)
             glassAnim.SetBool("full", false);
     }
 }

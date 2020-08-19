@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalType: 0
+  FirstInit: 0
   outline: {fileID: 0}
   InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
   hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
@@ -20,6 +21,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   handAnim: 0
+  isWashed: 0
+  washTime: 0
+  grabFunc: {fileID: 0}
   takeSound: 
   dropSound: 
   interactSound: 
@@ -134,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalType: 0
+  FirstInit: 0
   outline: {fileID: 6903023255973749902}
   InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
   hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
@@ -9651,6 +9656,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2614228102851399876, guid: c16c3843adf81bb4aab8536c780ae600,
+        type: 3}
+      propertyPath: m_afterGrabbed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7859354862390697304, guid: c16c3843adf81bb4aab8536c780ae600,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9711,7 +9721,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glass_Water
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2614228102851399875, guid: c16c3843adf81bb4aab8536c780ae600, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c16c3843adf81bb4aab8536c780ae600, type: 3}
 --- !u!1 &6903023255248158283 stripped
 GameObject:
