@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class manClothController : ClicktoInteract
+public class ManClothController : ClicktoInteract
 {
    
 }

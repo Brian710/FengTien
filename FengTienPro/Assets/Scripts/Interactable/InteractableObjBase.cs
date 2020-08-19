@@ -1,8 +1,6 @@
 ﻿using HTC.UnityPlugin.ColliderEvent;
 using HTC.UnityPlugin.Vive;
-using System;
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 public class InteractableObjBase : MonoBehaviour
@@ -65,6 +63,7 @@ public class InteractableObjBase : MonoBehaviour
     {
         PlayerController.instance.RightHand.HandAnimChange(handAnim);
     }
+
     private void GrabFunc_beforeGrabberReleased()
     {
         PlayerController.instance.RightHand.HandAnimChange(HandAnim.Normal);

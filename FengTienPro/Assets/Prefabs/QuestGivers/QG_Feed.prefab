@@ -637,7 +637,7 @@ RectTransform:
   m_Children:
   - {fileID: 918780381}
   m_Father: {fileID: 1327487816}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -1116,7 +1116,7 @@ RectTransform:
   m_Children:
   - {fileID: 566295623}
   m_Father: {fileID: 1327487816}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -1888,11 +1888,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1414166712}
-  - {fileID: 2063545324}
-  - {fileID: 1938825394}
-  - {fileID: 144380793}
-  - {fileID: 573449885}
   - {fileID: 453113077}
+  - {fileID: 573449885}
+  - {fileID: 144380793}
+  - {fileID: 1938825394}
+  - {fileID: 2063545324}
   m_Father: {fileID: 789082938}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2566,7 +2566,7 @@ RectTransform:
   m_Children:
   - {fileID: 625950836}
   m_Father: {fileID: 1327487816}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -3118,7 +3118,7 @@ RectTransform:
   m_Children:
   - {fileID: 477337853}
   m_Father: {fileID: 1327487816}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -3726,17 +3726,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfdb3ac3fbcc324c9e1a8d2fd8045bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questBtn: {fileID: 0}
+  questBtn: {fileID: 533224044}
   questName: 6
-  questDescription: 03
+  questDescription: 06
   isSingle: 1
   questScore: 0
   goals:
-  - {fileID: 11400000, guid: 98c73d614d7a4bc4b8808e69a8355464, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 5a2fb52fb8053e340be83a1d498cac35, type: 2}
+  - {fileID: 11400000, guid: a5a3c77c20538c5428ea99372fa045d4, type: 2}
+  - {fileID: 11400000, guid: 175b66b592c947443b0a01a24a0ca2b8, type: 2}
+  - {fileID: 11400000, guid: 3ccb6916602e6ae4689fa0328c1240d0, type: 2}
   gameObjects:
   - {fileID: 0}
   _quest:

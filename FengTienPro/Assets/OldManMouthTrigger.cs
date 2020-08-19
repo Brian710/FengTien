@@ -8,7 +8,7 @@ public class OldManMouthTrigger : MonoBehaviour
     private Animator EatAnim;
 
     [SerializeField]
-    public GameObject FeedCanV;
+    public FeedCanV FeedCanV;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,7 +16,7 @@ public class OldManMouthTrigger : MonoBehaviour
         {
             EatAnim.SetTrigger("EatState");
             other.gameObject.GetComponent<SpoonController>().HaveMat(false);
-            FeedCanV.SetActive(true);
+            FeedCanV.CanvusOn(true);
         }
     }
 }

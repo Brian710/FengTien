@@ -149,9 +149,9 @@ MonoBehaviour:
   - id: feed_btnfive
     chinese: "\u518D\u591A\u5403\u4E00\u9EDE\u624D\u5065\u5EB7\u3002"
     english: "(en)\u518D\u591A\u5403\u4E00\u9EDE\u624D\u5065\u5EB7\u3002"
-  - id: feed_title
-    chinese: 
-    english: 
+  - id: feed_top
+    chinese: "\u8DDF\u963F\u516C\u8AAA\u8AAA\u8A71\u5427\uFF01\n(\u4F9D\u7167\u9806\u5E8F\u586B\u5165)"
+    english: "(en)\u8DDF\u963F\u516C\u8AAA\u8AAA\u8A71\u5427\uFF01\n(\u4F9D\u7167\u9806\u5E8F\u586B\u5165)"
   - id: 
     chinese: 
     english: 

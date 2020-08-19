@@ -1,7 +1,4 @@
-﻿using HTC.UnityPlugin.Vive;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SoupBowlController :ClicktoPosBase
 {

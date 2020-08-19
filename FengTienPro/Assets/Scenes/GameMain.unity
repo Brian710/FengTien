@@ -99810,7 +99810,7 @@ GameObject:
   - component: {fileID: 3247673594149812585}
   - component: {fileID: 3247673594149812584}
   m_Layer: 12
-  m_Name: Soupl_Bowl
+  m_Name: Soup_Bowl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112107,7 +112107,7 @@ PrefabInstance:
     - target: {fileID: 6754492896478998328, guid: 729e0ff799c4a1a408428eb40003f9be,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00032969617
+      value: -0.00025959767
       objectReference: {fileID: 0}
     - target: {fileID: 6754492896495647066, guid: 729e0ff799c4a1a408428eb40003f9be,
         type: 3}
@@ -116524,7 +116524,6 @@ MonoBehaviour:
       m_Calls: []
   isWashed: 0
   washTime: 3
-  grabFunc: {fileID: 0}
   takeSound: 
   dropSound: 
   interactSound: 

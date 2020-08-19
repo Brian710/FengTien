@@ -9,19 +9,19 @@ using System;
 public class OptionalSystemBase : MonoBehaviour
 {
     [SerializeField]
-    private Goal.Type goalType;
+    protected Goal.Type goalType;
     [SerializeField]
-    private GameObject optionPanel;
+    protected GameObject optionPanel;
     [SerializeField]
-    private GameObject quizPanel;
+    protected GameObject quizPanel;
     [SerializeField]
-    private Button confirmBtn;
+    protected Button confirmBtn;
 
-    private List<Button> options;
-    private List<QuizData> quizDatas;
-    private List<string> hintText;
+    protected List<Button> options;
+    protected List<QuizData> quizDatas;
+    protected List<string> hintText;
 
-    private MainMode gameMode;
+    protected MainMode gameMode;
 
     private void OnEnable()
     {
@@ -75,7 +75,7 @@ public class OptionalSystemBase : MonoBehaviour
         }
     }
 
-    private void QuizDatasInit()
+    public virtual void QuizDatasInit()
     {
         if (quizPanel == null)
         {
@@ -128,8 +128,8 @@ public class OptionalSystemBase : MonoBehaviour
        
     }
     #endregion
-    
-    private void OptBtnOnclick(int index)
+
+    public void OptBtnOnclick(int index)
     {
         options[index].GetComponent<CanvasGroup>().alpha = 0;
         options[index].interactable = false;
@@ -148,7 +148,7 @@ public class OptionalSystemBase : MonoBehaviour
         }
     }
 
-    private void QuizBtnOnclick(int index)
+    public void QuizBtnOnclick(int index)
     {
         quizDatas[index].button.interactable = false;
         options[quizDatas[index].optIndex].GetComponent<CanvasGroup>().alpha = 1;
@@ -177,7 +177,7 @@ public class OptionalSystemBase : MonoBehaviour
             {
                 if (gameMode == MainMode.Train)
                 {
-                    StartCoroutine(WrongAns(data.button.GetComponentInChildren<Text>().color));
+                    StartCoroutine(WrongAns(data.button.GetComponentInChildren<Text>()));
                     return;
                 }
                 else
@@ -195,14 +195,14 @@ public class OptionalSystemBase : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private IEnumerator WrongAns(Color color)
+    protected IEnumerator WrongAns(Text text)
     {
         int i = 0;
         while (i < 5)
         {
-            color = Color.red;
+            text.color = Color.red;
             yield return new WaitForSeconds(.5f);
-            color = Color.black;
+            text.color = Color.black;
             yield return new WaitForSeconds(.5f);
             i++;
         }
