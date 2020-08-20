@@ -5,13 +5,10 @@ using UnityEngine.EventSystems;
 
 public class TeleportControllerBase : Teleportable
 {
-    [SerializeField]
-    protected ParticleSystem defaultFX;
-    [SerializeField]
-    protected ParticleSystem FX_On;
+    [SerializeField]    protected ParticleSystem defaultFX;
+    [SerializeField]    protected ParticleSystem FX_On;
 
-    [SerializeField]
-    protected bool isActive;
+    [SerializeField]    protected bool isActive;
     
     public Quest.Name questName;
 

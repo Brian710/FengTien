@@ -202,6 +202,7 @@ MonoBehaviour:
   handAnim: 1
   FirstInit: 0
   outline: {fileID: 5730204642784572850}
+  grabFunc: {fileID: 4365667640480620345}
   InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
   hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
   afteInteract:
@@ -209,7 +210,6 @@ MonoBehaviour:
       m_Calls: []
   isWashed: 0
   washTime: 3
-  grabFunc: {fileID: 0}
   takeSound: 
   dropSound: 
   interactSound: 

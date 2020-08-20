@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class FeedCanV : OptionalSystemBase
 {
-    [SerializeField]
-    CanvasGroup canvasGroup;
+    public CanvasGroup canvasGroup;
     public override void ConfirmBtn()
     {
         bool IfRight = true;
@@ -20,26 +19,27 @@ public class FeedCanV : OptionalSystemBase
                     if (gameMode == MainMode.Train)
                     {
                         StartCoroutine(WrongAns(data.button.GetComponentInChildren<Text>()));
-                        break;
                     }
                     else
                     {
                         IfRight = false;
-                        break;
                     }
                 }
+                else
+                {
+                    data.button.transform.SetAsFirstSibling();
+                }
+                break;
             }
             i++;
         }
-
         int s = IfRight ? 0 : 1;
-
-        QuestManager.Instance.AddQuestCurrentAmount(goalType);
+        
         QuestManager.Instance.MinusQuestScore(s);
-        CanvusOn(false);
+        CanvasOn(false);
     }
 
-    public void CanvusOn(bool value)
+    public void CanvasOn(bool value)
     {
         if (canvasGroup)
         {
@@ -76,6 +76,27 @@ public class FeedCanV : OptionalSystemBase
                 data.optIndex = -1;
                 quizDatas.Add(data);
                 i--;
+            }
+        }
+    }
+
+    public override void OptBtnOnclick(int index)
+    {
+        options[index].GetComponent<CanvasGroup>().alpha = 0;
+        options[index].interactable = false;
+
+        QuizData quizData;
+        for (int i = 4; i >= 0; i--)
+        {
+            quizData = quizDatas[i];
+            if (!quizData.button.interactable)
+            {
+                quizData.optIndex = index;
+                quizData.button.interactable = true;
+                quizData.button.targetGraphic = options[index].GetComponent<Image>();
+                quizData.button.GetComponentInChildren<Text>().text = options[index].GetComponentInChildren<Text>().text;
+                quizData.button.GetComponentInChildren<Text>().color = Color.black;
+                return;
             }
         }
     }

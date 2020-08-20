@@ -8,9 +8,6 @@ public class CookLadleController : InteractableObjBase
     [SerializeField]
     private GameObject On;
 
-    [SerializeField]
-    private BasicGrabbable grabFunc;
-
     public override void Set()
     {
         base.Set();

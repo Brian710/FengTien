@@ -68,6 +68,15 @@ public class QuestGiver : MonoBehaviour
             g.SetActive(value);
         }
     }
+
+    public void ReopenQuest()
+    {
+        SetQuestLoc(false);
+        SetQuestLoc(true);
+    }
+
+    
+
     //quest status will change this status too
     public void UpdateStatus(Quest.Status es)
     {

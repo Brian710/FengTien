@@ -14,19 +14,27 @@ public class InteractableObjBase : MonoBehaviour
     protected HandAnim handAnim;
 
     [SerializeField]
-    private bool FirstInit = false;
+    protected bool FirstInit = false;
 
     [SerializeField]
     protected QuickOutline outline;
 
     [SerializeField]
-    private BasicGrabbable grabFunc;
+    protected BasicGrabbable grabFunc;
 
     public Color InteractColor = new Color(0, .74f, .74f, 1);
     public Color hintColor = new Color(1, 0.8f, .28f, 1); // quick outline default hint color
 
     public UnityEvent afteInteract;
-
+    public virtual void Awake()
+    {
+        outline = GetComponent<QuickOutline>();
+        grabFunc = GetComponent<BasicGrabbable>();
+        if (outline == null) 
+        {
+            outline = gameObject.AddComponent(typeof(QuickOutline)) as QuickOutline;
+        }
+    }
     private void Start()
     {
         if (outline)
@@ -41,6 +49,9 @@ public class InteractableObjBase : MonoBehaviour
 
     private void OnEnable()
     {
+        if (!FirstInit)
+            return;
+
         Set();
     }
 
@@ -51,28 +62,30 @@ public class InteractableObjBase : MonoBehaviour
 
     public virtual void Set()
     {
-        if (grabFunc == null)
-            grabFunc = GetComponent<BasicGrabbable>();
-
-        grabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
-        grabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
-
+        if (grabFunc != null)
+        {
+            grabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
+            grabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
+        }
     }
 
-    private void GrabFunc_afterGrabberGrabbed()
+    public virtual void GrabFunc_afterGrabberGrabbed()
     {
         PlayerController.instance.RightHand.HandAnimChange(handAnim);
     }
 
-    private void GrabFunc_beforeGrabberReleased()
+    public virtual void GrabFunc_beforeGrabberReleased()
     {
         PlayerController.instance.RightHand.HandAnimChange(HandAnim.Normal);
     }
 
     public virtual void Remove()
     {
-        grabFunc.afterGrabberGrabbed -= GrabFunc_afterGrabberGrabbed;
-        grabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
+        if (grabFunc != null)
+        {
+            grabFunc.afterGrabberGrabbed -= GrabFunc_afterGrabberGrabbed;
+            grabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
+        }
     }
 
     public void OnColliderEventHoverEnter(ColliderHoverEventData eventData) => ShowInteractColor(true);

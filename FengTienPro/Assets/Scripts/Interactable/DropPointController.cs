@@ -6,6 +6,8 @@ using UnityEngine;
 public class DropPointController : CheckPointBase
 {
     public MultiSpawnObjOnTriggerExit resetObject;
+
+    [SerializeField] private WashObj WashedObj;
     public override void Start()
     {
         ShowParticle(true);
@@ -13,9 +15,11 @@ public class DropPointController : CheckPointBase
 
     public override void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<InteractableObjBase>().goalType == Goal.Type.WashObj)
+        WashedObj = other.gameObject.GetComponent<WashObj>();
+        if (WashedObj != null)
         {
             QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.WashObj);
+            WashedObj.SetGrabble(false);
             onTriggerEnter.Invoke();
         }
         else

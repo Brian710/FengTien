@@ -129,20 +129,20 @@ public class OptionalSystemBase : MonoBehaviour
     }
     #endregion
 
-    public void OptBtnOnclick(int index)
+    public virtual void OptBtnOnclick(int index)
     {
         options[index].GetComponent<CanvasGroup>().alpha = 0;
         options[index].interactable = false;
 
-        foreach (QuizData quizDatas in quizDatas)
+        foreach (QuizData quizData in quizDatas)
         {
-            if (!quizDatas.button.interactable)
+            if (!quizData.button.interactable)
             {
-                quizDatas.optIndex = index;
-                quizDatas.button.interactable = true;
-                quizDatas.button.targetGraphic = options[index].GetComponent<Image>();
-                quizDatas.button.GetComponentInChildren<Text>().text = options[index].GetComponentInChildren<Text>().text;
-                quizDatas.button.GetComponentInChildren<Text>().color = Color.black;
+                quizData.optIndex = index;
+                quizData.button.interactable = true;
+                quizData.button.targetGraphic = options[index].GetComponent<Image>();
+                quizData.button.GetComponentInChildren<Text>().text = options[index].GetComponentInChildren<Text>().text;
+                quizData.button.GetComponentInChildren<Text>().color = Color.black;
                 return;
             }
         }

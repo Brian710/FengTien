@@ -32,7 +32,6 @@ public class TapController : InteractableObjBase
     {
         TapOn(true);
         _IWashable = other.gameObject.GetComponent<IWashable>();
-        
      }
 
     public void OnTriggerExit(Collider other)

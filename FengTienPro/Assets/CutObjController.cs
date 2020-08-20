@@ -11,6 +11,7 @@ public class CutObjController : InteractableObjBase
     public override void Set()
     {
         CutNum = 0;
+        ShowHintColor(true);
         Trans.SetInteger("CutNum", CutNum);
     }
 
@@ -35,8 +36,8 @@ public class CutObjController : InteractableObjBase
     IEnumerator DelaySetActive(bool value)
     {
         yield return new WaitForSeconds(1.5f);
-        gameObject.SetActive(false);
         ShowHintColor(false);
         afteInteract.Invoke();
+        gameObject.SetActive(false);
     }
 }

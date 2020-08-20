@@ -8,17 +8,7 @@
             defaultFX.Play(true);
             isActive = true;
         }
-    }
-    public override void OnEnable()
-    {
-        base.OnEnable();
         QuestGiver.OnQuestAcceptListener += ShowTeleport;
         QuestGiver.OnQuestCompleteListener += ShowTeleport;
-    }
-    public override void OnDisable()
-    {
-        base.OnDisable();
-        QuestGiver.OnQuestAcceptListener -= ShowTeleport;
-        QuestGiver.OnQuestCompleteListener -= ShowTeleport;
     }
 }

@@ -1,37 +1,44 @@
 ﻿using UnityEngine;
 
-public class WashObj : InteractableObjBase,IWashable
+public class WashObj : InteractableObjBase, IWashable
 {
     [SerializeField]
     private bool isWashed;
     [SerializeField]
     private int washTime;
-   
-
 
     public string takeSound;
     public string dropSound;
     public string interactSound;
-    private void Awake()
+
+    public override void Awake()
     {
+        base.Awake();
         if (outline == null)
             outline = GetComponent<QuickOutline>();
-    }
-    public override void Set()
-    {
-        base.Set();
 
-        ShowHintColor(true);
-        
+        goalType = Goal.Type.WashObj;
     }
+    public override void Set() => ShowHintColor(true);
 
     public override void Remove()
     {
         base.Remove();
     }
 
-    
+    public override void GrabFunc_afterGrabberGrabbed()
+    {
+        base.GrabFunc_afterGrabberGrabbed();
+        PlayTakeSound();
+    }
 
+    public void SetGrabble(bool value)
+    {
+        if (grabFunc == null)
+            return;
+
+        grabFunc.enabled = value;
+    }
     public void PlayTakeSound()
     {
         if (takeSound != "")
@@ -56,18 +63,18 @@ public class WashObj : InteractableObjBase,IWashable
         }
         AudioManager.Instance.Play(dropSound);
     }
-
     public bool IsWashed(bool value)
     {
+        if (isWashed == value)
+            return isWashed;
+
+        isWashed = value;
         return isWashed;
     }
-
     public int WashTime()
     {
-
         return washTime;
     }
-
     public override void InteractInvoke(bool value)
     {
     }

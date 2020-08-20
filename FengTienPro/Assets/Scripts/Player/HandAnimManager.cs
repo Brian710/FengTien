@@ -32,21 +32,17 @@ public class HandAnimManager : MonoBehaviour,IWashable
 
     public void HandAnimChange(HandAnim value)
     {
-        Debug.LogWarning((int)handAnim);
-        if (HandAnim != value)
-        {
-            HandAnim = value;
-        }
-        if(animator)
-            animator.SetInteger("HandAnim", (int)HandAnim);
+        if (HandAnim == value && animator == null) { return; }
+
+        HandAnim = value;
+        animator.SetInteger("HandAnim", (int)HandAnim);
     }
 
     public void NormalAnimUpdate(float inputAxis)
     {
-        if (handAnim == HandAnim.Normal)
-        {
-            animator.SetFloat("Rotation", Mathf.Abs(inputAxis));
-        }
+        if (handAnim != HandAnim.Normal) { return; }
+        
+        animator.SetFloat("Rotation", Mathf.Abs(inputAxis));
     }
     
     private void OnValidate()

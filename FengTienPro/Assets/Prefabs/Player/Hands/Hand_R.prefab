@@ -289,6 +289,7 @@ GameObject:
   - component: {fileID: 5188252993954396081}
   - component: {fileID: 4877712380673266030}
   - component: {fileID: 7349095249204969627}
+  - component: {fileID: 5309565671391324377}
   m_Layer: 0
   m_Name: Hand_R
   m_TagString: Untagged
@@ -352,7 +353,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 6701942193873503675, guid: 5be8531b36b7e5d49a9152491ff72476, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5be8531b36b7e5d49a9152491ff72476, type: 3}
   m_Bones:
   - {fileID: 9206098352282467953}
   - {fileID: 6980831412636428510}
@@ -394,7 +395,15 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 6701942193873503675, guid: 5be8531b36b7e5d49a9152491ff72476, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5be8531b36b7e5d49a9152491ff72476, type: 3}
+--- !u!33 &5309565671391324377
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3457149144365650956}
+  m_Mesh: {fileID: 4300000, guid: 5be8531b36b7e5d49a9152491ff72476, type: 3}
 --- !u!1 &4718217645396318429
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ namespace HTC.UnityPlugin.Vive
                     m_pool = new GrabberPool(() => new Grabber());
                 }
 
-                var grabber = m_pool.Get();
+                Grabber grabber = m_pool.Get();
                 grabber.eventData = eventData;
                 return grabber;
             }

@@ -392,11 +392,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questBtn: {fileID: 8140978114248362722}
   questName: 5
-  questDescription: 03
+  questDescription: 05
   isSingle: 1
-  questScore: 0
+  questScore: 5
   goals:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 008f6f6347faa654c882cb117cd15938, type: 2}
+  - {fileID: 11400000, guid: 49ed7b80c01472c4b8891ccd308084cf, type: 2}
+  - {fileID: 11400000, guid: 47ae821c948a7aa44aab3e0658cc4c93, type: 2}
   gameObjects:
   - {fileID: 0}
   _quest:

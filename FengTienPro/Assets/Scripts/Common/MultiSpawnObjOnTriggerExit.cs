@@ -43,6 +43,7 @@ public class MultiSpawnObjOnTriggerExit : MonoBehaviour
 
         obj.transform.localPosition = originPositionlist[obj];
         obj.transform.localRotation = originRotationlist[obj];
+        obj.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
     public void ForcetoReset(GameObject other)

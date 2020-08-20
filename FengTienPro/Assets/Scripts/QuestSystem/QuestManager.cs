@@ -149,4 +149,20 @@ public class QuestManager : MonoBehaviour
             }
         }
     }
+
+    public void ReopenQuestGiver()
+    {
+        foreach (Quest q in quests)
+        {
+            if (q.status == Quest.Status.CURRENT)
+            {
+                foreach (QuestGoal goal in q.goals)
+                {
+                    goal.currentAmount = 0;
+                }
+                q.giver.ReopenQuest();
+                break;
+            }
+        }
+    }
 }

@@ -88,7 +88,6 @@ public class CookPotController : InteractableObjBase
             InteractInvoke(true);
             other.gameObject.transform.position = FoodMatPos[4];
             other.gameObject.transform.rotation = FoodMatRot[4];
-            QuestManager.Instance.AddQuestCurrentAmount(goalType);
             goalType = Goal.Type.CookFood;
         }
         else
@@ -130,6 +129,9 @@ public class CookPotController : InteractableObjBase
         }
         else
         {
+            if (_coutdownCoro == null)
+                return;
+
             if (10 <= timer && timer <= 15)
             {
                 cookdone.Play();
@@ -140,6 +142,8 @@ public class CookPotController : InteractableObjBase
 
             if (_coutdownCoro != null)
                 StopCoroutine(_coutdownCoro);
+            if(timer > 15)
+                QuestManager.Instance.ReopenQuestGiver();
         }
     }
 
@@ -158,5 +162,6 @@ public class CookPotController : InteractableObjBase
             CookUI.SetFloat("CookTime", timer / cooked);
             timer++;
         }
+        CookCoutdown(false);
     }
 }
