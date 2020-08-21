@@ -23614,7 +23614,8 @@ MonoBehaviour:
         m_CallState: 2
   defaultFX: {fileID: 1524886892845774547}
   FX_On: {fileID: 1524886892197284840}
-  isActive: 0
+  isActive: 1
+  questName: 0
 --- !u!1 &8468541726413950957
 GameObject:
   m_ObjectHideFlags: 0

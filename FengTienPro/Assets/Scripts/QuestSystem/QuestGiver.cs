@@ -21,12 +21,6 @@ public class QuestGiver : MonoBehaviour
     private Quest _quest;
     public Quest quest { get { return _quest; } }
 
-    public delegate void OnQuestAcceptDelegate(bool active );
-    public static event OnQuestAcceptDelegate OnQuestAcceptListener;
-
-    public delegate void OnQuestCompleteDelegate(bool active);
-    public static event OnQuestCompleteDelegate OnQuestCompleteListener;
-
     private void Awake()
     {
         List<QuestGoal> newgoals = new List<QuestGoal>();
@@ -40,7 +34,7 @@ public class QuestGiver : MonoBehaviour
 
     private void Start()
     {
-        QuestManager.Instance.AddtoQuestlist(_quest);
+        //QuestManager.Instance.AddtoQuestlist(_quest);
     }
 
     public void OpenQuestWindow()
@@ -85,12 +79,16 @@ public class QuestGiver : MonoBehaviour
         {
             case Quest.Status.CHOOSABLE:
                 OpenQuestWindow();
+                TeleportManager.Instance.ShowTPbyGoal(quest.questName);
+                TeleportManager.Instance.ShowTPbyGoal(Quest.Name.None);
+                TeleportManager.Instance.ShowTPbyGoal(Quest.Name.Entrance);
                 break;
             case Quest.Status.CURRENT:
-                OnQuestAcceptListener?.Invoke(false);
+                TeleportManager.Instance.HideTPbyGoal(Quest.Name.None);
+                TeleportManager.Instance.HideTPbyGoal(Quest.Name.Entrance);
                 break;
             case Quest.Status.DONE:
-                OnQuestCompleteListener?.Invoke(true);
+                TeleportManager.Instance.ShowTPbyGoal(quest.questName);
                 SetQuestLoc(false);
                 break;
         }

@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 2614228102851399878}
   - component: {fileID: 2614228102851399877}
   - component: {fileID: 2614228102851399876}
-  - component: {fileID: 2614228102851399875}
   - component: {fileID: 2614228102851399874}
   m_Layer: 12
   m_Name: Glass_Water
@@ -192,7 +191,7 @@ MonoBehaviour:
   m_afterGrabbed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2614228102851399875}
+      - m_Target: {fileID: 0}
         m_MethodName: PlayTakeSound
         m_Mode: 1
         m_Arguments:
@@ -209,33 +208,6 @@ MonoBehaviour:
   m_onDrop:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2614228102851399875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7859354862391050616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92d7bdce62dd83748956f81fda43980c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goalType: 0
-  FirstInit: 0
-  outline: {fileID: 0}
-  InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
-  hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
-  afteInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  handAnim: 0
-  isWashed: 0
-  washTime: 0
-  grabFunc: {fileID: 0}
-  takeSound: 
-  dropSound: 
-  interactSound: 
 --- !u!114 &2614228102851399874
 MonoBehaviour:
   m_ObjectHideFlags: 0

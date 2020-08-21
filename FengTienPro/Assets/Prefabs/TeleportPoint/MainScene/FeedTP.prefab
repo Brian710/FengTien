@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348741729684454235}
-  m_LocalRotation: {x: -0, y: -0.38268343, z: -0, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: -2.6249998, y: 0.505, z: 5.064}
   m_LocalScale: {x: 1.5000019, y: 1.5000001, z: 1.5000019}
   m_Children:
@@ -75,22 +75,11 @@ MonoBehaviour:
       m_Calls: []
   onAfterTeleport:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OpenQuestWindow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   defaultFX: {fileID: 8174980109025124327}
   FX_On: {fileID: 8174980110478910172}
   isActive: 0
-  questName: 4
+  questName: 6
 --- !u!1 &1287022618315138777
 GameObject:
   m_ObjectHideFlags: 0

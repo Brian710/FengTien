@@ -12,8 +12,8 @@ public class ClicktoPosBase : InteractableObjBase
     [SerializeField]
     private ColliderButtonEventData.InputButton m_activeButton = ColliderButtonEventData.InputButton.Trigger;
 
-    private Vector3 ObjOriginPosition;
-    private Quaternion ObjOriginRotation;
+    protected Vector3 ObjOriginPosition;
+    protected Quaternion ObjOriginRotation;
     private HashSet<ColliderButtonEventData> pressingEvents = new HashSet<ColliderButtonEventData>();
 
     public ColliderButtonEventData.InputButton activeButton { get { return m_activeButton; } set { m_activeButton = value; } }
@@ -22,10 +22,9 @@ public class ClicktoPosBase : InteractableObjBase
     {
         if (moveObj == null || targetPos == null)
             return;
-
-        moveObj.transform.position = targetPos.position;
-        moveObj.transform.rotation = targetPos.rotation;
         moveObj.transform.SetParent(targetPos, false);
+        moveObj.transform.localPosition = Vector3.zero;
+        moveObj.transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 
     public void OnColliderEventClick(ColliderButtonEventData eventData)

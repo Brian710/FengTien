@@ -4,13 +4,16 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField]
-    private bool firstInit = true;
+    private bool firstInit;
 
     public Transform Content;
     public GameObject Item;
     public List<ScoreItem> itemDatas;
     private GameController gController;
-
+    private void Awake()
+    {
+        firstInit = true;
+    }
     public void Start()
     {
         gController = GameController.Instance;
@@ -20,14 +23,14 @@ public class ScoreManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if (firstInit|| gController.questList == null)
+            return;
+
         Set();
     }
 
     public void Set()
     {
-        if (gController.questList.Count == 0 ||firstInit)
-            return;
-
         if (Content.childCount != 0)
         {
             foreach (ScoreItem obj in Content.GetComponentsInChildren<ScoreItem>())

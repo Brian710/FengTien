@@ -40,7 +40,7 @@ namespace MinYanGame.Core
                 GameController.Instance.gameState = GameState.TutoInit;
             FirCanv.gameObject.SetActive(true);
             TutoTP.SetActive(false);
-            SecCanv.gameObject.SetActive(false);
+            SecCanv.transform.parent.gameObject.SetActive(false);
             GrabTuto.SetActive(false);
             StartCoroutine(SetCanvVisiable(FirCanv, true));
             StartCoroutine(GotoFirstStep());

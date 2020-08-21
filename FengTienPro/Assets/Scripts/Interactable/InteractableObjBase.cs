@@ -7,14 +7,13 @@ public class InteractableObjBase : MonoBehaviour
         , IColliderEventHoverEnterHandler
         , IColliderEventHoverExitHandler
 {
-
     public Goal.Type goalType;
 
     [SerializeField]
     protected HandAnim handAnim;
 
     [SerializeField]
-    protected bool FirstInit = false;
+    protected bool FirstInit;
 
     [SerializeField]
     protected QuickOutline outline;
@@ -34,6 +33,7 @@ public class InteractableObjBase : MonoBehaviour
         {
             outline = gameObject.AddComponent(typeof(QuickOutline)) as QuickOutline;
         }
+        FirstInit = true;
     }
     private void Start()
     {
@@ -44,12 +44,12 @@ public class InteractableObjBase : MonoBehaviour
             outline.enabled = false;
         }
         Set();
-        FirstInit = true;
+        FirstInit = false;
     }
 
     private void OnEnable()
     {
-        if (!FirstInit)
+        if (FirstInit)
             return;
 
         Set();
@@ -96,7 +96,7 @@ public class InteractableObjBase : MonoBehaviour
 
     public virtual void ShowHintColor(bool value)
     {
-        if (GameController.Instance.mode == MainMode.Train&& GameController.Instance.currentGoal.type == goalType)
+        if (GameController.Instance.mode == MainMode.Train && GameController.Instance.currentGoal.type == goalType)
         { 
             ShowOutline(value, hintColor);
         }

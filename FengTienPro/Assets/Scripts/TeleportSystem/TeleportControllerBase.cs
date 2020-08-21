@@ -78,7 +78,8 @@ public class TeleportControllerBase : Teleportable
 
         isActive = value;
     }
-    protected override void Reset()
+#if UNITY_EDITOR
+    public override void Reset()
     {
         base.Reset();
         if (transform.childCount >= 2)
@@ -96,4 +97,5 @@ public class TeleportControllerBase : Teleportable
             }
         }
     }
+#endif
 }

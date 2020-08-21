@@ -71,7 +71,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8157955052336716186
 Transform:
   m_ObjectHideFlags: 0
@@ -335,8 +335,6 @@ GameObject:
   - component: {fileID: 5383516825755222281}
   - component: {fileID: 5383516825758568491}
   - component: {fileID: 2486390594431470974}
-  - component: {fileID: 1414275777086254204}
-  - component: {fileID: 4417908156357133181}
   m_Layer: 0
   m_Name: Hand_L
   m_TagString: Untagged
@@ -437,36 +435,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5383516825755393323}
   m_Mesh: {fileID: 4300000, guid: d80370b8312723641a30815bab3483d7, type: 3}
---- !u!64 &1414275777086254204
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5383516825755393323}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: d80370b8312723641a30815bab3483d7, type: 3}
---- !u!54 &4417908156357133181
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5383516825755393323}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &5383516825755393325
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ MonoBehaviour:
   afteInteract:
     m_PersistentCalls:
       m_Calls: []
-  glassAnim: {fileID: 0}
+  glassAnim: {fileID: 1628583511156879346}
 --- !u!1 &6903023255973716522
 GameObject:
   m_ObjectHideFlags: 0

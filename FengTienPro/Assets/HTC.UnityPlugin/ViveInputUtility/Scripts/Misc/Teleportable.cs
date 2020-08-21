@@ -147,7 +147,7 @@ namespace HTC.UnityPlugin.Vive
 
         public void ClearSecondaryTeleportButton() { secondaryTeleportButton = 0u; }
 #if UNITY_EDITOR
-        protected virtual void Reset()
+        public virtual void Reset()
         {
             FindTeleportPivotAndTarget();
 

@@ -17,32 +17,39 @@ public class QuestManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(this);
+        firstInit = true;
     }
     #endregion
     [SerializeField]
-    private bool firstInit = true;
+    private bool firstInit;
     public List<Quest> quests;
 
     public void AddtoQuestlist(Quest q)
     {
         quests.Add(q);
     }
-    void Start()
+    
+    private void Start()
     {
         QuestInit();
         BFS(quests[0]);
-        quests[0].UpdateQuestStatus(Quest.Status.CHOOSABLE);
+        //quests[0].UpdateQuestStatus(Quest.Status.CHOOSABLE);
         PrintPath();
-        firstInit = true;
+        Set();
+        firstInit = false;
     }
+
     private void OnEnable()
     {
+        if (firstInit)
+        {
+            return;
+        }
         Set();
     }
 
     private void Set()
     {
-
         foreach (Quest q in quests)
         {
             if (q.questName == Quest.Name.Talk)
@@ -102,8 +109,11 @@ public class QuestManager : MonoBehaviour
 
     public void QuestInit()
     {
-        if (quests.Count < 2)
-            return;
+        quests = new List<Quest>();
+        foreach (QuestGiver qg in GetComponentsInChildren<QuestGiver>())
+        {
+            AddtoQuestlist(qg.quest);
+        }
 
         for (int i = 0; i < quests.Count - 1; i++)
         {
@@ -165,4 +175,32 @@ public class QuestManager : MonoBehaviour
             }
         }
     }
+
+    public Quest FindChoosableQuest()
+    {
+        foreach (Quest q in quests)
+        {
+            if (q.status == Quest.Status.CHOOSABLE)
+                return q;
+        }
+
+        return null;
+    }
+
+    public Goal.Type GetcurrentGoal()
+    { 
+        foreach(Quest q in quests)
+        {
+            if (q.status == Quest.Status.CURRENT)
+            {
+                foreach (QuestGoal goal in q.goals)
+                {
+                    if (goal.status == Goal.Status.CURRENT)
+                        return goal.type;
+                }
+            }
+        }
+        return Goal.Type.None;
+    }
+
 }

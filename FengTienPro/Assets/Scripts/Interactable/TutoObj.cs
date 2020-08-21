@@ -39,4 +39,9 @@ public class TutoObj : InteractableObjBase
     public override void InteractInvoke(bool value)
     {
     }
+
+    public override void ShowHintColor(bool value)
+    {
+        ShowOutline(value, hintColor);
+    }
 }

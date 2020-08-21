@@ -6,6 +6,18 @@ public class LevelSceneTP : TeleportControllerBase
 {
     public Levels level;
 
+    public override void OnEnable()
+    {
+        target = PlayerController.instance.Target;
+        pivot = PlayerController.instance.Cam;
+        defaultFX.Play(true);
+        isActive = true;
+    }
+
+    public override void Start()
+    {
+    }
+
     public override void TP_OnAfterTeleport(Teleportable src, RaycastResult hitResult, float delay)
     {
         base.TP_OnAfterTeleport(src, hitResult, delay);

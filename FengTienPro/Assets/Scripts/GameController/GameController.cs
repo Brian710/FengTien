@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private bool _isTest;
     [SerializeField]
-    private GameState _gameState = GameState.LogoInit;
+    private GameState _gameState;
     public GameState gameState
     {
         get { return _gameState; }
@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
     }
 
     [SerializeField]
-    private Language _language = Language.Chinese;
+    private Language _language;
     public Language language
     {
         get { return _language; }
@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour
     }
 
     [SerializeField]
-    private MainMode _mode = MainMode.Train;
+    private MainMode _mode;
     public MainMode mode
     {
         get { return _mode; }
@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour
     }
 
     [SerializeField]
-    private Levels _level = Levels.none;
+    private Levels _level;
     public Levels level
     {
         get { return _level; }
@@ -79,7 +79,7 @@ public class GameController : MonoBehaviour
     }
 
     [SerializeField]
-    private PlayerController _currentPlayer = null;
+    private PlayerController _currentPlayer;
 
     public PlayerController currentPlayer
     {
@@ -93,7 +93,7 @@ public class GameController : MonoBehaviour
     }
 
     [SerializeField]
-    private int _score = 0;
+    private int _score;
     public int score
     {
         get { return _score; }
@@ -135,10 +135,16 @@ public class GameController : MonoBehaviour
     }
 
 
-    private HashSet<QuestRecord> _questList = new HashSet<QuestRecord>();
+    private HashSet<QuestRecord> _questList;
 
 
-    public HashSet<QuestRecord> questList { get { return _questList; } }
+    public HashSet<QuestRecord> questList 
+    {
+        get 
+        {
+            return _questList;
+        }
+    }
 
     public void AddtoRecord(List<QuestGoal> goals)
     {
@@ -161,7 +167,7 @@ public class GameController : MonoBehaviour
     /// The instance.
     /// </summary>
     public static GameController Instance;
-    protected virtual void Awake()
+    protected virtual void SingletonInit()
     {
         if (Instance == null)
             Instance = this;
@@ -173,6 +179,18 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(this);
     }
     #endregion
+
+    protected virtual void Awake()
+    {
+        SingletonInit();
+        _gameState = GameState.LogoInit;
+        _language = Language.Chinese;
+        _mode = MainMode.Train;
+        _level = Levels.none;
+        _score = 0;
+        _quest = null;
+        _questList = new HashSet<QuestRecord>();
+    }
     private void Start()
     {
         if (_currentPlayer == null)
@@ -189,10 +207,11 @@ public class GameController : MonoBehaviour
         switch (_gameState)
         {
             case GameState.StartInit:
-                mode = MainMode.Train;
-                level = Levels.none;
-                quest = null;
-                questList.Clear();
+                _mode = MainMode.Train;
+                _level = Levels.none;
+                _quest = null;
+                if(_questList.Count > 0)
+                    _questList.Clear();
                 break;
         }
 
@@ -244,11 +263,18 @@ public class GameController : MonoBehaviour
 #endif
     private void UpdateLog()
     {
-        if (_currentPlayer && !_isTest)
+        if (_currentPlayer && _isTest)
         {
+            //string questName = "";
+            //string goaltype = "";
+            //Debug.LogWarning(_quest);
+            //if (_quest != null) { questName = _quest.questName.ToString(); }
+
+            //if (currentGoal != null) { goaltype = currentGoal.type.ToString(); }
+            //+ $"Quest: {questName} Goal: {goaltype}\n"
             string log = $"State: {_gameState} \n"
                              + $"Lang: {_language} \n"
-                             + $"Quest: {_quest.questName} Goal: {currentGoal.goal.type}\n"
+                             
                              + $"Level: { _level} \n"
                              + $"Score: {_score} \n"
                              + $"PlayerData \n"

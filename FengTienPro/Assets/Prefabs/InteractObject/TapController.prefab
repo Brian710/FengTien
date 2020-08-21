@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 757399467}
   - component: {fileID: 757399466}
   m_Layer: 12
-  m_Name: Cube
+  m_Name: TapLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,36 +143,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalType: 4
+  handAnim: 0
+  FirstInit: 0
   outline: {fileID: 139562672}
+  grabFunc: {fileID: 0}
   InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
   hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
   afteInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ShowHintColor
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 8074469383717388851, guid: 5f8033209c05caf42a58ba798957db0e,
-          type: 3}
-        m_MethodName: ShowHintColor
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  lightMat: {fileID: 2100000, guid: dc659f6505de7ec4baf606c73f9923df, type: 2}
+      m_Calls: []
+  lightMat: {fileID: 757399466}
   PartSys: {fileID: 7657554620234751218}
   StepCompleted: 0
 --- !u!65 &168249336

@@ -15,20 +15,22 @@ public class TeleportManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(this);
+        firstInit = true;
+        teleportList = new Dictionary<Quest.Name, MainSceneTP>();
     }
     #endregion
 
     [SerializeField]
-    private bool firstInit = true;
+    private bool firstInit;
     [SerializeField]
     private List<MainSceneTP> teleportControllers;
+
     private Dictionary<Quest.Name, MainSceneTP> teleportList;
     
     private void Start()
     {
-        teleportControllers = new List<MainSceneTP>();
-        firstInit = true;
         Set();
+        firstInit = false;
     }
 
 
@@ -42,31 +44,35 @@ public class TeleportManager : MonoBehaviour
 
     private void Set()
     {
+        teleportList.Clear();
+
         foreach (MainSceneTP TPB in teleportControllers)
         {
             teleportList.Add(TPB.questName , TPB);
             if (TPB.questName == Quest.Name.Talk || TPB.questName == Quest.Name.None)
             {
-                TPB.gameObject.SetActive(true);
                 TPB.ShowTeleport(true);
             }
             else
             {
-                TPB.gameObject.SetActive(false);
                 TPB.ShowTeleport(false);
             }
-        
+        }
+        PrintTPLISET();
+    }
+    private void PrintTPLISET()
+    {
+        foreach (var tps in teleportList)
+        {
+            Debug.LogWarning($"tps.key: {tps.Key} ; tps.value{tps.Value}");
         }
     }
-
     public void ShowTPbyGoal(Quest.Name type)
     {
-        teleportList[type].gameObject.SetActive(true);
         teleportList[type].ShowTeleport(true);
     }
     public void HideTPbyGoal(Quest.Name type)
     {
         teleportList[type].ShowTeleport(false);
-        teleportList[type].gameObject.SetActive(false);
     }
 }

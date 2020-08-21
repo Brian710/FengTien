@@ -21,6 +21,8 @@ public class TapController : InteractableObjBase
     public override void Set()
     {
         base.Set();
+        _propBlock = new MaterialPropertyBlock();
+
         if (PartSys.isPlaying)
             PartSys.Stop(true);
 
@@ -89,6 +91,7 @@ public class TapController : InteractableObjBase
 
     private void SetLightColor(bool value)
     {
+        
         lightMat.GetPropertyBlock(_propBlock);
         Color color = value ? Color.green : Color.red;
         _propBlock.SetColor("_EmissionColor", color);

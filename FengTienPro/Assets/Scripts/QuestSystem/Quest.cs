@@ -6,7 +6,7 @@ using System;
 public class Quest 
 {
     public enum Status { WAITING,CHOOSABLE, CURRENT, DONE }
-    public enum Name { None, Talk, WashHand, WashFood, CutFood, CookFood, FeedFood, CleanKit, FeedMeds, CleanMeds }
+    public enum Name { None, Talk, WashHand, WashFood, CutFood, CookFood, FeedFood, CleanKit, FeedMeds, CleanMeds ,Entrance}
 
     [SerializeField]
     private string id;
@@ -45,10 +45,16 @@ public class Quest
 
     public void ResetQuestEvent()
     {
+        int i = 0;
         foreach (QuestGoal g in goals)
         {
-            g.status = Goal.Status.WAITING;
+            if (i == 0)
+                g.status = Goal.Status.CURRENT;
+            else
+                g.status = Goal.Status.WAITING;
+            
             g.currentAmount = 0;
+            i++;
         }
     }
 
@@ -69,6 +75,7 @@ public class Quest
 
     public void AddQuestCurrentAmount(Goal.Type gt)
     {
+        int i = 0;
         foreach (QuestGoal g in goals)
         {
             if (g.type == gt && g.status == Goal.Status.CURRENT)
@@ -77,10 +84,15 @@ public class Quest
                 GameController.Instance.currentPlayer.QuestStepCompleted();
                 if (g.IsComplete())
                 {
+                    if (i < goals.Count - 1)
+                    {
+                        goals[i + 1].status = Goal.Status.CURRENT;
+                    }
                     CheckGoals();
                 }
                 return;
             }
+            i++;
         }
     }
 

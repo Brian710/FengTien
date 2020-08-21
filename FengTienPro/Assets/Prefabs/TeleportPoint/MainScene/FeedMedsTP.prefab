@@ -14121,7 +14121,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8058307013463070646}
-  m_LocalRotation: {x: -0, y: -0.38268343, z: -0, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: -2.6249998, y: 0.505, z: 5.064}
   m_LocalScale: {x: 1.5000019, y: 1.5000001, z: 1.5000019}
   m_Children:
@@ -14186,7 +14186,7 @@ MonoBehaviour:
   defaultFX: {fileID: 8058307012914620569}
   FX_On: {fileID: 8058307013886620687}
   isActive: 0
-  questName: 6
+  questName: 8
 --- !u!1 &8058307013817627227
 GameObject:
   m_ObjectHideFlags: 0

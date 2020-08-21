@@ -39,6 +39,12 @@ public class OptionalSystemBase : MonoBehaviour
         if (gameMode == MainMode.Exam) RandomPos();
 
         confirmBtn.onClick.AddListener(ConfirmBtn);
+        OpenCanv(true);
+    }
+
+    public virtual void OpenCanv(bool value)
+    { 
+    
     }
 
     private void CheckMode()
