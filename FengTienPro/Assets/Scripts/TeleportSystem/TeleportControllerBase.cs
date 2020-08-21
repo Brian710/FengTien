@@ -66,7 +66,7 @@ public class TeleportControllerBase : Teleportable
         //default invoke
     }
 
-    public void ShowTeleport(bool value)
+    public virtual void ShowTeleport(bool value)
     {
         if (defaultFX)
         {

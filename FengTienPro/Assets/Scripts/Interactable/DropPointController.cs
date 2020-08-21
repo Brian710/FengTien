@@ -18,7 +18,7 @@ public class DropPointController : CheckPointBase
         WashedObj = other.gameObject.GetComponent<WashObj>();
         if (WashedObj != null)
         {
-            QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.WashObj);
+            QuestManager.Instance.AddQuestCurrentAmount(WashedObj.goalType);
             WashedObj.SetGrabble(false);
             onTriggerEnter.Invoke();
         }

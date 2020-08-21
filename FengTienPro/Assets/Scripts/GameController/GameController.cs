@@ -192,6 +192,7 @@ public class GameController : MonoBehaviour
                 mode = MainMode.Train;
                 level = Levels.none;
                 quest = null;
+                questList.Clear();
                 break;
         }
 

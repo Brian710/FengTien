@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3748601349906187124}
   - component: {fileID: 3748601349906187127}
   - component: {fileID: 3748601349906187126}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: BackHomeBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 8611174739249839356}
   - component: {fileID: 3503271939309906243}
   - component: {fileID: 8762200759689936569}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2095647117628235346}
   - component: {fileID: 8808898997304924006}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

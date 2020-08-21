@@ -8,6 +8,7 @@
             defaultFX.Play(true);
             isActive = true;
         }
+
         QuestGiver.OnQuestAcceptListener += ShowTeleport;
         QuestGiver.OnQuestCompleteListener += ShowTeleport;
     }

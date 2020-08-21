@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4097311731730863219}
   - component: {fileID: 9206349149232906700}
   - component: {fileID: 3946294189426185782}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5929166419841988317}
   - component: {fileID: 3846888226995437545}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 8887906175197326331}
   - component: {fileID: 8887906175197326328}
   - component: {fileID: 8887906175197326329}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: MainBHBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8887906175197326311}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.050998688, y: 2, z: -2.294}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.3}
   m_Children:

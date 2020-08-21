@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8074469382774648906}
   - component: {fileID: 8074469382774648907}
   m_Layer: 12
-  m_Name: TissuePaperBox02
+  m_Name: TissuePaperBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,8 +123,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfde607f40c47b04593e17c69314513d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalType: 0
+  goalType: 7
+  handAnim: 0
+  FirstInit: 0
   outline: {fileID: 8074469382774648906}
+  grabFunc: {fileID: 0}
   InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
   hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
   afteInteract:

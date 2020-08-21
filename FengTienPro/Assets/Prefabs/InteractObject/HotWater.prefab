@@ -12,21 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96da46fb1b652d54da3696ccb174ae18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalType: 0
+  goalType: 11
+  handAnim: 0
   FirstInit: 0
-  outline: {fileID: 0}
+  outline: {fileID: 1628583511156879345}
+  grabFunc: {fileID: 0}
   InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
   hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
   afteInteract:
     m_PersistentCalls:
       m_Calls: []
-  handAnim: 0
-  isWashed: 0
-  washTime: 0
-  grabFunc: {fileID: 0}
-  takeSound: 
-  dropSound: 
-  interactSound: 
   glassAnim: {fileID: 0}
 --- !u!1 &6903023255973716522
 GameObject:
@@ -42,7 +37,6 @@ GameObject:
   - component: {fileID: 6903023255973749901}
   - component: {fileID: 6903023255973749897}
   - component: {fileID: 6903023255973749902}
-  - component: {fileID: 6903023255973749903}
   m_Layer: 12
   m_Name: HotWater
   m_TagString: Untagged
@@ -138,8 +132,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalType: 0
+  handAnim: 0
   FirstInit: 0
   outline: {fileID: 6903023255973749902}
+  grabFunc: {fileID: 0}
   InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
   hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
   afteInteract:
@@ -165,65 +161,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &6903023255973749903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6903023255973716522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6903023255973749902}
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6903023255973749902}
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6903023255973749897}
-          m_MethodName: ParticlePlay
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  delegates: []
 --- !u!1 &8183360503257027547
 GameObject:
   m_ObjectHideFlags: 0
@@ -9742,3 +9679,15 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 3665506273565966131}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1628583511156879345 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2614228102851399874, guid: c16c3843adf81bb4aab8536c780ae600,
+    type: 3}
+  m_PrefabInstance: {fileID: 3665506273565966131}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903023255248158283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
