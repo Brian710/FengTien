@@ -48,10 +48,10 @@ public class Goal : ScriptableObject
     
     }
     [Serializable]
-    public enum Status { WAITING,CURRENT,DONE}
+    public enum State { WAITING,CURRENT,DONE}
 
     public Type type;
-    public Status status;
+    public State status;
     public int currentAmount;
     public int requiredAmount;
 }

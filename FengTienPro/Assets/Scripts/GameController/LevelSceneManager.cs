@@ -8,6 +8,11 @@ public class LevelSceneManager : MonoBehaviour
 
     public Transform MainScenePos;
 
+    private void Start()
+    {
+        GameController.Instance.gameLevelnit += Set;
+    }
+
     public void Set()
     {
         SelModeObj.SetActive(true);
@@ -38,5 +43,10 @@ public class LevelSceneManager : MonoBehaviour
         StartCoroutine(PlayerController.instance.TransAnimPlaytoEnd(true));
         if (MainScenePos)
             StartCoroutine(PlayerController.instance.ChangePos(MainScenePos));
+    }
+
+    private void OnDestroy()
+    {
+        GameController.Instance.gameLevelnit -= Set;
     }
 }

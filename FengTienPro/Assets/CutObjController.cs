@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CutObjController : InteractableObjBase
+public class CutObjController : InteracObjBase
 {
     private int CutNum = 0;
     [SerializeField]

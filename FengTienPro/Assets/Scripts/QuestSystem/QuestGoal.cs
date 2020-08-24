@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 
 [Serializable]
@@ -8,7 +6,7 @@ public class QuestGoal
 {
     public Goal goal;
     public Goal.Type type;
-    public Goal.Status status;
+    public Goal.State state { get; private set; }
     public bool doItRight;
     public int currentAmount;
     public int requiredAmount;
@@ -17,7 +15,7 @@ public class QuestGoal
     {
         // default init stuff
         type = t;
-        status = Goal.Status.WAITING;
+        state = Goal.State.WAITING;
         doItRight = true;
         currentAmount = 0;
         requiredAmount = r;
@@ -26,9 +24,17 @@ public class QuestGoal
     public bool IsComplete()
     {
         if(currentAmount >= requiredAmount)
-            status = Goal.Status.DONE;
+            state = Goal.State.DONE;
 
         Debug.Log("Goal marked as completed.");
         return currentAmount >= requiredAmount;
+    }
+
+    public event Action<Goal.Type, Goal.State> OnGoalStateChange;
+
+    public void UpdateGoalState(Goal.State state)
+    {
+        this.state = state;
+        OnGoalStateChange?.Invoke(type, state);
     }
 }

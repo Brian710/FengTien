@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MinYanGame.Core;
 
-public class KnifeController : InteractableObjBase
+public class KnifeController : InteracObjBase
 {
 
 }

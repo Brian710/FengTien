@@ -10,14 +10,14 @@ public class TeleportControllerBase : Teleportable
 
     [SerializeField]    protected bool isActive;
     
-    public Quest.Name questName;
+    public Quest.Name qName_TP;
 
     public virtual void Start()
     {
         target = PlayerController.instance.Target;
         pivot = PlayerController.instance.Cam;
-        defaultFX.Play(false);
-        isActive = false;
+        ShowTeleport(false);
+        OnAfterTeleport += TP_OnAfterTeleport;
     }
 
 
@@ -51,14 +51,6 @@ public class TeleportControllerBase : Teleportable
         base.OnPointer3DPressExit(eventData);
         if (FX_On)
             FX_On.Stop(true);
-    }
-    public virtual  void OnEnable()
-    {
-        OnAfterTeleport += TP_OnAfterTeleport;
-    }
-    public virtual void OnDisable()
-    {
-        OnAfterTeleport -= TP_OnAfterTeleport;
     }
 
     public virtual void TP_OnAfterTeleport(Teleportable src, RaycastResult hitResult, float delay)
@@ -98,4 +90,8 @@ public class TeleportControllerBase : Teleportable
         }
     }
 #endif
+    public virtual void OnDestroy()
+    {
+        OnAfterTeleport -= TP_OnAfterTeleport;
+    }
 }

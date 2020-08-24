@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GlassController : InteractableObjBase
+public class GlassController : InteracObjBase
 {
     [SerializeField]
     private Animator glassAnim;

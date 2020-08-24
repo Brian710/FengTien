@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,9 +10,10 @@ public class MainSceneManager : MonoBehaviour
 
     [SerializeField]
     private Transform StartScenePos;
-    private void Awake()
+
+    private void Start()
     {
-        
+        GameController.Instance.gameMainInit += Set;
     }
     public void Set()
     {
@@ -38,4 +40,6 @@ public class MainSceneManager : MonoBehaviour
         if (StartScenePos)
             StartCoroutine(PlayerController.instance.ChangePos(StartScenePos));
     }
+
+    private void OnDestroy() => GameController.Instance.gameMainInit -= Set;
 }

@@ -6,7 +6,7 @@ public class LevelSceneTP : TeleportControllerBase
 {
     public Levels level;
 
-    public override void OnEnable()
+    private void OnEnable()
     {
         target = PlayerController.instance.Target;
         pivot = PlayerController.instance.Cam;

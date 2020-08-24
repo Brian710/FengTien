@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputMatObj : InteractableObjBase
+public class InputMatObj : InteracObjBase
 {
     [SerializeField]
     private GameObject On;

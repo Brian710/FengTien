@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClicktoInteract : InteractableObjBase
+public class ClicktoInteract : InteracObjBase
     , IColliderEventClickHandler
     , IColliderEventPressEnterHandler
     , IColliderEventHoverExitHandler

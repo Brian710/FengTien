@@ -1,10 +1,11 @@
-﻿using MinYanGame.Core;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 
 public class StartSceneManager : MonoBehaviour
 {
+    public static StartSceneManager instance;
+
     public Transform StartScenePos;
     public Transform TutoScenePos;
     public Transform LevelScenePos;

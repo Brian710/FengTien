@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClicktoPosBase : InteractableObjBase
+public class ClicktoPosBase : InteracObjBase
     ,IColliderEventClickHandler
     ,IColliderEventPressEnterHandler
     ,IColliderEventPressExitHandler

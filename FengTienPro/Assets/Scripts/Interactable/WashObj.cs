@@ -1,21 +1,15 @@
 ﻿using UnityEngine;
 
-public class WashObj : InteractableObjBase, IWashable
+public class WashObj : InteracObjBase, IWashable
 {
     [SerializeField]
     private bool isWashed;
     [SerializeField]
     private int washTime;
 
-    public string takeSound;
-    public string dropSound;
-    public string interactSound;
-
     public override void Awake()
     {
         base.Awake();
-        if (outline == null)
-            outline = GetComponent<QuickOutline>();
 
         goalType = Goal.Type.WashObj;
     }

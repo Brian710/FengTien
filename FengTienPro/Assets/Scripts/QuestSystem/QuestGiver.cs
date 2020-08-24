@@ -32,20 +32,24 @@ public class QuestGiver : MonoBehaviour
         _quest = new Quest(this, questName, questDescription, isSingle, questScore, newgoals);
     }
 
-    private void Start()
+    public void OpenQuestWindow(bool value)
     {
-        //QuestManager.Instance.AddtoQuestlist(_quest);
+        if (value)
+        {
+            questBtn.gameObject.SetActive(value);
+            questBtn.onClick.AddListener(AcceptQuest);
+        }
+        else
+        {
+            questBtn.gameObject.SetActive(value);
+            questBtn.onClick.RemoveListener(AcceptQuest);
+        }
     }
 
-    public void OpenQuestWindow()
-    {
-        questBtn.gameObject.SetActive(true);
-        questBtn.onClick.AddListener(AcceptQuest);
-    }
-
+    //mainly for Teleport
     public void AcceptQuest()
     {
-        quest.UpdateQuestStatus(Quest.Status.CURRENT);
+        quest.UpdateQuestStatus(Quest.State.CURRENT);
         questBtn.gameObject.SetActive(false);
         GameController.Instance.quest = quest;
         //init Quest Obj
@@ -67,30 +71,5 @@ public class QuestGiver : MonoBehaviour
     {
         SetQuestLoc(false);
         SetQuestLoc(true);
-    }
-
-    
-
-    //quest status will change this status too
-    public void UpdateStatus(Quest.Status es)
-    {
-        //ChangeUI
-        switch (es)
-        {
-            case Quest.Status.CHOOSABLE:
-                OpenQuestWindow();
-                TeleportManager.Instance.ShowTPbyGoal(quest.questName);
-                TeleportManager.Instance.ShowTPbyGoal(Quest.Name.None);
-                TeleportManager.Instance.ShowTPbyGoal(Quest.Name.Entrance);
-                break;
-            case Quest.Status.CURRENT:
-                TeleportManager.Instance.HideTPbyGoal(Quest.Name.None);
-                TeleportManager.Instance.HideTPbyGoal(Quest.Name.Entrance);
-                break;
-            case Quest.Status.DONE:
-                TeleportManager.Instance.ShowTPbyGoal(quest.questName);
-                SetQuestLoc(false);
-                break;
-        }
     }
 }

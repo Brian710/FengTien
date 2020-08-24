@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SpoonController : InteractableObjBase
+public class SpoonController : InteracObjBase
 {
     [SerializeField]
     private GameObject On;

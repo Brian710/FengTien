@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using MinYanGame.Core;
+using System;
+using MinYan.Lang;
 
 public class GameController : MonoBehaviour
 {
@@ -202,6 +201,8 @@ public class GameController : MonoBehaviour
     }
     #region Methods
 
+    public event Action gameMainInit, gamTutoInit, gameLevelnit;
+
     private void OnGameStateChange()
     {
         switch (_gameState)
@@ -212,6 +213,15 @@ public class GameController : MonoBehaviour
                 _quest = null;
                 if(_questList.Count > 0)
                     _questList.Clear();
+                break;
+            case GameState.MainInit:
+                gameMainInit?.Invoke();
+                break;
+            case GameState.TutoInit:
+                gamTutoInit?.Invoke();
+                break;
+            case GameState.LevelInit:
+                gameLevelnit?.Invoke();
                 break;
         }
 

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookPotController : InteractableObjBase
+public class CookPotController : InteracObjBase
 {
     [SerializeField]
     private List<GameObject> gameObjects;
 
     [SerializeField]
-    private List<InteractableObjBase> FoodMats;
+    private List<InteracObjBase> FoodMats;
 
     [SerializeField]
     private CookLadleController Ladle;
@@ -39,7 +39,7 @@ public class CookPotController : InteractableObjBase
         {
             obj.SetActive(false);
         }
-        foreach (InteractableObjBase trans in FoodMats)
+        foreach (InteracObjBase trans in FoodMats)
         {
             trans.Set();
             FoodMatPos.Add(trans.transform.position);
@@ -93,7 +93,7 @@ public class CookPotController : InteractableObjBase
         else
         {
             int i = 0;
-            foreach (InteractableObjBase obj in FoodMats)
+            foreach (InteracObjBase obj in FoodMats)
             {
                 if (other.gameObject == obj.gameObject)
                 {

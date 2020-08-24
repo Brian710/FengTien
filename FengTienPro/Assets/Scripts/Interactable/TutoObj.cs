@@ -1,47 +1,36 @@
-﻿using UnityEngine;
+﻿using HTC.UnityPlugin.Vive;
+using UnityEngine;
 
-public class TutoObj : InteractableObjBase
+public class TutoObj : InteracObjBase,IGrabbable
 {
-    public string takeSound;
-    public string dropSound;
-    public string interactSound;
+    public override void Start()
+    {
+        base.Start();
+        viveGrabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
+        viveGrabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
+    }
+    private void OnDestroy()
+    {
+        viveGrabFunc.afterGrabberGrabbed -= GrabFunc_afterGrabberGrabbed;
+        viveGrabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
+    }
+    public BasicGrabbable viveGrabFunc { get; set; }
+    public HandAnim handAnim { get; set; }
 
-    public override void Set()
-    {
-        base.Set();
-        ShowHintColor(true);
-    }
-    public void PlayTakeSound()
-    {
-        if (takeSound != "")
-        {
-            return;
-        }
-        AudioManager.Instance.Play(takeSound);
-    }
-    public void PlayInteractSound()
-    {
-        if (interactSound != "")
-        {
-            return;
-        }
-        AudioManager.Instance.Play(interactSound);
-    }
-    public void PlayDropSound()
-    {
-        if (dropSound != "")
-        {
-            return;
-        }
-        AudioManager.Instance.Play(dropSound);
-    }
-
+    
     public override void InteractInvoke(bool value)
     {
     }
 
-    public override void ShowHintColor(bool value)
+    public void GrabFunc_afterGrabberGrabbed()
     {
-        ShowOutline(value, hintColor);
+        PlayTakeSound();
     }
+
+    public void GrabFunc_beforeGrabberReleased()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    
 }

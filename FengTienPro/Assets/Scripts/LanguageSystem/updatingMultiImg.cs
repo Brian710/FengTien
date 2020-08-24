@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MinYanGame.Core
+namespace MinYan.Lang
 {
     [RequireComponent(typeof(Image))]
-    public class updatingMultiImg : MonoBehaviour
+    public class updatingMultiImg: MonoBehaviour
     {
         public Sprite EnImg;
         public Sprite ChImg;
@@ -14,7 +14,6 @@ namespace MinYanGame.Core
 
         public void Set()
         {
-            thisImage = GetComponent<Image>();
             thisImage.sprite = ChangeSprite(GameController.Instance.language);
         }
         public Sprite ChangeSprite(Language language)

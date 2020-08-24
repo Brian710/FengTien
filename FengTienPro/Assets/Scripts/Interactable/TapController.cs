@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TapController : InteractableObjBase
+public class TapController : InteracObjBase
 {
     [SerializeField]
     private Renderer lightMat;

@@ -5,19 +5,19 @@ using System;
 [Serializable]
 public class Quest 
 {
-    public enum Status { WAITING,CHOOSABLE, CURRENT, DONE }
+    public enum State { WAITING,CHOOSABLE, CURRENT, DONE }
     public enum Name { None, Talk, WashHand, WashFood, CutFood, CookFood, FeedFood, CleanKit, FeedMeds, CleanMeds ,Entrance}
 
     [SerializeField]
     private string id;
     public string Id { get { return id; } }
 
-    public QuestGiver giver;
-    public Name questName;
-    public string description;
-    public int order;
-    public bool isSingle;
-    public Status status;
+    public QuestGiver giver { get; private set; }
+    public Name qName { get; private set; }
+    public string description { get; private set; }
+    public int order { get; set; }
+    public bool isSingle { get; private set; }
+    public State state { get;  private set; }
     public List<QuestPath> pathes;
     public List<QuestGoal> goals;
     public int score;
@@ -26,35 +26,43 @@ public class Quest
     {
         id = Guid.NewGuid().ToString();
         giver = qg;
-        questName = n;
+        qName = n;
         description = d;
         order = -1;
         isSingle = single;
-        status = Status.WAITING;
+        state = State.WAITING;
         pathes = new List<QuestPath>();
         goals = g;
-        goals[0].status = Goal.Status.CURRENT;
         score = s;
     }
 
-    public void UpdateQuestStatus(Status es)
+    public event Action<Name,State> OnQuestChange;
+    public void UpdateQuestStatus(State es)
     {
-        status = es;
-        giver.UpdateStatus(es);
+        state = es;
+        OnQuestChange(qName, state);
+
+        switch (state)
+        {
+            case State.WAITING:
+                ResetAllQuests();
+                break;
+            case State.CHOOSABLE:
+                break;
+            case State.CURRENT:
+                goals[0].UpdateGoalState(Goal.State.CURRENT);
+                break;
+            case State.DONE:
+                break;
+        }
     }
 
-    public void ResetQuestEvent()
+    public void ResetAllQuests()
     {
-        int i = 0;
         foreach (QuestGoal g in goals)
         {
-            if (i == 0)
-                g.status = Goal.Status.CURRENT;
-            else
-                g.status = Goal.Status.WAITING;
-            
+            g.UpdateGoalState(Goal.State.WAITING);
             g.currentAmount = 0;
-            i++;
         }
     }
 
@@ -62,11 +70,9 @@ public class Quest
     {
         foreach (QuestGoal g in goals)
         {
-            if (g.status == Goal.Status.DONE)
-            { continue; }
-            else
+            if (g.state == Goal.State.WAITING)
             {
-                g.status = Goal.Status.CURRENT;
+                g.UpdateGoalState(Goal.State.CURRENT);
                 return;
             }
         }
@@ -75,30 +81,24 @@ public class Quest
 
     public void AddQuestCurrentAmount(Goal.Type gt)
     {
-        int i = 0;
         foreach (QuestGoal g in goals)
         {
-            if (g.type == gt && g.status == Goal.Status.CURRENT)
+            if (g.type == gt && g.state == Goal.State.CURRENT)
             {
                 g.currentAmount++;
                 GameController.Instance.currentPlayer.QuestStepCompleted();
                 if (g.IsComplete())
                 {
-                    if (i < goals.Count - 1)
-                    {
-                        goals[i + 1].status = Goal.Status.CURRENT;
-                    }
                     CheckGoals();
                 }
                 return;
             }
-            i++;
         }
     }
 
     public void Complete()
     {
-        UpdateQuestStatus(Status.DONE);
+        UpdateQuestStatus(State.DONE);
         QuestManager.Instance.SetNextQuestStatus(this);
         GameController.Instance.score += score;
         GameController.Instance.AddtoRecord(goals);
@@ -108,7 +108,7 @@ public class Quest
     {
         foreach (QuestGoal g in goals)
         {
-            if (g.status == Goal.Status.CURRENT)
+            if (g.state == Goal.State.CURRENT)
                 return g;
         }
         return null;

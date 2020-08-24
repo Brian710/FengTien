@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class HotWaterController : InteractableObjBase
+public class HotWaterController : InteracObjBase
 {
     [SerializeField]
     private ParticleSystem partSys;

@@ -25,13 +25,12 @@ namespace MinYanGame.Core
         public Animator[] tutorialImgs;
 
 
-
         private void Start()
         {
             restart01Btn.onClick.AddListener(Set);
             restart02Btn.onClick.AddListener(Set);
             confirmBtn.onClick.AddListener(ConfirmBtn);
-            Set();
+            GameController.Instance.gamTutoInit += Set;
         }
 
         public void Set()
@@ -75,6 +74,10 @@ namespace MinYanGame.Core
             transition.SetBool("End", !value);
             yield return 1f;
         }
-        
+
+        private void OnDestroy()
+        {
+            GameController.Instance.gamTutoInit -= Set;
+        }
     }
 }

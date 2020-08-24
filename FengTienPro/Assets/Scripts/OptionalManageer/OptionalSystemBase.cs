@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using MinYanGame.Core;
-using System;
+using MinYan.Lang;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class OptionalSystemBase : MonoBehaviour

@@ -26,7 +26,7 @@ public class DropPointController : CheckPointBase
         {
             if (GameController.Instance.mode == MainMode.Exam)
             {
-                other.GetComponent<InteractableObjBase>().ShowError();
+                other.GetComponent<InteracObjBase>().ShowError();
                 QuestManager.Instance.MinusQuestScore(2);
             }
             resetObject.ForcetoReset(other.gameObject);

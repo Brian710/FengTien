@@ -7,7 +7,7 @@ public class QuestManager : MonoBehaviour
     #region singleton
 
     public static QuestManager Instance;
-    protected virtual void Awake()
+    protected  void InitSingleton()
     {
         if (Instance == null)
             Instance = this;
@@ -17,25 +17,30 @@ public class QuestManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(this);
-        firstInit = true;
     }
     #endregion
     [SerializeField]
     private bool firstInit;
     public List<Quest> quests;
+    public Quest CurrentQuest { get; private set; }
 
     public void AddtoQuestlist(Quest q)
     {
         quests.Add(q);
     }
-    
+
+    protected virtual void Awake()
+    {
+        InitSingleton();
+        firstInit = true;
+    }
     private void Start()
     {
         QuestInit();
         BFS(quests[0]);
-        //quests[0].UpdateQuestStatus(Quest.Status.CHOOSABLE);
         PrintPath();
         Set();
+        CurrentQuest = FindCurrentQuest();
         firstInit = false;
     }
 
@@ -52,16 +57,15 @@ public class QuestManager : MonoBehaviour
     {
         foreach (Quest q in quests)
         {
-            if (q.questName == Quest.Name.Talk)
+            if (q.qName == Quest.Name.Talk)
             {
-                q.UpdateQuestStatus(Quest.Status.CHOOSABLE);
+                q.UpdateQuestStatus(Quest.State.CHOOSABLE);
             }
             else
             {
-                q.ResetQuestEvent();
+                q.UpdateQuestStatus(Quest.State.WAITING);
             }
         }
-        
     }
 
     public void AddPath(string fromQE, string toQE)
@@ -103,7 +107,7 @@ public class QuestManager : MonoBehaviour
     {
         foreach (Quest qe in quests)
         {
-            Debug.LogWarning(qe.questName + ", order: " + qe.order);
+            Debug.LogWarning(qe.qName + ", order: " + qe.order);
         }
     }
 
@@ -121,14 +125,15 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    //mainly for Teleport
     public void SetNextQuestStatus(Quest cq)
     {
-
         foreach (Quest q in quests)
         {
             if (q.order == cq.order + 1)
             {
-                    q.UpdateQuestStatus(Quest.Status.CHOOSABLE);
+                q.UpdateQuestStatus(Quest.State.CHOOSABLE);
+                q.giver.OpenQuestWindow(true);
             }
         }
     }
@@ -137,7 +142,7 @@ public class QuestManager : MonoBehaviour
     {
         foreach (Quest q in quests)
         {
-            if (q.status == Quest.Status.CURRENT)
+            if (q.state == Quest.State.CURRENT)
             {
                 q.AddQuestCurrentAmount(gt);
                 break;
@@ -149,7 +154,7 @@ public class QuestManager : MonoBehaviour
     {
         foreach (Quest q in quests)
         {
-            if (q.status == Quest.Status.CURRENT)
+            if (q.state == Quest.State.CURRENT)
             {
                 q.GetCurrentGoal().doItRight = false;
                 q.score -= delta;
@@ -164,7 +169,7 @@ public class QuestManager : MonoBehaviour
     {
         foreach (Quest q in quests)
         {
-            if (q.status == Quest.Status.CURRENT)
+            if (q.state == Quest.State.CURRENT)
             {
                 foreach (QuestGoal goal in q.goals)
                 {
@@ -176,11 +181,21 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    private Quest FindCurrentQuest()
+    {
+        foreach (Quest q in quests)
+        {
+            if (q.state == Quest.State.CURRENT)
+                return q;
+        }
+
+        return FindChoosableQuest();
+    }
     public Quest FindChoosableQuest()
     {
         foreach (Quest q in quests)
         {
-            if (q.status == Quest.Status.CHOOSABLE)
+            if (q.state == Quest.State.CHOOSABLE)
                 return q;
         }
 
@@ -191,11 +206,11 @@ public class QuestManager : MonoBehaviour
     { 
         foreach(Quest q in quests)
         {
-            if (q.status == Quest.Status.CURRENT)
+            if (q.state == Quest.State.CURRENT)
             {
                 foreach (QuestGoal goal in q.goals)
                 {
-                    if (goal.status == Goal.Status.CURRENT)
+                    if (goal.state == Goal.State.CURRENT)
                         return goal.type;
                 }
             }

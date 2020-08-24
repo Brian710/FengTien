@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-namespace MinYanGame.Core
+
+namespace MinYan.Lang
 {
     [RequireComponent(typeof(Text))]
-    public class updatingMultiText : MonoBehaviour
+    public class updatingMultiText:MonoBehaviour
     {
         public string multiId;
         public string currentString;
         private Text multiText;
         public void Set()
         {
-            if(multiText == null)
-                multiText = GetComponent<Text>();
             if (multiText == null)
             {
                 Debug.LogWarning("doesn't have text component");
