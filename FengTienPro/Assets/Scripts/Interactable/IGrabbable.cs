@@ -1,13 +1,10 @@
 ﻿using HTC.UnityPlugin.Vive;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public interface IGrabbable
 {
-    BasicGrabbable viveGrabFunc { get; set; } 
+    BasicGrabbable viveGrabFunc { get;} 
 
-    HandAnim handAnim { get; set; }
+    HandAnim handAnim { get; }
 
     void GrabFunc_afterGrabberGrabbed();
 

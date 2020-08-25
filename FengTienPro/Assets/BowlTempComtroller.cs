@@ -11,7 +11,7 @@ public class BowlTempComtroller : MonoBehaviour
             QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.TakeBowl);
             other.gameObject.SetActive(false);
             gameObject.SetActive(false);
-            spoon.GetComponent<SpoonController>().ShowHintColor(true);
+            //spoon.GetComponent<SpoonController>().hover.ShowHintColor(true);
         }
     }
 }

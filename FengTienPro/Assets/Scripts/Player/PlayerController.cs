@@ -3,11 +3,12 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System;
 
 public class RayEvent : UnityEvent<bool> { }
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController instance;
+    public static PlayerController Instance;
 
     [SerializeField]
     private Transform cam;
@@ -44,7 +45,6 @@ public class PlayerController : MonoBehaviour
     private GameObject LeftTeleportRay;
 
     public bool EnableRightTeleport { get; set; } = true;
-
     public bool EnableLeftTeleport { get; set; } = true;
 
     public HandAnimManager RightHand;
@@ -90,8 +90,8 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void Awake()
     {
-        if (instance == null)
-            instance = this;
+        if (Instance == null)
+            Instance = this;
         else
         {
             Destroy(gameObject);

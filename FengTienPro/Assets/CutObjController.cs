@@ -1,43 +1,38 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CutObjController : InteracObjBase
+public class CutObjController : IObjControllerBase
 {
-    private int CutNum = 0;
+    public Animator Anim;
     [SerializeField]
-    private Animator Trans;
-
-    public override void Set()
+    private GameObject Plate;
+    public override void Start()
     {
-        CutNum = 0;
-        ShowHintColor(true);
-        Trans.SetInteger("CutNum", CutNum);
+        base.Start();
+        if (Anim == null)
+            Debug.LogWarning("cut trans not set!");
+    }
+    protected override void SetWaitingState()
+    {
+        Anim.gameObject.SetActive(true);
+        Anim.SetInteger("CutNum", 0);
+        Plate.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override void SetDoneState()
     {
-        if (other.name == "Knife")
-        { 
-            CutNum++;
-            Trans.SetInteger("CutNum", CutNum);
-            QuestManager.Instance.AddQuestCurrentAmount(goalType);
-        }
-
-        if (CutNum >= 4)
-            InteractInvoke(true);
+        Anim.gameObject.SetActive(false);
+        Plate.SetActive(true);
     }
 
     public override void InteractInvoke(bool value)
     {
-        DelaySetActive(false);
+        DelaySetActive(value);
     }
 
     IEnumerator DelaySetActive(bool value)
     {
         yield return new WaitForSeconds(1.5f);
-        ShowHintColor(false);
-        afteInteract.Invoke();
-        gameObject.SetActive(false);
+        //afteInteract.Invoke();
     }
 }

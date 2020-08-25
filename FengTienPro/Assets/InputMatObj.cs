@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputMatObj : InteracObjBase
+public class InputMatObj : IObjControllerBase
 {
     [SerializeField]
     private GameObject On;
-    public override void Set()
-    {
-        base.Set();
-        if(!On.activeSelf)
-            HaveMats(true);
-    }
+    //public override void Set()
+    //{
+    //    base.Set();
+    //    if(!On.activeSelf)
+    //        HaveMats(true);
+    //}
 
     public void HaveMats(bool value)
     {

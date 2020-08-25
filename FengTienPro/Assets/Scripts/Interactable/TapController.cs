@@ -1,79 +1,102 @@
-﻿using HTC.UnityPlugin.ColliderEvent;
-using MinYanGame.Core;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
-public class TapController : InteracObjBase
+public class TapController : IObjControllerBase
 {
     [SerializeField]
     private Renderer lightMat;
     [SerializeField]
-    private ParticleSystem PartSys;
+    private ParticleSystem FX;
     [SerializeField]
     private bool StepCompleted;
-
 
     private Coroutine _coroutine;
     private MaterialPropertyBlock _propBlock;
     private IWashable _IWashable;
 
-    public override void Set()
+    public override void Start()
     {
-        base.Set();
         _propBlock = new MaterialPropertyBlock();
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange += OnGoalStateChange;
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange += OnGoalStateChange;
+    }
 
-        if (PartSys.isPlaying)
-            PartSys.Stop(true);
+    public override void OnDestroy()
+    {
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange -= OnGoalStateChange;
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange -= OnGoalStateChange;
+    }
 
-        if (lightMat)
-            SetLightColor(false);
+
+    private void OnGoalStateChange(Goal.Type type, Goal.State state)
+    {
+        switch (state)
+        {
+            case Goal.State.WAITING:
+                SetWaitingState();
+                hover.enabled = false;
+                break;
+            case Goal.State.CURRENT:
+                SetCurrentState();
+                hover.enabled = true;
+                hover.ShowHintColor(GameController.Instance.mode == MainMode.Train);
+                break;
+            case Goal.State.DONE:
+                SetDoneState();
+                hover.enabled = false;
+                break;
+        }
+    }
+    protected override void SetWaitingState()
+    {
+        if (FX.isPlaying)            FX.Stop(true);
+        if (lightMat)            SetLightColor(false);
     }
 
     public void OnTriggerEnter(Collider other)
     {
         TapOn(true);
+        SetLightColor(true);
         _IWashable = other.gameObject.GetComponent<IWashable>();
+
+        if (_IWashable != null)
+        {
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+
+            _coroutine = StartCoroutine(CountDownSecond(_IWashable.WashTime()));
+        }
      }
 
     public void OnTriggerExit(Collider other)
     {
         TapOn(false);
-        if (StepCompleted && _IWashable != null)
-            _IWashable.IsWashed(true);
+        SetLightColor(false);
+
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
 
         _IWashable = null;
     }
 
     public void TapOn(bool value)
     {
-        SetLightColor(value);
-
-        if (PartSys)
+        if (FX)
         {
             if (value)
-            {
-                PartSys.Play(true);
-            }
+                FX.Play(true);
             else
-            {
-                PartSys.Stop(true);
-            }
+                FX.Stop(true);
         }
-
-        if (_coroutine != null)
-            StopCoroutine(_coroutine);
-
-        int washtime = _IWashable == null ? 3 : _IWashable.WashTime();
-        if (value)
-            _coroutine = StartCoroutine(CountDownSecond(washtime));
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (StepCompleted)
         {
-            base.InteractInvoke(true);
+            QuestManager.Instance.AddQuestCurrentAmount(goalType);
+            if (_IWashable != null)
+                _IWashable.IsWashed(true);
             StepCompleted = false;
         }
     }
@@ -91,7 +114,6 @@ public class TapController : InteracObjBase
 
     private void SetLightColor(bool value)
     {
-        
         lightMat.GetPropertyBlock(_propBlock);
         Color color = value ? Color.green : Color.red;
         _propBlock.SetColor("_EmissionColor", color);

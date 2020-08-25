@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class MainSceneManager : MonoBehaviour
@@ -17,12 +15,12 @@ public class MainSceneManager : MonoBehaviour
     }
     public void Set()
     {
-        if (gameObjects.Count <= 0)
-            return;
-        foreach (GameObject obj in gameObjects)
-        {
-            obj.SetActive(true);
-        }
+        //if (gameObjects.Count <= 0)
+        //    return;
+        //foreach (GameObject obj in gameObjects)
+        //{
+        //    obj.SetActive(true);
+        //}
     }
 
     public void BacktoStart()
@@ -30,15 +28,10 @@ public class MainSceneManager : MonoBehaviour
         if (gameObjects.Count <= 0)
             return;
 
-        foreach (GameObject obj in gameObjects)
-        {
-            obj.SetActive(false);
-        }
-
         GameController.Instance.gameState = GameState.StartInit;
-        StartCoroutine(PlayerController.instance.TransAnimPlaytoEnd(true));
+        StartCoroutine(PlayerController.Instance.TransAnimPlaytoEnd(true));
         if (StartScenePos)
-            StartCoroutine(PlayerController.instance.ChangePos(StartScenePos));
+            StartCoroutine(PlayerController.Instance.ChangePos(StartScenePos));
     }
 
     private void OnDestroy() => GameController.Instance.gameMainInit -= Set;

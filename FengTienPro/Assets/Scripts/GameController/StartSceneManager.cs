@@ -30,7 +30,7 @@ public class StartSceneManager : MonoBehaviour
     private void Start()
     {
         if (player == null)
-            player = PlayerController.instance;
+            player = PlayerController.Instance;
         StartCoroutine(GameInit());
     }
 

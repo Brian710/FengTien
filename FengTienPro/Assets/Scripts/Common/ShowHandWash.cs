@@ -1,7 +1,4 @@
-﻿using MinYanGame.Core;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ShowHandWash : MonoBehaviour
 {
@@ -21,7 +18,6 @@ public class ShowHandWash : MonoBehaviour
     {
         if (GameController.Instance.mode == MainMode.Exam)
         {
-            HandWashing.SetBool("AutoShow", false);
             return;
         }
 

@@ -40,6 +40,7 @@ public class Quest
     public void UpdateQuestStatus(State es)
     {
         state = es;
+        //call for the things update not in the quest system
         OnQuestChange(qName, state);
 
         switch (state)
@@ -48,6 +49,7 @@ public class Quest
                 ResetAllQuests();
                 break;
             case State.CHOOSABLE:
+                giver.OpenQuestBtn(true);
                 break;
             case State.CURRENT:
                 goals[0].UpdateGoalState(Goal.State.CURRENT);

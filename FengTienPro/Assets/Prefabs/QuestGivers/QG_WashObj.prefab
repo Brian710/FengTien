@@ -51,16 +51,19 @@ MonoBehaviour:
   questScore: 0
   goals:
   - {fileID: 11400000, guid: 98c73d614d7a4bc4b8808e69a8355464, type: 2}
-  gameObjects:
+  InterObjs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   _quest:
     id: 
-    giver: {fileID: 0}
-    questName: 0
-    description: 
-    order: 0
-    isSingle: 0
-    status: 0
     goals: []
     score: 0
 --- !u!1 &3981278430022726622

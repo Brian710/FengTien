@@ -15,7 +15,7 @@ public class QuestGiver : MonoBehaviour
     public List<Goal> goals;
 
     [Header("Quest GameObject")]
-    public List<GameObject> gameObjects;
+    public List<IObjControllerBase> InterObjs;
 
     [SerializeField]
     private Quest _quest;
@@ -32,7 +32,12 @@ public class QuestGiver : MonoBehaviour
         _quest = new Quest(this, questName, questDescription, isSingle, questScore, newgoals);
     }
 
-    public void OpenQuestWindow(bool value)
+    private void Start()
+    {
+        questBtn.gameObject.SetActive(false);
+    }
+
+    public void OpenQuestBtn(bool value)
     {
         if (value)
         {
@@ -58,12 +63,12 @@ public class QuestGiver : MonoBehaviour
 
     private void SetQuestLoc(bool value)
     {
-        if (gameObjects.Count <= 0)
+        if (InterObjs.Count <= 0)
             return;
 
-        foreach (GameObject g in gameObjects)
+        foreach (IObjControllerBase g in InterObjs)
         {
-            g.SetActive(value);
+            g.SetInterObjActive(value);
         }
     }
 

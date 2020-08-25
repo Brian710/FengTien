@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &870724579757818289
+--- !u!1 &3647079382124761853
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,13 +8,64 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 870724579757989265}
-  - component: {fileID: 870724579756694961}
-  - component: {fileID: 870724579755564913}
-  - component: {fileID: 114329978961542158}
-  - component: {fileID: 7775414597269583936}
-  - component: {fileID: 7775414597269583937}
-  - component: {fileID: 6311090639361257674}
+  - component: {fileID: 3647079382124761852}
+  - component: {fileID: 3647079382124761855}
+  m_Layer: 12
+  m_Name: Cereal_Bowl 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3647079382124761852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3647079382124761853}
+  m_LocalRotation: {x: 0.0056305532, y: 0.0055150734, z: -0.0037492272, w: 0.9999619}
+  m_LocalPosition: {x: 0.38100028, y: 0.01699996, z: 0.07099962}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_Children:
+  - {fileID: 6156344115081461016}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3647079382124761855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3647079382124761853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d7bdce62dd83748956f81fda43980c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hover: {fileID: 6156344115081027898}
+  ChildObj: {fileID: 6156344115081027896}
+  isWashed: 0
+  washTime: 3
+  _viveGrabFunc: {fileID: 6407773154998754439}
+  _handAnim: 5
+--- !u!1 &6156344115081027896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6156344115081461016}
+  - component: {fileID: 6156344115078069560}
+  - component: {fileID: 6156344115079036920}
+  - component: {fileID: 6407773154998754439}
+  - component: {fileID: 3647079381541705929}
+  - component: {fileID: 3647079381541705928}
+  - component: {fileID: 6156344115081027898}
+  - component: {fileID: 6156344115081027899}
   m_Layer: 12
   m_Name: Cereal_Bowl
   m_TagString: Untagged
@@ -22,35 +73,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &870724579757989265
+--- !u!4 &6156344115081461016
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870724579757818289}
-  m_LocalRotation: {x: 0.0056342757, y: 0.005518631, z: -0.0037485082, w: 0.99996185}
-  m_LocalPosition: {x: 4.24066, y: 1.629004, z: -0.9555039}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_GameObject: {fileID: 6156344115081027896}
+  m_LocalRotation: {x: -0, y: -0, z: -5.820766e-11, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 3647079382124761852}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0.648, y: 0.63000005, z: -0.42600003}
---- !u!33 &870724579756694961
+--- !u!33 &6156344115078069560
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870724579757818289}
+  m_GameObject: {fileID: 6156344115081027896}
   m_Mesh: {fileID: 4300000, guid: 899f3be415fc0a94d8332676a99211c9, type: 3}
---- !u!23 &870724579755564913
+--- !u!23 &6156344115079036920
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870724579757818289}
+  m_GameObject: {fileID: 6156344115081027896}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
@@ -81,13 +132,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &114329978961542158
+--- !u!114 &6407773154998754439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870724579757818289}
+  m_GameObject: {fileID: 6156344115081027896}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c1e088ce10ab7d4c87f03fd1f2dfcae, type: 3}
@@ -108,31 +159,20 @@ MonoBehaviour:
   m_allowMultipleGrabbers: 1
   m_afterGrabbed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 870724579757818289}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_beforeRelease:
     m_PersistentCalls:
       m_Calls: []
   m_onDrop:
     m_PersistentCalls:
       m_Calls: []
---- !u!54 &7775414597269583936
+--- !u!54 &3647079381541705929
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870724579757818289}
+  m_GameObject: {fileID: 6156344115081027896}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -142,13 +182,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 90
   m_CollisionDetection: 0
---- !u!64 &7775414597269583937
+--- !u!64 &3647079381541705928
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870724579757818289}
+  m_GameObject: {fileID: 6156344115081027896}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -156,30 +196,34 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 899f3be415fc0a94d8332676a99211c9, type: 3}
---- !u!114 &6311090639361257674
+--- !u!114 &6156344115081027898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870724579757818289}
+  m_GameObject: {fileID: 6156344115081027896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92d7bdce62dd83748956f81fda43980c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ed8753b1c97fe94b962fc52c163b18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalType: 8
-  handAnim: 5
-  FirstInit: 0
-  outline: {fileID: 0}
-  InteractColor: {r: 0, g: 0.74, b: 0.74, a: 1}
-  hintColor: {r: 1, g: 0.8, b: 0.28, a: 1}
-  afteInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  isWashed: 0
-  washTime: 3
-  grabFunc: {fileID: 0}
-  takeSound: 
-  dropSound: 
-  interactSound: 
+  outline: {fileID: 6156344115081027899}
+--- !u!114 &6156344115081027899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6156344115081027896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0, b: 0, a: 0}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

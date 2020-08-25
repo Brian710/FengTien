@@ -19,14 +19,14 @@ public class DropPointController : CheckPointBase
         if (WashedObj != null)
         {
             QuestManager.Instance.AddQuestCurrentAmount(WashedObj.goalType);
-            WashedObj.SetGrabble(false);
+            //WashedObj.SetGrabble(false);
             onTriggerEnter.Invoke();
         }
         else
         {
             if (GameController.Instance.mode == MainMode.Exam)
             {
-                other.GetComponent<InteracObjBase>().ShowError();
+                other.GetComponent<IObjControllerBase>().ShowError();
                 QuestManager.Instance.MinusQuestScore(2);
             }
             resetObject.ForcetoReset(other.gameObject);

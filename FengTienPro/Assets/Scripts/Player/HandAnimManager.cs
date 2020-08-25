@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 public class HandAnimManager : MonoBehaviour,IWashable
 {
@@ -7,12 +8,11 @@ public class HandAnimManager : MonoBehaviour,IWashable
     [SerializeField]
     private HandAnim handAnim;
     [SerializeField]
+    private ParticleSystem Bubble;
+    [SerializeField]
     private int washTime;
     [SerializeField]
     private bool isWashed;
-
-    [SerializeField]
-    private bool isFirstTime;
 
     public UnityEvent afteInteract;
 
@@ -28,6 +28,7 @@ public class HandAnimManager : MonoBehaviour,IWashable
         handAnim = HandAnim.Normal;
         washTime = 3;
         isWashed = false;
+        Bubble.Stop(true);
     }
 
     public void HandAnimChange(HandAnim value)
@@ -57,14 +58,20 @@ public class HandAnimManager : MonoBehaviour,IWashable
 
         isWashed = value;
         if (isWashed)
-        {
             QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.Tap);
-        }
         return isWashed;
     }
 
     public int WashTime()
     {
         return washTime;
+    }
+
+    public IEnumerator ShowBubble()
+    {
+        Bubble.Play(true);
+        yield return new WaitForSeconds(2f);
+        Bubble.Stop(true);
+
     }
 }

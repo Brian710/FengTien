@@ -16,7 +16,7 @@ public class FeedCanV : OptionalSystemBase
             {
                 if (data.optIndex != i)
                 {
-                    if (gameMode == MainMode.Train)
+                    if (mode == MainMode.Train)
                     {
                         StartCoroutine(WrongAns(data.button.GetComponentInChildren<Text>()));
                     }
@@ -65,7 +65,7 @@ public class FeedCanV : OptionalSystemBase
                 int index = 0;
                 index = i;
                 QuizData data = new QuizData();
-                if (gameMode == MainMode.Exam)
+                if (mode == MainMode.Exam)
                 {
                     Debug.Log("Exam");
                     t.GetComponentInChildren<Text>().color = new Color(0, 0, 0, 0);

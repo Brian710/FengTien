@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 
-public class GlassController : InteracObjBase
+public class GlassController : IObjControllerBase
 {
     [SerializeField]
     private Animator glassAnim;
 
-    public override void Set()
-    {
-        base.Set();
-        glassAnim.SetBool("full", false);
-    }
+    //public override void Set()
+    //{
+    //    base.Set();
+    //    glassAnim.SetBool("full", false);
+    //}
 
     private void LateUpdate()
     {

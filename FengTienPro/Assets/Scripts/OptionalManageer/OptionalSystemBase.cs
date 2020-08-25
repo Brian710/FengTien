@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using MinYan.Lang;
 
-[RequireComponent(typeof(CanvasGroup))]
 public class OptionalSystemBase : MonoBehaviour
 {
     [SerializeField]
     protected Goal.Type goalType;
+    [SerializeField]
+    protected GameObject OPCanvas;
     [SerializeField]
     protected GameObject optionPanel;
     [SerializeField]
@@ -20,43 +20,55 @@ public class OptionalSystemBase : MonoBehaviour
     protected List<QuizData> quizDatas;
     protected List<string> hintText;
 
-    protected MainMode gameMode;
+    protected MainMode mode;
 
-    private void OnEnable()
+    private void Start()
     {
-        CheckMode();
         OptionsInit();
         QuizDatasInit();
-
-        if (options.Count != quizDatas.Count)
-        {
-            Debug.LogWarning("Init Btn list<> Failure");
-            return;
-        }
-
         HintTextInit();
-        if (gameMode == MainMode.Exam) RandomPos();
-
-        confirmBtn.onClick.AddListener(ConfirmBtn);
-        OpenCanv(true);
+        QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange += OnGoalStateChange;
+        OPCanvas.SetActive(false);
     }
 
-    public virtual void OpenCanv(bool value)
-    { 
-    
-    }
-
-    private void CheckMode()
+    private void OnDestroy()
     {
-        if (GameController.Instance.mode == gameMode)
+        QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange -= OnGoalStateChange;
+    }
+
+    private void OnGoalStateChange(Goal.Type type, Goal.State state)
+    {
+        //DoubleCheck
+        if (type != goalType)
             return;
 
-        gameMode = GameController.Instance.mode;
+        switch (state)
+        {
+            case Goal.State.WAITING:
+                OpenCanv(false);
+                break;
+            case Goal.State.CURRENT:
+                OpenCanv(true);
+                break;
+            case Goal.State.DONE:
+                break;
+        }
     }
-
-    private void OnDisable()
+    public virtual void OpenCanv(bool value)
     {
-        confirmBtn.onClick.RemoveAllListeners();
+        
+        if (value)
+        {
+            OPCanvas.SetActive(value);
+            mode = GameController.Instance.mode;
+            RandomPos();
+            confirmBtn.onClick.AddListener(ConfirmBtn);
+        }
+        else
+        {
+            confirmBtn.onClick.RemoveAllListeners();
+            OPCanvas.SetActive(value);
+        }
     }
 
     #region Init
@@ -97,12 +109,10 @@ public class OptionalSystemBase : MonoBehaviour
                 int index = 0;
                 index = i;
                 QuizData data = new QuizData();
-                if (gameMode == MainMode.Exam)
+                if (mode == MainMode.Exam)
                 {
-                    Debug.Log("Exam");
-                    t.GetComponentInChildren<Text>().color = new Color(0, 0, 0, 0);
+                    t.GetComponentInChildren<Text>().text = "";
                 }
-
                 data.button = t;
                 data.button.onClick.AddListener(() => QuizBtnOnclick(index));
                 data.optIndex = -1;
@@ -120,17 +130,19 @@ public class OptionalSystemBase : MonoBehaviour
         hintText = new List<string>();
         foreach (Button opt in options)
         {
-            hintText.Add(opt.GetComponentInChildren<updatingMultiText>().currentString);
+            hintText.Add(opt.GetComponentInChildren<Text>().text);
         }
     }
 
     private void RandomPos()
     {
-        foreach (Transform t in optionPanel.GetComponentsInChildren<Transform>())
+        foreach (Button t in options)
         {
-            t.SetSiblingIndex(UnityEngine.Random.Range(0, options.Count));
+            if (mode == MainMode.Exam)
+                t.transform.SetSiblingIndex(Random.Range(0, options.Count));
+            else
+                t.transform.SetAsLastSibling();
         }
-       
     }
     #endregion
 
@@ -158,20 +170,11 @@ public class OptionalSystemBase : MonoBehaviour
         quizDatas[index].button.interactable = false;
         options[quizDatas[index].optIndex].GetComponent<CanvasGroup>().alpha = 1;
         options[quizDatas[index].optIndex].interactable = true;
-
-        if (gameMode == MainMode.Train)
-        {
-            quizDatas[index].button.GetComponentInChildren<Text>().text = hintText[index];
-        }
-        else
-        {
-            quizDatas[index].button.GetComponentInChildren<Text>().text = "";
-        }
+        quizDatas[index].button.GetComponentInChildren<Text>().text = mode == MainMode.Train ? hintText[index] : "";
     }
 
     public virtual void ConfirmBtn()
     {
-        bool IfRight = true;
         int i = 0;
         foreach (QuizData data in quizDatas)
         {
@@ -180,24 +183,17 @@ public class OptionalSystemBase : MonoBehaviour
 
             if (data.optIndex != i)
             {
-                if (gameMode == MainMode.Train)
+                if (mode == MainMode.Exam)
                 {
-                    StartCoroutine(WrongAns(data.button.GetComponentInChildren<Text>()));
-                    return;
+                    QuestManager.Instance.MinusQuestScore(2);
                 }
-                else
-                {
-                    IfRight = false;
-                }
+                StartCoroutine(WrongAns(data.button.GetComponentInChildren<Text>()));
+                return;
             }
             i++;
         }
-
-        int s = IfRight ? 0 : 2;
-
         QuestManager.Instance.AddQuestCurrentAmount(goalType);
-        QuestManager.Instance.MinusQuestScore(s);
-        gameObject.SetActive(false);
+        OpenCanv(false);
     }
 
     protected IEnumerator WrongAns(Text text)

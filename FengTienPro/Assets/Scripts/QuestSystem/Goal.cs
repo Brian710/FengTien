@@ -17,6 +17,7 @@ public class Goal : ScriptableObject
         Tap,
         Soap,
         WashHandCanv,
+        TapClean,
         Tissue,
         //WashFood
         WashObj,

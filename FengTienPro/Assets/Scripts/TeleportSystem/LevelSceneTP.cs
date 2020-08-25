@@ -8,8 +8,8 @@ public class LevelSceneTP : TeleportControllerBase
 
     private void OnEnable()
     {
-        target = PlayerController.instance.Target;
-        pivot = PlayerController.instance.Cam;
+        target = PlayerController.Instance.Target;
+        pivot = PlayerController.Instance.Cam;
         defaultFX.Play(true);
         isActive = true;
     }

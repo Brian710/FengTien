@@ -85,7 +85,7 @@ public class GameController : MonoBehaviour
         get
         {
             if (_currentPlayer == null)
-                _currentPlayer = PlayerController.instance;
+                _currentPlayer = PlayerController.Instance;
 
             return _currentPlayer;
         }
@@ -193,7 +193,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         if (_currentPlayer == null)
-            _currentPlayer = PlayerController.instance;
+            _currentPlayer = PlayerController.Instance;
         if (multiL == null)
             multiL = Resources.Load<muitiLang>("ExcelFiles/muitiLang");
         OnLanguageChange();

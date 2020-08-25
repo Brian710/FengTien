@@ -1,23 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class WatchController : ClicktoPosBase
+public class WatchController : IObjControllerBase
 {
     [SerializeField]
-    private Transform parent;
+    private ClicktoInteract ClickInteract;
+    [SerializeField]
+    private Transform startParent;
+    [SerializeField]
+    private Transform targetParent;
 
-    private void Start()
+    public override void Start()
     {
-        ObjOriginPosition = transform.localPosition;
-        ObjOriginRotation = transform.localRotation;
+        base.Start();
+        goalType = Goal.Type.Watch;
+        ClickInteract.Iobj = this;
     }
-    public override void Set()
+    protected override void SetWaitingState()
     {
-        base.Set();
-        transform.SetParent(parent, false);
-        transform.localPosition = ObjOriginPosition;
-        transform.localRotation = ObjOriginRotation;
-        ShowHintColor(true);
+        transform.SetParent(startParent, false);
+        transform.position = startParent.position;
+        transform.rotation = startParent.rotation;
+        ClickInteract.enabled = false;
+        base.SetWaitingState();
     }
+    protected override void SetCurrentState()
+    {
+        ClickInteract.enabled = true;
+        base.SetCurrentState();
+    }
+    protected override void SetDoneState()
+    {
+        transform.SetParent(targetParent, false);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        ClickInteract.enabled = false;
+        base.SetDoneState();
+    }
+
 }

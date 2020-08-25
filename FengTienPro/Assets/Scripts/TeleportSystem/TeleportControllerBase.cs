@@ -14,8 +14,8 @@ public class TeleportControllerBase : Teleportable
 
     public virtual void Start()
     {
-        target = PlayerController.instance.Target;
-        pivot = PlayerController.instance.Cam;
+        target = PlayerController.Instance.Target;
+        pivot = PlayerController.Instance.Cam;
         ShowTeleport(false);
         OnAfterTeleport += TP_OnAfterTeleport;
     }

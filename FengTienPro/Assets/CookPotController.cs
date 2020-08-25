@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookPotController : InteracObjBase
+public class CookPotController : IObjControllerBase
 {
     [SerializeField]
     private List<GameObject> gameObjects;
 
     [SerializeField]
-    private List<InteracObjBase> FoodMats;
+    private List<IObjControllerBase> FoodMats;
 
     [SerializeField]
     private CookLadleController Ladle;
@@ -28,23 +28,50 @@ public class CookPotController : InteracObjBase
     List<Vector3> FoodMatPos = new List<Vector3>();
     List<Quaternion> FoodMatRot = new List<Quaternion>();
 
-    public override void Set()
+    public override void Awake()
+    {
+        base.Awake();
+        goalType = Goal.Type.CookFood;
+    }
+
+    public override void Start()
+    {
+        base.Start();
+        FoodMatPos.Clear();
+        FoodMatRot.Clear();
+        foreach (IObjControllerBase trans in FoodMats)
+        {
+            FoodMatPos.Add(trans.transform.position);
+            FoodMatRot.Add(trans.transform.rotation);
+        }
+    }
+
+    public override void OnDestroy()
+    {
+        base.OnDestroy();
+    }
+
+    protected override void SetWaitingState()
     {
         timer = 0;
         cookdone.Stop();
-        FoodMatPos.Clear();
-        FoodMatRot.Clear();
-        base.Set();
+        
         foreach (GameObject obj in gameObjects)
         {
             obj.SetActive(false);
         }
-        foreach (InteracObjBase trans in FoodMats)
+        for (int i = 0; i < FoodMats.Count; i++)
         {
-            trans.Set();
-            FoodMatPos.Add(trans.transform.position);
-            FoodMatRot.Add(trans.transform.rotation);
+            FoodMats[i].transform.position = FoodMatPos[i];
+            FoodMats[i].transform.rotation = FoodMatRot[i];
         }
+    }
+    protected override void SetCurrentState()
+    {
+    }
+    protected override void SetDoneState()
+    {
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -93,7 +120,7 @@ public class CookPotController : InteracObjBase
         else
         {
             int i = 0;
-            foreach (InteracObjBase obj in FoodMats)
+            foreach (IObjControllerBase obj in FoodMats)
             {
                 if (other.gameObject == obj.gameObject)
                 {

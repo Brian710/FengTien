@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClicktoInteract : InteracObjBase
-    , IColliderEventClickHandler
-    , IColliderEventPressEnterHandler
-    , IColliderEventHoverExitHandler
+public class ClicktoInteract :MonoBehaviour  ,IColliderEventClickHandler   , IColliderEventPressEnterHandler ,IColliderEventPressExitHandler
 {
+    public IObjControllerBase Iobj { get; set; }
     [SerializeField]
     private ColliderButtonEventData.InputButton m_activeButton = ColliderButtonEventData.InputButton.Trigger;
 
@@ -18,7 +16,7 @@ public class ClicktoInteract : InteracObjBase
     {
         if (pressingEvents.Contains(eventData) && pressingEvents.Count == 1)
         {
-            base.InteractInvoke(true);
+            QuestManager.Instance.AddQuestCurrentAmount(Iobj.goalType);
         }
     }
 
@@ -26,7 +24,6 @@ public class ClicktoInteract : InteracObjBase
     {
         if (eventData.button == m_activeButton && eventData.clickingHandlers.Contains(gameObject) && pressingEvents.Add(eventData) && pressingEvents.Count == 1)
         {
-            base.ShowInteractColor(false);
         }
     }
 
@@ -34,7 +31,6 @@ public class ClicktoInteract : InteracObjBase
     {
         if (pressingEvents.Remove(eventData) && pressingEvents.Count == 0)
         {
-            base.ShowInteractColor(true);
         }
     }
 }
