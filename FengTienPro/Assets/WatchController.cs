@@ -9,10 +9,14 @@ public class WatchController : IObjControllerBase
     [SerializeField]
     private Transform targetParent;
 
+    public override void Awake()
+    {
+        base.Awake();
+        goalType = Goal.Type.Watch;
+    }
     public override void Start()
     {
         base.Start();
-        goalType = Goal.Type.Watch;
         ClickInteract.Iobj = this;
     }
     protected override void SetWaitingState()

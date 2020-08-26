@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
@@ -19,27 +20,41 @@ public class QuestManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
     #endregion
-    [SerializeField]
-    private bool firstInit;
     public List<Quest> quests;
     public Dictionary<Goal.Type,QuestGoal> questGoals;
-    public Quest CurrentQuest { get; private set; }
-
+    public Quest currentQuest;
+    //public GameObject TPManager;
     protected virtual void Awake()
     {
         InitSingleton();
-        firstInit = true;
         quests = new List<Quest>();
         questGoals = new Dictionary<Goal.Type, QuestGoal>();
-        QuestInit();
     }
+    
     private void Start()
     {
+        QuestInit();
         BFS(quests[0]);
         PrintPath();
         Set();
-        CurrentQuest = FindCurrentQuest();
-        firstInit = false;
+        currentQuest = FindCurrentQuest();
+        //TPManager.SetActive(true);
+    }
+    public void QuestInit()
+    {
+        foreach (QuestGiver qg in GetComponentsInChildren<QuestGiver>())
+        {
+            quests.Add(qg.quest);
+            foreach (QuestGoal goal in qg.quest.goals)
+            {
+                questGoals.Add(goal.type, goal);
+            }
+        }
+
+        for (int i = 0; i < quests.Count - 1; i++)
+        {
+            AddPath(quests[i].Id, quests[i + 1].Id);
+        }
     }
 
     private void Set()
@@ -99,22 +114,7 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void QuestInit()
-    {
-        foreach (QuestGiver qg in GetComponentsInChildren<QuestGiver>())
-        {
-            quests.Add(qg.quest);
-            foreach (QuestGoal goal in qg.quest.goals)
-            {
-                questGoals.Add(goal.type, goal);
-            }
-        }
-
-        for (int i = 0; i < quests.Count - 1; i++)
-        {
-            AddPath(quests[i].Id, quests[i + 1].Id);
-        }
-    }
+    
 
     //mainly for Teleport
     public void SetNextQuestStatus(Quest cq)
@@ -201,4 +201,16 @@ public class QuestManager : MonoBehaviour
         return null;
     }
 
+    public Quest GetQuestByName(Quest.Name name)
+    {
+        foreach (Quest q in quests)
+        {
+            if (q.qName == name)
+            {
+                return q;
+            }
+        }
+
+        return null;
+    }
 }

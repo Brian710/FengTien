@@ -15,12 +15,12 @@ public class MainSceneManager : MonoBehaviour
     }
     public void Set()
     {
-        //if (gameObjects.Count <= 0)
-        //    return;
-        //foreach (GameObject obj in gameObjects)
-        //{
-        //    obj.SetActive(true);
-        //}
+        if (gameObjects.Count <= 0)
+            return;
+        foreach (GameObject obj in gameObjects)
+        {
+            obj.SetActive(true);
+        }
     }
 
     public void BacktoStart()
@@ -30,6 +30,7 @@ public class MainSceneManager : MonoBehaviour
 
         GameController.Instance.gameState = GameState.StartInit;
         StartCoroutine(PlayerController.Instance.TransAnimPlaytoEnd(true));
+
         if (StartScenePos)
             StartCoroutine(PlayerController.Instance.ChangePos(StartScenePos));
     }

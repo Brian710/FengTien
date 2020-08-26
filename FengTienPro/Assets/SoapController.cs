@@ -4,10 +4,14 @@ public class SoapController : IObjControllerBase
 {
     [SerializeField]
     private ClicktoInteract ClickInteract;
+    public override void Awake()
+    {
+        base.Awake();
+        goalType = Goal.Type.Soap;
+    }
     public override void Start()
     {
         base.Start();
-        goalType = Goal.Type.Soap;
         ClickInteract.Iobj = this;
         ClickInteract.enabled = false;
     }

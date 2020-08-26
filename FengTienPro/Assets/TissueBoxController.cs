@@ -5,8 +5,8 @@ public class TissueBoxController : IObjControllerBase
     private ClicktoInteract ClickInteract;
     public override void Start()
     {
-        base.Start();
         goalType = Goal.Type.Tissue;
+        base.Start();
         ClickInteract.Iobj = this;
         ClickInteract.enabled = false;
     }

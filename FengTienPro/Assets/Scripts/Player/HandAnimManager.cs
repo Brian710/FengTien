@@ -45,12 +45,15 @@ public class HandAnimManager : MonoBehaviour,IWashable
         
         animator.SetFloat("Rotation", Mathf.Abs(inputAxis));
     }
-    
+#if UNITY_EDITOR
     private void OnValidate()
     {
-        HandAnimChange(handAnim);
+        if (Application.isPlaying)
+        {
+            HandAnimChange(handAnim);
+        }
     }
-
+#endif
     public bool IsWashed(bool value)
     {
         if (isWashed == value)

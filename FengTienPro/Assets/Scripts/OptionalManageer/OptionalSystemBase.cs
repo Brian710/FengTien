@@ -27,6 +27,7 @@ public class OptionalSystemBase : MonoBehaviour
         OptionsInit();
         QuizDatasInit();
         HintTextInit();
+        Debug.Log(QuestManager.Instance.GetQuestGoalByType(goalType));
         QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange += OnGoalStateChange;
         OPCanvas.SetActive(false);
     }

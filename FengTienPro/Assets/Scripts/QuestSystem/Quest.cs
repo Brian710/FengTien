@@ -37,11 +37,12 @@ public class Quest
     }
 
     public event Action<Name,State> OnQuestChange;
+
     public void UpdateQuestStatus(State es)
     {
         state = es;
         //call for the things update not in the quest system
-        OnQuestChange(qName, state);
+        OnQuestChange ?.Invoke(qName, state);
 
         switch (state)
         {
