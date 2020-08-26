@@ -69,6 +69,7 @@ public class TeleportControllerBase : Teleportable
         }
 
         isActive = value;
+        GetComponent<Collider>().enabled = value;
     }
 #if UNITY_EDITOR
     public override void Reset()

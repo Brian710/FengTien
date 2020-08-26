@@ -21,15 +21,15 @@ public class WatchController : IObjControllerBase
     }
     protected override void SetWaitingState()
     {
-        transform.SetParent(startParent, false);
-        transform.position = startParent.position;
-        transform.rotation = startParent.rotation;
         ClickInteract.enabled = false;
         base.SetWaitingState();
     }
     protected override void SetCurrentState()
     {
         ClickInteract.enabled = true;
+        transform.SetParent(startParent, false);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
         base.SetCurrentState();
     }
     protected override void SetDoneState()

@@ -12,12 +12,12 @@ public class Quest
     private string id;
     public string Id { get { return id; } }
 
-    public QuestGiver giver { get; private set; }
-    public Name qName { get; private set; }
-    public string description { get; private set; }
-    public int order { get; set; }
-    public bool isSingle { get; private set; }
-    public State state { get;  private set; }
+    public QuestGiver giver;
+    public Name qName;
+    public string description;
+    public int order;
+    public bool isSingle;
+    public State state;
     public List<QuestPath> pathes;
     public List<QuestGoal> goals;
     public int score;
@@ -41,18 +41,20 @@ public class Quest
     public void UpdateQuestStatus(State es)
     {
         state = es;
+        Debug.LogWarning(state.ToString() + "  "+ OnQuestChange);
         //call for the things update not in the quest system
         OnQuestChange ?.Invoke(qName, state);
 
         switch (state)
         {
             case State.WAITING:
-                ResetAllQuests();
+                ResetAllGoals();
                 break;
             case State.CHOOSABLE:
                 giver.OpenQuestBtn(true);
                 break;
             case State.CURRENT:
+                ResetAllGoals();
                 goals[0].UpdateGoalState(Goal.State.CURRENT);
                 break;
             case State.DONE:
@@ -60,7 +62,7 @@ public class Quest
         }
     }
 
-    public void ResetAllQuests()
+    public void ResetAllGoals()
     {
         foreach (QuestGoal g in goals)
         {
@@ -82,7 +84,7 @@ public class Quest
         Complete();
     }
 
-    public void AddQuestCurrentAmount(Goal.Type gt)
+    public void AddCurrentGoalAmount(Goal.Type gt)
     {
         foreach (QuestGoal g in goals)
         {

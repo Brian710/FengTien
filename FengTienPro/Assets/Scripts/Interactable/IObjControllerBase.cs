@@ -1,7 +1,6 @@
-﻿using HTC.UnityPlugin.ColliderEvent;
+﻿using HTC.UnityPlugin.Vive;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 public class IObjControllerBase : MonoBehaviour
 {
     #region properties
@@ -9,30 +8,40 @@ public class IObjControllerBase : MonoBehaviour
     public InteractHover hover;
     public GameObject ChildObj;
     protected bool isWaitState;
-
+    
+    [SerializeField]
     private string takeSound;
+    [SerializeField]
     private string dropSound;
+    [SerializeField]
     private string interactSound;
+
+    protected Vector3 position;
+    protected Quaternion rotation;
+
+    protected HandAnim handAnim;
     #endregion
     public virtual void Awake()
     {
         hover.InteractColor = new Color(0, .74f, .74f, 1);
         hover.hintColor = new Color(1, 0.8f, .28f, 1);
+        position = transform.position;
+        rotation = transform.rotation;
     }
     public virtual void Start()
     {
-        QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange += OnGoalStateChange;
+        if(goalType != Goal.Type.None)
+            QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange += OnGoalStateChange;
         SetInterObjActive(false);
     }
     public virtual void OnDestroy()
     {
-        QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange -= OnGoalStateChange;
+        if (goalType != Goal.Type.None)
+            QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange -= OnGoalStateChange;
     }
     public virtual void SetInterObjActive(bool value)
     {
         ChildObj.SetActive(value);
-        if (!isWaitState && value)
-            SetWaitingState();
     }
     public virtual void InteractInvoke(bool value)
     {
@@ -64,15 +73,14 @@ public class IObjControllerBase : MonoBehaviour
     }
     protected virtual void SetWaitingState()
     {
-        isWaitState = true;
+        transform.position = position;
+        transform.rotation = rotation;
     }
     protected virtual void SetCurrentState()
     {
-        isWaitState = false;
     }
     protected virtual void SetDoneState()
     {
-        isWaitState = false;
     }
 
     #region Default Func
@@ -120,6 +128,37 @@ public class IObjControllerBase : MonoBehaviour
             return;
         }
         AudioManager.Instance.Play(dropSound);
+    }
+
+    public void GrabFunc_beforeGrabberReleased()
+    {
+        if (ViveInput.GetPressEx(HandRole.RightHand, ControllerButton.Trigger))
+        {
+            PlayerController.Instance.EnableRightRay = true;
+            PlayerController.Instance.RightHand.HandAnimChange(HandAnim.Normal);
+        }
+        else
+        {
+            PlayerController.Instance.EnableLeftRay = true;
+            PlayerController.Instance.LeftHand.HandAnimChange(HandAnim.Normal);
+        }
+    }
+
+    public void GrabFunc_afterGrabberGrabbed()
+    {
+        if (ViveInput.GetPressEx(HandRole.RightHand, ControllerButton.Trigger))
+        {
+            PlayerController.Instance.EnableRightRay = false;
+            PlayerController.Instance.RightHand.HandAnimChange(handAnim);
+        }
+        else
+        {
+            PlayerController.Instance.EnableLeftRay = false;
+            PlayerController.Instance.LeftHand.HandAnimChange(handAnim);
+        }
+
+        PlayTakeSound();
+        hover.ShowInteractColor(false);
     }
     #endregion
 }

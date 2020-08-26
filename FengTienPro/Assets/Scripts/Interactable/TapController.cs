@@ -12,10 +12,13 @@ public class TapController : IObjControllerBase
 
     private Coroutine _coroutine;
     private MaterialPropertyBlock _propBlock;
+    [SerializeField]
+    private GameObject washobj;
     private IWashable _IWashable;
 
     public override void Start()
     {
+        hover.enabled = false;
         _propBlock = new MaterialPropertyBlock();
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange += OnGoalStateChange;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange += OnGoalStateChange;
@@ -57,8 +60,9 @@ public class TapController : IObjControllerBase
     {
         TapOn(true);
         SetLightColor(true);
-        _IWashable = other.gameObject.GetComponent<IWashable>();
-
+        Debug.LogWarning(other.gameObject.name);
+        _IWashable = other.gameObject.GetComponentInParent<IWashable>();
+        washobj = _IWashable.Obj();
         if (_IWashable != null)
         {
             if (_coroutine != null)
@@ -77,6 +81,7 @@ public class TapController : IObjControllerBase
             StopCoroutine(_coroutine);
 
         _IWashable = null;
+        washobj = null;
     }
 
     public void TapOn(bool value)

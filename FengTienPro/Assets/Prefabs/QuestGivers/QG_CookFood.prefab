@@ -397,17 +397,21 @@ MonoBehaviour:
   questScore: 5
   goals:
   - {fileID: 11400000, guid: 008f6f6347faa654c882cb117cd15938, type: 2}
+  - {fileID: 11400000, guid: f265ed329a50f6749a0beb489a34b72f, type: 2}
+  - {fileID: 11400000, guid: 45bc711f91c93a14a81dbed532bda99a, type: 2}
+  - {fileID: 11400000, guid: 73d93465f92780f459eaea11e01010a2, type: 2}
+  - {fileID: 11400000, guid: 1a19620b847c7154bb3c673ad310b314, type: 2}
   - {fileID: 11400000, guid: 49ed7b80c01472c4b8891ccd308084cf, type: 2}
   - {fileID: 11400000, guid: 47ae821c948a7aa44aab3e0658cc4c93, type: 2}
-  gameObjects:
+  InterObjs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   _quest:
     id: 
-    giver: {fileID: 0}
-    questName: 0
-    description: 
-    order: 0
-    isSingle: 0
-    status: 0
     goals: []
     score: 0

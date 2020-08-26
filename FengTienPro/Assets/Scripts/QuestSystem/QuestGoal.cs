@@ -6,7 +6,7 @@ public class QuestGoal
 {
     public Goal goal;
     public Goal.Type type;
-    public Goal.State state { get; private set; }
+    public Goal.State state;
     public bool doItRight;
     public int currentAmount;
     public int requiredAmount;
@@ -37,4 +37,6 @@ public class QuestGoal
         this.state = state;
         OnGoalStateChange?.Invoke(type, state);
     }
+
+
 }

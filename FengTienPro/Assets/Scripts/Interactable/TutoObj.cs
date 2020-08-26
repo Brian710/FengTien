@@ -1,7 +1,7 @@
 ﻿using HTC.UnityPlugin.Vive;
 using UnityEngine;
 
-public class TutoObj : IObjControllerBase,IGrabbable
+public class TutoObj : IObjControllerBase, IGrabbable
 {
     public override void Awake()
     {
@@ -26,40 +26,6 @@ public class TutoObj : IObjControllerBase,IGrabbable
     [SerializeField]
     private HandAnim _handAnim;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
-    public HandAnim handAnim => _handAnim;
-    
-    public override void InteractInvoke(bool value)
-    {
-    }
-    public void GrabFunc_beforeGrabberReleased()
-    {
-        if (ViveInput.GetPressEx(HandRole.RightHand, ControllerButton.Trigger))
-        {
-            PlayerController.Instance.EnableRightRay = true;
-            PlayerController.Instance.RightHand.HandAnimChange(HandAnim.Normal);
-        }
-        else
-        {
-            PlayerController.Instance.EnableLeftRay = true;
-            PlayerController.Instance.LeftHand.HandAnimChange(HandAnim.Normal);
-        }
-        
-    }
+    public new HandAnim handAnim => _handAnim;
 
-    public void GrabFunc_afterGrabberGrabbed()
-    {
-        if (ViveInput.GetPressEx(HandRole.RightHand, ControllerButton.Trigger))
-        {
-            PlayerController.Instance.EnableRightRay = false;
-            PlayerController.Instance.RightHand.HandAnimChange(handAnim);
-        }
-        else
-        {
-            PlayerController.Instance.EnableLeftRay = false;
-            PlayerController.Instance.LeftHand.HandAnimChange(handAnim);
-        }
-
-        PlayTakeSound();
-        hover.ShowInteractColor(false);
-    }
 }

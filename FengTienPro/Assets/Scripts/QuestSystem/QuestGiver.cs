@@ -54,11 +54,11 @@ public class QuestGiver : MonoBehaviour
     //mainly for Teleport
     public void AcceptQuest()
     {
-        quest.UpdateQuestStatus(Quest.State.CURRENT);
-        questBtn.gameObject.SetActive(false);
-        GameController.Instance.quest = quest;
         //init Quest Obj
         SetQuestLoc(true);
+        questBtn.gameObject.SetActive(false);
+        quest.UpdateQuestStatus(Quest.State.CURRENT);
+        GameController.Instance.quest = quest;
     }
 
     private void SetQuestLoc(bool value)

@@ -9475,6 +9475,7 @@ MonoBehaviour:
   defaultFX: {fileID: 5323046062515843481}
   FX_On: {fileID: 5323046061485673634}
   isActive: 0
+  qName_TP: 0
 --- !u!1 &5087618211346330175
 GameObject:
   m_ObjectHideFlags: 0

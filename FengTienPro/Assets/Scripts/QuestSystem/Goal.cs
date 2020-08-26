@@ -25,7 +25,11 @@ public class Goal : ScriptableObject
         CutFish,
         CutVeg,
         //CookFood
-        InputCookMat,
+        InputRice,
+        InputWater,
+        InputFish,
+        InputVeg,
+        InputSalt,
         CookFood,
         TasteFood,
         //FeedFood

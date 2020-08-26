@@ -16,20 +16,20 @@ public class DropPointController : CheckPointBase
     public override void OnTriggerEnter(Collider other)
     {
         WashedObj = other.gameObject.GetComponent<WashObj>();
+
         if (WashedObj != null)
         {
             QuestManager.Instance.AddQuestCurrentAmount(WashedObj.goalType);
-            //WashedObj.SetGrabble(false);
             onTriggerEnter.Invoke();
         }
-        else
-        {
-            if (GameController.Instance.mode == MainMode.Exam)
-            {
-                other.GetComponent<IObjControllerBase>().ShowError();
-                QuestManager.Instance.MinusQuestScore(2);
-            }
-            resetObject.ForcetoReset(other.gameObject);
-        }
+        //else
+        //{
+        //    if (GameController.Instance.mode == MainMode.Exam)
+        //    {
+        //        other.GetComponent<IObjControllerBase>().ShowError();
+        //        QuestManager.Instance.MinusQuestScore(2);
+        //    }
+        //    resetObject.ForcetoReset(other.gameObject);
+        //}
     }
 }

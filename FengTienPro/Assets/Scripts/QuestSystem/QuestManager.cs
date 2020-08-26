@@ -35,9 +35,8 @@ public class QuestManager : MonoBehaviour
     {
         QuestInit();
         BFS(quests[0]);
-        PrintPath();
+        //PrintPath();
         Set();
-        currentQuest = FindCurrentQuest();
         //TPManager.SetActive(true);
     }
     public void QuestInit()
@@ -57,19 +56,23 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    private void Set()
+    public void Set()
     {
+        Debug.LogWarning("QuestManager Set()");
         foreach (var q in quests)
         {
             if (q.qName == Quest.Name.Talk)
             {
                 q.UpdateQuestStatus(Quest.State.CHOOSABLE);
+                Debug.LogWarning("Talk Set()");
             }
             else
             {
                 q.UpdateQuestStatus(Quest.State.WAITING);
+                Debug.LogWarning("Other Set()");
             }
         }
+        currentQuest = FindCurrentQuest();
     }
 
     public void AddPath(string fromQE, string toQE)
@@ -135,7 +138,7 @@ public class QuestManager : MonoBehaviour
         {
             if (q.state == Quest.State.CURRENT)
             {
-                q.AddQuestCurrentAmount(gt);
+                q.AddCurrentGoalAmount(gt);
                 break;
             }
         }
@@ -213,4 +216,14 @@ public class QuestManager : MonoBehaviour
 
         return null;
     }
+
+#if UNITY_EDITOR
+    protected virtual void OnValidate()
+    {
+        if (Application.isPlaying)
+        {
+            currentQuest.AddCurrentGoalAmount(currentQuest.GetCurrentGoal().type);
+        }
+    }
+#endif
 }

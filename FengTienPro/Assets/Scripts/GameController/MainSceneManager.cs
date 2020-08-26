@@ -13,10 +13,12 @@ public class MainSceneManager : MonoBehaviour
     {
         GameController.Instance.gameMainInit += Set;
     }
+
     public void Set()
     {
         if (gameObjects.Count <= 0)
             return;
+
         foreach (GameObject obj in gameObjects)
         {
             obj.SetActive(true);

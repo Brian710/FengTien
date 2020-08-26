@@ -12,8 +12,8 @@ public class WashObj : IObjControllerBase, IWashable,IGrabbable
     [SerializeField]
     private HandAnim _handAnim;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
-    public HandAnim handAnim => _handAnim;
-
+    public new  HandAnim handAnim => _handAnim;
+    public GameObject Obj() => this.gameObject;
     public override void Awake()
     {
         base.Awake();
@@ -61,36 +61,5 @@ public class WashObj : IObjControllerBase, IWashable,IGrabbable
     {
         viveGrabFunc.enabled = false;
         base.SetDoneState();
-    }
-
-    public void GrabFunc_beforeGrabberReleased()
-    {
-        if (ViveInput.GetPressEx(HandRole.RightHand, ControllerButton.Trigger))
-        {
-            PlayerController.Instance.EnableRightRay = true;
-            PlayerController.Instance.RightHand.HandAnimChange(HandAnim.Normal);
-        }
-        else
-        {
-            PlayerController.Instance.EnableLeftRay = true;
-            PlayerController.Instance.LeftHand.HandAnimChange(HandAnim.Normal);
-        }
-    }
-
-    public void GrabFunc_afterGrabberGrabbed()
-    {
-        if (ViveInput.GetPressEx(HandRole.RightHand, ControllerButton.Trigger))
-        {
-            PlayerController.Instance.EnableRightRay = false;
-            PlayerController.Instance.RightHand.HandAnimChange(handAnim);
-        }
-        else
-        {
-            PlayerController.Instance.EnableLeftRay = false;
-            PlayerController.Instance.LeftHand.HandAnimChange(handAnim);
-        }
-
-        PlayTakeSound();
-        hover.ShowInteractColor(false);
     }
 }

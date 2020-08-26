@@ -39,8 +39,8 @@ public class LevelSceneManager : MonoBehaviour
 
     public void ChangePostoMain()
     {
-        GameController.Instance.gameState = GameState.MainInit;
         StartCoroutine(PlayerController.Instance.TransAnimPlaytoEnd(true));
+        GameController.Instance.gameState = GameState.MainInit;
         if (MainScenePos)
             StartCoroutine(PlayerController.Instance.ChangePos(MainScenePos));
     }

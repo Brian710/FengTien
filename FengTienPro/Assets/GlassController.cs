@@ -1,15 +1,12 @@
-﻿using UnityEngine;
+﻿using HTC.UnityPlugin.Vive;
+using UnityEngine;
 
-public class GlassController : IObjControllerBase
+public class GlassController : MonoBehaviour
 {
     [SerializeField]
     private Animator glassAnim;
 
-    //public override void Set()
-    //{
-    //    base.Set();
-    //    glassAnim.SetBool("full", false);
-    //}
+    public BasicGrabbable grabFunc;
 
     private void LateUpdate()
     {
@@ -17,9 +14,15 @@ public class GlassController : IObjControllerBase
             return;
 
         if (isPour())
+        {
             glassAnim.SetBool("full", false);
+        }
     }
-
+    public void doFull()
+    {
+        glassAnim.SetBool("full", true);
+        grabFunc.enabled = true;
+    }
     public bool isFull()
     {
         return glassAnim.GetBool("full");

@@ -15,7 +15,7 @@ public class HandAnimManager : MonoBehaviour,IWashable
     private bool isWashed;
 
     public UnityEvent afteInteract;
-
+    public GameObject Obj() => this.gameObject;
     public void NoWashed() => isWashed = false;
     public HandAnim HandAnim
     {

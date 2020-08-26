@@ -79,7 +79,7 @@ MonoBehaviour:
   defaultFX: {fileID: 8270599152033082178}
   FX_On: {fileID: 8270599150651643513}
   isActive: 0
-  questName: 3
+  qName_TP: 3
 --- !u!1 &1326348864190845564
 GameObject:
   m_ObjectHideFlags: 0

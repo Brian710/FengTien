@@ -46,22 +46,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questBtn: {fileID: 8279011052855819089}
   questName: 4
-  questDescription: 03
+  questDescription: 04
   isSingle: 1
   questScore: 0
   goals:
   - {fileID: 11400000, guid: 64a59dd013ab267419758feccbf3571e, type: 2}
   - {fileID: 11400000, guid: ef5da76c2ca08b242a5bed63b687a842, type: 2}
-  gameObjects:
+  InterObjs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   _quest:
     id: 
-    giver: {fileID: 0}
-    questName: 0
-    description: 
-    order: 0
-    isSingle: 0
-    status: 0
     goals: []
     score: 0
 --- !u!1 &1568740322087279453
