@@ -1,7 +1,46 @@
 ﻿using UnityEngine;
 
-public class SoupBowlController : IObjControllerBase
+public class FeedBowlController : IObjControllerBase
 {
+    [SerializeField]
+    private ClicktoInteract ClickInteract;
+    [SerializeField]
+    private Transform startParent;
+    [SerializeField]
+    private Transform targetParent;
+
+    public override void Awake()
+    {
+        base.Awake();
+        goalType = Goal.Type.TakeBowl;
+    }
+    public override void Start()
+    {
+        base.Start();
+        ClickInteract.Iobj = this;
+    }
+    protected override void SetWaitingState()
+    {
+        ClickInteract.enabled = false;
+        base.SetWaitingState();
+    }
+    protected override void SetCurrentState()
+    {
+        ClickInteract.enabled = true;
+        transform.SetParent(startParent, false);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        base.SetCurrentState();
+    }
+    protected override void SetDoneState()
+    {
+        transform.SetParent(targetParent, false);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        ClickInteract.enabled = false;
+        base.SetDoneState();
+    }
+
     //[SerializeField]
     //private GameObject On;
 
@@ -28,7 +67,7 @@ public class SoupBowlController : IObjControllerBase
     //    //oriRot = transform.localRotation;
     //    aliPos = new Vector3(0.011f, -0.054f, -0.05f);
     //    aliRot = new Vector3(0, 90, 90);
-       
+
     //}
     ////public override void Set()
     ////{

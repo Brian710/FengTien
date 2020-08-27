@@ -23,8 +23,8 @@ public class QuestGoal
 
     public bool IsComplete()
     {
-        if(currentAmount >= requiredAmount)
-            state = Goal.State.DONE;
+        if (currentAmount >= requiredAmount)
+            UpdateGoalState(Goal.State.DONE);
 
         Debug.Log("Goal marked as completed.");
         return currentAmount >= requiredAmount;

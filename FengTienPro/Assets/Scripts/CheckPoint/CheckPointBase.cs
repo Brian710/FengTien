@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class CheckPointBase : MonoBehaviour
 {
     [SerializeField]
-    protected ParticleSystem particle;
+    protected ParticleSystem FX;
     [SerializeField]
     protected float force = 9.8f;
     [SerializeField]
@@ -12,8 +12,8 @@ public class CheckPointBase : MonoBehaviour
 
     public virtual void Start()
     {
-        if (particle.isPlaying)
-            particle.Stop();
+        if (FX.isPlaying)
+            FX.Stop();
     }
 
     public virtual void OnTriggerEnter(Collider other)
@@ -28,7 +28,7 @@ public class CheckPointBase : MonoBehaviour
 
     public void ShowParticle(bool value)
     {
-        if (value) particle.Play(true);
-        else particle.Stop(true);
+        if (value) FX.Play(true);
+        else FX.Stop(true);
     }
 }
