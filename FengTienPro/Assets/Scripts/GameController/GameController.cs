@@ -265,8 +265,8 @@ public class GameController : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            UpdateLog();
             gameState = _gameState;
+            UpdateLog();
         }
     }
 

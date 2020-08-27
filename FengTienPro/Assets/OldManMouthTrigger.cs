@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class OldManMouthTrigger : MonoBehaviour
 {
     private int BiteNum;
-    private bool GlassIn;
     [SerializeField]
     private Animator EatAnim;
+    [SerializeField]
+    private FeedCanV FeedCanV;
 
-    public FeedCanV FeedCanV;
-
-    public UnityEvent finishedFeed;
+    private void Start()
+    {
+        
+    }
     private void OnEnable()
     {
         Set();
@@ -29,36 +29,26 @@ public class OldManMouthTrigger : MonoBehaviour
             if (other.gameObject.GetComponent<SpoonController>().IfHaveMat() && FeedCanV.canvasGroup.alpha != 1)
             {
                 EatAnim.SetTrigger("EatState");
-                other.gameObject.GetComponent<SpoonController>().HaveMat(false);
+                other.gameObject.GetComponent<SpoonController>().GetMat(false);
                 QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.FeedFood);
                 BiteNum++;
 
                 if (BiteNum <= 4)
                     FeedCanV.CanvasOn(true);
-                else
-                {
-                    finishedFeed.Invoke();
-                }
             }
         }
         else if (other.gameObject.GetComponent<GlassController>())
         {
-            if(other.gameObject.GetComponent<GlassController>().isFull())
-                GlassIn = true;
+            if (other.gameObject.GetComponent<GlassController>().isFull())
+            {
+                QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.FeedWater);
+                other.gameObject.GetComponent<GlassController>().doFull(false);
+            }
         }
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (GlassIn && other.gameObject.GetComponent<GlassController>().isPour())
-        {
-            QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.DrinkWater);
-        }
-    }
-
+   
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.GetComponent<GlassController>())
-            GlassIn = false;
+       
     }
 }

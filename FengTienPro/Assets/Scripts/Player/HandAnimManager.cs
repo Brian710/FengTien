@@ -37,6 +37,7 @@ public class HandAnimManager : MonoBehaviour,IWashable
 
         HandAnim = value;
         animator.SetInteger("HandAnim", (int)HandAnim);
+        PlayerController.Instance.AllRayActivity(value == HandAnim.Normal);
     }
 
     public void NormalAnimUpdate(float inputAxis)

@@ -50,42 +50,33 @@ public class FeedCanV : OptionalSystemBase
 
     public override void QuizDatasInit()
     {
-        if (quizPanel == null)
-        {
-            Debug.LogWarning("quizPanel is null");
-            return;
-        }
-
         quizDatas = new List<QuizData>();
         int i = 4;
         foreach (Button t in quizPanel.GetComponentsInChildren<Button>())
         {
-            if (t.name.Contains("Qbtn"))
+            int index = 0;
+            index = i;
+            QuizData data = new QuizData();
+            if (mode == MainMode.Exam)
             {
-                int index = 0;
-                index = i;
-                QuizData data = new QuizData();
-                if (mode == MainMode.Exam)
-                {
-                    Debug.Log("Exam");
-                    t.GetComponentInChildren<Text>().color = new Color(0, 0, 0, 0);
-                }
-
-                data.button = t;
-                data.button.onClick.AddListener(() => base.QuizBtnOnclick(index));
-                data.optIndex = -1;
-                quizDatas.Add(data);
-                i--;
+                Debug.Log("Exam");
+                t.GetComponentInChildren<Text>().color = new Color(0, 0, 0, 0);
             }
+            data.button = t;
+            data.button.onClick.AddListener(() => QuizBtnOnclick(index));
+            data.optIndex = index;
+            quizDatas.Add(data);
+            i--;
         }
     }
 
     public override void OptBtnOnclick(int index)
     {
-        options[index].GetComponent<CanvasGroup>().alpha = 0;
-        options[index].interactable = false;
-
-        QuizData quizData;
+        if (!quizDatas[Mathf.Abs(index - 4)].button.interactable)
+        {
+            options[index].GetComponent<CanvasGroup>().alpha = 0;
+            options[index].interactable = false;
+        }
         for (int i = 4; i >= 0; i--)
         {
             quizData = quizDatas[i];
@@ -99,5 +90,11 @@ public class FeedCanV : OptionalSystemBase
                 return;
             }
         }
+        
+    }
+
+    public override void RandomPos()
+    {
+
     }
 }

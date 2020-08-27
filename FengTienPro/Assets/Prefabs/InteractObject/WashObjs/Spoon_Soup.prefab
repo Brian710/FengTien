@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posOffset: {x: 0, y: 0, z: 0}
   rotOffset: {x: 0, y: 0, z: 0}
-  alignPosition: 0
+  alignPosition: 1
   alignRotation: 1
   alignPositionOffset: {x: -0.00149, y: 0.07244, z: 0.03970001}
   alignRotationOffset: {x: 20.53, y: 180, z: 359.991}
@@ -224,6 +224,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hover: {fileID: 7923962340993490713}
   ChildObj: {fileID: 5090277670393350041}
+  takeSound: 
+  dropSound: 
+  interactSound: 
   isWashed: 0
   washTime: 3
   _viveGrabFunc: {fileID: 2598823518741313287}

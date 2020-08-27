@@ -72,9 +72,4 @@ public class QuestGiver : MonoBehaviour
         }
     }
 
-    public void ReopenQuest()
-    {
-        SetQuestLoc(false);
-        SetQuestLoc(true);
-    }
 }

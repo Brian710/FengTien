@@ -14,7 +14,7 @@ public class InputMatObj : IObjControllerBase,IGrabbable
     [SerializeField]
     private HandAnim _handAnim;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
-    public HandAnim handAnim => _handAnim;
+    public new HandAnim handAnim => _handAnim;
     public override void Awake()
     {
         base.Awake();

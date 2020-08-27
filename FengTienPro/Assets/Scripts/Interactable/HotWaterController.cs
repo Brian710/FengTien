@@ -48,7 +48,7 @@ public class HotWaterController : MonoBehaviour
             return;
 
         partSys.Play(true);
-        glassController.doFull();
+        glassController.doFull(true);
         AudioManager.Instance.Play("Water_fall");
     }
 }

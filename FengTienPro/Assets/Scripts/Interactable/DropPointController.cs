@@ -12,7 +12,8 @@ public class DropPointController : CheckPointBase
     public override void Start()
     {
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange += OnGoalStateChange;
-        ShowParticle(true);
+        ChildObj.SetActive(false);
+        ShowParticle(false);
     }
 
 
@@ -21,15 +22,15 @@ public class DropPointController : CheckPointBase
         switch (state)
         {
             case Goal.State.WAITING:
-                FX.Stop(true);
+                ShowParticle(false);
                 ChildObj.SetActive(false);
                 break;
             case Goal.State.CURRENT:
-                FX.Play(true);
+                ShowParticle(true);
                 ChildObj.SetActive(true);
                 break;
             case Goal.State.DONE:
-                FX.Stop(true);
+                ShowParticle(false);
                 ChildObj.SetActive(false);
                 break;
 

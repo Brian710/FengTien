@@ -57,7 +57,6 @@ public class OptionalSystemBase : MonoBehaviour
     }
     public virtual void OpenCanv(bool value)
     {
-        
         if (value)
         {
             OPCanvas.SetActive(value);
@@ -72,7 +71,7 @@ public class OptionalSystemBase : MonoBehaviour
         }
     }
 
-    #region Init
+    #region Canvas Init
     private void OptionsInit()
     {
         if (optionPanel == null)
@@ -135,7 +134,7 @@ public class OptionalSystemBase : MonoBehaviour
         }
     }
 
-    private void RandomPos()
+    public virtual void RandomPos()
     {
         foreach (Button t in options)
         {

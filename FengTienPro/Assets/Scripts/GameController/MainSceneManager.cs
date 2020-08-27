@@ -11,10 +11,10 @@ public class MainSceneManager : MonoBehaviour
 
     private void Start()
     {
-        GameController.Instance.gameMainInit += Set;
+        MainSceneStartInorder();
     }
 
-    public void Set()
+    public void MainSceneStartInorder()
     {
         if (gameObjects.Count <= 0)
             return;
@@ -24,7 +24,6 @@ public class MainSceneManager : MonoBehaviour
             obj.SetActive(true);
         }
     }
-
     public void BacktoStart()
     {
         if (gameObjects.Count <= 0)
@@ -36,6 +35,4 @@ public class MainSceneManager : MonoBehaviour
         if (StartScenePos)
             StartCoroutine(PlayerController.Instance.ChangePos(StartScenePos));
     }
-
-    private void OnDestroy() => GameController.Instance.gameMainInit -= Set;
 }

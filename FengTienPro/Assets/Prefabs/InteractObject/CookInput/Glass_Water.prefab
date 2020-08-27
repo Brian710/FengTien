@@ -179,10 +179,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posOffset: {x: 0, y: 0, z: 0}
   rotOffset: {x: 0, y: 0, z: 0}
-  alignPosition: 0
-  alignRotation: 0
-  alignPositionOffset: {x: 0, y: 0, z: 0}
-  alignRotationOffset: {x: 0, y: 0, z: 0}
+  alignPosition: 1
+  alignRotation: 1
+  alignPositionOffset: {x: 0.0079, y: -0.0235, z: 0.0486}
+  alignRotationOffset: {x: 46.326, y: -38.943, z: -52.163}
   m_followingDuration: 0.04
   m_overrideMaxAngularVelocity: 1
   m_unblockableGrab: 1
@@ -192,18 +192,7 @@ MonoBehaviour:
   m_allowMultipleGrabbers: 1
   m_afterGrabbed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: PlayTakeSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_beforeRelease:
     m_PersistentCalls:
       m_Calls: []
@@ -307,7 +296,7 @@ MonoBehaviour:
   On: {fileID: 645533368376106007}
   type: 13
   _viveGrabFunc: {fileID: 4729050283108075869}
-  _handAnim: 3
+  _handAnim: 5
 --- !u!1001 &645533369327668983
 PrefabInstance:
   m_ObjectHideFlags: 0

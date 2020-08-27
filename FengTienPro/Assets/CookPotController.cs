@@ -11,7 +11,7 @@ public class CookPotController : IObjControllerBase
     private List<InputMatObj> FoodMats;
 
     [SerializeField]
-    private CookLadleController Ladle;
+    private GameObject Ladle;
 
     [SerializeField]
     private Animator CookAnim;
@@ -20,7 +20,7 @@ public class CookPotController : IObjControllerBase
     private Animator CookUI;
 
     [SerializeField]
-    private ParticleSystem cookdone;
+    private ParticleSystem CookUIDone;
 
     private Coroutine _coutdownCoro;
     private int timer;
@@ -53,34 +53,32 @@ public class CookPotController : IObjControllerBase
     {
         //base.SetWaitingState();
         timer = 0;
-        cookdone.Stop();
+        CookUIDone.Stop();
+        Ladle.SetActive(false);
+
         foreach (GameObject obj in gameObjects)
         {
             obj.SetActive(false);
         }
-        
     }
     protected override void SetCurrentState()
     {
-        foreach (InputMatObj obj in FoodMats)
-        {
-            obj.SetInterObjActive(false);
-        }
+        Ladle.SetActive(true);
     }
     protected override void SetDoneState()
     {
-
+        Ladle.SetActive(false);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (Mathf.Abs(other.transform.rotation.x) <= 0.2 || other.GetComponent<InputMatObj>() == null)
+        if (Mathf.Abs(other.transform.rotation.x) <= 0.2 || other.GetComponentInParent<InputMatObj>() == null)
         {
             return;
         }
 
-        QuestManager.Instance.AddQuestCurrentAmount(other.GetComponent<InputMatObj>().goalType);
-        switch (other.GetComponent<InputMatObj>().goalType)
+        QuestManager.Instance.AddQuestCurrentAmount(other.GetComponentInParent<InputMatObj>().goalType);
+        switch (other.GetComponentInParent<InputMatObj>().goalType)
         {
             case Goal.Type.InputRice:
                 gameObjects[0].SetActive(true);
@@ -97,19 +95,11 @@ public class CookPotController : IObjControllerBase
         }
     }
 
-    public void OnCook(bool value)
-    {
-        if (CookAnim)
-        {
-            CookAnim.SetBool("On", value);
-        }
-    }
-
     public void CookCoutdown(bool value)
     {
         if (value)
         {
-            OnCook(true);
+            CookAnim.SetBool("On", value);
             if (_coutdownCoro != null)
                 StopCoroutine(_coutdownCoro);
 
@@ -122,14 +112,15 @@ public class CookPotController : IObjControllerBase
 
             if (10 <= timer && timer <= 15)
             {
-                cookdone.Play();
+                CookUIDone.Play();
                 QuestManager.Instance.AddQuestCurrentAmount(goalType);
             }
-            
-            OnCook(false);
+
+            CookAnim.SetBool("On", value);
 
             if (_coutdownCoro != null)
                 StopCoroutine(_coutdownCoro);
+            
             if(timer > 15)
                 QuestManager.Instance.ReopenQuestGiver();
         }

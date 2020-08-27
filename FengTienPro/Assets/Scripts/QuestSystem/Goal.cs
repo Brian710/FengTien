@@ -35,8 +35,10 @@ public class Goal : ScriptableObject
         //FeedFood
         PutOnBib,
         TakeBowl,
+        GetTemper,
+        TakeSpoon,
         FeedFood,
-        DrinkWater,
+        FeedWater,
         //CleanKit
         WashStuff,
         ThrowWaste,
