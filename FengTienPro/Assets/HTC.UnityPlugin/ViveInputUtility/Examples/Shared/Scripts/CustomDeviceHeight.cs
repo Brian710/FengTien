@@ -1,17 +1,9 @@
-﻿//========= Copyright 2016-2020, HTC Corporation. All rights reserved. ===========
-
-using HTC.UnityPlugin.Utility;
+﻿using HTC.UnityPlugin.Utility;
 using HTC.UnityPlugin.VRModuleManagement;
 using UnityEngine;
-#if UNITY_2017_2_OR_NEWER
-using UnityEngine.XR;
-#endif
 
 namespace HTC.UnityPlugin.Vive
 {
-    // This script set custom device height depends on loaded VR device,
-    // Daydream need additional height for device so
-    // we can control camera-rig like using room-scale VR devices
     public class CustomDeviceHeight : MonoBehaviour
     {
         [SerializeField]

@@ -6,7 +6,6 @@ using MinYan.Lang;
 public class GameController : MonoBehaviour
 {
     #region Properties
-
     [SerializeField]
     private bool _isTest;
     [SerializeField]
@@ -25,8 +24,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    private Language _language;
+    [SerializeField]    private Language _language;
     public Language language
     {
         get { return _language; }
@@ -41,8 +39,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    private MainMode _mode;
+    [SerializeField]    private MainMode _mode;
     public MainMode mode
     {
         get { return _mode; }
@@ -57,42 +54,21 @@ public class GameController : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    private Levels _level;
+    [SerializeField]    private Levels _level;
     public Levels level
     {
         get { return _level; }
         set { _level = value; }
     }
 
-    [SerializeField]
-    private muitiLang multiL;
-    public muitiLang MultiLang
-    {
-        get
-        {
-            if (multiL == null)
-                multiL = Resources.Load<muitiLang>("ExcelFiles/muitiLang");
-            return multiL;
-        }
-    }
+    [SerializeField]    private muitiLang multiL;
+    public muitiLang MultiLang => multiL;
 
-    [SerializeField]
-    private PlayerController _currentPlayer;
+    [SerializeField]    private PlayerController _currentPlayer;
 
-    public PlayerController currentPlayer
-    {
-        get
-        {
-            if (_currentPlayer == null)
-                _currentPlayer = PlayerController.Instance;
+    public PlayerController currentPlayer => _currentPlayer;
 
-            return _currentPlayer;
-        }
-    }
-
-    [SerializeField]
-    private int _score;
+    [SerializeField]    private int _score;
     public int score
     {
         get { return _score; }
@@ -109,8 +85,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    private Quest _quest;
+    [SerializeField]    private Quest _quest;
 
     public Quest quest
     {
@@ -121,22 +96,9 @@ public class GameController : MonoBehaviour
             OnGameQuestChange();
         }
     }
-
-    public QuestGoal currentGoal
-    {
-        get 
-        {
-            if (_quest == null)
-                return null;
-            else
-                return _quest.GetCurrentGoal();
-        }
-    }
-
+    public QuestGoal currentGoal => _quest.GetCurrentGoal();
 
     private HashSet<QuestRecord> _questList;
-
-
     public HashSet<QuestRecord> questList 
     {
         get 
@@ -199,8 +161,8 @@ public class GameController : MonoBehaviour
         OnLanguageChange();
         UpdateLog();
     }
-    #region Methods
 
+    #region Methods
     public event Action gameMainInit, gamTutoInit, gameLevelnit;
 
     private void OnGameStateChange()
@@ -224,7 +186,6 @@ public class GameController : MonoBehaviour
                 gameLevelnit?.Invoke();
                 break;
         }
-
         UpdateLog();
     }
     
@@ -260,7 +221,6 @@ public class GameController : MonoBehaviour
     }
 
 #if UNITY_EDITOR
-
     protected virtual void OnValidate()
     {
         if (Application.isPlaying)
@@ -269,22 +229,22 @@ public class GameController : MonoBehaviour
             UpdateLog();
         }
     }
-
 #endif
     private void UpdateLog()
     {
         if (_currentPlayer && _isTest)
         {
-            //string questName = "";
-            //string goaltype = "";
-            //Debug.LogWarning(_quest);
-            //if (_quest != null) { questName = _quest.questName.ToString(); }
+            string questName = "";
+            string goaltype = "";
+            if (gameState == GameState.MainInit)
+            {
+                if (_quest != null) { questName = _quest.qName.ToString(); }
+                if (currentGoal != null) { goaltype = currentGoal.type.ToString(); }
+            }
 
-            //if (currentGoal != null) { goaltype = currentGoal.type.ToString(); }
-            //+ $"Quest: {questName} Goal: {goaltype}\n"
             string log = $"State: {_gameState} \n"
                              + $"Lang: {_language} \n"
-                             
+                             + $"Quest: {questName} Goal: {goaltype}\n"
                              + $"Level: { _level} \n"
                              + $"Score: {_score} \n"
                              + $"PlayerData \n"
@@ -292,7 +252,6 @@ public class GameController : MonoBehaviour
                              + $"TPRay: R_{_currentPlayer.EnableRightTeleport} L_{_currentPlayer.EnableLeftTeleport}\n";
             _currentPlayer.Showlog(log);
         }
-
     }
     #endregion
 

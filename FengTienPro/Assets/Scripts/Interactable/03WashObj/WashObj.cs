@@ -1,7 +1,7 @@
 ﻿using HTC.UnityPlugin.Vive;
 using UnityEngine;
 
-public class WashObj : IObjControllerBase, IWashable,IGrabbable
+public class WashObj : IObjControllerBase, IWashable, IGrabbable
 {
     [SerializeField]
     private bool isWashed;

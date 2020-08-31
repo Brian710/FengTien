@@ -5,12 +5,11 @@ using System;
 [Serializable]
 public class Quest 
 {
-    public enum State { WAITING,CHOOSABLE, CURRENT, DONE }
+    public enum State { WAITING, CHOOSABLE, CURRENT, DONE }
     public enum Name { None, Talk, WashHand, WashFood, CutFood, CookFood, FeedFood, CleanKit, FeedMeds, CleanMeds ,Entrance}
 
-    [SerializeField]
-    private string id;
-    public string Id { get { return id; } }
+    [SerializeField]    private string id;
+    public string Id => id;
 
     public QuestGiver giver;
     public Name qName;
@@ -105,7 +104,6 @@ public class Quest
                     if(GameController.Instance.mode == MainMode.Exam)
                         QuestManager.Instance.MinusQuestScore(2);
                 }
-                
             }
         }
     }
@@ -113,6 +111,7 @@ public class Quest
     public void Complete()
     {
         UpdateQuestStatus(State.DONE);
+        giver.SetQuestLoc(false);
         QuestManager.Instance.SetNextQuestStatus(this);
         GameController.Instance.score += score;
         GameController.Instance.AddtoRecord(goals);

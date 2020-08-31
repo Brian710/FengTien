@@ -1,5 +1,4 @@
-﻿
-public enum GameState
+﻿public enum GameState
 {
     //Logo
     LogoInit = 0,
@@ -9,30 +8,24 @@ public enum GameState
     StartInit = 20 ,
     //LevelScene
     LevelInit = 30,
-    LevelSelmode = 31,
     //MainScene
     MainInit = 40,
-    MainNormal = 41,
-    MainFeedTalk = 42,
-    MainFeedWashHand = 43,
-    MainFeedCook = 44,
-    MainFeedFood = 45,
-    MainFeedClean = 46,
-    MainFeedMeds = 47,
-    MainFinal = 49,
     //
     ScoreInit = 99,
 }
+
 public enum Language
 {
     Chinese = 0,
     English = 1,
 }
+
 public enum MainMode
 {
     Train = 0,
     Exam = 1,
 }
+
 public enum Levels
 {
     none = 0,
@@ -40,64 +33,13 @@ public enum Levels
     Heimlich = 2,
     Feed = 3,
 }
-public enum GameQuest 
-{
-    None,
-    Talk,
-    TalkEnd,
-    WashHand,
-    WashHandSoap,
-    WashHandWet,
-    WashHandCanv,
-    WashHandClear,
-    WashHandFinal,
-    WashHandEnd,
-    CookClean,
-    CookCleanTake,
-    CookCleanWash,
-    CookCleanPut,
-    CookCleanEnd,
-    FeedFood,
-    FeedFoodEnd,
-    Clean,
-    CleanEnd,
-    FeedMeds,
-    FeedMedsEnd,
-}
-public enum InteractObjType 
-{
-    Interact,
-    Grab,
-    GotoPos,
-    AnimTrigger,
-}
-public enum ObjActMode
-{
-    openFaucet,
-    closeFaucet,
-    pressHandwash,
-    touchedwater,
-}
-[System.Serializable]
+
 public enum HandAnim
 {
-    Normal,
-    Knife,
-    SoupLandle,
-    Board,
-    Spoon,
-    Bowl,
-}
-public enum TeleportType
-{ 
-    tutorial,
-    level_life,
-    level_heimlich,
-    level_feed,
-    normal,
-    entrance,
-    sofa,
-    washhand,
-    cook,
-    bed,
+    Normal = 0,
+    Knife = 1,
+    SoupLandle = 2,
+    Board = 3,
+    Spoon = 4,
+    Bowl = 5,
 }

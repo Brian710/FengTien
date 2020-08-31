@@ -71,25 +71,27 @@ public class FeedCanV : OptionalSystemBase
 
     public override void OptBtnOnclick(int index)
     {
-        if (!quizDatas[Mathf.Abs(index - 4)].button.interactable)
+        int quizIndex = Mathf.Abs(index - 4);
+        if (!quizDatas[quizIndex].button.interactable)
         {
+            quizDatas[quizIndex].optIndex = index;
+            quizDatas[quizIndex].button.interactable = true;
+            quizDatas[quizIndex].button.targetGraphic = options[index].GetComponent<Image>();
+            quizDatas[quizIndex].button.GetComponentInChildren<Text>().text = options[index].GetComponentInChildren<Text>().text;
+            quizDatas[quizIndex].button.GetComponentInChildren<Text>().color = Color.black;
+
             options[index].GetComponent<CanvasGroup>().alpha = 0;
             options[index].interactable = false;
         }
-        //for (int i = 4; i >= 0; i--)
-        //{
-        //    quizData = quizDatas[i];
-        //    if (!quizData.button.interactable)
-        //    {
-        //        quizData.optIndex = index;
-        //        quizData.button.interactable = true;
-        //        quizData.button.targetGraphic = options[index].GetComponent<Image>();
-        //        quizData.button.GetComponentInChildren<Text>().text = options[index].GetComponentInChildren<Text>().text;
-        //        quizData.button.GetComponentInChildren<Text>().color = Color.black;
-        //        return;
-        //    }
-        //}
-        
+        else
+        {
+            if (mode == MainMode.Exam)
+            {
+                QuestManager.Instance.MinusQuestScore(2);
+            }
+            StartCoroutine(WrongAns(options[index].GetComponentInChildren<Text>()));
+            return;
+        }
     }
 
     public override void RandomPos()

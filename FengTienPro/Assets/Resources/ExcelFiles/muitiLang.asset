@@ -152,9 +152,9 @@ MonoBehaviour:
   - id: feed_top
     chinese: "\u8DDF\u963F\u516C\u8AAA\u8AAA\u8A71\u5427\uFF01\n(\u4F9D\u7167\u9806\u5E8F\u586B\u5165)"
     english: "(en)\u8DDF\u963F\u516C\u8AAA\u8AAA\u8A71\u5427\uFF01\n(\u4F9D\u7167\u9806\u5E8F\u586B\u5165)"
-  - id: 
-    chinese: 
-    english: 
+  - id: hint_text
+    chinese: "\u4EFB\u52D9\u5B8C\u6210"
+    english: Mission Completed
   - id: 
     chinese: 
     english: 

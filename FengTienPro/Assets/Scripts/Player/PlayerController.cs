@@ -3,74 +3,50 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using System;
 
 public class RayEvent : UnityEvent<bool> { }
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
 
-    [SerializeField]
-    private Transform cam;
+    [SerializeField]    private Transform cam;
 
-    public Transform Cam
-    {
-        get { return cam; }
-    }
+    public Transform Cam => cam;
 
-    [SerializeField]
-    private Transform target;
+    [SerializeField]    private Transform target;
 
-    public Transform Target
-    {
-        get { return target; }
-    }
+    public Transform Target => target;
 
-    [SerializeField]
-    private GameObject RightUIRay;
-    [SerializeField]
-    private GameObject LeftUIRay;
+    [SerializeField]    private GameObject RightUIRay;
+    [SerializeField]    private GameObject LeftUIRay;
 
-    [SerializeField]
-    private ControllerButton UIRayActivationBtn;
+    [SerializeField]    private ControllerButton UIRayActivationBtn;
 
     public bool EnableRightRay { get; set; } = true;
 
     public bool EnableLeftRay { get; set; } = true;
 
 
-    [SerializeField]
-    private GameObject RightTeleportRay;
-    [SerializeField]
-    private GameObject LeftTeleportRay;
+    [SerializeField]    private GameObject RightTeleportRay;
+    [SerializeField]    private GameObject LeftTeleportRay;
 
     public bool EnableRightTeleport { get; set; } = true;
     public bool EnableLeftTeleport { get; set; } = true;
 
-    public HandAnimManager RightHand;
 
+    public HandAnimManager RightHand;
     public HandAnimManager LeftHand;
 
-    [SerializeField]
-    private ControllerButton HandAnimControlBtn;
+    [SerializeField]    private ControllerButton HandAnimControlBtn;
+    [SerializeField]    private ControllerButton teleportActivationBtn;
 
-    [SerializeField]
-    private ControllerButton teleportActivationBtn;
-
-    [SerializeField]
-    private Animator TransAnim;
+    [SerializeField]    private Animator TransAnim;
    
     private bool transAnimisDone = false;
     public bool TransAnimisDone { get { return transAnimisDone; } }
 
-    [SerializeField]
-    private Animator CompletedAnim;
-
-    [SerializeField]
-    private Text logText;
-
-    [SerializeField]
-    private Transform initPos;
+    [SerializeField]    private Animator CompletedAnim;
+    [SerializeField]    private Text logText;
 
     public void AllRayActivity(bool value)
     {
@@ -136,20 +112,15 @@ public class PlayerController : MonoBehaviour
             LeftHand.NormalAnimUpdate(ViveInput.GetTriggerValue(HandRole.LeftHand));
         }
     }
-    
 #if UNITY_EDITOR
-
     protected virtual void OnValidate()
     {
         if (Application.isPlaying) UpdateActivity();
     }
-
 #endif
     public void UpdateActivity()
     { 
-    
     }
-
     public IEnumerator TransAnimPlaytoEnd(bool value)
     {
         transAnimisDone = false;
@@ -169,11 +140,9 @@ public class PlayerController : MonoBehaviour
             Debug.Log("CompletedAnim is null");
             return;
         }
-         
         CompletedAnim.SetTrigger("Done");
         AudioManager.Instance.Play("StepFinish");
     }
-
 
     public IEnumerator ChangePos(Transform value)
     {
@@ -186,6 +155,4 @@ public class PlayerController : MonoBehaviour
         transform.rotation = value.rotation;
         StartCoroutine(TransAnimPlaytoEnd(false));
     }
-
-
 }

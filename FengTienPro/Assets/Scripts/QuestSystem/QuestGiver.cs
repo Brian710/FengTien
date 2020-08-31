@@ -17,9 +17,8 @@ public class QuestGiver : MonoBehaviour
     [Header("Quest GameObject")]
     public List<IObjControllerBase> InterObjs;
 
-    [SerializeField]
-    private Quest _quest;
-    public Quest quest { get { return _quest; } }
+    [SerializeField]    private Quest _quest;
+    public Quest quest => _quest;
 
     private void Awake()
     {
@@ -61,7 +60,7 @@ public class QuestGiver : MonoBehaviour
         GameController.Instance.quest = quest;
     }
 
-    private void SetQuestLoc(bool value)
+    public void SetQuestLoc(bool value)
     {
         if (InterObjs.Count <= 0)
             return;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using HTC.UnityPlugin.ColliderEvent;
 
-public class InteractHover :MonoBehaviour ,IColliderEventHoverEnterHandler, IColliderEventHoverExitHandler
+public class InteractHover : MonoBehaviour ,IColliderEventHoverEnterHandler, IColliderEventHoverExitHandler
 {
     public QuickOutline outline;
     public Color InteractColor { get; set; }
