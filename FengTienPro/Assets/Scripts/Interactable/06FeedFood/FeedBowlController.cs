@@ -2,12 +2,9 @@
 
 public class FeedBowlController : IObjControllerBase
 {
-    [SerializeField]
-    private ClicktoInteract ClickInteract;
-    [SerializeField]
-    private Transform startParent;
-    [SerializeField]
-    private Transform targetParent;
+    [SerializeField]    private ClicktoInteract ClickInteract;
+    [SerializeField]    private Transform startParent;
+    [SerializeField]    private Transform targetParent;
 
     public override void Awake()
     {
@@ -26,10 +23,10 @@ public class FeedBowlController : IObjControllerBase
     }
     protected override void SetCurrentState()
     {
-        ClickInteract.enabled = true;
         transform.SetParent(startParent, false);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
+        ClickInteract.enabled = true;
         base.SetCurrentState();
     }
     protected override void SetDoneState()
@@ -44,9 +41,10 @@ public class FeedBowlController : IObjControllerBase
     private void OnTriggerEnter(Collider other)
     {
         SpoonController spoon = other.gameObject.GetComponent<SpoonController>();
-        if (spoon != null && !spoon.IfHaveMat())
+        if (spoon)
         {
-            spoon.GetMat(true);
+            if(!spoon.IfHaveMat())
+                spoon.GetMat(true);
         }
     }
 }

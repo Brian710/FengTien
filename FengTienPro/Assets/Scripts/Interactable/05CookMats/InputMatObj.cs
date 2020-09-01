@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class InputMatObj : IObjControllerBase,IGrabbable
+public class InputMatObj : IObjControllerBase, IGrabbable
 {
     [SerializeField]    private GameObject On;
     [SerializeField]    private Goal.Type type;

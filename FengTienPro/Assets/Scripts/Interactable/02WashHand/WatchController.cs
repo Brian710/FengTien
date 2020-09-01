@@ -26,10 +26,10 @@ public class WatchController : IObjControllerBase
     }
     protected override void SetCurrentState()
     {
-        ClickInteract.enabled = true;
         transform.SetParent(startParent, false);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
+        ClickInteract.enabled = true;
         base.SetCurrentState();
     }
     protected override void SetDoneState()

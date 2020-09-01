@@ -1,15 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ManClothController : IObjControllerBase
 {
-    [SerializeField]
-    private ClicktoInteract ClickInteract;
-    [SerializeField]
-    private Transform startParent;
-    [SerializeField]
-    private Transform targetParent;
+    [SerializeField]    private ClicktoInteract ClickInteract;
+    [SerializeField]    private Transform startParent;
+    [SerializeField]    private Transform targetParent;
 
     public override void Awake()
     {
@@ -18,8 +13,8 @@ public class ManClothController : IObjControllerBase
     }
     public override void Start()
     {
-        base.Start();
         ClickInteract.IObj = this;
+        base.Start();
     }
     protected override void SetWaitingState()
     {
@@ -28,9 +23,10 @@ public class ManClothController : IObjControllerBase
     }
     protected override void SetCurrentState()
     {
+        transform.SetParent(startParent, false);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
         ClickInteract.enabled = true;
-        transform.position = position;
-        transform.rotation = rotation;
         base.SetCurrentState();
     }
     protected override void SetDoneState()

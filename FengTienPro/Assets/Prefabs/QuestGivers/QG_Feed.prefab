@@ -112,7 +112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &80082290
 RectTransform:
   m_ObjectHideFlags: 0
@@ -289,6 +289,7 @@ GameObject:
   - component: {fileID: 144380796}
   - component: {fileID: 144380795}
   - component: {fileID: 144380794}
+  - component: {fileID: 3664787464657508277}
   m_Layer: 5
   m_Name: Qbtn03
   m_TagString: Untagged
@@ -410,6 +411,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &3664787464657508277
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144380792}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &179505138
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +630,7 @@ GameObject:
   - component: {fileID: 453113080}
   - component: {fileID: 453113079}
   - component: {fileID: 453113078}
+  - component: {fileID: 7687739843327076297}
   m_Layer: 5
   m_Name: Qbtn05
   m_TagString: Untagged
@@ -738,6 +752,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &7687739843327076297
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453113076}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &477337852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,6 +1111,7 @@ GameObject:
   - component: {fileID: 573449888}
   - component: {fileID: 573449887}
   - component: {fileID: 573449886}
+  - component: {fileID: 2964324798587895895}
   m_Layer: 5
   m_Name: Qbtn04
   m_TagString: Untagged
@@ -1206,6 +1233,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &2964324798587895895
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573449884}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &625950835
 GameObject:
   m_ObjectHideFlags: 0
@@ -2517,6 +2556,7 @@ GameObject:
   - component: {fileID: 1938825397}
   - component: {fileID: 1938825396}
   - component: {fileID: 1938825395}
+  - component: {fileID: 8253942481332303562}
   m_Layer: 5
   m_Name: Qbtn02
   m_TagString: Untagged
@@ -2638,6 +2678,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &8253942481332303562
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938825393}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1956131301
 GameObject:
   m_ObjectHideFlags: 0
@@ -3069,6 +3121,7 @@ GameObject:
   - component: {fileID: 2063545327}
   - component: {fileID: 2063545326}
   - component: {fileID: 2063545325}
+  - component: {fileID: 8169960973278618398}
   m_Layer: 5
   m_Name: Qbtn01
   m_TagString: Untagged
@@ -3190,6 +3243,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &8169960973278618398
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063545323}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &2118044292
 GameObject:
   m_ObjectHideFlags: 0

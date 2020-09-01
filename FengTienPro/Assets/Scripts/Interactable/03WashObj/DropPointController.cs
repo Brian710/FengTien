@@ -46,20 +46,9 @@ public class DropPointController : CheckPointBase
             }
             else
             {
-                if(GameController.Instance.mode == MainMode.Exam)
-                    QuestManager.Instance.MinusQuestScore(1);
-
+                QuestManager.Instance.MinusQuestScore(1);
                 WashedObj.ShowError();
             }
         }
-        //else
-        //{
-        //    if (GameController.Instance.mode == MainMode.Exam)
-        //    {
-        //        other.GetComponent<IObjControllerBase>().ShowError();
-        //        QuestManager.Instance.MinusQuestScore(2);
-        //    }
-        //    resetObject.ForcetoReset(other.gameObject);
-        //}
     }
 }

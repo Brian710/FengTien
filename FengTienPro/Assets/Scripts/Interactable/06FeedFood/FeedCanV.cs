@@ -1,35 +1,36 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class FeedCanV : OptionalSystemBase
 {
     public CanvasGroup canvasGroup;
     public override void ConfirmBtn()
     {
-        bool IfRight = true;
-        int i = 0;
-        foreach (QuizData data in quizDatas)
-        {
-            if (data.button.interactable)
-            {
-                if (data.optIndex != i)
-                {
-                    StartCoroutine(WrongAns(data.button.GetComponentInChildren<Text>()));
-                     IfRight = false;
-                }
-                else
-                {
-                    data.button.transform.SetAsFirstSibling();
-                }
-                break;
-            }
-            i++;
-        }
-        int s = IfRight ? 0 : 1;
+        //bool IfRight = true;
+        //int i = 0;
+        //foreach (QuizData data in quizDatas)
+        //{
+        //    if (data.button.interactable)
+        //    {
+        //        if (data.optIndex != i)
+        //        {
+        //            StartCoroutine(WrongAns(data.button.GetComponentInChildren<Text>()));
+        //             IfRight = false;
+        //        }
+        //        else
+        //        {
+        //            data.button.transform.SetAsFirstSibling();
+        //        }
+        //        break;
+        //    }
+        //    i++;
+        //}
+        //int s = IfRight ? 0 : 1;
         
-        QuestManager.Instance.MinusQuestScore(s);
-        CanvasOn(false);
+        //QuestManager.Instance.MinusQuestScore(s);
+        //CanvasOn(false);
     }
 
     public void CanvasOn(bool value)
@@ -47,46 +48,54 @@ public class FeedCanV : OptionalSystemBase
         int i = 4;
         foreach (Button t in quizPanel.GetComponentsInChildren<Button>())
         {
-            int index = 0;
-            index = i;
-            QuizData data = new QuizData();
+            int index = i;
+            QuizData newQuiz = new QuizData();
             if (mode == MainMode.Exam)
             {
-                Debug.Log("Exam");
                 t.GetComponentInChildren<Text>().color = new Color(0, 0, 0, 0);
             }
-            data.button = t;
-            data.button.onClick.AddListener(() => QuizBtnOnclick(index));
-            data.optIndex = index;
-            quizDatas.Add(data);
+            newQuiz.button = t;
+            newQuiz.optIndex = index;
+            newQuiz.button.onClick.AddListener(() => QuizBtnOnclick(index));
+            quizDatas.Add(newQuiz);
             i--;
         }
     }
 
     public override void OptBtnOnclick(int index)
     {
-        int quizIndex = Mathf.Abs(index - 4);
-        if (!quizDatas[quizIndex].button.interactable)
+        QuizData newQuizD = new QuizData();
+        for (int i = 4; i >= 0; i--)
         {
-            quizDatas[quizIndex].optIndex = index;
-            quizDatas[quizIndex].button.interactable = true;
-            quizDatas[quizIndex].button.targetGraphic = options[index].GetComponent<Image>();
-            quizDatas[quizIndex].button.GetComponentInChildren<Text>().text = options[index].GetComponentInChildren<Text>().text;
-            quizDatas[quizIndex].button.GetComponentInChildren<Text>().color = Color.black;
+            newQuizD = quizDatas[i];
+            if (newQuizD.button.GetComponent<CanvasGroup>().alpha != 0)
+            {
+                if (newQuizD.optIndex == index)
+                {
+                    newQuizD.button.targetGraphic = options[index].GetComponent<Image>();
+                    newQuizD.button.GetComponentInChildren<Text>().text = hintText[index];
+                    newQuizD.button.GetComponentInChildren<Text>().color = Color.black;
 
-            options[index].GetComponent<CanvasGroup>().alpha = 0;
-            options[index].interactable = false;
-        }
-        else
-        {
-            QuestManager.Instance.MinusQuestScore(2);
-            StartCoroutine(WrongAns(options[index].GetComponentInChildren<Text>()));
-            return;
+                    options[index].GetComponent<CanvasGroup>().alpha = 0;
+                    options[index].interactable = false;
+                    StartCoroutine(CanvasRoutineOff(i));
+                }
+                else
+                {
+                    QuestManager.Instance.MinusQuestScore(2);
+                    StartCoroutine(WrongAns(options[index].GetComponentInChildren<Text>()));
+                }
+                return;
+            }
         }
     }
 
-    public override void RandomPos()
+    private IEnumerator CanvasRoutineOff(int quizIndex)
     {
-
+        yield return new WaitForSeconds(1.5f);
+        quizDatas[quizIndex].button.GetComponent<CanvasGroup>().alpha = 0;
+        CanvasOn(false);
     }
+
+    public override void RandomPos() { }
 }
