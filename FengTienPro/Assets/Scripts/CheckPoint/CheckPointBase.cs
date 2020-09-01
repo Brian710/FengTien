@@ -3,17 +3,12 @@ using UnityEngine.Events;
 
 public class CheckPointBase : MonoBehaviour
 {
-    [SerializeField]
-    protected ParticleSystem FX;
-    [SerializeField]
-    protected float force = 9.8f;
-    [SerializeField]
-    protected UnityEvent onTriggerEnter;
+    [SerializeField]    protected ParticleSystem FX;
+    [SerializeField]    protected UnityEvent onTriggerEnter;
 
     public virtual void Start()
     {
-        if (FX.isPlaying)
-            FX.Stop();
+        ShowParticle(false);
     }
 
     public virtual void OnTriggerEnter(Collider other)

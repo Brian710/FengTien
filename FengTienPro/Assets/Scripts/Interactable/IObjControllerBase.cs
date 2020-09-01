@@ -32,21 +32,18 @@ public class IObjControllerBase : MonoBehaviour
     {
         if(goalType != Goal.Type.None)
             QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange += OnGoalStateChange;
-        SetInterObjActive(false);
+        SetChildObjActive(false);
     }
     public virtual void OnDestroy()
     {
         if (goalType != Goal.Type.None)
             QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange -= OnGoalStateChange;
     }
-    public virtual void SetInterObjActive(bool value)
+    public virtual void SetChildObjActive(bool value)
     {
         ChildObj.SetActive(value);
-    }
-    public virtual void InteractInvoke(bool value)
-    {
-        QuestManager.Instance.AddQuestCurrentAmount(goalType);
-        hover.ShowHintColor(false);
+        if (value)
+            SetWaitingState();
     }
 
     private void OnGoalStateChange(Goal.Type type, Goal.State state)
@@ -90,7 +87,7 @@ public class IObjControllerBase : MonoBehaviour
         StartCoroutine(ShowErrorCoro());
     }
 
-    private IEnumerator ShowErrorCoro()
+    protected IEnumerator ShowErrorCoro()
     {
         hover.outline.OutlineMode = QuickOutline.Mode.OutlineAndSilhouette;
         int i = 0;

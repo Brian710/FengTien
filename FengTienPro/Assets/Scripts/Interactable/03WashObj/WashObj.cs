@@ -3,17 +3,16 @@ using UnityEngine;
 
 public class WashObj : IObjControllerBase, IWashable, IGrabbable
 {
-    [SerializeField]
-    private bool isWashed;
-    [SerializeField]
-    private int washTime;
-    [SerializeField]
-    private BasicGrabbable _viveGrabFunc;
-    [SerializeField]
-    private HandAnim _handAnim;
+    [SerializeField]    private bool isWashed;
+    [SerializeField]    private int washTime;
+    [SerializeField]    private BasicGrabbable _viveGrabFunc;
+    [SerializeField]    private HandAnim _handAnim;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
     public new  HandAnim handAnim => _handAnim;
-    public GameObject Obj() => this.gameObject;
+    public GameObject Obj() => gameObject;
+    public int WashTime() => washTime;
+
+    public bool IsWashed() => isWashed;
     public override void Awake()
     {
         base.Awake();
@@ -22,9 +21,12 @@ public class WashObj : IObjControllerBase, IWashable, IGrabbable
 
     public override void Start()
     {
-        base.Start();
+        if (viveGrabFunc == null)
+            _viveGrabFunc = GetComponentInChildren<BasicGrabbable>();
+
         viveGrabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
         viveGrabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
+        base.Start();
     }
     public override void OnDestroy()
     {
@@ -33,23 +35,17 @@ public class WashObj : IObjControllerBase, IWashable, IGrabbable
         viveGrabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
     }
 
-    public bool IsWashed(bool value)
+    public void SetWashed(bool value)
     {
-        if (isWashed == value)
-            return isWashed;
-
         isWashed = value;
-
-        if(isWashed)
-            PlayerController.Instance.QuestStepCompleted();
-
-        return isWashed;
+        //Show UI Completed
+        if(isWashed)    PlayerController.Instance.QuestStepCompleted();
     }
-    public int WashTime() => washTime;
+    
     protected override void SetWaitingState()
     {
         viveGrabFunc.enabled = false;
-        isWashed = false;
+        SetWashed(false);
         base.SetWaitingState();
     }
     protected override void SetCurrentState()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClicktoInteract :MonoBehaviour  ,IColliderEventClickHandler   , IColliderEventPressEnterHandler ,IColliderEventPressExitHandler
 {
-    public IObjControllerBase Iobj { get; set; }
+    public IObjControllerBase IObj { get; set; }
     [SerializeField]
     private ColliderButtonEventData.InputButton m_activeButton = ColliderButtonEventData.InputButton.Trigger;
 
@@ -16,7 +16,13 @@ public class ClicktoInteract :MonoBehaviour  ,IColliderEventClickHandler   , ICo
     {
         if (pressingEvents.Contains(eventData) && pressingEvents.Count == 1)
         {
-            QuestManager.Instance.AddQuestCurrentAmount(Iobj.goalType);
+            if (QuestManager.Instance.GetQuestGoalByType(IObj.goalType).state == Goal.State.CURRENT)
+                QuestManager.Instance.AddQuestCurrentAmount(IObj.goalType);
+            else
+            {
+                QuestManager.Instance.MinusQuestScore(1);
+                IObj.ShowError();
+            }
         }
     }
 

@@ -1,22 +1,20 @@
-﻿using MinYanGame.Core;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DropPointController : CheckPointBase
 {
-    public MultiSpawnObjOnTriggerExit resetObject;
-
     [SerializeField] private WashObj WashedObj;
     [SerializeField] private GameObject ChildObj;
     public override void Start()
     {
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange += OnGoalStateChange;
-        ChildObj.SetActive(false);
         ShowParticle(false);
+        ChildObj.SetActive(false);
     }
 
-
+    private void OnDestroy()
+    {
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange -= OnGoalStateChange;
+    }
     public void OnGoalStateChange(Goal.Type type, Goal.State state)
     {
         switch (state)
@@ -33,18 +31,26 @@ public class DropPointController : CheckPointBase
                 ShowParticle(false);
                 ChildObj.SetActive(false);
                 break;
-
         }
-    
     }
     public override void OnTriggerEnter(Collider other)
     {
         WashedObj = other.gameObject.GetComponent<WashObj>();
 
-        if (WashedObj != null)
+        if (WashedObj)
         {
-            QuestManager.Instance.AddQuestCurrentAmount(WashedObj.goalType);
-            onTriggerEnter.Invoke();
+            if (WashedObj.IsWashed())
+            {
+                QuestManager.Instance.AddQuestCurrentAmount(WashedObj.goalType);
+                onTriggerEnter.Invoke();
+            }
+            else
+            {
+                if(GameController.Instance.mode == MainMode.Exam)
+                    QuestManager.Instance.MinusQuestScore(1);
+
+                WashedObj.ShowError();
+            }
         }
         //else
         //{

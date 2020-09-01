@@ -2,6 +2,7 @@
 
 public class TutoCheckPoint : CheckPointBase
 {
+    [SerializeField] private float force = 9.8f;
     public override void Start()
     {
         ShowParticle(true);
@@ -10,11 +11,7 @@ public class TutoCheckPoint : CheckPointBase
     public override void OnTriggerEnter(Collider other)
     {
         TutoObj tutoObj = other.gameObject.GetComponent<TutoObj>();
-
-        if (tutoObj == null)
-        {
-            onTriggerEnter.Invoke();
-        }
+        if (tutoObj)    onTriggerEnter.Invoke();
     }
 
 

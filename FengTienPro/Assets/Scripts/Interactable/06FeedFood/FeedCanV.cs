@@ -15,14 +15,8 @@ public class FeedCanV : OptionalSystemBase
             {
                 if (data.optIndex != i)
                 {
-                    if (mode == MainMode.Train)
-                    {
-                        StartCoroutine(WrongAns(data.button.GetComponentInChildren<Text>()));
-                    }
-                    else
-                    {
-                        IfRight = false;
-                    }
+                    StartCoroutine(WrongAns(data.button.GetComponentInChildren<Text>()));
+                     IfRight = false;
                 }
                 else
                 {
@@ -85,10 +79,7 @@ public class FeedCanV : OptionalSystemBase
         }
         else
         {
-            if (mode == MainMode.Exam)
-            {
-                QuestManager.Instance.MinusQuestScore(2);
-            }
+            QuestManager.Instance.MinusQuestScore(2);
             StartCoroutine(WrongAns(options[index].GetComponentInChildren<Text>()));
             return;
         }

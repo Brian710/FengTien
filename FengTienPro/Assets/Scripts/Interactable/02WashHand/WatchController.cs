@@ -2,12 +2,9 @@
 
 public class WatchController : IObjControllerBase
 {
-    [SerializeField]
-    private ClicktoInteract ClickInteract;
-    [SerializeField]
-    private Transform startParent;
-    [SerializeField]
-    private Transform targetParent;
+    [SerializeField]    private ClicktoInteract ClickInteract;
+    [SerializeField]    private Transform startParent;
+    [SerializeField]    private Transform targetParent;
 
     public override void Awake()
     {
@@ -16,8 +13,11 @@ public class WatchController : IObjControllerBase
     }
     public override void Start()
     {
+        if (ClickInteract == null)
+            ClickInteract = GetComponentInChildren<ClicktoInteract>();
+
+        ClickInteract.IObj = this;
         base.Start();
-        ClickInteract.Iobj = this;
     }
     protected override void SetWaitingState()
     {

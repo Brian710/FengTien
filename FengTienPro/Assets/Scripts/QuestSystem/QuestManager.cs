@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using TMPro;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
@@ -21,7 +19,7 @@ public class QuestManager : MonoBehaviour
     }
     #endregion
     public List<Quest> quests;
-    public Dictionary<Goal.Type,QuestGoal> questGoals;
+    [SerializeField]    private Dictionary<Goal.Type,QuestGoal> questGoals;
     public Quest currentQuest;
     //public GameObject TPManager;
     protected virtual void Awake()
@@ -40,6 +38,9 @@ public class QuestManager : MonoBehaviour
         GameController.Instance.gameMainInit += Set; 
         //TPManager.SetActive(true);
     }
+
+    private void OnDestroy() => GameController.Instance.gameMainInit -= Set;
+
     public void QuestInit()
     {
         foreach (QuestGiver qg in GetComponentsInChildren<QuestGiver>())
@@ -97,7 +98,6 @@ public class QuestManager : MonoBehaviour
         return null;
     }
 
-
     public void BFS(Quest q, int orderNum = 1)
     {
         q.order = orderNum;
@@ -117,8 +117,6 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    
-
     //mainly for Teleport
     public void SetNextQuestStatus(Quest cq)
     {
@@ -127,11 +125,12 @@ public class QuestManager : MonoBehaviour
             if (q.order == cq.order + 1)
             {
                 q.UpdateQuestStatus(Quest.State.CHOOSABLE);
-               
             }
         }
     }
-
+    /// <summary>
+    /// if Quest's State is Current then plus Amount
+    /// </summary>
     public void AddQuestCurrentAmount( Goal.Type gt)
     {
         foreach (var q in quests)
@@ -146,6 +145,9 @@ public class QuestManager : MonoBehaviour
 
     public void MinusQuestScore(int delta)
     {
+        if (GameController.Instance.mode == MainMode.Train)
+            return;
+
         foreach (var q in quests)
         {
             if (q.state == Quest.State.CURRENT)
@@ -165,7 +167,8 @@ public class QuestManager : MonoBehaviour
         {
             if (q.state == Quest.State.CURRENT)
             {
-                q.ResetAllGoals();
+                //Reset the Goals
+                q.UpdateQuestStatus(Quest.State.CURRENT);
                 break;
             }
         }
@@ -178,7 +181,6 @@ public class QuestManager : MonoBehaviour
             if (q.state == Quest.State.CURRENT)
                 return q;
         }
-
         return FindChoosableQuest();
     }
     public Quest FindChoosableQuest()
@@ -188,7 +190,6 @@ public class QuestManager : MonoBehaviour
             if (q.state == Quest.State.CHOOSABLE)
                 return q;
         }
-
         return null;
     }
 
@@ -209,7 +210,6 @@ public class QuestManager : MonoBehaviour
                 return q;
             }
         }
-
         return null;
     }
 

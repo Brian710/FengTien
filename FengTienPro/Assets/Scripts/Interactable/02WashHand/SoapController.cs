@@ -2,8 +2,7 @@
 
 public class SoapController : IObjControllerBase
 {
-    [SerializeField]
-    private ClicktoInteract ClickInteract;
+    [SerializeField]    private ClicktoInteract ClickInteract;
     public override void Awake()
     {
         base.Awake();
@@ -11,14 +10,14 @@ public class SoapController : IObjControllerBase
     }
     public override void Start()
     {
+        if (ClickInteract == null)
+            ClickInteract = GetComponentInChildren<ClicktoInteract>();
+        ClickInteract.IObj = this;
         base.Start();
-        ClickInteract.Iobj = this;
-        ClickInteract.enabled = false;
     }
 
     protected override void SetWaitingState()
     {
-        ClickInteract.gameObject.SetActive(true);
         ClickInteract.enabled = false;
         base.SetWaitingState();
     }

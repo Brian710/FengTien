@@ -3,20 +3,13 @@ using UnityEngine;
 using UnityEngine.Events;
 public class HandAnimManager : MonoBehaviour,IWashable
 {
-    [SerializeField]
-    private Animator animator;
-    [SerializeField]
-    private HandAnim handAnim;
-    [SerializeField]
-    private ParticleSystem Bubble;
-    [SerializeField]
-    private int washTime;
-    [SerializeField]
-    private bool isWashed;
-
-    public UnityEvent afteInteract;
+    [SerializeField]    private Animator animator;
+    [SerializeField]    private HandAnim handAnim;
+    [SerializeField]    private ParticleSystem Bubble;
+    [SerializeField]    private int washTime;
+    [SerializeField]    private bool isWashed;
     public GameObject Obj() => this.gameObject;
-    public void NoWashed() => isWashed = false;
+    public bool IsWashed() => isWashed;
     public HandAnim HandAnim
     {
         get { return handAnim; }
@@ -55,15 +48,10 @@ public class HandAnimManager : MonoBehaviour,IWashable
         }
     }
 #endif
-    public bool IsWashed(bool value)
+    public void SetWashed(bool value)
     {
-        if (isWashed == value)
-            return isWashed;
-
         isWashed = value;
-        if (isWashed)
-            QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.Tap);
-        return isWashed;
+        if (isWashed)   QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.Tap);
     }
 
     public int WashTime()

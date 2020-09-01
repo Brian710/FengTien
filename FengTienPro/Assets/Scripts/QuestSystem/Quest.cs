@@ -47,13 +47,14 @@ public class Quest
         switch (state)
         {
             case State.WAITING:
-                //ResetAllGoals();
+                ResetAllGoals();
                 break;
             case State.CHOOSABLE:
                 giver.OpenQuestBtn(true);
                 break;
             case State.CURRENT:
                 ResetAllGoals();
+                goals[0].UpdateGoalState(Goal.State.CURRENT);
                 break;
             case State.DONE:
                 break;
@@ -67,20 +68,6 @@ public class Quest
             g.UpdateGoalState(Goal.State.WAITING);
             g.currentAmount = 0;
         }
-        goals[0].UpdateGoalState(Goal.State.CURRENT);
-    }
-
-    public void CheckGoals()
-    {
-        foreach (QuestGoal g in goals)
-        {
-            if (g.state == Goal.State.WAITING)
-            {
-                g.UpdateGoalState(Goal.State.CURRENT);
-                return;
-            }
-        }
-        Complete();
     }
 
     public void AddCurrentGoalAmount(Goal.Type gt)
@@ -99,15 +86,21 @@ public class Quest
                     }
                     return;
                 }
-                else
-                {
-                    if(GameController.Instance.mode == MainMode.Exam)
-                        QuestManager.Instance.MinusQuestScore(2);
-                }
             }
         }
     }
-
+    public void CheckGoals()
+    {
+        foreach (QuestGoal g in goals)
+        {
+            if (g.state == Goal.State.WAITING)
+            {
+                g.UpdateGoalState(Goal.State.CURRENT);
+                return;
+            }
+        }
+        Complete();
+    }
     public void Complete()
     {
         UpdateQuestStatus(State.DONE);

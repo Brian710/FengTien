@@ -19,7 +19,7 @@ public class ManClothController : IObjControllerBase
     public override void Start()
     {
         base.Start();
-        ClickInteract.Iobj = this;
+        ClickInteract.IObj = this;
     }
     protected override void SetWaitingState()
     {

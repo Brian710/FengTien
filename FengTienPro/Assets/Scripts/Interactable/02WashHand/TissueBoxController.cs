@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 public class TissueBoxController : IObjControllerBase
 {
-    [SerializeField]
-    private ClicktoInteract ClickInteract;
+    [SerializeField]    private ClicktoInteract ClickInteract;
+    public override void Awake()
+    {
+        base.Awake();
+        goalType = Goal.Type.Tissue;
+    }
     public override void Start()
     {
-        goalType = Goal.Type.Tissue;
+        if (ClickInteract == null)
+            ClickInteract = GetComponentInChildren<ClicktoInteract>();
+        ClickInteract.IObj = this;
         base.Start();
-        ClickInteract.Iobj = this;
-        ClickInteract.enabled = false;
     }
     protected override void SetWaitingState()
     {

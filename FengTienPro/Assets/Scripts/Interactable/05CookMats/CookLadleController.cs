@@ -1,16 +1,11 @@
 ﻿using HTC.UnityPlugin.Vive;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CookLadleController : IObjControllerBase ,IGrabbable
 {
-    [SerializeField]
-    private GameObject On;
-    [SerializeField]
-    private BasicGrabbable _viveGrabFunc;
-    [SerializeField]
-    private HandAnim _handAnim;
+    [SerializeField]    private GameObject On;
+    [SerializeField]    private BasicGrabbable _viveGrabFunc;
+    [SerializeField]    private HandAnim _handAnim;
 
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
     public new HandAnim handAnim => _handAnim;
@@ -41,15 +36,15 @@ public class CookLadleController : IObjControllerBase ,IGrabbable
     protected override void SetWaitingState()
     {
         base.SetWaitingState();
-        viveGrabFunc.enabled = false;
+        OnGrab(false);
         On.SetActive(false);
     }
     protected override void SetCurrentState()
     {
-        viveGrabFunc.enabled = true;
+        OnGrab(true);
     }
     protected override void SetDoneState()
     {
-        viveGrabFunc.enabled = false;
+        OnGrab(false);
     }
 }

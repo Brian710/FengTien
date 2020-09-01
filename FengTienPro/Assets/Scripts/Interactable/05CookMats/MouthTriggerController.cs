@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MouthTriggerController : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "SoupLadle_Soup" && GameController.Instance.currentGoal.type == Goal.Type.CookFood)
+        if (other.GetComponentInParent<IObjControllerBase>().goalType == Goal.Type.TasteFood)
         {
             other.gameObject.GetComponent<CookLadleController>().HaveRice(false);
             QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.CookFood);

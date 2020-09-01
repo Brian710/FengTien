@@ -101,7 +101,7 @@ public class TapController : IObjControllerBase
         {
             QuestManager.Instance.AddQuestCurrentAmount(goalType);
             if (_IWashable != null)
-                _IWashable.IsWashed(true);
+                _IWashable.SetWashed(true);
             StepCompleted = false;
         }
     }

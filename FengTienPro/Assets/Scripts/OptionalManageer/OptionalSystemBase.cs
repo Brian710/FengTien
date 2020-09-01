@@ -183,10 +183,7 @@ public class OptionalSystemBase : MonoBehaviour
 
             if (data.optIndex != i)
             {
-                if (mode == MainMode.Exam)
-                {
-                    QuestManager.Instance.MinusQuestScore(2);
-                }
+                QuestManager.Instance.MinusQuestScore(2);
                 StartCoroutine(WrongAns(data.button.GetComponentInChildren<Text>()));
                 return;
             }

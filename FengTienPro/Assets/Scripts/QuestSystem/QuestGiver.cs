@@ -14,7 +14,7 @@ public class QuestGiver : MonoBehaviour
     public int questScore;
     public List<Goal> goals;
 
-    [Header("Quest GameObject")]
+    [Header("Goal GameObjects")]
     public List<IObjControllerBase> InterObjs;
 
     [SerializeField]    private Quest _quest;
@@ -55,7 +55,7 @@ public class QuestGiver : MonoBehaviour
     {
         //init Quest Obj
         SetQuestLoc(true);
-        questBtn.gameObject.SetActive(false);
+        OpenQuestBtn(false);
         quest.UpdateQuestStatus(Quest.State.CURRENT);
         GameController.Instance.quest = quest;
     }
@@ -67,8 +67,7 @@ public class QuestGiver : MonoBehaviour
 
         foreach (IObjControllerBase g in InterObjs)
         {
-            g.SetInterObjActive(value);
+            g.SetChildObjActive(value);
         }
     }
-
 }

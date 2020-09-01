@@ -4,10 +4,8 @@ using UnityEngine.Events;
 public class OldManMouthTrigger : MonoBehaviour
 {
     private int BiteNum;
-    [SerializeField]
-    private Animator EatAnim;
-    [SerializeField]
-    private FeedCanV FeedCanV;
+    [SerializeField]    private Animator EatAnim;
+    [SerializeField]    private FeedCanV FeedCanV;
 
     private void Start()
     {

@@ -17,7 +17,7 @@ public class SpoonController : IObjControllerBase
     public override void Start()
     {
         base.Start();
-        ClickInteract.Iobj = this;
+        ClickInteract.IObj = this;
     }
     protected override void SetWaitingState()
     {
