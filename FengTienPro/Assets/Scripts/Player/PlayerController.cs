@@ -8,7 +8,6 @@ public class RayEvent : UnityEvent<bool> { }
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
-
     [SerializeField]    private Transform cam;
 
     public Transform Cam => cam;
@@ -19,13 +18,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]    private GameObject RightUIRay;
     [SerializeField]    private GameObject LeftUIRay;
-
     [SerializeField]    private ControllerButton UIRayActivationBtn;
 
     public bool EnableRightRay { get; set; } = true;
 
     public bool EnableLeftRay { get; set; } = true;
-
 
     [SerializeField]    private GameObject RightTeleportRay;
     [SerializeField]    private GameObject LeftTeleportRay;
@@ -33,17 +30,14 @@ public class PlayerController : MonoBehaviour
     public bool EnableRightTeleport { get; set; } = true;
     public bool EnableLeftTeleport { get; set; } = true;
 
-
     public HandAnimManager RightHand;
     public HandAnimManager LeftHand;
 
     [SerializeField]    private ControllerButton HandAnimControlBtn;
     [SerializeField]    private ControllerButton teleportActivationBtn;
-
     [SerializeField]    private Animator TransAnim;
-   
-    private bool transAnimisDone = false;
-    public bool TransAnimisDone { get { return transAnimisDone; } }
+    [SerializeField]    private bool transAnimisDone;
+    public bool TransAnimisDone => transAnimisDone;
 
     [SerializeField]    private Animator CompletedAnim;
     [SerializeField]    private Text logText;

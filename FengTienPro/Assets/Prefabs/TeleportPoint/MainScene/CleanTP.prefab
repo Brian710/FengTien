@@ -9413,7 +9413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1576152824413363300
 Transform:
   m_ObjectHideFlags: 0
@@ -9463,7 +9463,7 @@ MonoBehaviour:
   _teleportButton: 1
   triggeredType: 0
   m_reticleMaterial: {fileID: 0}
-  rotateToHitObjectFront: 0
+  rotateToHitObjectFront: 1
   teleportToHitObjectPivot: 0
   useSteamVRFade: 1
   onBeforeTeleport:
@@ -9475,7 +9475,7 @@ MonoBehaviour:
   defaultFX: {fileID: 5728126174733263369}
   FX_On: {fileID: 5728126175767617330}
   isActive: 0
-  questName: 7
+  qName_TP: 7
 --- !u!1 &4628574062010999215
 GameObject:
   m_ObjectHideFlags: 0

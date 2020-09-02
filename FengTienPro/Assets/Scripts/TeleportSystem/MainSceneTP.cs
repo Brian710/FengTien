@@ -2,6 +2,8 @@
 
 public class MainSceneTP : TeleportControllerBase
 {
+    [SerializeField] private Quest.Name qName_TP;
+
     public override void Start()
     {
         target = PlayerController.Instance.Target;
@@ -18,7 +20,7 @@ public class MainSceneTP : TeleportControllerBase
         {
             QuestManager.Instance.GetQuestByName(qName_TP).OnQuestChange += OnQuestChange;
         }
-
+        GetComponent<Collider>().enabled = false;
         OnQuestChange(QuestManager.Instance.currentQuest.qName, QuestManager.Instance.currentQuest.state);
     }
     public override void OnDestroy()

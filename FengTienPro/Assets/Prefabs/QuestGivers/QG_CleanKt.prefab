@@ -288,17 +288,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfdb3ac3fbcc324c9e1a8d2fd8045bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questBtn: {fileID: 0}
+  questBtn: {fileID: 5775108967828454803}
   questName: 7
-  questDescription: 03
+  questDescription: 07
   isSingle: 1
   questScore: 2
   goals:
-  - {fileID: 11400000, guid: 98c73d614d7a4bc4b8808e69a8355464, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: a2dd91ee7231b064983745c4e3005794, type: 2}
+  - {fileID: 11400000, guid: 48508e406394ce54e9134ff6b536b61c, type: 2}
   InterObjs: []
   _quest:
     id: 

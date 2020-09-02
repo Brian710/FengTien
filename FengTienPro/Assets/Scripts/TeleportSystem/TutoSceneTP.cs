@@ -1,5 +1,4 @@
-﻿
-public class TutoSceneTP : TeleportControllerBase
+﻿public class TutoSceneTP : TeleportControllerBase
 {
     private void OnEnable()
     {
@@ -12,5 +11,4 @@ public class TutoSceneTP : TeleportControllerBase
     public override void Start()
     {
     }
-
 }

@@ -234,17 +234,16 @@ public class GameController : MonoBehaviour
     {
         if (_currentPlayer && _isTest)
         {
-            string questName = "";
-            string goaltype = "";
-            if (gameState == GameState.MainInit)
-            {
-                if (_quest != null) { questName = _quest.qName.ToString(); }
-                if (currentGoal != null) { goaltype = currentGoal.type.ToString(); }
-            }
-
+            //string questName = "";
+            //string goaltype = "";
+            //if (gameState == GameState.MainInit)
+            //{
+            //    if (_quest != null) { questName = _quest.qName.ToString(); }
+            //    if (currentGoal != null) { goaltype = currentGoal.type.ToString(); }
+            //}
             string log = $"State: {_gameState} \n"
                              + $"Lang: {_language} \n"
-                             + $"Quest: {questName} Goal: {goaltype}\n"
+                             //+ $"Quest: {questName} Goal: {goaltype}\n"
                              + $"Level: { _level} \n"
                              + $"Score: {_score} \n"
                              + $"PlayerData \n"

@@ -11,7 +11,7 @@ public class TutoObj : IObjControllerBase, IGrabbable
 
     public override void Start()
     {
-        SetChildObjActive(false);
+        SetChildObjActive(true);
         viveGrabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
         viveGrabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
     }

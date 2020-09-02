@@ -7,8 +7,11 @@ public class CookPotController : IObjControllerBase
     [SerializeField]    private List<GameObject> CookMats;
     [SerializeField]    private GameObject Ladle;
     [SerializeField]    private Animator CookAnim;
+    [SerializeField]    private ParticleSystem HeatFX;
+    [SerializeField]    private ParticleSystem CookFX;
     [SerializeField]    private Animator CookUI;
     [SerializeField]    private ParticleSystem CookUIDone;
+   
 
     private Coroutine _coutdownCoro;
     private int timer;
@@ -63,15 +66,27 @@ public class CookPotController : IObjControllerBase
                 break;
         }
     }
-
+    private void CookAnimOn(bool value)
+    {
+        CookAnim.SetBool("On", value);
+        if (value)
+        {
+            CookFX.Play(true);
+            HeatFX.Play(true);
+        }
+        else
+        {
+            CookFX.Stop(true);
+            HeatFX.Stop(true);
+        }
+    }
     public void CookCoutdown(bool value)
     {
         if (value)
         {
-            CookAnim.SetBool("On", true);
             if (_coutdownCoro != null)
                 StopCoroutine(_coutdownCoro);
-
+            CookAnimOn(true);
             _coutdownCoro = StartCoroutine(CoundownTimer(10, 15));
         }
         else
@@ -80,7 +95,7 @@ public class CookPotController : IObjControllerBase
                 return;
 
             StopCoroutine(_coutdownCoro);
-            CookAnim.SetBool("On", false);
+            CookAnimOn(false);
 
             if (10 <= timer && timer <= 14)
             {

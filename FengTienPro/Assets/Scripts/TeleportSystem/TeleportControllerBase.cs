@@ -7,10 +7,7 @@ public class TeleportControllerBase : Teleportable
 {
     [SerializeField]    protected ParticleSystem defaultFX;
     [SerializeField]    protected ParticleSystem FX_On;
-
     [SerializeField]    protected bool isActive;
-    
-    public Quest.Name qName_TP;
 
     public virtual void Start()
     {
@@ -19,7 +16,10 @@ public class TeleportControllerBase : Teleportable
         ShowTeleport(false);
         OnAfterTeleport += TP_OnAfterTeleport;
     }
-
+    public virtual void OnDestroy()
+    {
+        OnAfterTeleport -= TP_OnAfterTeleport;
+    }
 
     protected override void OnPointerTeleport(PointerEventData eventData)
     {
@@ -91,8 +91,5 @@ public class TeleportControllerBase : Teleportable
         }
     }
 #endif
-    public virtual void OnDestroy()
-    {
-        OnAfterTeleport -= TP_OnAfterTeleport;
-    }
+   
 }
