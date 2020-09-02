@@ -65,8 +65,7 @@ public class QuestManager : MonoBehaviour
         {
             if (q.qName == Quest.Name.Talk)
             {
-                if(q.state != Quest.State.CHOOSABLE)
-                    q.UpdateQuestStatus(Quest.State.CHOOSABLE);
+               q.UpdateQuestStatus(Quest.State.CHOOSABLE);
                 currentQuest = q;
             }
             else

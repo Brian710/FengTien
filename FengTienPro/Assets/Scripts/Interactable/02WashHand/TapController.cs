@@ -21,12 +21,14 @@ public class TapController : IObjControllerBase
         hover.enabled = false;
         _propBlock = new MaterialPropertyBlock();
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange += OnGoalStateChange;
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.TapClean).OnGoalStateChange += OnGoalStateChange;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange += OnGoalStateChange;
     }
 
     public override void OnDestroy()
     {
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange -= OnGoalStateChange;
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.TapClean).OnGoalStateChange -= OnGoalStateChange;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange -= OnGoalStateChange;
     }
 
