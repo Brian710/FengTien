@@ -51,7 +51,11 @@ public class HandAnimManager : MonoBehaviour,IWashable
     public void SetWashed(bool value)
     {
         isWashed = value;
-        if (isWashed)   QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.Tap);
+        if (isWashed)
+        {
+            QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.Tap);
+            QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.TapClean);
+        }
     }
 
     public int WashTime()
