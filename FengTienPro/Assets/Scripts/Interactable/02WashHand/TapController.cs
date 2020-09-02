@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TapController : IObjControllerBase
@@ -12,23 +13,21 @@ public class TapController : IObjControllerBase
 
     private Coroutine _coroutine;
     private MaterialPropertyBlock _propBlock;
-    [SerializeField]
-    private GameObject washobj;
-    private IWashable _IWashable;
+    private List<IWashable> _IWashable;
 
     public override void Start()
     {
         hover.enabled = false;
         _propBlock = new MaterialPropertyBlock();
-        QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange += OnGoalStateChange;
-        QuestManager.Instance.GetQuestGoalByType(Goal.Type.TapClean).OnGoalStateChange += OnGoalStateChange;
+        //QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange += OnGoalStateChange;
+        //QuestManager.Instance.GetQuestGoalByType(Goal.Type.TapClean).OnGoalStateChange += OnGoalStateChange;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange += OnGoalStateChange;
     }
 
     public override void OnDestroy()
     {
-        QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange -= OnGoalStateChange;
-        QuestManager.Instance.GetQuestGoalByType(Goal.Type.TapClean).OnGoalStateChange -= OnGoalStateChange;
+        //QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange -= OnGoalStateChange;
+        //QuestManager.Instance.GetQuestGoalByType(Goal.Type.TapClean).OnGoalStateChange -= OnGoalStateChange;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange -= OnGoalStateChange;
     }
 
@@ -62,15 +61,14 @@ public class TapController : IObjControllerBase
     {
         TapOn(true);
         SetLightColor(true);
-        Debug.LogWarning(other.gameObject.name);
-        _IWashable = other.gameObject.GetComponentInParent<IWashable>();
-        washobj = _IWashable.Obj();
-        if (_IWashable != null)
+        Debug.LogError(other.transform.name);
+        _IWashable.Add(other.transform.parent.GetComponent<IWashable>());
+        if (_IWashable.Count > 0)
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
 
-            _coroutine = StartCoroutine(CountDownSecond(_IWashable.WashTime()));
+            _coroutine = StartCoroutine(CountDownSecond(_IWashable[0].WashTime()));
         }
      }
 
@@ -83,7 +81,6 @@ public class TapController : IObjControllerBase
             StopCoroutine(_coroutine);
 
         _IWashable = null;
-        washobj = null;
     }
 
     public void TapOn(bool value)
@@ -102,8 +99,13 @@ public class TapController : IObjControllerBase
         if (StepCompleted)
         {
             QuestManager.Instance.AddQuestCurrentAmount(goalType);
-            if (_IWashable != null)
-                _IWashable.SetWashed(true);
+            if (_IWashable.Count > 0)
+            {
+                foreach (IWashable washable in _IWashable)
+                {
+                    washable.SetWashed(true);
+                }
+            }
             StepCompleted = false;
         }
     }
@@ -121,10 +123,6 @@ public class TapController : IObjControllerBase
 
     private void SetLightColor(bool value)
     {
-        lightMat.GetPropertyBlock(_propBlock);
-        Color color = value ? Color.green : Color.red;
-        _propBlock.SetColor("_EmissionColor", color);
-
-        lightMat.SetPropertyBlock(_propBlock);
+        lightMat.material.color = value ? Color.green : Color.red;
     }
 }

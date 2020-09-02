@@ -63,17 +63,10 @@ public class QuestManager : MonoBehaviour
     {
         foreach (var q in quests)
         {
-            if (q.qName == Quest.Name.Talk)
-            {
-               q.UpdateQuestStatus(Quest.State.CHOOSABLE);
-                currentQuest = q;
-            }
-            else
-            {
-                if (q.state != Quest.State.WAITING)
-                    q.UpdateQuestStatus(Quest.State.WAITING);
-            }
+            if (q.state != Quest.State.WAITING)
+                q.UpdateQuestStatus(Quest.State.WAITING);
         }
+        quests[0].UpdateQuestStatus(Quest.State.CHOOSABLE);
     }
 
     public void AddPath(string fromQE, string toQE)
