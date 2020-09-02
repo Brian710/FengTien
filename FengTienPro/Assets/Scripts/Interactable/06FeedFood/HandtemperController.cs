@@ -2,12 +2,9 @@
 
 public class HandtemperController : MonoBehaviour
 {
-    [SerializeField]
-    Transform parent;
-    [SerializeField]
-    Renderer render;
-    [SerializeField]
-    Collider colli;
+    [SerializeField]    Transform parent;
+    [SerializeField]    Renderer render;
+    [SerializeField]    Collider colli;
     private void Start()
     {
         transform.SetParent(parent, false);

@@ -11,6 +11,10 @@ public class FeedTableController : MonoBehaviour
         QuestManager.Instance.GetQuestByName(qName).OnQuestChange += OnQuestChange;
         childObj.SetActive(false);
     }
+    private void OnDestroy()
+    {
+        QuestManager.Instance.GetQuestByName(qName).OnQuestChange -= OnQuestChange;
+    }
 
     private void OnQuestChange(Quest.Name name, Quest.State state)
     {
@@ -20,9 +24,9 @@ public class FeedTableController : MonoBehaviour
                 childObj.SetActive(false);
                 break;
             case Quest.State.CHOOSABLE:
+                childObj.SetActive(true);
                 break;
             case Quest.State.CURRENT:
-                childObj.SetActive(true);
                 break;
             case Quest.State.DONE:
                 childObj.SetActive(false);

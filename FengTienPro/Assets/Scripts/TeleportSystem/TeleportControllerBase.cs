@@ -72,7 +72,7 @@ public class TeleportControllerBase : Teleportable
         GetComponent<Collider>().enabled = value;
     }
 #if UNITY_EDITOR
-    public override void Reset()
+    protected override void Reset()
     {
         base.Reset();
         if (transform.childCount >= 2)

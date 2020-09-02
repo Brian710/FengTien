@@ -1,4 +1,5 @@
 ﻿//========= Copyright 2016-2020, HTC Corporation. All rights reserved. ===========
+
 using HTC.UnityPlugin.ColliderEvent;
 using HTC.UnityPlugin.Utility;
 using System;
@@ -30,7 +31,7 @@ namespace HTC.UnityPlugin.Vive
                     m_pool = new GrabberPool(() => new Grabber());
                 }
 
-                Grabber grabber = m_pool.Get();
+                var grabber = m_pool.Get();
                 grabber.eventData = eventData;
                 return grabber;
             }
