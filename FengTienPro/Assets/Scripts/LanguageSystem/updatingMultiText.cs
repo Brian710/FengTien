@@ -10,10 +10,7 @@ namespace MinYan.Lang
         public string currentString;
         private Text multiText;
 
-        private void Awake()
-        {
-            multiText = GetComponent<Text>();
-        }
+        private void Awake() => multiText = GetComponent<Text>();
         public void Set()
         {
             if (multiText == null)

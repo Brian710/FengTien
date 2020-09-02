@@ -48,6 +48,7 @@ public class QuestManager : MonoBehaviour
             quests.Add(qg.quest);
             foreach (QuestGoal goal in qg.quest.goals)
             {
+                Debug.Log(goal.type);
                 questGoals.Add(goal.type, goal);
             }
         }

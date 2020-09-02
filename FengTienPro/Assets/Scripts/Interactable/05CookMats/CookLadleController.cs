@@ -30,6 +30,7 @@ public class CookLadleController : IObjControllerBase ,IGrabbable
     }
    
     public void HaveRice(bool value) => On.SetActive(value);
+    public bool IfHaveMat() => On.activeSelf;
 
     public void OnGrab(bool value) => _viveGrabFunc.enabled = value;
 

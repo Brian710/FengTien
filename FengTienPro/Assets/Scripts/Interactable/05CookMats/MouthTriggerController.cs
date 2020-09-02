@@ -4,11 +4,15 @@ public class MouthTriggerController : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponentInParent<IObjControllerBase>().goalType == Goal.Type.TasteFood)
+        CookLadleController cookLadle = other.GetComponentInParent<CookLadleController>();
+
+        if (cookLadle)
         {
-            other.gameObject.GetComponent<CookLadleController>().HaveRice(false);
-            QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.CookFood);
+            if (cookLadle.IfHaveMat())
+            {
+                cookLadle.HaveRice(false);
+                QuestManager.Instance.AddQuestCurrentAmount(cookLadle.goalType);
+            }
         }
-        
     }
 }

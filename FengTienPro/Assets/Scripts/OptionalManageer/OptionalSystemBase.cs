@@ -5,16 +5,11 @@ using UnityEngine.UI;
 
 public class OptionalSystemBase : MonoBehaviour
 {
-    [SerializeField]
-    protected Goal.Type goalType;
-    [SerializeField]
-    protected GameObject OPCanvas;
-    [SerializeField]
-    protected GameObject optionPanel;
-    [SerializeField]
-    protected GameObject quizPanel;
-    [SerializeField]
-    protected Button confirmBtn;
+    [SerializeField]    protected Goal.Type goalType;
+    [SerializeField]    protected GameObject OPCanvas;
+    [SerializeField]    protected GameObject optionPanel;
+    [SerializeField]    protected GameObject quizPanel;
+    [SerializeField]    protected Button confirmBtn;
 
     protected List<Button> options;
     protected List<QuizData> quizDatas;
@@ -22,11 +17,12 @@ public class OptionalSystemBase : MonoBehaviour
 
     protected MainMode mode;
 
-    private void Start()
+    public virtual void Start()
     {
         OptionsInit();
         QuizDatasInit();
         HintTextInit();
+        Debug.Log(goalType);
         Debug.Log(QuestManager.Instance.GetQuestGoalByType(goalType));
         QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange += OnGoalStateChange;
         OPCanvas.SetActive(false);

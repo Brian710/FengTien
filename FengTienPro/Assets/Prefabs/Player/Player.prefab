@@ -209,6 +209,20 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &363108643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5639926253954517522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5757a572822c343a5ec5c6b6e9aba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiId: hint_text
+  currentString: 
 --- !u!1 &6233020635320106174
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e038909a6547ef64f850aedb13ccc471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_height: 1
+  m_height: 1.3
 --- !u!114 &6233020635320106173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,9 +293,9 @@ MonoBehaviour:
   HandAnimControlBtn: 0
   teleportActivationBtn: 1
   TransAnim: {fileID: 6233020635449970406}
+  transAnimisDone: 0
   CompletedAnim: {fileID: 5639926253551333815}
   logText: {fileID: 1823774131}
-  initPos: {fileID: 0}
 --- !u!1 &6233020635392543161
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,31 +650,6 @@ MonoBehaviour:
   Bubble: {fileID: 7701114609868326668}
   washTime: 3
   isWashed: 0
-  afteInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ShowHintColor
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 0
-      - m_Target: {fileID: 0}
-        m_MethodName: ShowHintColor
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!1 &6233020635392581377
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,9 +894,6 @@ MonoBehaviour:
   Bubble: {fileID: 4530279676774442083}
   washTime: 0
   isWashed: 0
-  afteInteract:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6233020635392586801
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,7 +2204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearDistance: 0
-  farDistance: 20
+  farDistance: 50
   dragThreshold: 0.02
   clickInterval: 0.3
   showDebugRay: 1
@@ -2311,7 +2297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearDistance: 0
-  farDistance: 20
+  farDistance: 50
   dragThreshold: 0.02
   clickInterval: 0.3
   showDebugRay: 1
@@ -4117,6 +4103,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2734868559297504840, guid: e47f2db3d407fc74c8b26c2d9f1d4a65, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e47f2db3d407fc74c8b26c2d9f1d4a65, type: 3}
+--- !u!4 &3749651300423975079 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2734868559297504843, guid: e47f2db3d407fc74c8b26c2d9f1d4a65,
+    type: 3}
+  m_PrefabInstance: {fileID: 1296292921268872940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &3749651301455645452 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2734868558483680736, guid: e47f2db3d407fc74c8b26c2d9f1d4a65,
@@ -4126,12 +4118,6 @@ Animator:
 --- !u!198 &7701114609868326668 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 8872796483692290528, guid: e47f2db3d407fc74c8b26c2d9f1d4a65,
-    type: 3}
-  m_PrefabInstance: {fileID: 1296292921268872940}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3749651300423975079 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2734868559297504843, guid: e47f2db3d407fc74c8b26c2d9f1d4a65,
     type: 3}
   m_PrefabInstance: {fileID: 1296292921268872940}
   m_PrefabAsset: {fileID: 0}
@@ -4282,6 +4268,12 @@ PrefabInstance:
 --- !u!95 &5639926253551333815 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5881198980473729579, guid: bd743d32ed9163f4b80b6a808c16ed89,
+    type: 3}
+  m_PrefabInstance: {fileID: 2295494800152265628}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5639926253954517522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5881198980340042126, guid: bd743d32ed9163f4b80b6a808c16ed89,
     type: 3}
   m_PrefabInstance: {fileID: 2295494800152265628}
   m_PrefabAsset: {fileID: 0}
