@@ -9,6 +9,11 @@ namespace MinYan.Lang
         public string multiId;
         public string currentString;
         private Text multiText;
+
+        private void Awake()
+        {
+            multiText = GetComponent<Text>();
+        }
         public void Set()
         {
             if (multiText == null)

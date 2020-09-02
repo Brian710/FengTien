@@ -10,7 +10,7 @@ public class TutoCheckPoint : CheckPointBase
 
     public override void OnTriggerEnter(Collider other)
     {
-        TutoObj tutoObj = other.gameObject.GetComponent<TutoObj>();
+        TutoObj tutoObj = other.gameObject.GetComponentInParent<TutoObj>();
         if (tutoObj)    onTriggerEnter.Invoke();
     }
 
