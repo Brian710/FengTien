@@ -7,6 +7,7 @@ public class WashObj : IObjControllerBase, IWashable, IGrabbable
     [SerializeField]    private int washTime;
     [SerializeField]    private BasicGrabbable _viveGrabFunc;
     [SerializeField]    private HandAnim _handAnim;
+    [SerializeField]    private Goal.Type type;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
     public new  HandAnim handAnim => _handAnim;
     public GameObject Obj() => gameObject;
@@ -16,7 +17,7 @@ public class WashObj : IObjControllerBase, IWashable, IGrabbable
     public override void Awake()
     {
         base.Awake();
-        goalType = Goal.Type.WashObj;
+        goalType = type;
     }
 
     public override void Start()

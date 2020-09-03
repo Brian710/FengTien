@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class test_obj : MonoBehaviour, IWashable
 {
@@ -11,7 +9,7 @@ public class test_obj : MonoBehaviour, IWashable
 
     public GameObject Obj()
     {
-        return this.gameObject;
+        return gameObject;
     }
 
     public void SetWashed(bool value)

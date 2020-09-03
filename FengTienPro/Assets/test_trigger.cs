@@ -4,8 +4,31 @@ using UnityEngine;
 
 public class test_trigger : MonoBehaviour
 {
+    List<IWashable> washables;
+
+    private void Awake()
+    {
+        washables = new List<IWashable>();
+    }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.LogError(other.GetComponentInParent<IWashable>().Obj().name);
+        if (other.GetComponentInParent<IWashable>() != null)
+        {
+            washables.Add(other.GetComponentInParent<IWashable>());
+        }
+        printList();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        washables.Clear();
+    }
+
+    void printList()
+    {
+        foreach (IWashable obj in washables)
+        {
+            Debug.Log(obj.Obj().name);
+        }
     }
 }
