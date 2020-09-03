@@ -4,12 +4,9 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class TapController : IObjControllerBase
 {
-    [SerializeField]
-    private Renderer lightMat;
-    [SerializeField]
-    private ParticleSystem FX;
-    [SerializeField]
-    private bool StepCompleted;
+    [SerializeField]    private Renderer lightMat;
+    [SerializeField]    private ParticleSystem FX;
+    [SerializeField]    private bool StepCompleted;
 
     private Coroutine _coroutine;
     private MaterialPropertyBlock _propBlock;
