@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class TapController : IObjControllerBase
 {
-    [SerializeField]
-    private Renderer lightMat;
-    [SerializeField]
-    private ParticleSystem FX;
-    [SerializeField]
-    private bool StepCompleted;
+    [SerializeField]    private Renderer lightMat;
+    [SerializeField]    private ParticleSystem FX;
+    [SerializeField]    private bool StepCompleted;
 
     private Coroutine _coroutine;
     private MaterialPropertyBlock _propBlock;
@@ -18,6 +15,7 @@ public class TapController : IObjControllerBase
     public override void Start()
     {
         hover.enabled = false;
+        _IWashable = new List<IWashable>();
         _propBlock = new MaterialPropertyBlock();
         //QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange += OnGoalStateChange;
         //QuestManager.Instance.GetQuestGoalByType(Goal.Type.TapClean).OnGoalStateChange += OnGoalStateChange;
@@ -98,7 +96,7 @@ public class TapController : IObjControllerBase
     {
         if (StepCompleted)
         {
-            QuestManager.Instance.AddQuestCurrentAmount(goalType);
+            //QuestManager.Instance.AddQuestCurrentAmount(goalType);
             if (_IWashable.Count > 0)
             {
                 foreach (IWashable washable in _IWashable)
