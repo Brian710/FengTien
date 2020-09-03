@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[ExecuteInEditMode]
 public class TapController : IObjControllerBase
 {
     [SerializeField]
@@ -13,12 +13,17 @@ public class TapController : IObjControllerBase
 
     private Coroutine _coroutine;
     private MaterialPropertyBlock _propBlock;
-    private List<IWashable> _IWashable;
-
+    [SerializeField]
+    private List<IWashable> _IWashList;
+    public override void Awake()
+    {
+        base.Awake();
+        _IWashList = new List<IWashable>();
+        _propBlock = new MaterialPropertyBlock();
+    }
     public override void Start()
     {
         hover.enabled = false;
-        _propBlock = new MaterialPropertyBlock();
         //QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange += OnGoalStateChange;
         //QuestManager.Instance.GetQuestGoalByType(Goal.Type.TapClean).OnGoalStateChange += OnGoalStateChange;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange += OnGoalStateChange;
@@ -61,16 +66,32 @@ public class TapController : IObjControllerBase
     {
         TapOn(true);
         SetLightColor(true);
-        Debug.LogError(other.transform.name);
-        _IWashable.Add(other.transform.parent.GetComponent<IWashable>());
-        if (_IWashable.Count > 0)
+        
+        if (other.GetComponentInParent<IWashable>() == null)
+            return;
+
+        _IWashList.Add(other.GetComponentInParent<IWashable>());
+        if (_IWashList.Count > 0)
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
 
-            _coroutine = StartCoroutine(CountDownSecond(_IWashable[0].WashTime()));
+            _coroutine = StartCoroutine(CountDownSecond(_IWashList[0].WashTime()));
         }
+
+        PrintIWashList();
      }
+
+    private void PrintIWashList()
+    {
+        if (_IWashList.Count <= 0)
+            return;
+
+        //foreach (IWashable obj in _IWashList)
+        //{
+        //    Debug.LogError(obj.Obj().name);
+        //}
+    }
 
     public void OnTriggerExit(Collider other)
     {
@@ -80,7 +101,7 @@ public class TapController : IObjControllerBase
         if (_coroutine != null)
             StopCoroutine(_coroutine);
 
-        _IWashable = null;
+        _IWashList.Clear();
     }
 
     public void TapOn(bool value)
@@ -99,9 +120,9 @@ public class TapController : IObjControllerBase
         if (StepCompleted)
         {
             QuestManager.Instance.AddQuestCurrentAmount(goalType);
-            if (_IWashable.Count > 0)
+            if (_IWashList.Count > 0)
             {
-                foreach (IWashable washable in _IWashable)
+                foreach (IWashable washable in _IWashList)
                 {
                     washable.SetWashed(true);
                 }
