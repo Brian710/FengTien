@@ -65,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 645533368789620961}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 645533368376105992}
   m_Father: {fileID: 4729050282129125735}
@@ -181,8 +181,8 @@ MonoBehaviour:
   rotOffset: {x: 0, y: 0, z: 0}
   alignPosition: 1
   alignRotation: 1
-  alignPositionOffset: {x: 0.0079, y: -0.0235, z: 0.0486}
-  alignRotationOffset: {x: 46.326, y: -38.943, z: -52.163}
+  alignPositionOffset: {x: -0.0245, y: 0.0212, z: 0.0082}
+  alignRotationOffset: {x: 0, y: 0, z: 0}
   m_followingDuration: 0.04
   m_overrideMaxAngularVelocity: 1
   m_unblockableGrab: 1
@@ -268,14 +268,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4729050282129125734}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.3992002, y: 0.1279999, z: -0.61089563}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 645533368789386433}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!114 &4729050282129125732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
   On: {fileID: 645533368376106007}
   type: 13
   _viveGrabFunc: {fileID: 4729050283108075869}
-  _handAnim: 5
+  _handAnim: 6
 --- !u!1001 &645533369327668983
 PrefabInstance:
   m_ObjectHideFlags: 0

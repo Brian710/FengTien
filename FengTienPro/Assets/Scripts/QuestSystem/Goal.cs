@@ -44,10 +44,11 @@ public class Goal : ScriptableObject
         ThrowWaste,
         CleanDesk,
         //FeedMeds
+        MedsTalk,
         GrindMeds,
         MixWater,
         CheckNasogastricTube,
-        FeedMsds, //3 times
+        FeedMeds, //3 times
         FinishFeedMeds,
         //CleanMeds
         TissueClean,

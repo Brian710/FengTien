@@ -42,4 +42,5 @@ public enum HandAnim
     Board = 3,
     Spoon = 4,
     Bowl = 5,
+    Glass = 6,
 }

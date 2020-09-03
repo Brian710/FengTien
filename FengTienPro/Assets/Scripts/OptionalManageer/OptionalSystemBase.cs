@@ -22,8 +22,6 @@ public class OptionalSystemBase : MonoBehaviour
         OptionsInit();
         QuizDatasInit();
         HintTextInit();
-        Debug.Log(goalType);
-        Debug.Log(QuestManager.Instance.GetQuestGoalByType(goalType));
         QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange += OnGoalStateChange;
         OPCanvas.SetActive(false);
     }
@@ -144,13 +142,12 @@ public class OptionalSystemBase : MonoBehaviour
 
     public virtual void OptBtnOnclick(int index)
     {
-        options[index].GetComponent<CanvasGroup>().alpha = 0;
-        options[index].interactable = false;
-
         foreach (QuizData quizData in quizDatas)
         {
             if (!quizData.button.interactable)
             {
+                options[index].GetComponent<CanvasGroup>().alpha = 0;
+                options[index].interactable = false;
                 quizData.optIndex = index;
                 quizData.button.interactable = true;
                 quizData.button.targetGraphic = options[index].GetComponent<Image>();
