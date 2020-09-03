@@ -41,30 +41,48 @@ public class CookPotController : IObjControllerBase
     {
         Ladle.SetActive(false);
     }
+    InputMatObj FoodMat;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        InputMatObj FoodMat = other.GetComponentInParent<InputMatObj>();
+        if (FoodMat == null)
+            FoodMat = other.GetComponentInParent<InputMatObj>();
 
-        if (FoodMat == null || Mathf.Abs(FoodMat.transform.rotation.x) <= 0.2 || !FoodMat.IfHaveMats())
-            return;
-
-        QuestManager.Instance.AddQuestCurrentAmount(FoodMat.goalType);
-        switch (FoodMat.goalType)
+        if (FoodMat != null && FoodMat.IfHaveMats())
         {
-            case Goal.Type.InputRice:
-                CookMats[0].SetActive(true);
-                break;
-            case Goal.Type.InputWater:
-                CookMats[1].SetActive(true);
-                break;
-            case Goal.Type.InputFish:
-                CookMats[2].SetActive(true);
-                break;
-            case Goal.Type.InputVeg:
-                CookMats[3].SetActive(true);
-                break;
+            QuestManager.Instance.AddQuestCurrentAmount(FoodMat.goalType);
+            switch (FoodMat.goalType)
+            {
+                case Goal.Type.InputRice:
+                    CookMats[0].SetActive(true);
+                    break;
+                case Goal.Type.InputWater:
+                    CookMats[1].SetActive(true);
+                    break;
+                case Goal.Type.InputFish:
+                    CookMats[2].SetActive(true);
+                    break;
+                case Goal.Type.InputVeg:
+                    CookMats[3].SetActive(true);
+                    break;
+            }
         }
+
+    }
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (FoodMat == null || 
+    //        //Mathf.Abs(FoodMat.transform.rotation.x) <= 0.2 || 
+    //        !FoodMat.IfHaveMats())
+    //        return;
+
+        
+    //}
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponentInParent< InputMatObj >() == FoodMat)
+            FoodMat = null;
     }
     private void CookAnimOn(bool value)
     {

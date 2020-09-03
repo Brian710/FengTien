@@ -25,13 +25,13 @@ public class InputMatObj : IObjControllerBase, IGrabbable
     {
         HaveMats(true);
         viveGrabFunc.enabled = true;
-        base.SetCurrentState();
     }
     protected override void SetDoneState()
     {
         HaveMats(false);
         viveGrabFunc.enabled = false;
-        base.SetDoneState();
+        ChildObj.transform.position = position;
+        ChildObj.transform.rotation = rotation;
     }
 
     public void HaveMats(bool value)

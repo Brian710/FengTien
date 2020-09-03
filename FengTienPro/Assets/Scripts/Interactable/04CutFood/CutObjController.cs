@@ -41,6 +41,7 @@ public class CutObjController : IObjControllerBase
 
     protected override void SetCurrentState()
     {
+        CutNum = 0;
         Anim.gameObject.SetActive(true);
         Anim.SetInteger("CutNum", 0);
         Plate.SetActive(false);
@@ -53,11 +54,21 @@ public class CutObjController : IObjControllerBase
         Plate.SetActive(true);
         colli.enabled = false;
     }
+    private bool KnifeIn;
     private void OnTriggerEnter(Collider other)
     {
-        CutNum++;
-        QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.CutFish);
-
-        if (CutNum >= 4) CutNum = 0;
+        if (other.GetComponentInParent<KnifeController>())
+        {
+            KnifeIn = true;
+            CutNum++;
+            QuestManager.Instance.AddQuestCurrentAmount(goalType);
+            if(CutNum<4)
+                Anim.SetInteger("CutNum", CutNum);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponentInParent<KnifeController>())
+            KnifeIn = false;
     }
 }

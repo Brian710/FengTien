@@ -25,8 +25,8 @@ public class IObjControllerBase : MonoBehaviour
     {
         hover.InteractColor = new Color(0, .74f, .74f, 1);
         hover.hintColor = new Color(1, 0.8f, .28f, 1);
-        position = transform.position;
-        rotation = transform.rotation;
+        position = ChildObj.transform.position;
+        rotation = ChildObj.transform.rotation;
     }
     public virtual void Start()
     {
@@ -70,8 +70,8 @@ public class IObjControllerBase : MonoBehaviour
     }
     protected virtual void SetWaitingState()
     {
-        transform.position = position;
-        transform.rotation = rotation;
+        ChildObj.transform.position = position;
+        ChildObj.transform.rotation = rotation;
     }
     protected virtual void SetCurrentState()
     {
