@@ -53,7 +53,6 @@ public class Goal : ScriptableObject
         //CleanMeds
         TissueClean,
         WaterClean,
-    
     }
     [Serializable]
     public enum State { WAITING,CURRENT,DONE}

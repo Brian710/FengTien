@@ -3,17 +3,16 @@ using UnityEngine;
 
 public class MainSceneManager : MonoBehaviour
 {
-    [SerializeField]
-    private List<GameObject> gameObjects;
-
-    [SerializeField]
-    private Transform StartScenePos;
+    [SerializeField]    private List<GameObject> gameObjects;
+    [SerializeField]    private Transform StartScenePos;
 
     private void Start()
     {
         MainSceneStartInorder();
     }
-
+    private void OnDestroy()
+    {
+    }
     public void MainSceneStartInorder()
     {
         if (gameObjects.Count <= 0)

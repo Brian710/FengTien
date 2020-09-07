@@ -115,7 +115,7 @@ public class GameController : MonoBehaviour
         QuestRecord record = new QuestRecord();
         foreach (QuestGoal g in goals)
         {
-            record.QuestName = g.type;
+            record.GoalsName = g.type;
             record.doneRight = g.doItRight;
             _questList.Add(record);
         }
@@ -163,7 +163,7 @@ public class GameController : MonoBehaviour
     }
 
     #region Methods
-    public event Action gameMainInit, gamTutoInit, gameLevelnit;
+    public event Action gameStartInit, gameMainInit, gamTutoInit, gameLevelnit,gameScoreInit;
 
     private void OnGameStateChange()
     {
@@ -175,6 +175,8 @@ public class GameController : MonoBehaviour
                 _quest = null;
                 if(_questList.Count > 0)
                     _questList.Clear();
+
+                gameStartInit?.Invoke();
                 break;
             case GameState.MainInit:
                 gameMainInit?.Invoke();
@@ -184,6 +186,9 @@ public class GameController : MonoBehaviour
                 break;
             case GameState.LevelInit:
                 gameLevelnit?.Invoke();
+                break;
+            case GameState.ScoreInit:
+                gameScoreInit?.Invoke();
                 break;
         }
         UpdateLog();

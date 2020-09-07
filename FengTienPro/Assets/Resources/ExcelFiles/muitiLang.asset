@@ -155,108 +155,108 @@ MonoBehaviour:
   - id: hint_text
     chinese: "\u4EFB\u52D9\u5B8C\u6210"
     english: Mission Completed
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
-  - id: 
-    chinese: 
-    english: 
+  - id: goal_TalkCanv
+    chinese: "\u8A62\u554F\u723A\u723A\u53E3\u5473"
+    english: "(en)\u8A62\u554F\u723A\u723A\u53E3\u5473"
+  - id: goal_Watch
+    chinese: "\u6D17\u624B_\u812B\u624B\u8868"
+    english: "(en)\u6D17\u624B_\u812B\u624B\u8868"
+  - id: goal_Tap
+    chinese: "\u6D17\u624B_\u6CBE\u6FD5\u96D9\u624B"
+    english: "(en)\u6D17\u624B_\u6CBE\u6FD5\u96D9\u624B"
+  - id: goal_Soap
+    chinese: "\u6D17\u624B_\u6309\u58D3\u6D17\u624B\u4E73"
+    english: "(en)\u6D17\u624B_\u6309\u58D3\u6D17\u624B\u4E73"
+  - id: goal_WashHandCanv
+    chinese: "\u6D17\u624B_\u6D17\u624B\u6B65\u9A5F"
+    english: "(en)\u6D17\u624B_\u6D17\u624B\u6B65\u9A5F"
+  - id: goal_TapClean
+    chinese: "\u6D17\u624B_\u6D17\u53BB\u6CE1\u6CE1"
+    english: "(en)\u6D17\u624B_\u6D17\u53BB\u6CE1\u6CE1"
+  - id: goal_Tissue
+    chinese: "\u6D17\u624B_\u885B\u751F\u7D19"
+    english: "(en)\u6D17\u624B_\u885B\u751F\u7D19"
+  - id: goal_WashObj
+    chinese: "\u6E05\u6D17_\u5EDA\u623F\u7269\u54C1"
+    english: "(en)\u6E05\u6D17_\u5EDA\u623F\u7269\u54C1"
+  - id: goal_CutFish
+    chinese: "\u716E\u98EF_\u5207\u9B5A"
+    english: "(en)\u716E\u98EF_\u5207\u9B5A"
+  - id: goal_CutVeg
+    chinese: "\u716E\u98EF_\u5207\u83DC"
+    english: "(en)\u716E\u98EF_\u5207\u83DC"
+  - id: goal_InputRice
+    chinese: "\u716E\u98EF_\u653E\u5165\u7C73\u98EF"
+    english: "(en)\u716E\u98EF_\u653E\u5165\u7C73\u98EF"
+  - id: goal_InputWater
+    chinese: "\u716E\u98EF_\u5012\u5165\u6C34"
+    english: "(en)\u716E\u98EF_\u5012\u5165\u6C34"
+  - id: goal_InputFish
+    chinese: "\u716E\u98EF_\u653E\u5165\u9B5A\u8089"
+    english: "(en)\u716E\u98EF_\u653E\u5165\u9B5A\u8089"
+  - id: goal_InputVeg
+    chinese: "\u716E\u98EF_\u653E\u5165\u9752\u83DC"
+    english: "(en)\u716E\u98EF_\u653E\u5165\u9752\u83DC"
+  - id: goal_InputSalt
+    chinese: "\u716E\u98EF_\u653E\u5165\u9E7D"
+    english: "(en)\u716E\u98EF_\u653E\u5165\u9E7D"
+  - id: goal_CookFood
+    chinese: "\u716E\u98EF_\u9069\u7576\u7684\u6642\u9593"
+    english: "(en)\u716E\u98EF_\u9069\u7576\u7684\u6642\u9593"
+  - id: goal_TasteFood
+    chinese: "\u716E\u98EF_\u54C1\u5617\u98DF\u7269"
+    english: "(en)\u716E\u98EF_\u54C1\u5617\u98DF\u7269"
+  - id: goal_PutOnBib
+    chinese: "\u9935\u98DF_\u570D\u4E0A\u570D\u515C\u515C"
+    english: "(en)\u9935\u98DF_\u570D\u4E0A\u570D\u515C\u515C"
+  - id: goal_TakeBowl
+    chinese: "\u9935\u98DF_\u62FF\u8D77\u7CA5"
+    english: "(en)\u9935\u98DF_\u62FF\u8D77\u7CA5"
+  - id: goal_GetTemper
+    chinese: "\u9935\u98DF_\u6E2C\u91CF\u7CA5\u7684\u6EAB\u5EA6"
+    english: "(en)\u9935\u98DF_\u6E2C\u91CF\u7CA5\u7684\u6EAB\u5EA6"
+  - id: goal_TakeSpoon
+    chinese: "\u9935\u98DF_\u62FF\u8D77\u6E6F\u5319"
+    english: "(en)\u9935\u98DF_\u62FF\u8D77\u6E6F\u5319"
+  - id: goal_FeedFood
+    chinese: "\u9935\u98DF_\u9935\u98DF\u8207\u8AC7\u8A71"
+    english: "(en)\u9935\u98DF_\u9935\u98DF\u8207\u8AC7\u8A71"
+  - id: goal_FeedWater
+    chinese: "\u9935\u98DF_\u6F31\u53E3"
+    english: "(en)\u9935\u98DF_\u6F31\u53E3"
+  - id: goal_WashStuff
+    chinese: "\u6E05\u6F54_\u6E05\u6D17\u5EDA\u623F\u7528\u54C1"
+    english: "(en)\u6E05\u6F54_\u6E05\u6D17\u5EDA\u623F\u7528\u54C1"
+  - id: goal_ThrowWaste
+    chinese: "\u6E05\u6F54_\u5012\u6389\u5EDA\u9918"
+    english: "(en)\u6E05\u6F54_\u5012\u6389\u5EDA\u9918"
+  - id: goal_CleanDesk
+    chinese: "\u6E05\u6F54_\u64E6\u684C\u5B50"
+    english: "(en)\u6E05\u6F54_\u64E6\u684C\u5B50"
+  - id: goal_MedsTalk
+    chinese: "\u9935\u85E5_\u8AC7\u8A71"
+    english: "(en)\u9935\u85E5_\u8AC7\u8A71"
+  - id: goal_GrindMeds
+    chinese: "\u9935\u85E5_\u78E8\u85E5"
+    english: "(en)\u9935\u85E5_\u78E8\u85E5"
+  - id: goal_MixWater
+    chinese: "\u9935\u85E5_\u6DF7\u548C\u6C34"
+    english: "(en)\u9935\u85E5_\u6DF7\u548C\u6C34"
+  - id: goal_CheckNasogastricTube
+    chinese: "\u9935\u85E5_\u78BA\u8A8D\u9F3B\u80C3\u7BA1\u5728\u80C3\u88E1"
+    english: "(en)\u9935\u85E5_\u78BA\u8A8D\u9F3B\u80C3\u7BA1\u5728\u80C3\u88E1"
+  - id: goal_FeedMeds
+    chinese: "\u9935\u85E5_\u5012\u5165\u85E5\u54C1"
+    english: "(en)\u9935\u85E5_\u5012\u5165\u85E5\u54C1"
+  - id: goal_FinishFeedMeds
+    chinese: "\u9935\u85E5_\u5B8C\u6210\u9935\u85E5"
+    english: "(en)\u9935\u85E5_\u5B8C\u6210\u9935\u85E5"
+  - id: goal_TissueClean
+    chinese: "\u6E05\u6D17_\u64E6\u62ED\u85E5\u7269\u7528\u54C1"
+    english: "(en)\u6E05\u6D17_\u64E6\u62ED\u85E5\u7269\u7528\u54C1"
+  - id: goal_WaterClean
+    chinese: "\u6E05\u6D17_\u6D17\u85E5\u7269\u7528\u54C1"
+    english: "(en)\u6E05\u6D17_\u6D17\u85E5\u7269\u7528\u54C1"
   - id: 
     chinese: 
     english: 

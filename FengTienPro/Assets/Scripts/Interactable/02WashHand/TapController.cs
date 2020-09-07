@@ -1,17 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[ExecuteInEditMode]
+
 public class TapController : IObjControllerBase
 {
     [SerializeField]    private Renderer lightMat;
     [SerializeField]    private ParticleSystem FX;
     [SerializeField]    private bool StepCompleted;
+    [SerializeField]    private List<IWashable> _IWashList;
 
     private Coroutine _coroutine;
     private MaterialPropertyBlock _propBlock;
-    [SerializeField]
-    private List<IWashable> _IWashList;
     public override void Awake()
     {
         base.Awake();
@@ -24,6 +23,7 @@ public class TapController : IObjControllerBase
         //QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange += OnGoalStateChange;
         //QuestManager.Instance.GetQuestGoalByType(Goal.Type.TapClean).OnGoalStateChange += OnGoalStateChange;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange += OnGoalStateChange;
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashStuff).OnGoalStateChange += OnGoalStateChange;
     }
 
     public override void OnDestroy()
@@ -31,8 +31,8 @@ public class TapController : IObjControllerBase
         //QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange -= OnGoalStateChange;
         //QuestManager.Instance.GetQuestGoalByType(Goal.Type.TapClean).OnGoalStateChange -= OnGoalStateChange;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange -= OnGoalStateChange;
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashStuff).OnGoalStateChange -= OnGoalStateChange;
     }
-
 
     private void OnGoalStateChange(Goal.Type type, Goal.State state)
     {
@@ -83,7 +83,6 @@ public class TapController : IObjControllerBase
     {
         if (_IWashList.Count <= 0)
             return;
-
         //foreach (IWashable obj in _IWashList)
         //{
         //    Debug.LogError(obj.Obj().name);

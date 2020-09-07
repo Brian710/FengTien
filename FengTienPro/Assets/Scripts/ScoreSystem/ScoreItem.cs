@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ScoreItem : MonoBehaviour
 {
     public Button BtnComponemt;
-    public Text name;
+    public Text item_name;
 
-    public Text score;
+    public Text item_score;
 }
