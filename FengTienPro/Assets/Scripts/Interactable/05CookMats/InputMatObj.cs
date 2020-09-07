@@ -6,6 +6,7 @@ public class InputMatObj : IObjControllerBase, IGrabbable
 {
     [SerializeField]    private GameObject On;
     [SerializeField]    private Goal.Type type;
+    [SerializeField]    private BasicGrabbable _viveGrabFunc;
     [SerializeField]    private HandAnim _handAnim;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
     public new HandAnim handAnim => _handAnim;
