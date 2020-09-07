@@ -20,7 +20,7 @@ public class PestleController : IObjControllerBase, IGrabbable
     {
         QuestManager.Instance.GetQuestByName(qName).OnQuestChange += OnQuestChange;
         hover.enabled = false;
-        GetComponent<Collider>().enabled = false;
+        //GetComponent<Collider>().enabled = false;
         OnQuestChange(QuestManager.Instance.currentQuest.qName, QuestManager.Instance.currentQuest.state);
     }
 
