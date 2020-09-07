@@ -18,10 +18,15 @@ public class PestleController : IObjControllerBase, IGrabbable
     }
     public override void Start()
     {
+<<<<<<< Updated upstream
         QuestManager.Instance.GetQuestByName(qName).OnQuestChange += OnQuestChange;
         hover.enabled = false;
         //GetComponent<Collider>().enabled = false;
         OnQuestChange(QuestManager.Instance.currentQuest.qName, QuestManager.Instance.currentQuest.state);
+=======
+        viveGrabFunc.enabled = false;
+        base.SetWaitingState();
+>>>>>>> Stashed changes
     }
 
     public override void OnDestroy()
