@@ -4,7 +4,6 @@ using UnityEngine;
 public class CookLadleController : IObjControllerBase ,IGrabbable
 {
     [SerializeField]    private GameObject On;
-    [SerializeField]    private BasicGrabbable _viveGrabFunc;
     [SerializeField]    private HandAnim _handAnim;
 
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
@@ -15,20 +14,7 @@ public class CookLadleController : IObjControllerBase ,IGrabbable
         base.Awake();
         goalType = Goal.Type.TasteFood;
     }
-    public override void Start()
-    {
-        base.Start();
-        viveGrabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
-        viveGrabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
-    }
-
-    public override void OnDestroy()
-    {
-        base.OnDestroy();
-        viveGrabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
-        viveGrabFunc.afterGrabberGrabbed -= GrabFunc_afterGrabberGrabbed;
-    }
-   
+    
     public void HaveRice(bool value) => On.SetActive(value);
     public bool IfHaveMat() => On.activeSelf;
 

@@ -215,9 +215,9 @@ public class QuestManager : MonoBehaviour
 #if UNITY_EDITOR
     protected virtual void OnValidate()
     {
-        if (Application.isPlaying)
+        if (Application.isPlaying && currentQuest != null)
         {
-            //currentQuest.AddCurrentGoalAmount(currentQuest.GetCurrentGoal().type);
+            currentQuest.AddCurrentGoalAmount(currentQuest.GetCurrentGoal().type);
         }
     }
 #endif
