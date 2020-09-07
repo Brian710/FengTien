@@ -24,6 +24,10 @@ public class KnifeController : IObjControllerBase, IGrabbable
         GetComponent<Collider>().enabled = false;
         OnQuestChange(QuestManager.Instance.currentQuest.qName, QuestManager.Instance.currentQuest.state);
     }
+    public override void OnDestroy()
+    {
+        QuestManager.Instance.GetQuestByName(qName).OnQuestChange -= OnQuestChange;
+    }
     private void OnQuestChange(Quest.Name qName, Quest.State state)
     {
         switch (state)
