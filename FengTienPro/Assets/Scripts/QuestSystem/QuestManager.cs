@@ -20,8 +20,16 @@ public class QuestManager : MonoBehaviour
     #endregion
     public List<Quest> quests;
     [SerializeField]    private Dictionary<Goal.Type,QuestGoal> questGoals;
-    public Quest currentQuest;
-    //public GameObject TPManager;
+    [SerializeField]    private Quest _currentQuest;
+    public Quest currentQuest 
+    {
+        get
+        {
+            _currentQuest = FindCurrentQuest();
+            return _currentQuest;
+        } 
+            
+     }
     protected virtual void Awake()
     {
         InitSingleton();
@@ -33,13 +41,15 @@ public class QuestManager : MonoBehaviour
     {
         QuestInit();
         BFS(quests[0]);
-        //PrintPath();
         Set();
-        GameController.Instance.gameMainInit += Set; 
-        //TPManager.SetActive(true);
+        GameController.Instance.gameMainInit += Set;
+        //PrintPath();
     }
 
-    private void OnDestroy() => GameController.Instance.gameMainInit -= Set;
+    private void OnDestroy()
+    { 
+        GameController.Instance.gameMainInit -= Set;
+    }
 
     public void QuestInit()
     {
@@ -87,7 +97,6 @@ public class QuestManager : MonoBehaviour
             if (q.Id == Id)
                 return q;
         }
-
         return null;
     }
 
@@ -101,7 +110,6 @@ public class QuestManager : MonoBehaviour
                 BFS(p.endEvent, orderNum + 1);
         }
     }
-
     public void PrintPath()
     {
         foreach (var qe in quests)
@@ -109,7 +117,6 @@ public class QuestManager : MonoBehaviour
             Debug.LogWarning(qe.qName + ", order: " + qe.order);
         }
     }
-
     //mainly for Teleport
     public void SetNextQuestStatus(Quest cq)
     {
@@ -166,7 +173,6 @@ public class QuestManager : MonoBehaviour
             }
         }
     }
-
     private Quest FindCurrentQuest()
     {
         foreach (var q in quests)
@@ -211,7 +217,7 @@ public class QuestManager : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            currentQuest.AddCurrentGoalAmount(currentQuest.GetCurrentGoal().type);
+            //currentQuest.AddCurrentGoalAmount(currentQuest.GetCurrentGoal().type);
         }
     }
 #endif

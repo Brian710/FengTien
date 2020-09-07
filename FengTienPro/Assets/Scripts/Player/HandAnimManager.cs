@@ -42,7 +42,7 @@ public class HandAnimManager : MonoBehaviour,IWashable
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        if (Application.isPlaying)
+        if (Application.isPlaying && PlayerController.Instance)
         {
             HandAnimChange(handAnim);
         }
