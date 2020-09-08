@@ -5,7 +5,6 @@ public class WasteObj : IObjControllerBase, IGrabbable
 {
     //[SerializeField] private bool isWashed;
     //[SerializeField] private int washTime;
-    [SerializeField] private BasicGrabbable _viveGrabFunc;
     [SerializeField] private HandAnim _handAnim;
     [SerializeField] private Goal.Type type;
     [SerializeField] private GameObject Waste;

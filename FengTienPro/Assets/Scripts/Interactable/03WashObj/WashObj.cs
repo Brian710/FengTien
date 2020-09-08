@@ -5,7 +5,6 @@ public class WashObj : IObjControllerBase, IWashable, IGrabbable
 {
     [SerializeField]    private bool isWashed;
     [SerializeField]    private int washTime;
-    [SerializeField]    private BasicGrabbable _viveGrabFunc;
     [SerializeField]    private HandAnim _handAnim;
     [SerializeField]    private Goal.Type type;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
