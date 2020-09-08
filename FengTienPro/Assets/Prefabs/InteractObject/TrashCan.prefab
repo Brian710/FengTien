@@ -13,11 +13,7 @@ GameObject:
   - component: {fileID: 3725684134675727223}
   - component: {fileID: 3725684134673439508}
   - component: {fileID: 5954738732063997820}
-<<<<<<< Updated upstream
   - component: {fileID: 8294253133735436411}
-=======
-  - component: {fileID: 5215610297988992425}
->>>>>>> Stashed changes
   m_Layer: 11
   m_Name: TrashCan
   m_TagString: Untagged
@@ -34,11 +30,7 @@ Transform:
   m_GameObject: {fileID: 3725684134673472951}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 3.989, y: 0.5276368, z: 2.1690001}
-<<<<<<< Updated upstream
   m_LocalScale: {x: 1, y: 0.8, z: 0.8}
-=======
-  m_LocalScale: {x: 1, y: 1, z: 1}
->>>>>>> Stashed changes
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -113,13 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed8753b1c97fe94b962fc52c163b18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   outline: {fileID: 0}
 --- !u!114 &8294253133735436411
-=======
-  outline: {fileID: 5215610297988992425}
---- !u!114 &5215610297988992425
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,7 +115,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3725684134673472951}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: 45ca655a53954474bae0ef8063cfb729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -140,14 +126,3 @@ MonoBehaviour:
   Waste: {fileID: 0}
   type: 26
   colli: {fileID: 3725684134673439508}
-=======
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0, g: 0, b: 0, a: 0}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
->>>>>>> Stashed changes

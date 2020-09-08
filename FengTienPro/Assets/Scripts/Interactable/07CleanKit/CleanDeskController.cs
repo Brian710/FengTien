@@ -33,15 +33,10 @@ public class CleanDeskController : IObjControllerBase
     {
         if (other.GetComponentInParent<GetRagController>())
         {
-<<<<<<< Updated upstream
-            RagIn = true;
-            QuestManager.Instance.AddQuestCurrentAmount(goalType);
-=======
             if (FindObjectOfType<GetRagController>().RagInHand == true)
             {
                 QuestManager.Instance.AddQuestCurrentAmount(goalType);
             }
->>>>>>> Stashed changes
         }
     }
 }
