@@ -46,7 +46,7 @@ public class IObjControllerBase : MonoBehaviour
             SetWaitingState();
     }
 
-    private void OnGoalStateChange(Goal.Type type, Goal.State state)
+    protected void OnGoalStateChange(Goal.Type type, Goal.State state)
     {
         if (type != goalType)
             return;

@@ -1,38 +1,40 @@
-﻿using UnityEngine;
+﻿using HTC.UnityPlugin.Vive;
+using UnityEngine;
 
 public class GetRagController : IObjControllerBase
 {
     [SerializeField] private ClicktoInteract ClickInteract;
-    [SerializeField] private GameObject GetRag;
-    [SerializeField] private Goal.Type type;
-    [SerializeField] private Transform startParent;
+    [SerializeField] public  GameObject GetRag;
     [SerializeField] private Transform targetParent;
-    private bool ToWipe;
+    [SerializeField] private Collider colli;
+    public bool RagInHand;
     public override void Awake()
     {
         base.Awake();
-        ToWipe = false;
-        ChildObj.SetActive(false);
-        hover.InteractColor = new Color(0, .74f, .74f, 1);
-        hover.hintColor = new Color(1, 0.8f, .28f, 1);
+        goalType = Goal.Type.None;
+        RagInHand = false;
+        hover.enabled = false;
     }
     public override void Start()
     {
         ClickInteract.IObj = this;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.CleanDesk).OnGoalStateChange += OnGoalStateChange;
-        hover.enabled = false;
-        base.Start();
     }
-
-    public  override void OnDestroy()
+    public override void OnDestroy()
     {
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.CleanDesk).OnGoalStateChange -= OnGoalStateChange;
     }
-
+    public override void SetChildObjActive(bool value)
+    {
+        ChildObj.SetActive(value);
+        if (value)
+            SetWaitingState();
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if(other != null) 
+        if (other.GetComponentInParent<VivePoseTracker>())
         {
+<<<<<<< Updated upstream
             ToWipe = true;
             if (ToWipe)
             {
@@ -43,22 +45,31 @@ public class GetRagController : IObjControllerBase
                 ClickInteract.enabled = true;
                 base.SetCurrentState();
             }
+=======
+            Debug.LogError("拿抹布!");
+            GetRag.SetActive(true);
+            GetRag.transform.SetParent(targetParent, false);
+            GetRag.transform.localPosition = new Vector3(-0.008f, 0, 0.11f);
+            GetRag.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, -90));
+            ClickInteract.enabled = true;
+            RagInHand = true;
+>>>>>>> Stashed changes
         }
     }
-    private void OnGoalStateChange(Goal.Type type, Goal.State state)
+    protected override void SetWaitingState()
     {
-        switch (state)
-        {
-            case Goal.State.WAITING:
-                SetWaitingState();
-                break;
-            case Goal.State.CURRENT:
-                SetCurrentState();
-                hover.ShowHintColor(GameController.Instance.mode == MainMode.Train);
-                break;
-            case Goal.State.DONE:
-                GetRag.SetActive(false);
-                break;
-        }
+        base.SetWaitingState();
+        SetChildObjActive(false);
+        colli.enabled = false;
+    }
+    protected override void SetCurrentState()
+    {
+        SetChildObjActive(true);
+        colli.enabled = true;
+    }
+    protected override void SetDoneState()
+    {
+        GetRag.SetActive(false);
+        colli.enabled = false;
     }
 }

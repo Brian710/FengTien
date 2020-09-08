@@ -310,6 +310,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _quest:
     id: 
     giver: {fileID: 0}

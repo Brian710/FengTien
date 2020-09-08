@@ -16,7 +16,7 @@ public class ClicktoInteract :MonoBehaviour  ,IColliderEventClickHandler   , ICo
     {
         if (pressingEvents.Contains(eventData) && pressingEvents.Count == 1)
         {
-            if (QuestManager.Instance.GetQuestGoalByType(IObj.goalType).state == Goal.State.CURRENT)
+            if (IObj.goalType != Goal.Type.None && QuestManager.Instance.GetQuestGoalByType(IObj.goalType).state == Goal.State.CURRENT)
                 QuestManager.Instance.AddQuestCurrentAmount(IObj.goalType);
             else
             {

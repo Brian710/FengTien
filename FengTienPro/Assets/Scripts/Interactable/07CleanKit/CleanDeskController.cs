@@ -2,30 +2,17 @@
 
 public class CleanDeskController : IObjControllerBase
 {
-    [SerializeField] private Goal.Type type;
     [SerializeField] private Collider colli;
     [SerializeField] private GameObject Rag;
 
     public override void Awake()
     {
         base.Awake();
-        goalType = type;
+        goalType = Goal.Type.CleanDesk;
     }
     public override void Start()
     {
         base.Start();
-    }
-
-    public override void SetChildObjActive(bool value)
-    {
-        if (value)
-        {
-            SetWaitingState();
-        }
-        else
-        {
-            ChildObj.SetActive(true);
-        }
     }
     protected override void SetWaitingState()
     {
@@ -37,24 +24,24 @@ public class CleanDeskController : IObjControllerBase
     {
         colli.enabled = true;
     }
-
     protected override void SetDoneState()
     {
         colli.enabled = false;
         Rag.SetActive(false);
     }
-    private bool RagIn;
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponentInParent<GetRagController>())
         {
+<<<<<<< Updated upstream
             RagIn = true;
             QuestManager.Instance.AddQuestCurrentAmount(goalType);
+=======
+            if (FindObjectOfType<GetRagController>().RagInHand == true)
+            {
+                QuestManager.Instance.AddQuestCurrentAmount(goalType);
+            }
+>>>>>>> Stashed changes
         }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.GetComponentInParent<GetRagController>())
-            RagIn = false;
     }
 }

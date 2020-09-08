@@ -3,11 +3,8 @@ using UnityEngine;
 
 public class WasteObj : IObjControllerBase, IGrabbable
 {
-    //[SerializeField] private bool isWashed;
-    //[SerializeField] private int washTime;
     [SerializeField] private BasicGrabbable _viveGrabFunc;
     [SerializeField] private HandAnim _handAnim;
-    [SerializeField] private Goal.Type type;
     [SerializeField] private GameObject Waste;
 
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
@@ -16,38 +13,15 @@ public class WasteObj : IObjControllerBase, IGrabbable
     public override void Awake()
     {
         base.Awake();
-        ChildObj.SetActive(false);
-        hover.InteractColor = new Color(0, .74f, .74f, 1);
-        hover.hintColor = new Color(1, 0.8f, .28f, 1);
+        goalType = Goal.Type.ThrowWaste;
     }
     public override void Start()
     {
-        QuestManager.Instance.GetQuestGoalByType(Goal.Type.ThrowWaste).OnGoalStateChange += OnGoalStateChange;
-        hover.enabled = false;
+        base.Start();
     }
-    public override void OnDestroy()
+    protected override void SetDoneState()
     {
-        QuestManager.Instance.GetQuestGoalByType(Goal.Type.ThrowWaste).OnGoalStateChange += OnGoalStateChange;
-    }
-    private void OnGoalStateChange(Goal.Type type, Goal.State state)
-    {
-        switch (state)
-        {
-            case Goal.State.WAITING:
-                SetWaitingState();
-                hover.enabled = false;
-                Waste.SetActive(true);
-                break;
-            case Goal.State.CURRENT:
-                SetCurrentState();
-                hover.enabled = true;
-                hover.ShowHintColor(GameController.Instance.mode == MainMode.Train);
-                break;
-            case Goal.State.DONE:
-                SetDoneState();
-                Waste.SetActive(false);
-                hover.enabled = false;
-                break;
-        }
+        base.SetDoneState();
+        Waste.SetActive(false);
     }
 }
