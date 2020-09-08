@@ -3,10 +3,7 @@ using UnityEngine;
 
 public class TutoObj : IObjControllerBase, IGrabbable
 {
-     [SerializeField]    private HandAnim _handAnim;
-    public BasicGrabbable viveGrabFunc => _viveGrabFunc;
-    public new HandAnim handAnim => _handAnim;
-public override void Awake()
+    public override void Awake()
     {
         base.Awake();
         goalType = Goal.Type.Tuto;
@@ -24,4 +21,11 @@ public override void Awake()
         viveGrabFunc.afterGrabberGrabbed -= GrabFunc_afterGrabberGrabbed;
         viveGrabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
     }
+    [SerializeField]
+    private BasicGrabbable _viveGrabFunc;
+    [SerializeField]
+    private HandAnim _handAnim;
+    public BasicGrabbable viveGrabFunc => _viveGrabFunc;
+    public new HandAnim handAnim => _handAnim;
+
 }

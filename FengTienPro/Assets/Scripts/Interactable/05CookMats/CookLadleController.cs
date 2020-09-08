@@ -4,6 +4,7 @@ using UnityEngine;
 public class CookLadleController : IObjControllerBase ,IGrabbable
 {
     [SerializeField]    private GameObject On;
+    [SerializeField]    private BasicGrabbable _viveGrabFunc;
     [SerializeField]    private HandAnim _handAnim;
 
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;

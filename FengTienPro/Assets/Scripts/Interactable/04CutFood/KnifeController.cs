@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class KnifeController : IObjControllerBase, IGrabbable
 {
+    [SerializeField] private BasicGrabbable _viveGrabFunc;
     [SerializeField] private HandAnim _handAnim;
     [SerializeField] private Quest.Name qName;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;

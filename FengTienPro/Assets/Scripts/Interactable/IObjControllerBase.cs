@@ -8,11 +8,13 @@ public class IObjControllerBase : MonoBehaviour
     public InteractHover hover;
     public GameObject ChildObj;
     protected bool isWaitState;
-
-    [SerializeField] private string takeSound;
-    [SerializeField] private string dropSound;
-    [SerializeField] private string interactSound;
-    [SerializeField] protected BasicGrabbable _viveGrabFunc;
+    
+    [SerializeField]
+    private string takeSound;
+    [SerializeField]
+    private string dropSound;
+    [SerializeField]
+    private string interactSound;
 
     protected Vector3 position;
     protected Quaternion rotation;
@@ -30,22 +32,12 @@ public class IObjControllerBase : MonoBehaviour
     {
         if(goalType != Goal.Type.None)
             QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange += OnGoalStateChange;
-        if (_viveGrabFunc)
-        {
-            _viveGrabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
-            _viveGrabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
-        }
         SetChildObjActive(false);
     }
     public virtual void OnDestroy()
     {
         if (goalType != Goal.Type.None)
             QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange -= OnGoalStateChange;
-        if (_viveGrabFunc)
-        {
-            _viveGrabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
-            _viveGrabFunc.afterGrabberGrabbed -= GrabFunc_afterGrabberGrabbed;
-        }
     }
     public virtual void SetChildObjActive(bool value)
     {
