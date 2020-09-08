@@ -15,4 +15,4 @@ MonoBehaviour:
   type: 25
   status: 0
   currentAmount: 0
-  requiredAmount: 11
+  requiredAmount: 10

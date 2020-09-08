@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using HTC.UnityPlugin.Vive;
+using UnityEngine;
 
 public class CleanDeskController : IObjControllerBase
 {
@@ -46,8 +47,9 @@ public class CleanDeskController : IObjControllerBase
     private bool RagIn;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponentInParent<GetRagController>())
+        if (other.GetComponentInParent<VivePoseTracker>())
         {
+            Debug.LogError("擦桌子囉!");
             RagIn = true;
             QuestManager.Instance.AddQuestCurrentAmount(goalType);
         }
