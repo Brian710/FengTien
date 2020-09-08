@@ -1,3 +1,0 @@
-List of devices attached
-FA02TAZ00037	device
-

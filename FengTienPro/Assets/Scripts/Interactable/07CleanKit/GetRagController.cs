@@ -33,12 +33,16 @@ public class GetRagController : IObjControllerBase
     {
         if(other != null) 
         {
-            GetRag.SetActive(true);
-            GetRag.transform.SetParent(targetParent, false);
-            GetRag.transform.localPosition = new Vector3(-0.008f, 0, 0.11f);
-            GetRag.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, -90));
-            ClickInteract.enabled = true;
-            base.SetCurrentState();
+            ToWipe = true;
+            if (ToWipe)
+            {
+                GetRag.SetActive(true);
+                transform.SetParent(targetParent, false);
+                transform.localPosition = Vector3.zero;
+                transform.localRotation = Quaternion.Euler(Vector3.zero);
+                ClickInteract.enabled = true;
+                base.SetCurrentState();
+            }
         }
     }
     private void OnGoalStateChange(Goal.Type type, Goal.State state)
