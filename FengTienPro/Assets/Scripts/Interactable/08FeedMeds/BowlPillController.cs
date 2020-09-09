@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+﻿using HTC.UnityPlugin.Vive;
+using UnityEngine;
 
-public class BowlPillController : IObjControllerBase
+public class BowlPillController : IObjControllerBase, IGrabbable
 {
     [SerializeField] private Animator Anim;
     [SerializeField] private Collider colli;
     [SerializeField] private GameObject Pill;
+    [SerializeField] private BasicGrabbable _viveGrabFunc;
+    [SerializeField] private HandAnim _handAnim;
     private int GrindNum;
- 
-
+    public BasicGrabbable viveGrabFunc => _viveGrabFunc;
+    public new HandAnim handAnim => _handAnim;
     public override void Awake()
     {
         base.Awake();
@@ -16,7 +19,16 @@ public class BowlPillController : IObjControllerBase
     public override void Start()
     {
         if (Anim == null) Anim = ChildObj.GetComponent<Animator>();
+        viveGrabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
+        viveGrabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
         base.Start();
+    }
+
+    public override void OnDestroy()
+    {
+        base.OnDestroy();
+        viveGrabFunc.afterGrabberGrabbed -= GrabFunc_afterGrabberGrabbed;
+        viveGrabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
     }
 
     public override void SetChildObjActive(bool value)
@@ -28,6 +40,8 @@ public class BowlPillController : IObjControllerBase
         }
     }
     private bool PestleIn;
+
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponentInParent<PestleController>())
@@ -56,13 +70,14 @@ public class BowlPillController : IObjControllerBase
     protected override void SetCurrentState()
     {
         GrindNum = 0;
+        viveGrabFunc.enabled = false;
         Anim.gameObject.SetActive(true);
         Anim.SetInteger("GrindNum", 0);
         colli.enabled = true;
     }
     protected override void SetDoneState()
     {
-        //Anim.gameObject.SetActive(false);
+        viveGrabFunc.enabled = true;
         colli.enabled = false;
         Pill.SetActive(false);
     }

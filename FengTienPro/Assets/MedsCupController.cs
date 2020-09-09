@@ -1,18 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using HTC.UnityPlugin.Vive;
 using UnityEngine;
 
-public class MedsCupController : MonoBehaviour
+public class MedsCupController : IObjControllerBase , IGrabbable
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Animator Anim;
+    [SerializeField] private BasicGrabbable _viveGrabFunc;
+    [SerializeField] private HandAnim _handAnim;
+    private int GrindNum;
+    public BasicGrabbable viveGrabFunc => _viveGrabFunc;
+
+    public new HandAnim handAnim => _handAnim;
+    public override void Awake()
     {
-        
+        base.Awake();
+        goalType = Goal.Type.MixWater;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.GetComponentInParent<BowlPillController>())
+        {
+            Anim.SetBool("Pour", true);
+        }
     }
 }

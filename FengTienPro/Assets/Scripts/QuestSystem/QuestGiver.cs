@@ -6,6 +6,7 @@ public class QuestGiver : MonoBehaviour
 {
     [Header("UI")]
     public Button questBtn;
+    public GameObject OSCanv;
 
     [Header("Init Data")]
     public Quest.Name questName;
@@ -69,5 +70,11 @@ public class QuestGiver : MonoBehaviour
         {
             g.SetChildObjActive(value);
         }
+    }
+
+    public void OpenCanV(bool value)
+    {
+        if (OSCanv)
+            OSCanv.SetActive(value);
     }
 }

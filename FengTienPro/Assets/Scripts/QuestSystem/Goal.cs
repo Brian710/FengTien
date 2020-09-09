@@ -46,6 +46,7 @@ public class Goal : ScriptableObject
         //FeedMeds
         MedsTalk,
         GrindMeds,
+        PourPowder,
         MixWater,
         CheckNasogastricTube,
         FeedMeds, //3 times

@@ -23,7 +23,7 @@ public class OptionalSystemBase : MonoBehaviour
         QuizDatasInit();
         HintTextInit();
         QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange += OnGoalStateChange;
-        OPCanvas.SetActive(false);
+        OpenCanv(false);
     }
 
     private void OnDestroy()

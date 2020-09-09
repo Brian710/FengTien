@@ -61,6 +61,7 @@ public class QuestManager : MonoBehaviour
                 Debug.Log(goal.type);
                 questGoals.Add(goal.type, goal);
             }
+            qg.OpenCanV(true);
         }
 
         for (int i = 0; i < quests.Count - 1; i++)

@@ -9,12 +9,9 @@ public class IObjControllerBase : MonoBehaviour
     public GameObject ChildObj;
     protected bool isWaitState;
     
-    [SerializeField]
-    private string takeSound;
-    [SerializeField]
-    private string dropSound;
-    [SerializeField]
-    private string interactSound;
+    [SerializeField]    private string takeSound;
+    [SerializeField]    private string dropSound;
+    [SerializeField]    private string interactSound;
 
     protected Vector3 position;
     protected Quaternion rotation;
