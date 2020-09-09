@@ -5,7 +5,6 @@ public class PestleController : IObjControllerBase, IGrabbable
 {
     [SerializeField]    private BasicGrabbable _viveGrabFunc;
     [SerializeField]    private HandAnim _handAnim;
-    [SerializeField]    private Quest.Name qName;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
     public new HandAnim handAnim => _handAnim;
     public GameObject Obj() => gameObject;
@@ -13,35 +12,36 @@ public class PestleController : IObjControllerBase, IGrabbable
     {
         base.Awake();
         ChildObj.SetActive(false);
-        hover.InteractColor = new Color(0, .74f, .74f, 1);
-        hover.hintColor = new Color(1, 0.8f, .28f, 1);
+        goalType = Goal.Type.GrindMeds;
     }
     public override void Start()
+    {
+        if (viveGrabFunc == null)
+            _viveGrabFunc = GetComponentInChildren<BasicGrabbable>();
+
+        viveGrabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
+        viveGrabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
+        base.Start();
+    }
+    public override void OnDestroy()
+    {
+        base.OnDestroy();
+        viveGrabFunc.afterGrabberGrabbed -= GrabFunc_afterGrabberGrabbed;
+        viveGrabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
+    }
+    protected override void SetWaitingState()
     {
         viveGrabFunc.enabled = false;
         base.SetWaitingState();
     }
-
-    public override void OnDestroy()
+    protected override void SetCurrentState()
     {
-        QuestManager.Instance.GetQuestByName(qName).OnQuestChange -= OnQuestChange;
+        viveGrabFunc.enabled = true;
+        base.SetCurrentState();
     }
-    private void OnQuestChange(Quest.Name qName, Quest.State state)
+    protected override void SetDoneState()
     {
-        switch (state)
-        {
-            case Quest.State.WAITING:
-                base.SetWaitingState();
-                hover.enabled = false;
-                break;
-            case Quest.State.CURRENT:
-                ChildObj.SetActive(true);
-                hover.enabled = true;
-                hover.ShowHintColor(GameController.Instance.mode == MainMode.Train);
-                break;
-            case Quest.State.DONE:
-                hover.enabled = false;
-                break;
-        }
+        viveGrabFunc.enabled = false;
+        base.SetDoneState();
     }
 }

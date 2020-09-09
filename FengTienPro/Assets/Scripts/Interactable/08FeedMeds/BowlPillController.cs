@@ -3,8 +3,6 @@
 public class BowlPillController : IObjControllerBase
 {
     [SerializeField] private Animator Anim;
-    [SerializeField] private GameObject Powder;
-    [SerializeField] private Goal.Type type;
     [SerializeField] private Collider colli;
     private int GrindNum;
  
@@ -12,7 +10,7 @@ public class BowlPillController : IObjControllerBase
     public override void Awake()
     {
         base.Awake();
-        goalType = type;
+        goalType = Goal.Type.GrindMeds;
     }
     public override void Start()
     {
@@ -29,14 +27,12 @@ public class BowlPillController : IObjControllerBase
         else
         {
             ChildObj.SetActive(false);
-            Powder.SetActive(false);
         }
     }
     protected override void SetWaitingState()
     {
         base.SetWaitingState();
         Anim.gameObject.SetActive(false);
-        Powder.SetActive(false);
         colli.enabled = false;
     }
 
@@ -44,15 +40,13 @@ public class BowlPillController : IObjControllerBase
     {
         GrindNum = 0;
         Anim.gameObject.SetActive(true);
-        Anim.SetInteger("CutNum", 0);
-        Powder.SetActive(false);
+        Anim.SetInteger("GrindNum", 0);
         colli.enabled = true;
     }
 
     protected override void SetDoneState()
     {
         Anim.gameObject.SetActive(false);
-        Powder.SetActive(true);
         colli.enabled = false;
     }
     private bool PestleIn;
