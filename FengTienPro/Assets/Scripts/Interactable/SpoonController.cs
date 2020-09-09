@@ -35,6 +35,7 @@ public class SpoonController : IObjControllerBase
         transform.localPosition = new Vector3(-0.00149f, 0.07244f, 0.0397000f);
         transform.localRotation = Quaternion.Euler(20.53f, 180f, 359.991f);
         PlayerController.Instance.RightHand.HandAnimChange(HandAnim.Spoon);
+        PlayerController.Instance.EnableRightRay = true;
         ClickInteract.enabled = false;
         base.SetDoneState();
     }
