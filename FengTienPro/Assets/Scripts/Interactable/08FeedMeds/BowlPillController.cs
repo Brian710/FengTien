@@ -4,6 +4,7 @@ public class BowlPillController : IObjControllerBase
 {
     [SerializeField] private Animator Anim;
     [SerializeField] private Collider colli;
+    [SerializeField] private GameObject Pill;
     private int GrindNum;
  
 
@@ -20,34 +21,11 @@ public class BowlPillController : IObjControllerBase
 
     public override void SetChildObjActive(bool value)
     {
-        if (value)
-        {
-            SetWaitingState();
-        }
+        if (value)  SetWaitingState();
         else
         {
             ChildObj.SetActive(false);
         }
-    }
-    protected override void SetWaitingState()
-    {
-        base.SetWaitingState();
-        Anim.gameObject.SetActive(false);
-        colli.enabled = false;
-    }
-
-    protected override void SetCurrentState()
-    {
-        GrindNum = 0;
-        Anim.gameObject.SetActive(true);
-        Anim.SetInteger("GrindNum", 0);
-        colli.enabled = true;
-    }
-
-    protected override void SetDoneState()
-    {
-        Anim.gameObject.SetActive(false);
-        colli.enabled = false;
     }
     private bool PestleIn;
     private void OnTriggerEnter(Collider other)
@@ -68,5 +46,24 @@ public class BowlPillController : IObjControllerBase
     {
         if (other.GetComponentInParent<PestleController>())
             PestleIn = false;
+    }
+    protected override void SetWaitingState()
+    {
+        base.SetWaitingState();
+        Anim.gameObject.SetActive(false);
+        colli.enabled = false;
+    }
+    protected override void SetCurrentState()
+    {
+        GrindNum = 0;
+        Anim.gameObject.SetActive(true);
+        Anim.SetInteger("GrindNum", 0);
+        colli.enabled = true;
+    }
+    protected override void SetDoneState()
+    {
+        //Anim.gameObject.SetActive(false);
+        colli.enabled = false;
+        Pill.SetActive(false);
     }
 }

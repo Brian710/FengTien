@@ -8,6 +8,7 @@ public class PestleController : IObjControllerBase, IGrabbable
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
     public new HandAnim handAnim => _handAnim;
     public GameObject Obj() => gameObject;
+    [SerializeField] private GameObject Pestle;
     public override void Awake()
     {
         base.Awake();
@@ -43,5 +44,6 @@ public class PestleController : IObjControllerBase, IGrabbable
     {
         viveGrabFunc.enabled = false;
         base.SetDoneState();
+        Pestle.SetActive(false);
     }
 }
