@@ -7,7 +7,6 @@ public class DropPointController : CheckPointBase
     public override void Start()
     {
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange += OnGoalStateChange;
-        ShowParticle(false);
         ChildObj.SetActive(false);
     }
 
@@ -35,14 +34,14 @@ public class DropPointController : CheckPointBase
     }
     public override void OnTriggerEnter(Collider other)
     {
-        WashedObj = other.gameObject.GetComponent<WashObj>();
-
+        WashedObj = other.gameObject.GetComponentInParent<WashObj>();
         if (WashedObj)
         {
             if (WashedObj.IsWashed())
             {
                 QuestManager.Instance.AddQuestCurrentAmount(WashedObj.goalType);
                 onTriggerEnter.Invoke();
+                WashedObj.viveGrabFunc.enabled = false;
             }
             else
             {

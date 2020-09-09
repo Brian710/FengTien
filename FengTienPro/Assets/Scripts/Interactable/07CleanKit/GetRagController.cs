@@ -18,6 +18,7 @@ public class GetRagController : IObjControllerBase
     public override void Start()
     {
         ClickInteract.IObj = this;
+        ChildObj.SetActive(false);
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.CleanDesk).OnGoalStateChange += OnGoalStateChange;
     }
     public override void OnDestroy()
@@ -34,7 +35,6 @@ public class GetRagController : IObjControllerBase
     {
         if (other.GetComponentInParent<VivePoseTracker>())
         {
-            Debug.LogError("拿抹布!");
             GetRag.SetActive(true);
             GetRag.transform.SetParent(targetParent, false);
             GetRag.transform.localPosition = new Vector3(-0.008f, 0, 0.11f);

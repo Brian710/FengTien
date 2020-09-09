@@ -6,6 +6,7 @@ public class CookLadleController : IObjControllerBase ,IGrabbable
     [SerializeField]    private GameObject On;
     [SerializeField]    private BasicGrabbable _viveGrabFunc;
     [SerializeField]    private HandAnim _handAnim;
+    [SerializeField]    private GameObject childObj;
 
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
     public new HandAnim handAnim => _handAnim;
@@ -14,6 +15,7 @@ public class CookLadleController : IObjControllerBase ,IGrabbable
     {
         base.Awake();
         goalType = Goal.Type.TasteFood;
+        childObj.SetActive(false);
     }
     public override void Start()
     {
@@ -39,13 +41,17 @@ public class CookLadleController : IObjControllerBase ,IGrabbable
         base.SetWaitingState();
         OnGrab(false);
         On.SetActive(false);
+        childObj.SetActive(false);
     }
     protected override void SetCurrentState()
     {
         OnGrab(true);
+        On.SetActive(true);
+        childObj.SetActive(true);
     }
     protected override void SetDoneState()
     {
         OnGrab(false);
+        childObj.SetActive(false);
     }
 }

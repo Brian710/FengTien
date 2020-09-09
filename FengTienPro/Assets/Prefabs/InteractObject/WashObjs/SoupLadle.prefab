@@ -24,14 +24,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5208056054475840054}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: 0.19799972, y: 0.00910008, z: -0.21200037}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 6569361139305793591}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
 --- !u!114 &7129386541993186891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,10 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hover: {fileID: 7283167397474460479}
   ChildObj: {fileID: 6569361139305829399}
+  takeSound: 
+  dropSound: 
+  interactSound: 
   isWashed: 0
   washTime: 3
   _viveGrabFunc: {fileID: 7891754178665834497}
   _handAnim: 2
+  type: 9
 --- !u!1 &6569361139305829399
 GameObject:
   m_ObjectHideFlags: 0

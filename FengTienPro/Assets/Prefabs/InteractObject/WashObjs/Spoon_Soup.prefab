@@ -231,6 +231,7 @@ MonoBehaviour:
   washTime: 3
   _viveGrabFunc: {fileID: 2598823518741313287}
   _handAnim: 4
+  type: 9
 --- !u!1 &8291057168653512056
 GameObject:
   m_ObjectHideFlags: 0

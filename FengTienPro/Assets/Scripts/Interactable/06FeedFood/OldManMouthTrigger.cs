@@ -6,10 +6,11 @@ public class OldManMouthTrigger : MonoBehaviour
     private int BiteNum;
     [SerializeField]    private Animator EatAnim;
     [SerializeField]    private FeedCanV FeedCanV;
+    [SerializeField] private GameObject MouseTrigger;
 
     private void Start()
     {
-        
+        MouseTrigger.SetActive(false);
     }
     private void OnEnable()
     {
@@ -43,10 +44,5 @@ public class OldManMouthTrigger : MonoBehaviour
                 other.gameObject.GetComponent<GlassController>().doFull(false);
             }
         }
-    }
-   
-    private void OnTriggerExit(Collider other)
-    {
-       
     }
 }

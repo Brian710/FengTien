@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 430350288381643406}
-  - component: {fileID: 430350288381643404}
   - component: {fileID: 430350288381643405}
+  - component: {fileID: 1485383455}
   m_Layer: 12
   m_Name: DryPoint
   m_TagString: Untagged
@@ -33,26 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
---- !u!114 &430350288381643404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 430350288381643407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 026211e9bd433fa42a456b4df2b63b50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FX: {fileID: 579972869714926297}
-  force: 9.8
-  onTriggerEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  resetObject: {fileID: 0}
-  WashedObj: {fileID: 0}
-  ChildObj: {fileID: 7935126143848845340}
 --- !u!65 &430350288381643405
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66,6 +46,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5542726, y: 0.86083263, z: 0.5542726}
   m_Center: {x: -0.00000023841858, y: 0.4304603, z: 8.077936e-28}
+--- !u!114 &1485383455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430350288381643407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026211e9bd433fa42a456b4df2b63b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FX: {fileID: 579972869714926297}
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  WashedObj: {fileID: 0}
+  ChildObj: {fileID: 7935126143848845340}
 --- !u!1 &579972869714926300
 GameObject:
   m_ObjectHideFlags: 0

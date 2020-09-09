@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3647079382124761852}
   - component: {fileID: 3647079382124761855}
   m_Layer: 12
-  m_Name: Cereal_Bowl 1
+  m_Name: Cereal_Bowl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,14 +24,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3647079382124761853}
-  m_LocalRotation: {x: 0.0056305532, y: 0.0055150734, z: -0.0037492272, w: 0.9999619}
+  m_LocalRotation: {x: 0.0056342757, y: 0.005518631, z: -0.0037485082, w: 0.99996185}
   m_LocalPosition: {x: 0.38100028, y: 0.01699996, z: 0.07099962}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 6156344115081461016}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.648, y: 0.63000005, z: -0.42600003}
 --- !u!114 &3647079382124761855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,10 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hover: {fileID: 6156344115081027898}
   ChildObj: {fileID: 6156344115081027896}
+  takeSound: 
+  dropSound: 
+  interactSound: 
   isWashed: 0
   washTime: 3
   _viveGrabFunc: {fileID: 6407773154998754439}
   _handAnim: 5
+  type: 9
 --- !u!1 &6156344115081027896
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3725684134676693431}
   - component: {fileID: 3725684134675727223}
   - component: {fileID: 5954738732063997820}
-  - component: {fileID: 8294253133735436411}
+  - component: {fileID: 4557318516344559120}
   m_Layer: 11
   m_Name: TrashCan
   m_TagString: Untagged
@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed8753b1c97fe94b962fc52c163b18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outline: {fileID: 0}
---- !u!114 &8294253133735436411
+  outline: {fileID: 4557318516344559120}
+--- !u!114 &4557318516344559120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,12 +101,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3725684134673472951}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45ca655a53954474bae0ef8063cfb729, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hover: {fileID: 5954738732063997820}
-  ChildObj: {fileID: 3725684134673472951}
-  takeSound: 
-  dropSound: 
-  interactSound: 
-  colli: {fileID: 0}
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0, b: 0, a: 0}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

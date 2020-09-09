@@ -5,6 +5,7 @@ using UnityEngine;
 public class CookPotController : IObjControllerBase
 {
     [SerializeField]    private List<GameObject> CookMats;
+    [SerializeField]    private GameObject Cook_Done;
     [SerializeField]    private GameObject Ladle;
     [SerializeField]    private Animator CookAnim;
     [SerializeField]    private ParticleSystem HeatFX;
@@ -27,7 +28,8 @@ public class CookPotController : IObjControllerBase
         timer = 0;
         CookUIDone.Stop();
         Ladle.SetActive(false);
-
+        Cook_Done.SetActive(false);
+        CookUI.gameObject.SetActive(false);
         foreach (GameObject obj in CookMats)
         {
             obj.SetActive(false);
@@ -35,10 +37,14 @@ public class CookPotController : IObjControllerBase
     }
     protected override void SetCurrentState()
     {
-        Ladle.SetActive(true);
+        CookUI.gameObject.SetActive(true);
+        Cook_Done.SetActive(false);
+        Ladle.SetActive(true);        
     }
     protected override void SetDoneState()
     {
+        CookUI.gameObject.SetActive(false);
+        Cook_Done.SetActive(true);
         Ladle.SetActive(false);
     }
     InputMatObj FoodMat;

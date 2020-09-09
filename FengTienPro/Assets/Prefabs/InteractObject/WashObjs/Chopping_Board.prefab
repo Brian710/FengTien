@@ -233,7 +233,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hover: {fileID: 3914927984586760845}
   ChildObj: {fileID: 3914927984586760834}
+  takeSound: 
+  dropSound: 
+  interactSound: 
   isWashed: 0
   washTime: 3
   _viveGrabFunc: {fileID: 4050246228783524913}
   _handAnim: 3
+  type: 9

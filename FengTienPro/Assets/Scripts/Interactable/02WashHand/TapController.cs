@@ -22,19 +22,21 @@ public class TapController : IObjControllerBase
         hover.enabled = false;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange += OnGoalStateChange;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.TapClean).OnGoalStateChange += OnGoalStateChange;
+
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange += OnGoalStateChange;
-        QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashStuff).OnGoalStateChange += OnGoalStateChange;
+        //QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashStuff).OnGoalStateChange += OnGoalStateChange;
     }
 
     public override void OnDestroy()
     {
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.Tap).OnGoalStateChange -= OnGoalStateChange;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.TapClean).OnGoalStateChange -= OnGoalStateChange;
+
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashObj).OnGoalStateChange -= OnGoalStateChange;
-        QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashStuff).OnGoalStateChange -= OnGoalStateChange;
+        //QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashStuff).OnGoalStateChange -= OnGoalStateChange;
     }
 
-    private void OnGoalStateChange(Goal.Type type, Goal.State state)
+    private new void OnGoalStateChange(Goal.Type type, Goal.State state)
     {
         switch (state)
         {
@@ -63,7 +65,7 @@ public class TapController : IObjControllerBase
     {
         TapOn(true);
         SetLightColor(true);
-        
+
         if (other.GetComponentInParent<IWashable>() == null)
             return;
 
@@ -75,19 +77,18 @@ public class TapController : IObjControllerBase
 
             _coroutine = StartCoroutine(CountDownSecond(_IWashList[0].WashTime()));
         }
-
-        PrintIWashList();
+        //PrintIWashList();
      }
 
-    private void PrintIWashList()
-    {
-        if (_IWashList.Count <= 0)
-            return;
-        //foreach (IWashable obj in _IWashList)
-        //{
-        //    Debug.LogError(obj.Obj().name);
-        //}
-    }
+    //private void PrintIWashList()
+    //{
+    //    if (_IWashList.Count <= 0)
+    //        return;
+    //   foreach (IWashable obj in _IWashList)
+    //   {
+    //       Debug.LogError(obj.Obj().name);
+    //   }
+    //}
 
     public void OnTriggerExit(Collider other)
     {
