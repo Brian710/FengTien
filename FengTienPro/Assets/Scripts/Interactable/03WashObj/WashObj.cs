@@ -14,6 +14,7 @@ public class WashObj : IObjControllerBase, IWashable, IGrabbable
     public int WashTime() => washTime;
 
     public bool IsWashed() => isWashed;
+    public bool isDry;
     public override void Awake()
     {
         base.Awake();
@@ -52,6 +53,7 @@ public class WashObj : IObjControllerBase, IWashable, IGrabbable
     protected override void SetCurrentState()
     {
         viveGrabFunc.enabled = true;
+        isDry = false;
         base.SetCurrentState();
     }
     protected override void SetDoneState()

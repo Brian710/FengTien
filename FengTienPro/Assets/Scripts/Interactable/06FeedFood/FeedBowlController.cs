@@ -32,8 +32,8 @@ public class FeedBowlController : IObjControllerBase
     protected override void SetDoneState()
     {
         transform.SetParent(targetParent, false);
-        transform.localPosition = new Vector3(-0.0353f, 0.3171f, 0.0243f);
-        transform.localRotation = Quaternion.Euler(0, -90, 0);
+        transform.localPosition = new Vector3(-0.007f, 0.001f, -0.015f);
+        transform.localRotation = Quaternion.Euler(-34.54f, -91.30701f, 0.591f);
         PlayerController.Instance.LeftHand.HandAnimChange(HandAnim.Bowl);
         ClickInteract.enabled = false;
         base.SetDoneState();
@@ -43,8 +43,12 @@ public class FeedBowlController : IObjControllerBase
         SpoonController spoon = other.gameObject.GetComponent<SpoonController>();
         if (spoon)
         {
-            if(!spoon.IfHaveMat())
+            Debug.LogError("湯匙盛稀飯");
+            if (!spoon.IfHaveMat())
+            {
+                Debug.LogError("盛到了");
                 spoon.GetMat(true);
+            }
         }
     }
 }
