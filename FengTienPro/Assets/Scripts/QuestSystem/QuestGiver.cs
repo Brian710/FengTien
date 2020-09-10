@@ -60,6 +60,7 @@ public class QuestGiver : MonoBehaviour
         OpenQuestBtn(false);
         quest.UpdateQuestStatus(Quest.State.CURRENT);
         GameController.Instance.quest = quest;
+        QuestManager.Instance.lineCreator.ClearLineList();
     }
 
     public void SetQuestLoc(bool value ,float delay )

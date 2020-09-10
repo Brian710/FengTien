@@ -17,16 +17,12 @@ public class BowlPillController : IObjControllerBase, IGrabbable
     public override void Start()
     {
         if (Anim == null) Anim = ChildObj.GetComponent<Animator>();
-        viveGrabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
-        viveGrabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
         base.Start();
     }
 
     public override void OnDestroy()
     {
         base.OnDestroy();
-        viveGrabFunc.afterGrabberGrabbed -= GrabFunc_afterGrabberGrabbed;
-        viveGrabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
     }
 
     public override void SetChildObjActive(bool value)

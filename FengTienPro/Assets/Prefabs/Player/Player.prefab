@@ -2475,7 +2475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearDistance: 0
-  farDistance: 50
+  farDistance: 100
   dragThreshold: 0.02
   clickInterval: 0.3
   showDebugRay: 1
@@ -2521,7 +2521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 1.5
-  gravity: {x: 0, y: -1, z: 0}
+  gravity: {x: 0, y: -0.5, z: 0}
 --- !u!1 &6233020635392633457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2568,7 +2568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearDistance: 0
-  farDistance: 50
+  farDistance: 100
   dragThreshold: 0.02
   clickInterval: 0.3
   showDebugRay: 1
@@ -2614,7 +2614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 1.5
-  gravity: {x: 0, y: -1, z: 0}
+  gravity: {x: 0, y: -0.5, z: 0}
 --- !u!1 &6233020635392634095
 GameObject:
   m_ObjectHideFlags: 0

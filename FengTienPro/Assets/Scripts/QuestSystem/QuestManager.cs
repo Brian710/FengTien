@@ -18,6 +18,8 @@ public class QuestManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
     #endregion
+
+    public LineCreator lineCreator;
     public List<Quest> quests;
     [SerializeField]    private Dictionary<Goal.Type,QuestGoal> questGoals;
     [SerializeField]    private Quest _currentQuest;

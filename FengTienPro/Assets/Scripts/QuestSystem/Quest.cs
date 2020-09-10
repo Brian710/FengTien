@@ -60,6 +60,7 @@ public class Quest
             case State.DONE:
                 break;
         }
+
     }
 
     public void ResetAllGoals()
