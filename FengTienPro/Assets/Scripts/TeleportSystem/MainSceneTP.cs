@@ -50,8 +50,8 @@ public class MainSceneTP : TeleportControllerBase
             case Quest.State.CHOOSABLE:
                 if (qName_TP == qName ||qName_TP == Quest.Name.None || qName_TP == Quest.Name.Entrance)
                 {
-                    Debug.LogWarning(qName_TP.ToString() + "is choosable");
                     ShowTeleport(true);
+                    QuestManager.Instance.lineCreator.CreatLine(false, transform.position);
                 }
                 break;
             case Quest.State.CURRENT:
@@ -61,6 +61,7 @@ public class MainSceneTP : TeleportControllerBase
             case Quest.State.DONE:
                 if (qName_TP == qName)
                     ShowTeleport(false);
+                    QuestManager.Instance.lineCreator.CreatLine(true, transform.position);
                 break;
         }
     }
