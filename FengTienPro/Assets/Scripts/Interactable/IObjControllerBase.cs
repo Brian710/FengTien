@@ -29,12 +29,24 @@ public class IObjControllerBase : MonoBehaviour
     {
         if(goalType != Goal.Type.None)
             QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange += OnGoalStateChange;
+
+        if (_viveGrabFunc && _handAnim != HandAnim.Normal)
+        {
+            _viveGrabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
+            _viveGrabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
+        }
         SetChildObjActive(false);
     }
     public virtual void OnDestroy()
     {
         if (goalType != Goal.Type.None)
             QuestManager.Instance.GetQuestGoalByType(goalType).OnGoalStateChange -= OnGoalStateChange;
+
+        if (_viveGrabFunc && _handAnim != HandAnim.Normal)
+        {
+            _viveGrabFunc.afterGrabberGrabbed -= GrabFunc_afterGrabberGrabbed;
+            _viveGrabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
+        }
     }
     public virtual void SetChildObjActive(bool value)
     {

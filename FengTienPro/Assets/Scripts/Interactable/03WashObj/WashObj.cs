@@ -24,15 +24,11 @@ public class WashObj : IObjControllerBase, IWashable, IGrabbable
         if (viveGrabFunc == null)
             _viveGrabFunc = GetComponentInChildren<BasicGrabbable>();
 
-        viveGrabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
-        viveGrabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
         base.Start();
     }
     public override void OnDestroy()
     {
         base.OnDestroy();
-        viveGrabFunc.afterGrabberGrabbed -= GrabFunc_afterGrabberGrabbed;
-        viveGrabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
     }
 
     public void SetWashed(bool value)

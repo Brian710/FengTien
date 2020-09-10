@@ -18,15 +18,11 @@ public class WasteObj : IObjControllerBase, IGrabbable
         if (viveGrabFunc == null)
             _viveGrabFunc = GetComponentInChildren<BasicGrabbable>();
 
-        viveGrabFunc.afterGrabberGrabbed += GrabFunc_afterGrabberGrabbed;
-        viveGrabFunc.beforeGrabberReleased += GrabFunc_beforeGrabberReleased;
         base.Start();
     }
     public override void OnDestroy()
     {
         base.OnDestroy();
-        viveGrabFunc.afterGrabberGrabbed -= GrabFunc_afterGrabberGrabbed;
-        viveGrabFunc.beforeGrabberReleased -= GrabFunc_beforeGrabberReleased;
     }
     protected override void SetWaitingState()
     {
