@@ -72,7 +72,7 @@ public class FeedCanV : OptionalSystemBase
             {
                 if (newQuizD.optIndex == index)
                 {
-                    newQuizD.button.targetGraphic = options[index].GetComponent<Image>();
+                    newQuizD.button.GetComponent<Image>().sprite = options[index].GetComponent<Image>().sprite;
                     newQuizD.button.GetComponentInChildren<Text>().text = hintText[index];
                     newQuizD.button.GetComponentInChildren<Text>().color = Color.black;
 

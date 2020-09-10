@@ -4,12 +4,10 @@ using UnityEngine;
 public class CookLadleController : IObjControllerBase ,IGrabbable
 {
     [SerializeField]    private GameObject On;
-    [SerializeField]    private BasicGrabbable _viveGrabFunc;
-    [SerializeField]    private HandAnim _handAnim;
     [SerializeField]    private GameObject childObj;
 
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
-    public new HandAnim handAnim => _handAnim;
+    public HandAnim handAnim => _handAnim;
 
     public override void Awake()
     {

@@ -28,7 +28,6 @@ public class QuestManager : MonoBehaviour
             _currentQuest = FindCurrentQuest();
             return _currentQuest;
         } 
-            
      }
     protected virtual void Awake()
     {

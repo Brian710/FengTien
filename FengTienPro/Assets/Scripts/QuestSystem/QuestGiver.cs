@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -55,16 +56,23 @@ public class QuestGiver : MonoBehaviour
     public void AcceptQuest()
     {
         //init Quest Obj
-        SetQuestLoc(true);
+        SetQuestLoc(true,0f);
         OpenQuestBtn(false);
         quest.UpdateQuestStatus(Quest.State.CURRENT);
         GameController.Instance.quest = quest;
     }
 
-    public void SetQuestLoc(bool value)
+    public void SetQuestLoc(bool value ,float delay )
     {
         if (InterObjs.Count <= 0)
             return;
+
+        StartCoroutine(DelaySetLoc(value, delay));
+    }
+
+    public IEnumerator DelaySetLoc(bool value, float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
         foreach (IObjControllerBase g in InterObjs)
         {

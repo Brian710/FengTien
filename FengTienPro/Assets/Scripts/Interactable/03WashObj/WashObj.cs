@@ -5,11 +5,9 @@ public class WashObj : IObjControllerBase, IWashable, IGrabbable
 {
     [SerializeField]    private bool isWashed;
     [SerializeField]    private int washTime;
-    [SerializeField]    private BasicGrabbable _viveGrabFunc;
-    [SerializeField]    private HandAnim _handAnim;
     [SerializeField]    private Goal.Type type;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
-    public new  HandAnim handAnim => _handAnim;
+    public HandAnim handAnim => _handAnim;
     public GameObject Obj() => gameObject;
     public int WashTime() => washTime;
 
@@ -41,7 +39,7 @@ public class WashObj : IObjControllerBase, IWashable, IGrabbable
     {
         isWashed = value;
         //Show UI Completed
-        if(isWashed)    PlayerController.Instance.QuestStepCompleted();
+        if(isWashed)    PlayerController.Instance.QuestGoalCompleted();
     }
     
     protected override void SetWaitingState()

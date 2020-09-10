@@ -15,8 +15,8 @@ public class IObjControllerBase : MonoBehaviour
 
     protected Vector3 position;
     protected Quaternion rotation;
-
-    protected HandAnim handAnim;
+    [SerializeField]    protected BasicGrabbable _viveGrabFunc;
+    [SerializeField]    protected  HandAnim _handAnim;
     #endregion
     public virtual void Awake()
     {
@@ -143,12 +143,12 @@ public class IObjControllerBase : MonoBehaviour
         if (ViveInput.GetPressEx(HandRole.RightHand, ControllerButton.Trigger))
         {
             PlayerController.Instance.EnableRightRay = false;
-            PlayerController.Instance.RightHand.HandAnimChange(handAnim);
+            PlayerController.Instance.RightHand.HandAnimChange(_handAnim);
         }
         else
         {
             PlayerController.Instance.EnableLeftRay = false;
-            PlayerController.Instance.LeftHand.HandAnimChange(handAnim);
+            PlayerController.Instance.LeftHand.HandAnimChange(_handAnim);
         }
 
         PlayTakeSound();

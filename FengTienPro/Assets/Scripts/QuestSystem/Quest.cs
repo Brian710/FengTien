@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System;
+using System.Collections;
 
 [Serializable]
 public class Quest 
@@ -79,7 +80,7 @@ public class Quest
                 if (g.state == Goal.State.CURRENT)
                 {
                     g.currentAmount++;
-                    GameController.Instance.currentPlayer.QuestStepCompleted();
+                    GameController.Instance.currentPlayer.QuestGoalCompleted();
                     if (g.IsComplete())
                     {
                         CheckGoals();
@@ -89,7 +90,7 @@ public class Quest
             }
         }
     }
-    public void CheckGoals()
+    private void CheckGoals()
     {
         foreach (QuestGoal g in goals)
         {
@@ -101,13 +102,16 @@ public class Quest
         }
         Complete();
     }
-    public void Complete()
+    private void Complete()
     {
-        UpdateQuestStatus(State.DONE);
-        giver.SetQuestLoc(false);
-        QuestManager.Instance.SetNextQuestStatus(this);
         GameController.Instance.score += score;
         GameController.Instance.AddtoRecord(goals);
+
+        UpdateQuestStatus(State.DONE);
+        giver.SetQuestLoc(false, 1.5f);
+        PlayerController.Instance.QuestCompleted();
+        QuestManager.Instance.SetNextQuestStatus(this);
+        
     }
 
     public QuestGoal GetCurrentGoal()

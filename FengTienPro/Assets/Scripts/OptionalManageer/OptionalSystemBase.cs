@@ -150,9 +150,10 @@ public class OptionalSystemBase : MonoBehaviour
                 options[index].interactable = false;
                 quizData.optIndex = index;
                 quizData.button.interactable = true;
-                quizData.button.targetGraphic = options[index].GetComponent<Image>();
+                quizData.button.GetComponent<Image>().sprite = options[index].GetComponent<Image>().sprite;
                 quizData.button.GetComponentInChildren<Text>().text = options[index].GetComponentInChildren<Text>().text;
                 quizData.button.GetComponentInChildren<Text>().color = Color.black;
+                AudioManager.Instance.Play("Button_Click");
                 return;
             }
         }
@@ -164,6 +165,7 @@ public class OptionalSystemBase : MonoBehaviour
         options[quizDatas[index].optIndex].GetComponent<CanvasGroup>().alpha = 1;
         options[quizDatas[index].optIndex].interactable = true;
         quizDatas[index].button.GetComponentInChildren<Text>().text = mode == MainMode.Train ? hintText[index] : "";
+        AudioManager.Instance.Play("Button_Click");
     }
 
     public virtual void ConfirmBtn()

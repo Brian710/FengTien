@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Button_01
+  - name: Button_Click
     clip: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
     volume: 1
     pitch: 1
@@ -52,7 +52,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: StepFinish
     clip: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -85,4 +85,10 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: QuestCompleted
+    clip: {fileID: 8300000, guid: 4fdaebdf9b2d1e74a9db9ecf3129f6a0, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
     source: {fileID: 0}

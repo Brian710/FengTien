@@ -39,7 +39,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]    private bool transAnimisDone;
     public bool TransAnimisDone => transAnimisDone;
 
-    [SerializeField]    private Animator CompletedAnim;
+    [SerializeField]    private Animator GoalCompletedAnim;
+    [SerializeField]    private Animator QuestCompletedAnim;
     [SerializeField]    private Text logText;
 
     public void AllRayActivity(bool value)
@@ -127,15 +128,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void QuestStepCompleted()
+    public void QuestGoalCompleted()
     {
-        if (CompletedAnim == null)
+        if (GoalCompletedAnim == null)
         {
             Debug.Log("CompletedAnim is null");
             return;
         }
-        CompletedAnim.SetTrigger("Done");
+        GoalCompletedAnim.SetTrigger("Done");
         AudioManager.Instance.Play("StepFinish");
+    }
+
+    public void QuestCompleted()
+    {
+        if (QuestCompletedAnim == null)
+        {
+            Debug.Log("QuestCompletedAnim is null");
+            return;
+        }
+
+        QuestCompletedAnim.SetTrigger("Done");
+        AudioManager.Instance.Play("QuestCompleted");
     }
 
     public IEnumerator ChangePos(Transform value)

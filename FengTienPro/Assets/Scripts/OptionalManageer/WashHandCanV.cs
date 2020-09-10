@@ -5,6 +5,6 @@ public class WashHandCanV : OptionalSystemBase
     public override void OpenCanv(bool value)
     {
         base.OpenCanv(value);
-        Anim.gameObject.SetActive(value);
+        Anim.ShowAnimation(value);
     }
 }

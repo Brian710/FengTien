@@ -6,11 +6,9 @@ public class BowlPillController : IObjControllerBase, IGrabbable
     [SerializeField] private Animator Anim;
     [SerializeField] private Collider colli;
     [SerializeField] private GameObject Pill;
-    [SerializeField] private BasicGrabbable _viveGrabFunc;
-    [SerializeField] private HandAnim _handAnim;
     private int GrindNum;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
-    public new HandAnim handAnim => _handAnim;
+    public HandAnim handAnim => _handAnim;
     public override void Awake()
     {
         base.Awake();

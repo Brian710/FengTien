@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class PestleController : IObjControllerBase, IGrabbable
 {
-    [SerializeField]    private BasicGrabbable _viveGrabFunc;
-    [SerializeField]    private HandAnim _handAnim;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
-    public new HandAnim handAnim => _handAnim;
+    public HandAnim handAnim => _handAnim;
     public GameObject Obj() => gameObject;
     [SerializeField] private GameObject Pestle;
     public override void Awake()

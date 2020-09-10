@@ -4,14 +4,9 @@ public class ShowHandWash : MonoBehaviour
 {
     public  Animator HandWashing;
 
-    private void OnEnable()
+    private void Start()
     {
-        ShowAnimation(true);
-    }
-
-    private void OnDisable()
-    {
-        ShowAnimation(false);
+        HandWashing.gameObject.SetActive(false);
     }
 
     public void ShowAnimation(bool value)
@@ -21,7 +16,17 @@ public class ShowHandWash : MonoBehaviour
             return;
         }
 
-        HandWashing.SetBool("AutoShow", value);
+        if (value)
+        {
+            HandWashing.gameObject.SetActive(value);
+            HandWashing.SetBool("AutoShow", value);
+        }
+        else
+        {
+            HandWashing.SetBool("AutoShow", value);
+            HandWashing.gameObject.SetActive(value);
+        }
+        
     }
 
 }

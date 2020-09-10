@@ -5,10 +5,8 @@ public class FeedWaterController : IObjControllerBase, IGrabbable
 {
     [SerializeField]    private GameObject On;
     [SerializeField]    private Goal.Type type;
-    [SerializeField]    private BasicGrabbable _viveGrabFunc;
-    [SerializeField]    private HandAnim _handAnim;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
-    public new HandAnim handAnim => _handAnim;
+    public HandAnim handAnim => _handAnim;
     public override void Awake()
     {
         base.Awake();
