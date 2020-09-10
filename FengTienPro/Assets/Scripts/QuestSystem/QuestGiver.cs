@@ -66,17 +66,24 @@ public class QuestGiver : MonoBehaviour
     {
         if (InterObjs.Count <= 0)
             return;
-
-        StartCoroutine(DelaySetLoc(value, delay));
+        if (value)
+        {
+            foreach (IObjControllerBase g in InterObjs)
+            {
+                g.SetChildObjActive(true);
+            }
+        }
+        else
+            StartCoroutine(DelaySetLocInActive(delay));
     }
 
-    public IEnumerator DelaySetLoc(bool value, float delay)
+    public IEnumerator DelaySetLocInActive(float delay)
     {
         yield return new WaitForSeconds(delay);
 
         foreach (IObjControllerBase g in InterObjs)
         {
-            g.SetChildObjActive(value);
+            g.SetChildObjActive(false);
         }
     }
 

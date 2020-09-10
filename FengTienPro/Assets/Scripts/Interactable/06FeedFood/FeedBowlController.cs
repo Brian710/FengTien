@@ -5,6 +5,7 @@ public class FeedBowlController : IObjControllerBase
     [SerializeField]    private ClicktoInteract ClickInteract;
     [SerializeField]    private Transform startParent;
     [SerializeField]    private Transform targetParent;
+    [SerializeField]    private Collider Spoon;
 
     public override void Awake()
     {
@@ -40,15 +41,20 @@ public class FeedBowlController : IObjControllerBase
     }
     private void OnTriggerEnter(Collider other)
     {
-        SpoonController spoon = other.gameObject.GetComponent<SpoonController>();
-        if (spoon)
+        //SpoonController spoon = other.gameObject.GetComponent<SpoonController>();
+        if(other.GetComponentInParent<SpoonController>())
         {
             Debug.LogError("湯匙盛稀飯");
-            if (!spoon.IfHaveMat())
-            {
-                Debug.LogError("盛到了");
-                spoon.GetMat(true);
-            }
+            PlayerController.Instance.EnableRightRay = false;
         }
+        //if (spoon)
+        //{
+        //    Debug.LogError("湯匙盛稀飯");
+        //    if (!spoon.IfHaveMat())
+        //    {
+        //        Debug.LogError("盛到了");
+        //        spoon.GetMat(true);
+        //    }
+        //}
     }
 }

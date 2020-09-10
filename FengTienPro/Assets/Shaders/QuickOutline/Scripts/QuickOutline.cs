@@ -84,7 +84,7 @@ public class QuickOutline : MonoBehaviour
         // Apply material properties immediately
         needsUpdate = true;
         outlineColor = new Color(1, 0.8f, .28f, 1);
-        outlineWidth = 3f;
+        outlineWidth = 10f;
     }
 
     private void OnEnable()

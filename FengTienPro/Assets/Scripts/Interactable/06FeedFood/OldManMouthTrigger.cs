@@ -6,12 +6,7 @@ public class OldManMouthTrigger : MonoBehaviour
     private int BiteNum;
     [SerializeField]    private Animator EatAnim;
     [SerializeField]    private FeedCanV FeedCanV;
-    [SerializeField] private GameObject MouseTrigger;
 
-    private void Start()
-    {
-        MouseTrigger.SetActive(false);
-    }
     private void OnEnable()
     {
         Set();
@@ -27,10 +22,10 @@ public class OldManMouthTrigger : MonoBehaviour
         {
             if (other.gameObject.GetComponent<SpoonController>().IfHaveMat() && FeedCanV.canvasGroup.alpha != 1)
             {
-                //PlayerController.Instance.EnableRightRay = false;
                 EatAnim.SetTrigger("EatState");
                 other.gameObject.GetComponent<SpoonController>().GetMat(false);
                 QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.FeedFood);
+                PlayerController.Instance.EnableRightRay = true;
                 BiteNum++;
 
                 if (BiteNum <= 4)
@@ -46,15 +41,4 @@ public class OldManMouthTrigger : MonoBehaviour
             }
         }
     }
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.GetComponent<SpoonController>() && FeedCanV.canvasGroup.alpha != 1)
-    //    {
-    //        if (other.gameObject.GetComponent<SpoonController>().IfHaveMat() && FeedCanV.canvasGroup.alpha != 1)
-    //        {
-    //            PlayerController.Instance.EnableRightRay = true;
-    //        }
-    //    }
-    //}
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class CutObjController : IObjControllerBase
 {
@@ -6,6 +7,7 @@ public class CutObjController : IObjControllerBase
     [SerializeField]    private GameObject Plate;
     [SerializeField]    private Goal.Type type;
     [SerializeField]    private Collider colli;
+    [SerializeField]    private Collider Knife;
     private int CutNum;
 
     public override void Awake()
@@ -18,21 +20,9 @@ public class CutObjController : IObjControllerBase
         if (Anim == null)   Anim = ChildObj.GetComponent<Animator>();
         base.Start();
     }
-
-    public override void SetChildObjActive(bool value)
-    {
-        if (value)
-        {
-            SetWaitingState();
-        }
-        else
-        {
-            ChildObj.SetActive(false);
-            Plate.SetActive(false);
-        }
-    }
     protected override void SetWaitingState()
     {
+        Debug.LogError($"{goalType} Wait");
         base.SetWaitingState();
         Anim.gameObject.SetActive(false);
         Plate.SetActive(false);
@@ -41,6 +31,7 @@ public class CutObjController : IObjControllerBase
 
     protected override void SetCurrentState()
     {
+        Debug.LogError($"{goalType} Current");
         CutNum = 0;
         Anim.gameObject.SetActive(true);
         Anim.SetInteger("CutNum", 0);
@@ -57,18 +48,35 @@ public class CutObjController : IObjControllerBase
     private bool KnifeIn;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponentInParent<KnifeController>())
+        if (other==Knife && !KnifeIn)
         {
             KnifeIn = true;
             CutNum++;
-            QuestManager.Instance.AddQuestCurrentAmount(goalType);
-            if(CutNum<4)
+            if (CutNum <= 4)
+            { 
                 Anim.SetInteger("CutNum", CutNum);
+                //Debug.LogError($"{name}_ CutNum: {CutNum}");
+            }
+            StartCoroutine(DelayAdd());
         }
     }
+
+
+    private IEnumerator DelayAdd()
+    {
+        yield return new WaitForSeconds(1.5f);
+        QuestManager.Instance.AddQuestCurrentAmount(goalType);
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.GetComponentInParent<KnifeController>())
-            KnifeIn = false;
+            StartCoroutine(DelayKnife(false));
+    }
+
+    private IEnumerator DelayKnife(bool value)
+    {
+        yield return new WaitForSeconds(1f);
+        KnifeIn = value;
     }
 }

@@ -111,7 +111,6 @@ public class Quest
         giver.SetQuestLoc(false, 1.5f);
         PlayerController.Instance.QuestCompleted();
         QuestManager.Instance.SetNextQuestStatus(this);
-        
     }
 
     public QuestGoal GetCurrentGoal()

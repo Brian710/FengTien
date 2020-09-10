@@ -35,14 +35,14 @@ public class CleanPointController : CheckPointBase
     public override void OnTriggerEnter(Collider other)
     {
         WashedObj = other.gameObject.GetComponentInParent<WashObj>();
-
         if (WashedObj)
         {
-            if (WashedObj.IsWashed())
+            if (WashedObj.IsWashed() && !WashedObj.isDry)
             {
                 QuestManager.Instance.AddQuestCurrentAmount(WashedObj.goalType);
                 onTriggerEnter.Invoke();
                 WashedObj.viveGrabFunc.enabled = false;
+                WashedObj.isDry = true;
             }
             else
             {

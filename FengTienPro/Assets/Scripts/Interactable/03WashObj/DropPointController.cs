@@ -40,10 +40,8 @@ public class DropPointController : CheckPointBase
             if (WashedObj.IsWashed()&& !WashedObj.isDry)
             {
                 QuestManager.Instance.AddQuestCurrentAmount(WashedObj.goalType);
-                Debug.LogError("洗好一個");
                 onTriggerEnter.Invoke();
                 WashedObj.viveGrabFunc.enabled = false;
-                //WashedObj.SetChildObjActive(false);
                 WashedObj.isDry = true;
             }
             else
