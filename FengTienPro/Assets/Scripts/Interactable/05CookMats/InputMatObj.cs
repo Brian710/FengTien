@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class InputMatObj : IObjControllerBase, IGrabbable
 {
-    [SerializeField]    private GameObject On;
-    [SerializeField]    private Goal.Type type;
+    [SerializeField] private GameObject On;
+    [SerializeField] private Goal.Type type;
+    [SerializeField] private GameObject Veg;
+    [SerializeField] private GameObject Fish;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
     public HandAnim handAnim => _handAnim;
     public override void Awake()
@@ -23,6 +25,9 @@ public class InputMatObj : IObjControllerBase, IGrabbable
     {
         HaveMats(true);
         viveGrabFunc.enabled = true;
+        Veg.SetActive(false);
+        Fish.SetActive(false);
+
     }
     protected override void SetDoneState()
     {

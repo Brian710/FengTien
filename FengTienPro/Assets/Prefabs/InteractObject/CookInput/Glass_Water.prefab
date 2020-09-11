@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 0, g: 0, b: 0, a: 0}
-  outlineWidth: 2
+  outlineWidth: 3.5
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -243,7 +243,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glassAnim: {fileID: 4729050283108075864}
-  grabFunc: {fileID: 4729050283108075869}
 --- !u!1 &4729050282129125734
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,10 +292,12 @@ MonoBehaviour:
   takeSound: 
   dropSound: 
   interactSound: 
-  On: {fileID: 645533368376106007}
-  type: 13
   _viveGrabFunc: {fileID: 4729050283108075869}
   _handAnim: 6
+  On: {fileID: 645533368376106007}
+  type: 13
+  Veg: {fileID: 0}
+  Fish: {fileID: 0}
 --- !u!1001 &645533369327668983
 PrefabInstance:
   m_ObjectHideFlags: 0

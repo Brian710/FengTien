@@ -226,8 +226,9 @@ MonoBehaviour:
   takeSound: 
   dropSound: 
   interactSound: 
-  isWashed: 0
-  washTime: 3
   _viveGrabFunc: {fileID: 7061390611388235718}
   _handAnim: 3
+  isWashed: 0
+  washTime: 3
   type: 9
+  isDry: 0

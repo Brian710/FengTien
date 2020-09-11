@@ -49,11 +49,12 @@ MonoBehaviour:
   takeSound: 
   dropSound: 
   interactSound: 
-  isWashed: 0
-  washTime: 3
   _viveGrabFunc: {fileID: 6407773154998754439}
   _handAnim: 5
+  isWashed: 0
+  washTime: 3
   type: 9
+  isDry: 0
 --- !u!1 &6156344115081027896
 GameObject:
   m_ObjectHideFlags: 0

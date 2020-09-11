@@ -24,15 +24,28 @@ public class LineCreator : MonoBehaviour
         line.startWidth = .5f;
         line.endWidth = .5f;
         line.textureMode = LineTextureMode.Tile;
-        if (TFList.Count >2 && Vector3.Distance(TFList[0].position, TFList[TFList.Count - 1].position) <= Vector3.Distance(TFList[0].position, TFList[1].position))
-            TFList.Remove(TFList[1]);
-
-        line.positionCount = TFList.Count;
-        for (int i = 0; i < TFList.Count; i++)
+        if (TFList.Count == 2)
         {
+            line.positionCount = TFList.Count;
             Vector3 pos = new Vector3();
-            pos = TFList[i].position;
-            line.SetPosition(i, pos += Vector3.up * 0.3f);
+            pos = TFList[0].position;
+            line.SetPosition(1, pos += Vector3.up * 0.3f);
+            pos = TFList[1].position;
+            line.SetPosition(0, pos += Vector3.up * 0.3f);
+
+        }
+        else 
+        {
+            if (Vector3.Distance(TFList[0].position, TFList[TFList.Count - 1].position) <= Vector3.Distance(TFList[0].position, TFList[1].position))
+                TFList.Remove(TFList[1]);
+
+            line.positionCount = TFList.Count;
+            for (int i = 0; i < TFList.Count; i++)
+            {
+                Vector3 pos = new Vector3();
+                pos = TFList[i].position;
+                line.SetPosition(i, pos += Vector3.up * 0.3f);
+            }
         }
         StartCoroutine(LoopLine(deltatime));
     }
@@ -43,6 +56,8 @@ public class LineCreator : MonoBehaviour
             return;
 
         Debug.LogError($"Add {MainScene.name}");
+        if(MainScene.name.Contains("Normal"))
+            TFList.Insert(1, MainScene);
         TFList.Add(MainScene);
     }
 

@@ -4,10 +4,13 @@ public class CleanPointController : CheckPointBase
 {
     [SerializeField] private WashObj WashedObj;
     [SerializeField] private GameObject ChildObj;
+    [SerializeField] private Collider CleanPoint;
+
     public override void Start()
     {
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.WashStuff).OnGoalStateChange += OnGoalStateChange;
         ChildObj.SetActive(false);
+        CleanPoint.enabled = false;
     }
 
     private void OnDestroy()
@@ -21,14 +24,17 @@ public class CleanPointController : CheckPointBase
             case Goal.State.WAITING:
                 ShowParticle(false);
                 ChildObj.SetActive(false);
+                CleanPoint.enabled = false;
                 break;
             case Goal.State.CURRENT:
                 ShowParticle(true);
                 ChildObj.SetActive(true);
+                CleanPoint.enabled = true;
                 break;
             case Goal.State.DONE:
                 ShowParticle(false);
                 ChildObj.SetActive(false);
+                CleanPoint.enabled = false;
                 break;
         }
     }
