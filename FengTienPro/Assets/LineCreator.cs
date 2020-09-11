@@ -15,22 +15,24 @@ public class LineCreator : MonoBehaviour
     }
     public void CreatLine()
     {
-        if (TFList.Count == 0)
+        if (TFList.Count < 2)
             return;
 
         Clear = false;
         line.enabled = true;
         line.material = mat;
-        line.startWidth = 1f;
-        line.endWidth = 1f;
+        line.startWidth = .5f;
+        line.endWidth = .5f;
         line.textureMode = LineTextureMode.Tile;
-        if (Vector3.Distance(TFList[0].position, TFList[TFList.Count - 1].position) <= Vector3.Distance(TFList[0].position, TFList[1].position))
+        if (TFList.Count >2 && Vector3.Distance(TFList[0].position, TFList[TFList.Count - 1].position) <= Vector3.Distance(TFList[0].position, TFList[1].position))
             TFList.Remove(TFList[1]);
 
         line.positionCount = TFList.Count;
         for (int i = 0; i < TFList.Count; i++)
         {
-            line.SetPosition(i, TFList[i].position += Vector3.up * 0.3f);
+            Vector3 pos = new Vector3();
+            pos = TFList[i].position;
+            line.SetPosition(i, pos += Vector3.up * 0.3f);
         }
         StartCoroutine(LoopLine(deltatime));
     }
@@ -40,6 +42,7 @@ public class LineCreator : MonoBehaviour
         if (TFList.Contains(MainScene))
             return;
 
+        Debug.LogError($"Add {MainScene.name}");
         TFList.Add(MainScene);
     }
 

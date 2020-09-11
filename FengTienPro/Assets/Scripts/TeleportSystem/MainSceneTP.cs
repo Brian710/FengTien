@@ -9,8 +9,9 @@ public class MainSceneTP : TeleportControllerBase
         target = PlayerController.Instance.Target;
         pivot = PlayerController.Instance.Cam;
 
-        if (qName_TP == Quest.Name.None || qName_TP == Quest.Name.Entrance)
+        if (qName_TP == Quest.Name.None)
         {
+            QuestManager.Instance.lineCreator.AddList(transform);
             foreach (Quest q in QuestManager.Instance.quests)
             {
                 q.OnQuestChange += OnQuestChange;
@@ -21,7 +22,7 @@ public class MainSceneTP : TeleportControllerBase
             QuestManager.Instance.GetQuestByName(qName_TP).OnQuestChange += OnQuestChange;
         }
         GetComponent<Collider>().enabled = false;
-        OnQuestChange(QuestManager.Instance.currentQuest.qName, QuestManager.Instance.currentQuest.state);
+        //OnQuestChange(QuestManager.Instance.currentQuest.qName, QuestManager.Instance.currentQuest.state);
     }
     public override void OnDestroy()
     {
