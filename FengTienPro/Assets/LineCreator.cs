@@ -4,74 +4,62 @@ using UnityEngine;
 
 public class LineCreator : MonoBehaviour
 {
-    public List<LineRenderer> lineList;
-    public Transform NormalTP;
-    public Transform TestTransform;
+    public LineRenderer line;
+    public List<Vector3> TFList;
     public Material mat;
     public float deltatime;
     public bool Done;
     private void Awake()
     {
-        lineList = new List<LineRenderer>();
+        TFList = new List<Vector3>();
     }
-    // Start is called before the first frame update
+    public void CreatLine()
+    {
+        if (TFList.Count == 0)
+            return;
 
-    private void Start()
-    {
-        //test
-        CreatLine(this.transform.position, TestTransform.position);
-    }
-    public void CreatLine(Vector3 StartPos, Vector3 EndPos)
-    {
-        LineRenderer newline = new GameObject("Line").AddComponent<LineRenderer>();
-        newline.material = mat;
-        newline.startWidth = 1f;
-        newline.endWidth = 1f;
-        StartCoroutine(LoopLine(newline, StartPos, EndPos, deltatime));
-        lineList.Add(newline);
-    }
+        line.enabled = true;
+        line.material = mat;
+        line.startWidth = 1f;
+        line.endWidth = 1f;
+        line.textureMode = LineTextureMode.Tile;
+        if (Vector3.Distance(TFList[0], TFList[TFList.Count - 1]) <= Vector3.Distance(TFList[0], TFList[1]))
+            TFList.Remove(TFList[1]);
 
-    public void CreatLine(bool IsStart, Vector3 Pos)
-    {
-        LineRenderer newline = new GameObject("Line").AddComponent<LineRenderer>();
-        newline.material = mat;
-        newline.startWidth = 1f;
-        newline.endWidth = 1f;
-        if(IsStart)
-            StartCoroutine(LoopLine(newline, Pos, NormalTP.position, deltatime));
-        else
-            StartCoroutine(LoopLine(newline, NormalTP.position, Pos, deltatime));
-        lineList.Add(newline);
+        line.positionCount = TFList.Count;
+        for (int i = 0; i < TFList.Count; i++)
+        {
+            line.SetPosition(i, TFList[i] += Vector3.up * 0.3f);
+        }
+        StartCoroutine(LoopLine(deltatime));
     }
 
-    private IEnumerator LoopLine(LineRenderer line,Vector3 StartPos, Vector3 EndPos,float deltatime)
+    public void AddList(Vector3 MainScene)
     {
-        Vector3 pos = StartPos;
-        Vector3 delta = (EndPos - StartPos)*0.1f;
+        if (TFList.Contains(MainScene))
+            return;
 
+        TFList.Add(MainScene);
+    }
+
+    private IEnumerator LoopLine(float deltatime)
+    {
+        Vector2 offesetX = new Vector2(0, 0);
         while (Done)
         {
             yield return new WaitForSeconds(deltatime);
-            if (Vector3.Distance(EndPos, pos) <= 0.5)
-                pos = StartPos;
-
-            Debug.LogWarning($"EndPos: {EndPos}, Pos: {pos}");
-            line.SetPosition(0, pos += delta * Time.deltaTime);
-            line.SetPosition(1, pos += delta * 1f);
+            mat.SetTextureOffset("_MainTex", offesetX += Vector2.left*0.3f);
         }
     }
 
     public void ClearLineList()
     {
-        if (lineList.Count > 0||!Done)
+        if (TFList.Count > 0||!Done)
         {
             Done = true;
-            foreach (LineRenderer l in lineList)
-            {
-                Destroy(l.gameObject);
-            }
-            lineList.Clear();
+            TFList.Clear();
             StopAllCoroutines();
+            line.enabled = false;
         }
     }
 }

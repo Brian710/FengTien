@@ -45,11 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   line: {fileID: 8156006489778529143}
-  StartPos: {fileID: 0}
-  EndPos: {fileID: 0}
+  TFList: []
   mat: {fileID: 2100000, guid: 187259cd095966a44afcb9d7cfb978f4, type: 2}
   deltatime: 0.3
-  Done: 1
+  Done: 0
 --- !u!120 &8156006489778529143
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -57,7 +56,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8156006489778529140}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
