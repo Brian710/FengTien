@@ -5,13 +5,13 @@ using UnityEngine;
 public class LineCreator : MonoBehaviour
 {
     public LineRenderer line;
-    public List<Vector3> TFList;
+    public List<Transform> TFList;
     public Material mat;
     public float deltatime;
     public bool Done;
     private void Awake()
     {
-        TFList = new List<Vector3>();
+        TFList = new List<Transform>();
     }
     public void CreatLine()
     {
@@ -23,18 +23,18 @@ public class LineCreator : MonoBehaviour
         line.startWidth = 1f;
         line.endWidth = 1f;
         line.textureMode = LineTextureMode.Tile;
-        if (Vector3.Distance(TFList[0], TFList[TFList.Count - 1]) <= Vector3.Distance(TFList[0], TFList[1]))
+        if (Vector3.Distance(TFList[0].position, TFList[TFList.Count - 1].position) <= Vector3.Distance(TFList[0].position, TFList[1].position))
             TFList.Remove(TFList[1]);
 
         line.positionCount = TFList.Count;
         for (int i = 0; i < TFList.Count; i++)
         {
-            line.SetPosition(i, TFList[i] += Vector3.up * 0.3f);
+            line.SetPosition(i, TFList[i].position += Vector3.up * 0.3f);
         }
         StartCoroutine(LoopLine(deltatime));
     }
 
-    public void AddList(Vector3 MainScene)
+    public void AddList(Transform MainScene)
     {
         if (TFList.Contains(MainScene))
             return;

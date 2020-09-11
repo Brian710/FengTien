@@ -51,7 +51,7 @@ public class MainSceneTP : TeleportControllerBase
                 if (qName_TP == qName ||qName_TP == Quest.Name.None)
                 {
                     ShowTeleport(true);
-                    QuestManager.Instance.lineCreator.AddList(transform.position);
+                    QuestManager.Instance.lineCreator.AddList(transform);
                     QuestManager.Instance.lineCreator.CreatLine();
                 }
                 break;
@@ -62,7 +62,7 @@ public class MainSceneTP : TeleportControllerBase
             case Quest.State.DONE:
                 if (qName_TP == qName)
                     ShowTeleport(false);
-                    QuestManager.Instance.lineCreator.AddList(transform.position);
+                    QuestManager.Instance.lineCreator.AddList(transform);
                 break;
         }
     }
