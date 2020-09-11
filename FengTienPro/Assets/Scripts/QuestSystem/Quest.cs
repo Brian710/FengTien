@@ -41,7 +41,7 @@ public class Quest
     public void UpdateQuestStatus(State es)
     {
         state = es;
-        Debug.LogError( $"{qName} "+ state.ToString() + "  "+ OnQuestChange);
+        //Debug.LogError( $"{qName} "+ state.ToString() + "  "+ OnQuestChange);
         //call for the things update not in the quest system
         OnQuestChange ?.Invoke(qName, state);
 

@@ -24,7 +24,8 @@ public class LineCreator : MonoBehaviour
         line.startWidth = .5f;
         line.endWidth = .5f;
         line.textureMode = LineTextureMode.Tile;
-        if (TFList.Count == 2)
+        //printList();
+        if (TFList.Count <= 2)
         {
             line.positionCount = TFList.Count;
             Vector3 pos = new Vector3();
@@ -32,7 +33,7 @@ public class LineCreator : MonoBehaviour
             line.SetPosition(1, pos += Vector3.up * 0.3f);
             pos = TFList[1].position;
             line.SetPosition(0, pos += Vector3.up * 0.3f);
-
+            //Debug.LogError("Count two");
         }
         else 
         {
@@ -53,12 +54,24 @@ public class LineCreator : MonoBehaviour
     public void AddList(Transform MainScene)
     {
         if (TFList.Contains(MainScene))
+        {
+            //Debug.LogError("return" + MainScene.name);
             return;
+        }
 
-        Debug.LogError($"Add {MainScene.name}");
-        if(MainScene.name.Contains("Normal"))
+        //Debug.LogError($"Add {MainScene.name}");
+        if (MainScene.name.Contains("Normal"))
             TFList.Insert(1, MainScene);
-        TFList.Add(MainScene);
+        else
+            TFList.Add(MainScene);
+    }
+
+    private void printList()
+    {
+        foreach (Transform tf in TFList)
+        {
+            Debug.LogError($"Add {tf.name}");
+        }
     }
 
     private IEnumerator LoopLine(float deltatime)
