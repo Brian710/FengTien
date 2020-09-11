@@ -32,8 +32,8 @@ public class SpoonController : IObjControllerBase
     protected override void SetDoneState()
     {
         transform.SetParent(targetParent, false);
-        transform.localPosition = new Vector3(-0.00149f, 0.0306f, 0.0397000f);
-        transform.localRotation = Quaternion.Euler(20.53f, 180f, 359.991f);
+        ChildObj.transform.localPosition = new Vector3(-0.00149f, 0.0306f, 0.0397000f);
+        ChildObj.transform.localRotation = Quaternion.Euler(20.53f, 180f, 0);
         PlayerController.Instance.RightHand.HandAnimChange(HandAnim.Spoon);
         PlayerController.Instance.EnableRightRay = true;
         ClickInteract.enabled = false;

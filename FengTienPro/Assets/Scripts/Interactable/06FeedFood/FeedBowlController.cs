@@ -41,20 +41,10 @@ public class FeedBowlController : IObjControllerBase
     }
     private void OnTriggerEnter(Collider other)
     {
-        //SpoonController spoon = other.gameObject.GetComponent<SpoonController>();
-        if(other.GetComponentInParent<SpoonController>())
+        SpoonController spoon = other.gameObject.GetComponent<SpoonController>();
+        if (spoon)
         {
-            Debug.LogError("湯匙盛稀飯");
-            PlayerController.Instance.EnableRightRay = false;
+            if (!spoon.IfHaveMat()) spoon.GetMat(true);
         }
-        //if (spoon)
-        //{
-        //    Debug.LogError("湯匙盛稀飯");
-        //    if (!spoon.IfHaveMat())
-        //    {
-        //        Debug.LogError("盛到了");
-        //        spoon.GetMat(true);
-        //    }
-        //}
     }
 }

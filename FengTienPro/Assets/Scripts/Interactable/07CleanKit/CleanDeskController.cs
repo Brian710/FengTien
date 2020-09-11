@@ -36,6 +36,7 @@ public class CleanDeskController : IObjControllerBase
             if (FindObjectOfType<GetRagController>().RagInHand == true)
             {
                 QuestManager.Instance.AddQuestCurrentAmount(goalType);
+                ChildObj.SetActive(false);
             }
         }
     }
