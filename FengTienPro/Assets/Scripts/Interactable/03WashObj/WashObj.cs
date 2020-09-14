@@ -53,6 +53,7 @@ public class WashObj : IObjControllerBase, IWashable, IGrabbable
     protected override void SetDoneState()
     {
         viveGrabFunc.enabled = false;
+        ChildObj.GetComponent<Rigidbody>().isKinematic = true;
         base.SetDoneState();
     }
 }
