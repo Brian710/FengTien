@@ -59,8 +59,8 @@ public class LineCreator : MonoBehaviour
             return;
         }
 
-        //Debug.LogError($"Add {MainScene.name}");
-        if (MainScene.name.Contains("Normal")&&TFList.Count>=1)
+        Debug.LogError($"Add {MainScene.name}");
+        if (MainScene.name.Contains("Normal") && TFList.Count >= 1)
             TFList.Insert(1, MainScene);
         else
             TFList.Add(MainScene);

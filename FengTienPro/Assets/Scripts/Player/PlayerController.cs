@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogWarning("Playertrans");
             TransAnim.SetTrigger("End");
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2.5f);
             transAnimisDone = true;
         }
     }
@@ -153,12 +153,12 @@ public class PlayerController : MonoBehaviour
     public IEnumerator ChangePos(Transform value)
     {
         StartCoroutine(TransAnimPlaytoEnd(false));
+        yield return new WaitForSeconds(1.1f);
+        transform.position = value.position;
+        transform.rotation = value.rotation;
         while (!TransAnimisDone)
         {
             yield return null;
         }
-        yield return new WaitForSeconds(0.1f);
-        transform.position = value.position;
-        transform.rotation = value.rotation;
     }
 }

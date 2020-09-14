@@ -174,10 +174,10 @@ RectTransform:
   m_Father: {fileID: 2124877257}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 300}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &680758960295103281
 CanvasRenderer:
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -236,7 +236,7 @@ Animator:
   m_GameObject: {fileID: 1897472913705527541}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3288f6753aaa29b4fb99743fb81126c1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 290c899bf923e7d4f8fccd86345540f1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f22ed05120ea24f4ba48f568bef199f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90183871bec1ff04d9ace920164581a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -544,7 +544,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1b1876814f8f3c349a714a733aeeea92, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 634298147edfa2044a56b205fd6afb4c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -707,7 +707,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5f00843139c5b384cb99a49ed5eecb2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3d9e52de40d6c34eb4a91a1f4922440, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -802,7 +802,7 @@ MonoBehaviour:
   TransAnim: {fileID: 6233020635449970406}
   transAnimisDone: 0
   GoalCompletedAnim: {fileID: 5639926253551333815}
-  QuestCompletedAnim: {fileID: 0}
+  QuestCompletedAnim: {fileID: 1205529831710140846}
   logText: {fileID: 1823774131}
 --- !u!1 &6233020635392543161
 GameObject:
@@ -4716,12 +4716,12 @@ PrefabInstance:
     - target: {fileID: 5881198980473729583, guid: bd743d32ed9163f4b80b6a808c16ed89,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 5881198980473729583, guid: bd743d32ed9163f4b80b6a808c16ed89,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 5881198980473729583, guid: bd743d32ed9163f4b80b6a808c16ed89,
         type: 3}
