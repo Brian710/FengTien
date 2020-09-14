@@ -14,7 +14,7 @@ public class SimMainTP : MonoBehaviour
         {
             foreach (Transform tp in TPs)
             {
-                tp.position+= Vector3.up*0.3f;
+                tp.position+= Vector3.up * 0.3f;
                 lineCreator.AddList(tp);
             }
             lineCreator.CreatLine();

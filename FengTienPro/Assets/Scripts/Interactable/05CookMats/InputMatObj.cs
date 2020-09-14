@@ -18,6 +18,7 @@ public class InputMatObj : IObjControllerBase, IGrabbable
 
     protected override void SetWaitingState()
     {
+        HaveMats(true);
         viveGrabFunc.enabled = false;
         base.SetWaitingState();
     }
@@ -27,7 +28,6 @@ public class InputMatObj : IObjControllerBase, IGrabbable
         viveGrabFunc.enabled = true;
         Veg.SetActive(false);
         Fish.SetActive(false);
-
     }
     protected override void SetDoneState()
     {
