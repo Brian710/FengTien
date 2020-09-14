@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: f01281c65d737bf4b845d032748a3e99
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: CleanBowlTissue1
+    100004: CleanBowlTissue
+    100006: CleanBowlTissue 1
+    100008: CleanBowlTissue2
+    100010: Tissue
+    400000: //RootNode
+    400002: CleanBowlTissue1
+    400004: CleanBowlTissue
+    400006: CleanBowlTissue 1
+    400008: CleanBowlTissue2
+    400010: Tissue
+    2100000: Default_Material
+    2100002: lambert1
+    2300000: //RootNode
+    2300002: CleanBowlTissue1
+    2300004: CleanBowlTissue
+    2300006: CleanBowlTissue 1
+    2300008: CleanBowlTissue2
+    2300010: Tissue
+    3300000: //RootNode
+    3300002: CleanBowlTissue1
+    3300004: CleanBowlTissue
+    3300006: CleanBowlTissue 1
+    3300008: CleanBowlTissue2
+    3300010: Tissue
+    4300000: CleanBowlTissue
+    4300002: CleanBowlTissue1
+    4300004: CleanBowlTissue2
+    4300006: Tissue
+    6400000: //RootNode
+    6400002: CleanBowlTissue1
+    6400004: CleanBowlTissue
+    6400006: CleanBowlTissue 1
+    6400008: CleanBowlTissue2
+    6400010: Tissue
+    11100000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default_Material
+    second: {fileID: 2100000, guid: f9a8dad7b8db18448b06e021006f1514, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 3
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 1
+    weldVertices: 1
+    preserveHierarchy: 1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 1
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -41,13 +41,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8156006489778529140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a74e8371621bb04db74a731c9f4f193, type: 3}
+  m_Script: {fileID: 11500000, guid: f1a98a28e0aa94e4ca493d3057ec4f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   line: {fileID: 8156006489778529143}
   TFList: []
   mat: {fileID: 2100000, guid: cf31d93a850bd364ba793993d2513d5f, type: 2}
-  deltatime: 0.3
+  deltatime: 0
   Clear: 0
 --- !u!120 &8156006489778529143
 LineRenderer:
@@ -66,7 +66,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: cf31d93a850bd364ba793993d2513d5f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
