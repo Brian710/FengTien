@@ -6,6 +6,7 @@ public class ShowHandWash : MonoBehaviour
 
     private void Start()
     {
+        //HandWashing.SetInteger("AnyState", -2);
         HandWashing.gameObject.SetActive(false);
     }
 
@@ -20,13 +21,15 @@ public class ShowHandWash : MonoBehaviour
         {
             HandWashing.gameObject.SetActive(value);
             HandWashing.SetBool("AutoShow", value);
+            HandWashing.SetInteger("AnyState", -2);
         }
         else
         {
             HandWashing.SetBool("AutoShow", value);
+            HandWashing.SetInteger("AnyState", -1);
             HandWashing.gameObject.SetActive(value);
         }
-        
+
     }
 
 }

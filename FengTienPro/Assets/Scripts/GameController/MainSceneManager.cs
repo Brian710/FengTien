@@ -29,7 +29,7 @@ public class MainSceneManager : MonoBehaviour
             return;
 
         GameController.Instance.gameState = GameState.StartInit;
-        StartCoroutine(PlayerController.Instance.TransAnimPlaytoEnd(true));
+        //StartCoroutine(PlayerController.Instance.TransAnimPlaytoEnd(true));
 
         if (StartScenePos)
             StartCoroutine(PlayerController.Instance.ChangePos(StartScenePos));

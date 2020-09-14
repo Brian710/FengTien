@@ -72,7 +72,6 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        if (TransAnim)
             StartCoroutine(TransAnimPlaytoEnd(false));
     }
     private void LateUpdate()
@@ -122,8 +121,8 @@ public class PlayerController : MonoBehaviour
         if (TransAnim)
         {
             Debug.LogWarning("Playertrans");
-            TransAnim.SetBool("End", value);
-            yield return new WaitForSeconds(1.5f);
+            TransAnim.SetTrigger("End");
+            yield return new WaitForSeconds(3f);
             transAnimisDone = true;
         }
     }
@@ -153,6 +152,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator ChangePos(Transform value)
     {
+        StartCoroutine(TransAnimPlaytoEnd(false));
         while (!TransAnimisDone)
         {
             yield return null;
@@ -160,6 +160,5 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         transform.position = value.position;
         transform.rotation = value.rotation;
-        StartCoroutine(TransAnimPlaytoEnd(false));
     }
 }

@@ -87,7 +87,7 @@ public class StartSceneManager : MonoBehaviour
 
     private void ChangePosByState()
     {
-        StartCoroutine(player.TransAnimPlaytoEnd(true));
+        //StartCoroutine(player.TransAnimPlaytoEnd(true));
         Transform temp = StartScenePos;
         switch (GameController.Instance.gameState)
         {
@@ -105,7 +105,7 @@ public class StartSceneManager : MonoBehaviour
     public void ChangePostoStart()
     {
         GameController.Instance.gameState = GameState.StartInit;
-        StartCoroutine(player.TransAnimPlaytoEnd(true));
+        //StartCoroutine(player.TransAnimPlaytoEnd(true));
         if(StartScenePos)
             StartCoroutine(player.ChangePos(StartScenePos));
     }
