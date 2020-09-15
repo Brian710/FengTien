@@ -6,9 +6,9 @@ public class ClicktoInteract :MonoBehaviour  ,IColliderEventClickHandler   , ICo
 {
     public IObjControllerBase IObj { get; set; }
     [SerializeField]
-    private ColliderButtonEventData.InputButton m_activeButton = ColliderButtonEventData.InputButton.Trigger;
+    protected ColliderButtonEventData.InputButton m_activeButton = ColliderButtonEventData.InputButton.Trigger;
 
-    private HashSet<ColliderButtonEventData> pressingEvents = new HashSet<ColliderButtonEventData>();
+    protected HashSet<ColliderButtonEventData> pressingEvents = new HashSet<ColliderButtonEventData>();
 
     public ColliderButtonEventData.InputButton activeButton { get { return m_activeButton; } set { m_activeButton = value; } }
 
