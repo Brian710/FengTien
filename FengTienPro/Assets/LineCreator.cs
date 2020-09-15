@@ -73,6 +73,11 @@ public class LineCreator : MonoBehaviour
 
     public void AddList(Transform MainScene, int ForceIndex)
     {
+        if (TFList.Contains(MainScene))
+        {
+            TFList.Remove(MainScene);
+        }
+
         TFList.Insert(ForceIndex, MainScene);
     }
 
