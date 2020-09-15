@@ -814,7 +814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questBtn: {fileID: 5652562673935744874}
-  OSCanv: {fileID: 0}
+  OSCanv: {fileID: 2988739548274873756}
   questName: 2
   questDescription: 02
   isSingle: 1
@@ -1064,7 +1064,7 @@ RectTransform:
   m_GameObject: {fileID: 4254802111540014689}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 8888237882497477646}
   m_RootOrder: 0
@@ -2047,6 +2047,7 @@ GameObject:
   - component: {fileID: 6069253150792045446}
   - component: {fileID: 6069253150792045442}
   - component: {fileID: 1480500189}
+  - component: {fileID: 2357744070767467658}
   m_Layer: 5
   m_Name: Opbtn06
   m_TagString: Untagged
@@ -2181,6 +2182,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2357744070767467658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069253150792045448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fb6e8c6604ddd46976d78aed2dc0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimInt: 5
+  HandWashing: {fileID: 8365222163104281856}
 --- !u!1 &6069253150919944003
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,6 +2631,7 @@ GameObject:
   - component: {fileID: 6069253151267244717}
   - component: {fileID: 6069253151267244713}
   - component: {fileID: 1159649555}
+  - component: {fileID: 2357744070767467661}
   m_Layer: 5
   m_Name: Opbtn03
   m_TagString: Untagged
@@ -2750,6 +2766,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2357744070767467661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069253151267244719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fb6e8c6604ddd46976d78aed2dc0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimInt: 2
+  HandWashing: {fileID: 8365222163104281856}
 --- !u!1 &6069253151276227520
 GameObject:
   m_ObjectHideFlags: 0
@@ -2836,6 +2866,7 @@ GameObject:
   - component: {fileID: 6069253151379415676}
   - component: {fileID: 6069253151379415672}
   - component: {fileID: 82873644}
+  - component: {fileID: 2357744070767467659}
   m_Layer: 5
   m_Name: Opbtn05
   m_TagString: Untagged
@@ -2970,6 +3001,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2357744070767467659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069253151379415678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fb6e8c6604ddd46976d78aed2dc0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimInt: 4
+  HandWashing: {fileID: 8365222163104281856}
 --- !u!1 &6069253151482858750
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,6 +3132,7 @@ GameObject:
   - component: {fileID: 6069253151577866242}
   - component: {fileID: 6069253151577866270}
   - component: {fileID: 2060178772}
+  - component: {fileID: 2357744070767467662}
   m_Layer: 5
   m_Name: Opbtn02
   m_TagString: Untagged
@@ -3221,6 +3267,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2357744070767467662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069253151577866244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fb6e8c6604ddd46976d78aed2dc0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimInt: 1
+  HandWashing: {fileID: 8365222163104281856}
 --- !u!1 &6069253151615903844
 GameObject:
   m_ObjectHideFlags: 0
@@ -3902,6 +3962,7 @@ GameObject:
   - component: {fileID: 6069253152174978047}
   - component: {fileID: 6069253152174978043}
   - component: {fileID: 1897462877}
+  - component: {fileID: 2357744070767467657}
   m_Layer: 5
   m_Name: Opbtn07
   m_TagString: Untagged
@@ -4036,6 +4097,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2357744070767467657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069253152174978017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fb6e8c6604ddd46976d78aed2dc0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimInt: 6
+  HandWashing: {fileID: 8365222163104281856}
 --- !u!1 &6069253152370111303
 GameObject:
   m_ObjectHideFlags: 0
@@ -4050,6 +4125,7 @@ GameObject:
   - component: {fileID: 6069253152370111301}
   - component: {fileID: 6069253152370111297}
   - component: {fileID: 1914233914}
+  - component: {fileID: 1289859330640751790}
   m_Layer: 5
   m_Name: Opbtn01
   m_TagString: Untagged
@@ -4184,6 +4260,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1289859330640751790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069253152370111303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fb6e8c6604ddd46976d78aed2dc0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimInt: 0
+  HandWashing: {fileID: 8365222163104281856}
 --- !u!1 &6069253152389452130
 GameObject:
   m_ObjectHideFlags: 0
@@ -4198,6 +4288,7 @@ GameObject:
   - component: {fileID: 6069253152389452128}
   - component: {fileID: 6069253152389452156}
   - component: {fileID: 1964623332}
+  - component: {fileID: 2357744070767467660}
   m_Layer: 5
   m_Name: Opbtn04
   m_TagString: Untagged
@@ -4332,6 +4423,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2357744070767467660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6069253152389452130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fb6e8c6604ddd46976d78aed2dc0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimInt: 3
+  HandWashing: {fileID: 8365222163104281856}
 --- !u!1 &6159136411544378146
 GameObject:
   m_ObjectHideFlags: 0
@@ -5161,7 +5266,7 @@ PrefabInstance:
     - target: {fileID: 1471970456137522679, guid: 5a2504b18151d9540a763a370909dac7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3989899956790529208, guid: 5a2504b18151d9540a763a370909dac7,
         type: 3}
@@ -5181,32 +5286,32 @@ PrefabInstance:
     - target: {fileID: 6903588071523914423, guid: 5a2504b18151d9540a763a370909dac7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.10599995
+      value: -0.389
       objectReference: {fileID: 0}
     - target: {fileID: 6903588071523914423, guid: 5a2504b18151d9540a763a370909dac7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.811
+      value: -0.714
       objectReference: {fileID: 0}
     - target: {fileID: 6903588071523914423, guid: 5a2504b18151d9540a763a370909dac7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.013999999
+      value: -0.038
       objectReference: {fileID: 0}
     - target: {fileID: 6903588071523914423, guid: 5a2504b18151d9540a763a370909dac7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6903588071523914423, guid: 5a2504b18151d9540a763a370909dac7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6903588071523914423, guid: 5a2504b18151d9540a763a370909dac7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6903588071523914423, guid: 5a2504b18151d9540a763a370909dac7,
         type: 3}
@@ -5388,6 +5493,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8918369908456214688, guid: 5a2504b18151d9540a763a370909dac7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8918369909337696896, guid: 5a2504b18151d9540a763a370909dac7,
         type: 3}
       propertyPath: m_Layer
@@ -5543,3 +5653,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30fb6e8c6604ddd46976d78aed2dc0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &8365222163104281856 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8918369908456214690, guid: 5a2504b18151d9540a763a370909dac7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1140350868330046882}
+  m_PrefabAsset: {fileID: 0}

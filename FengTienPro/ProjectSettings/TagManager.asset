@@ -24,7 +24,7 @@ TagManager:
   - StaticGround
   - InteractObj
   - 3DUI
-  - 
+  - NoRealLightShadow
   - 
   - 
   - 

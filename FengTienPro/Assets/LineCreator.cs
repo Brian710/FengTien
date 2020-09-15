@@ -13,6 +13,11 @@ public class LineCreator : MonoBehaviour
     {
         TFList = new List<Transform>();
     }
+    private void Start()
+    {
+        if (line != null)
+            line = GetComponent<LineRenderer>();
+    }
     public void CreatLine()
     {
         if (TFList.Count < 2)
@@ -60,7 +65,7 @@ public class LineCreator : MonoBehaviour
         }
 
         //Debug.LogError($"Add {MainScene.name}");
-        if (MainScene.name.Contains("Normal") && TFList.Count >= 1)
+        if (MainScene.name.Contains("Normal")&&TFList.Count>=1)
             TFList.Insert(1, MainScene);
         else
             TFList.Add(MainScene);

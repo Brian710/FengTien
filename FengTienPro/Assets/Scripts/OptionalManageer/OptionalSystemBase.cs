@@ -49,12 +49,27 @@ public class OptionalSystemBase : MonoBehaviour
                 break;
         }
     }
+
+    public void Reset()
+    {
+        foreach (QuizData quizData in quizDatas)
+        {
+            if (quizData.button.interactable)
+            {
+                options[quizData.optIndex].GetComponent<CanvasGroup>().alpha = 1;
+                options[quizData.optIndex].interactable = true;
+                quizData.button.interactable = false;
+                quizData.button.GetComponentInChildren<Text>().text = mode == MainMode.Train ? hintText[quizData.optIndex] : "";
+            }
+        }
+    }
     public virtual void OpenCanv(bool value)
     {
         if (value)
         {
             OPCanvas.SetActive(value);
             mode = GameController.Instance.mode;
+            Reset();
             RandomPos();
             confirmBtn.onClick.AddListener(ConfirmBtn);
         }
