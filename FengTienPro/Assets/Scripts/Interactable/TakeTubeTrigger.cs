@@ -6,11 +6,10 @@ public class TakeTubeTrigger : MonoBehaviour
     [SerializeField] private GameObject Finish_Tube;
     [SerializeField] private Transform Target_Transform;
     private SuctionController Suction;
-    [SerializeField] private GameObject Suction_Core;
-    public bool Check_Finish;
-
+    public bool Check_Start, Check_Finish;
     private void Start()
     {
+        Check_Start = false;
         Check_Finish = false;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.CheckNasogastricTube).OnGoalStateChange += OnCheckNasogastricTubeChange;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.FeedMeds).OnGoalStateChange += OnFeedMedsChange;
@@ -22,13 +21,14 @@ public class TakeTubeTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponentInParent<SyringeController>())
+        if (other.GetComponentInParent<VivePoseTracker>() && !Check_Start)
         {
             other.gameObject.SetActive(false);
             Finish_Tube.SetActive(true);
             Finish_Tube.transform.SetParent(Target_Transform, false);
             Finish_Tube.transform.localPosition = new Vector3(0, -0.025f, 0);
             Finish_Tube.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            Check_Start = true;
             Debug.LogError("鼻胃管連接完成");
         }
         else if (other.GetComponent<SuctionController>())
@@ -39,7 +39,7 @@ public class TakeTubeTrigger : MonoBehaviour
                 Debug.LogError("確認鼻胃管在胃中");
             }
         }
-        else if (other.GetComponent<VivePoseTracker>() && Check_Finish)
+        else if (other.GetComponentInParent<VivePoseTracker>() && Check_Finish)
         {
             Debug.LogError("餵藥");
         }
@@ -55,7 +55,6 @@ public class TakeTubeTrigger : MonoBehaviour
                 Check_Finish = false;
                 break;
             case Goal.State.DONE:
-                Suction_Core.SetActive(false);
                 Check_Finish = true;
                 break;
         }

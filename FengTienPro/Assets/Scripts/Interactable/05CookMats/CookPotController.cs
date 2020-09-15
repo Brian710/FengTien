@@ -37,6 +37,7 @@ public class CookPotController : IObjControllerBase
     }
     protected override void SetCurrentState()
     {
+        timer = 0;
         CookUI.gameObject.SetActive(true);
         Cook_Done.SetActive(false);
         Ladle.SetActive(true);        

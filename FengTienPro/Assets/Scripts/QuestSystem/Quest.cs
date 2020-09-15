@@ -49,6 +49,7 @@ public class Quest
         {
             case State.WAITING:
                 ResetAllGoals();
+                giver.OpenQuestBtn(false);
                 break;
             case State.CHOOSABLE:
                 giver.OpenQuestBtn(true);

@@ -47,7 +47,7 @@ MonoBehaviour:
   line: {fileID: 8156006489778529143}
   TFList: []
   mat: {fileID: 2100000, guid: cf31d93a850bd364ba793993d2513d5f, type: 2}
-  deltatime: 0
+  deltatime: 0.3
   Clear: 0
 --- !u!120 &8156006489778529143
 LineRenderer:

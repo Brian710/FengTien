@@ -22,7 +22,7 @@ public class CutObjController : IObjControllerBase
     }
     protected override void SetWaitingState()
     {
-        Debug.LogError($"{goalType} Wait");
+        //Debug.LogError($"{goalType} Wait");
         base.SetWaitingState();
         Anim.gameObject.SetActive(false);
         Plate.SetActive(false);
@@ -31,7 +31,7 @@ public class CutObjController : IObjControllerBase
 
     protected override void SetCurrentState()
     {
-        Debug.LogError($"{goalType} Current");
+        //Debug.LogError($"{goalType} Current");
         CutNum = 0;
         Anim.gameObject.SetActive(true);
         Anim.SetInteger("CutNum", 0);
