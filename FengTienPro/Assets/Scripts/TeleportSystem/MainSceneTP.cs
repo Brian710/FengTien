@@ -11,7 +11,7 @@ public class MainSceneTP : TeleportControllerBase
 
         if (qName_TP == Quest.Name.None)
         {
-            //QuestManager.Instance.lineCreator.AddList(transform);
+            
             foreach (Quest q in QuestManager.Instance.quests)
             {
                 q.OnQuestChange += OnQuestChange;
@@ -43,6 +43,9 @@ public class MainSceneTP : TeleportControllerBase
 
     private void OnQuestChange(Quest.Name qName, Quest.State state)
     {
+        if(qName == Quest.Name.Talk && state == Quest.State.CHOOSABLE && qName_TP == Quest.Name.Talk)
+            QuestManager.Instance.lineCreator.AddList(transform, 0);
+        
         switch (state)
         {
             case Quest.State.WAITING:

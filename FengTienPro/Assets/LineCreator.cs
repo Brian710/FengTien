@@ -65,10 +65,20 @@ public class LineCreator : MonoBehaviour
         }
 
         //Debug.LogError($"Add {MainScene.name}");
-        if (MainScene.name.Contains("Normal")&&TFList.Count>=1)
+        if (MainScene.name.Contains("Normal")&& TFList.Count >= 1)
             TFList.Insert(1, MainScene);
         else
             TFList.Add(MainScene);
+    }
+
+    public void AddList(Transform MainScene, int ForceIndex)
+    {
+        if (TFList.Contains(MainScene))
+        {
+            TFList.Remove(MainScene);
+        }
+
+        TFList.Insert(ForceIndex, MainScene);
     }
 
     private void printList()
