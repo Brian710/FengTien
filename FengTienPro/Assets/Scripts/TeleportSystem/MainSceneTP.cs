@@ -11,7 +11,7 @@ public class MainSceneTP : TeleportControllerBase
 
         if (qName_TP == Quest.Name.None)
         {
-            //QuestManager.Instance.lineCreator.AddList(transform);
+            QuestManager.Instance.lineCreator.AddList(transform,0);
             foreach (Quest q in QuestManager.Instance.quests)
             {
                 q.OnQuestChange += OnQuestChange;
