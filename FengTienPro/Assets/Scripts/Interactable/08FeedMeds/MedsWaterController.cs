@@ -7,7 +7,8 @@ public class MedsWaterController : MonoBehaviour
     [SerializeField] private HandAnim _handAnim;
     [SerializeField] private GameObject ChildObj;
     [SerializeField] private Quest.Name qName;
-    [SerializeField] private GameObject On;    
+    [SerializeField] private GameObject On;
+    [SerializeField] private Transform WaterPos;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
     public HandAnim handAnim => _handAnim;
     public InteractHover hover;
@@ -30,8 +31,8 @@ public class MedsWaterController : MonoBehaviour
     {
         if (other.GetComponentInParent<MedsCupController>() && other.GetComponentInParent<MedsCupController>().goalType == Goal.Type.MixWater)
         {
-            ChildObj.transform.position = new Vector3(0, 0, 0);
-            ChildObj.transform.rotation = Quaternion.Euler(0, 0, 0);
+            ChildObj.transform.position = WaterPos.localPosition;
+            ChildObj.transform.rotation = WaterPos.localRotation;
             glass.doFull(false);
             Debug.LogError("把水倒進藥杯");
         }

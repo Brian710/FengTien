@@ -30,6 +30,7 @@ public class HandAnimManager : MonoBehaviour,IWashable
 
         HandAnim = value;
         animator.SetInteger("HandAnim", (int)HandAnim);
+        Debug.LogError("HandAnim" + (int)HandAnim);
         PlayerController.Instance.AllRayActivity(value == HandAnim.Normal);
     }
 
@@ -68,6 +69,5 @@ public class HandAnimManager : MonoBehaviour,IWashable
         Bubble.Play(true);
         yield return new WaitForSeconds(2f);
         Bubble.Stop(true);
-
     }
 }
