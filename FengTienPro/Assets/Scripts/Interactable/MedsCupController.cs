@@ -4,7 +4,6 @@ using UnityEngine;
 public class MedsCupController : IObjControllerBase, IGrabbable
 {
     [SerializeField] private Animator Anim;
-    [SerializeField] private GameObject ON;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
     public HandAnim handAnim => _handAnim;
 
@@ -12,6 +11,7 @@ public class MedsCupController : IObjControllerBase, IGrabbable
     {
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.PourPowder).OnGoalStateChange += OnPourPowderChange;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.MixWater).OnGoalStateChange += OnMixWaterChange;
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.FeedMeds).OnGoalStateChange += OnFeedMedsChange;
         SetChildObjActive(false);
     }
 
@@ -19,6 +19,7 @@ public class MedsCupController : IObjControllerBase, IGrabbable
     {
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.PourPowder).OnGoalStateChange -= OnPourPowderChange;
         QuestManager.Instance.GetQuestGoalByType(Goal.Type.MixWater).OnGoalStateChange -= OnMixWaterChange;
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.FeedMeds).OnGoalStateChange -= OnFeedMedsChange;
     }
     public override void Awake()
     {
@@ -32,11 +33,14 @@ public class MedsCupController : IObjControllerBase, IGrabbable
         {
             Anim.SetBool("Pour", true);
         }
-        if (other.GetComponentInParent<FeedWaterController>() && other.GetComponentInParent<FeedWaterController>().goalType == Goal.Type.MixWater)
+       else if (other.GetComponentInParent<FeedWaterController>() && other.GetComponentInParent<FeedWaterController>().goalType == Goal.Type.MixWater)
         {
-            Anim.SetBool("Pour", true);
+            Anim.SetBool("MixWater", true);
         }
-
+        else if (other.GetComponentInParent<TubeController>() && other.GetComponentInParent<FeedWaterController>().goalType == Goal.Type.FeedMeds)
+        {
+            Anim.SetFloat("WaterDown", Time.deltaTime * 0.1f);
+        }
     }
     protected void OnPourPowderChange(Goal.Type type, Goal.State state)
     {
@@ -64,11 +68,25 @@ public class MedsCupController : IObjControllerBase, IGrabbable
             case Goal.State.CURRENT:
                 hover.enabled = true;
                 hover.ShowHintColor(GameController.Instance.mode == MainMode.Train);
-                ON.SetActive(false);
                 break;
             case Goal.State.DONE:
                 hover.enabled = false;
-                ON.SetActive(true);
+                break;
+        }
+    }
+    protected void OnFeedMedsChange(Goal.Type type, Goal.State state)
+    {
+        switch (state)
+        {
+            case Goal.State.WAITING:
+                hover.enabled = false;
+                break;
+            case Goal.State.CURRENT:
+                hover.enabled = true;
+                hover.ShowHintColor(GameController.Instance.mode == MainMode.Train);
+                break;
+            case Goal.State.DONE:
+                hover.enabled = false;
                 break;
         }
     }
