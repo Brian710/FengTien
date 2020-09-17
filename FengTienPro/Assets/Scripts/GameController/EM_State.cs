@@ -43,4 +43,7 @@ public enum HandAnim
     Spoon = 4,
     Bowl = 5,
     Glass = 6,
+    Syringe = 7,
+    MedsCup = 8,
+    Plate = 9,
 }
