@@ -1,93 +1,64 @@
 ﻿using HTC.UnityPlugin.Vive;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class MedsCupController : IObjControllerBase, IGrabbable
 {
     [SerializeField] private Animator Anim;
+    [SerializeField] private Transform BowlTrans;
+    [SerializeField] private Transform WaterTrans;
+    [SerializeField] private GameController bowl;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
     public HandAnim handAnim => _handAnim;
+    public bool MixWaterMeds;
 
     public override void Start()
     {
-        QuestManager.Instance.GetQuestGoalByType(Goal.Type.PourPowder).OnGoalStateChange += OnPourPowderChange;
-        QuestManager.Instance.GetQuestGoalByType(Goal.Type.MixWater).OnGoalStateChange += OnMixWaterChange;
-        QuestManager.Instance.GetQuestGoalByType(Goal.Type.FeedMeds).OnGoalStateChange += OnFeedMedsChange;
-        SetChildObjActive(false);
+        MixWaterMeds = false;
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.PourPowder).OnGoalStateChange += OnGoalStateChange;
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.MixWater).OnGoalStateChange += OnGoalStateChange;
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.FeedMeds).OnGoalStateChange += OnGoalStateChange;
     }
-
     public override void OnDestroy()
     {
-        QuestManager.Instance.GetQuestGoalByType(Goal.Type.PourPowder).OnGoalStateChange -= OnPourPowderChange;
-        QuestManager.Instance.GetQuestGoalByType(Goal.Type.MixWater).OnGoalStateChange -= OnMixWaterChange;
-        QuestManager.Instance.GetQuestGoalByType(Goal.Type.FeedMeds).OnGoalStateChange -= OnFeedMedsChange;
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.PourPowder).OnGoalStateChange -= OnGoalStateChange;
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.MixWater).OnGoalStateChange -= OnGoalStateChange;
+        QuestManager.Instance.GetQuestGoalByType(Goal.Type.FeedMeds).OnGoalStateChange -= OnGoalStateChange;
     }
-    public override void Awake()
-    {
-        base.Awake();
-        //goalType = Goal.Type.MixWater;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponentInParent<BowlPillController>())
+        if (other.GetComponentInParent<BowlPillController>() && QuestManager.Instance.GetQuestGoalByType(Goal.Type.PourPowder).state == Goal.State.CURRENT)
         {
             Anim.SetBool("Pour", true);
+            QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.PourPowder);
+            Debug.LogError("碗中藥倒進藥杯");
         }
-       else if (other.GetComponentInParent<FeedWaterController>() && other.GetComponentInParent<FeedWaterController>().goalType == Goal.Type.MixWater)
-        {
+       else if (other.GetComponentInParent<MedsWaterController>() && QuestManager.Instance.GetQuestGoalByType(Goal.Type.MixWater).state == Goal.State.CURRENT)
+       {
             Anim.SetBool("MixWater", true);
-        }
-        else if (other.GetComponentInParent<TubeController>() && other.GetComponentInParent<FeedWaterController>().goalType == Goal.Type.FeedMeds)
-        {
-            Anim.SetFloat("WaterDown", Time.deltaTime * 0.1f);
-        }
+            QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.MixWater);
+            Debug.LogError("水倒進藥杯");
+       }
+       if (other.GetComponentInParent<TubeController>() && QuestManager.Instance.GetQuestGoalByType(Goal.Type.FeedMeds).state == Goal.State.CURRENT)
+       {
+            Anim.SetFloat("WaterDown", 1f);
+            MixWaterMeds = true;
+            Debug.LogError("藥倒進針筒");
+       }
     }
-    protected void OnPourPowderChange(Goal.Type type, Goal.State state)
+    protected override void SetWaitingState()
     {
-        switch (state)
-        {
-            case Goal.State.WAITING:
-                hover.enabled = false;
-                break;
-            case Goal.State.CURRENT:
-                hover.enabled = true;
-                hover.ShowHintColor(GameController.Instance.mode == MainMode.Train);
-                break;
-            case Goal.State.DONE:
-                hover.enabled = false;
-                break;
-        }
+        hover.enabled = false;
+        base.SetWaitingState();
     }
-    protected void OnMixWaterChange(Goal.Type type, Goal.State state)
+    protected override void SetCurrentState()
     {
-        switch (state)
-        {
-            case Goal.State.WAITING:
-                hover.enabled = false;
-                break;
-            case Goal.State.CURRENT:
-                hover.enabled = true;
-                hover.ShowHintColor(GameController.Instance.mode == MainMode.Train);
-                break;
-            case Goal.State.DONE:
-                hover.enabled = false;
-                break;
-        }
+        hover.enabled = true;
+        hover.ShowHintColor(GameController.Instance.mode == MainMode.Train);
     }
-    protected void OnFeedMedsChange(Goal.Type type, Goal.State state)
+    protected override void SetDoneState()
     {
-        switch (state)
-        {
-            case Goal.State.WAITING:
-                hover.enabled = false;
-                break;
-            case Goal.State.CURRENT:
-                hover.enabled = true;
-                hover.ShowHintColor(GameController.Instance.mode == MainMode.Train);
-                break;
-            case Goal.State.DONE:
-                hover.enabled = false;
-                break;
-        }
+        hover.enabled = false;
     }
 }

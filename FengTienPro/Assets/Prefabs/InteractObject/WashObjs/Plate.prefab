@@ -130,8 +130,8 @@ MonoBehaviour:
   rotOffset: {x: 0, y: 0, z: 0}
   alignPosition: 1
   alignRotation: 1
-  alignPositionOffset: {x: -0.112, y: -0.006, z: 0.008}
-  alignRotationOffset: {x: -52.83, y: 0, z: 0}
+  alignPositionOffset: {x: 0, y: 0, z: 0}
+  alignRotationOffset: {x: -60, y: 0, z: 0}
   m_followingDuration: 0.04
   m_overrideMaxAngularVelocity: 1
   m_unblockableGrab: 1
@@ -227,7 +227,7 @@ MonoBehaviour:
   dropSound: 
   interactSound: 
   _viveGrabFunc: {fileID: 7061390611388235718}
-  _handAnim: 3
+  _handAnim: 9
   isWashed: 0
   washTime: 3
   type: 9

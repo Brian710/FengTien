@@ -28,18 +28,14 @@ public class FeedWaterController : IObjControllerBase, IGrabbable
         HaveMats(true);
         Spoon.SetActive(false);
         Bowl.SetActive(false);
-        //PlayerController.Instance.LeftHand.HandAnimChange(HandAnim.Normal);
-        //PlayerController.Instance.RightHand.HandAnimChange(HandAnim.Normal);
         glass.doFull(true);
         viveGrabFunc.enabled = true;
-        base.SetCurrentState();
     }
     protected override void SetDoneState()
     {
         HaveMats(false);
         glass.doFull(false);
         viveGrabFunc.enabled = false;
-        base.SetDoneState();
     }
 
     public void HaveMats(bool value)

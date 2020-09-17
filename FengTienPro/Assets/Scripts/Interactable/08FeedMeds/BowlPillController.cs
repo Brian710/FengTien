@@ -1,10 +1,10 @@
 ﻿using HTC.UnityPlugin.Vive;
+using System.Collections;
 using UnityEngine;
 
 public class BowlPillController : IObjControllerBase, IGrabbable
 {
     [SerializeField] private Animator Anim;
-    [SerializeField] private Collider colli;
     [SerializeField] private GameObject Pill;
     private int GrindNum;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
@@ -33,33 +33,46 @@ public class BowlPillController : IObjControllerBase, IGrabbable
             ChildObj.SetActive(false);
         }
     }
-    private bool PestleIn;
-
-    
+    private bool PestleIn;    
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponentInParent<PestleController>())
         {
             PestleIn = true;
             GrindNum++;
-            QuestManager.Instance.AddQuestCurrentAmount(goalType);
-            if (GrindNum < 3)
+            if (GrindNum <= 3)
             {
                 Anim.SetInteger("GrindNum", GrindNum);
-                Debug.LogError("Grinding");
+                Debug.LogError($"{name}_ GrindNum: {GrindNum}");
             }
+            StartCoroutine(DelayAdd());
         }
+        if (other.GetComponentInParent<MedsCupController>())
+        {
+            ChildObj.transform.position = new Vector3(0, 0, 0);
+            ChildObj.transform.rotation = Quaternion.Euler(0, 0, 0);
+            viveGrabFunc.enabled = false;
+        }
+    }
+    private IEnumerator DelayAdd()
+    {
+        yield return new WaitForSeconds(1.7f);
+        QuestManager.Instance.AddQuestCurrentAmount(goalType);
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.GetComponentInParent<PestleController>())
-            PestleIn = false;
+            StartCoroutine(DelayKnife(false));
+    }
+    private IEnumerator DelayKnife(bool value)
+    {
+        yield return new WaitForSeconds(1f);
+        PestleIn = value;
     }
     protected override void SetWaitingState()
     {
         base.SetWaitingState();
         Anim.gameObject.SetActive(false);
-        colli.enabled = false;
     }
     protected override void SetCurrentState()
     {
@@ -67,12 +80,13 @@ public class BowlPillController : IObjControllerBase, IGrabbable
         viveGrabFunc.enabled = false;
         Anim.gameObject.SetActive(true);
         Anim.SetInteger("GrindNum", 0);
-        colli.enabled = true;
+        hover.enabled = true;
+        hover.ShowHintColor(GameController.Instance.mode == MainMode.Train);
     }
     protected override void SetDoneState()
     {
         viveGrabFunc.enabled = true;
-        colli.enabled = false;
+        hover.enabled = true;
         Pill.SetActive(false);
     }
 }

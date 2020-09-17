@@ -33,49 +33,34 @@ public class TubeController : ClicktoInteract
                 if (SuctionUpAvailable)
                 {
                     Anim.SetInteger("FoldState", 1);
-                    Anim.SetFloat("Pull", 1f);
                     Debug.LogError("抽取胃液");
                     SuctionUpAvailable = false;
                     SuctionDownAvailable = true;
                 }
                 else if (SuctionDownAvailable)
                 {
-                    Anim.SetInteger("FoldState", 4);
-                    //Anim.SetFloat("Pull", 1f);
-                    QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.CheckNasogastricTube);
+                    Anim.SetInteger("FoldState", 2);
                     Debug.LogError("擠回胃液");
                     Debug.LogError("確認鼻胃管在胃中");
+                    QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.CheckNasogastricTube);
                     TubeTips.transform.localPosition = new Vector3(0, 0.07934f, 0);
-                    Anim.SetInteger("FoldState", 0);
+                    Anim.SetInteger("FoldState", 5);
                     SuctionDownAvailable = false;
                     SuctionDone = true;
                 }
             }
             else if (QuestManager.Instance.GetQuestGoalByType(Goal.Type.FeedMeds).state == Goal.State.CURRENT)
             {
-                if (!MedsUpAvailable && !MedsDownAvailable_1 && !MedsDownAvailable_2 && !MedsDone)
+                if (MedsUpAvailable)
                 {
-                    Anim.SetInteger("FoldState", 3);
-                    Debug.LogError("將藥倒進管內");
-                    MedsUpAvailable = true;
-                }
-                else if (MedsUpAvailable)
-                {
-                    Anim.SetInteger("FoldState", 2);
+                    Anim.SetInteger("FoldState", 4);
                     Debug.LogError("放開管,讓藥進胃");
                     MedsUpAvailable = false;
                     MedsDownAvailable_1 = true;
                 }
-                else if (MedsDownAvailable_1)
-                {
-                    Anim.SetInteger("FoldState", 3);
-                    Debug.LogError("將水倒進管內");
-                    MedsDownAvailable_1 = false;
-                    MedsDownAvailable_2 = true;
-                }
                 else if (MedsDownAvailable_2)
                 {
-                    Anim.SetInteger("FoldState", 2);
+                    Anim.SetInteger("FoldState", 4);
                     QuestManager.Instance.AddQuestCurrentAmount(Goal.Type.FeedMeds);
                     Debug.LogError("放開管,讓水進胃");
                     MedsDownAvailable_2 = false;
@@ -93,6 +78,19 @@ public class TubeController : ClicktoInteract
             SuctionBody.SetActive(true);
             SuctionUpAvailable = true;
             Debug.LogError("鼻胃管已連接, 可以準備開始抽吸");
+        }
+        if(other.GetComponentInParent<MedsCupController>() && SuctionDone)
+        {
+            Anim.SetInteger("FoldState", 3);
+            Debug.LogError("將藥倒進管內");
+            MedsUpAvailable = true;
+        }
+        else if(other.GetComponentInParent<MedsWaterController>() && MedsDownAvailable_1)
+        {
+            Anim.SetInteger("FoldState", 3);
+            Debug.LogError("將水倒進管內");
+            MedsDownAvailable_1 = false;
+            MedsDownAvailable_2 = true;
         }
     }
 }

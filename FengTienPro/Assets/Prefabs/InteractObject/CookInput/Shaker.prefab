@@ -50,7 +50,7 @@ MonoBehaviour:
   dropSound: 
   interactSound: 
   _viveGrabFunc: {fileID: 2906668119198065900}
-  _handAnim: 6
+  _handAnim: 8
   On: {fileID: 2906668119198065899}
   type: 16
   Veg: {fileID: 0}
@@ -154,8 +154,8 @@ MonoBehaviour:
   rotOffset: {x: 0, y: 0, z: 0}
   alignPosition: 1
   alignRotation: 1
-  alignPositionOffset: {x: 0.0233, y: -0.0356, z: 0.018}
-  alignRotationOffset: {x: -4.942, y: -24.717, z: -13.32}
+  alignPositionOffset: {x: 0, y: -0.0226, z: -0.0349}
+  alignRotationOffset: {x: 0, y: 90, z: 0}
   m_followingDuration: 0.04
   m_overrideMaxAngularVelocity: 1
   m_unblockableGrab: 1
