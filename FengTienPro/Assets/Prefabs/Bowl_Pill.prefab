@@ -299,8 +299,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.096889526, y: 0.07992846, z: 0.102343924}
-  m_Center: {x: 0.0000013517708, y: 0.039235834, z: -0.0004210766}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &3296739401860057206
 Animator:
   serializedVersion: 3
@@ -349,8 +349,8 @@ MonoBehaviour:
   rotOffset: {x: 0, y: 0, z: 0}
   alignPosition: 1
   alignRotation: 1
-  alignPositionOffset: {x: 0, y: 0.005, z: -0.02}
-  alignRotationOffset: {x: 0, y: 0, z: 0}
+  alignPositionOffset: {x: -0.0045, y: 0, z: -0.0005}
+  alignRotationOffset: {x: 0, y: 0, z: -29.486}
   m_followingDuration: 0.04
   m_overrideMaxAngularVelocity: 1
   m_unblockableGrab: 1
@@ -408,7 +408,7 @@ Transform:
   m_GameObject: {fileID: 5706888445212794454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.08230114, y: 0, z: -0.23999882}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.411, y: 1.411, z: 1.411}
   m_Children:
   - {fileID: 3296739401859634271}
   m_Father: {fileID: 0}
@@ -435,7 +435,6 @@ MonoBehaviour:
   _handAnim: 5
   Anim: {fileID: 3296739401860057206}
   Pill: {fileID: 3296739401860057211}
-  BowlPos: {fileID: 0}
 --- !u!65 &5930288058926742660
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -447,5 +446,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.088695094, y: 0.047984783, z: 0.087828614}
-  m_Center: {x: 0.00009327219, y: 0.03645817, z: 0.00037511904}
+  m_Size: {x: 0.059791528, y: 0.045310386, z: 0.065118864}
+  m_Center: {x: 0.00009327219, y: 0.03512097, z: -0.00014126534}

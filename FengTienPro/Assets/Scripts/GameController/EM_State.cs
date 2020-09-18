@@ -46,5 +46,5 @@ public enum HandAnim
     Syringe = 7,
     MedsCup = 8,
     Plate = 9,
-    BowlPill = 10
+    BowlPill = 10,
 }

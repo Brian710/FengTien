@@ -6,7 +6,6 @@ public class BowlPillController : IObjControllerBase, IGrabbable
 {
     [SerializeField] private Animator Anim;
     [SerializeField] private GameObject Pill;
-    [SerializeField] private Transform BowlPos;
     private int GrindNum;
     public BasicGrabbable viveGrabFunc => _viveGrabFunc;
     public HandAnim handAnim => _handAnim;
@@ -50,8 +49,8 @@ public class BowlPillController : IObjControllerBase, IGrabbable
         }
         if (other.GetComponentInParent<MedsCupController>())
         {
-            ChildObj.transform.position = BowlPos.localPosition;
-            ChildObj.transform.rotation = BowlPos.localRotation;
+            ChildObj.transform.position = new Vector3(0, 0, 0);
+            ChildObj.transform.rotation = Quaternion.Euler(0, 0, 0);
             viveGrabFunc.enabled = false;
         }
     }
